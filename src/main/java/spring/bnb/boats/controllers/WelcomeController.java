@@ -1,4 +1,4 @@
-package spring.bnb.controllers;
+package spring.bnb.boats.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
