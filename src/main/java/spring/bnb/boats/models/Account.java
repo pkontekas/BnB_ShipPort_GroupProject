@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.validator.constraints.Email;
 
 /**
  * @author pkontekas
@@ -50,6 +51,7 @@ public class Account implements Serializable {
     private String surname;
     @Basic(optional = false)
     @Column(name = "email")
+    @Email(message = "Invalid email address")
     private String email;
     @Basic(optional = false)
     @Column(name = "password")
@@ -198,5 +200,5 @@ public class Account implements Serializable {
     public String toString() {
         return "spring.bnb.boats.models.Account[ id=" + id + " ]";
     }
-    
+
 }

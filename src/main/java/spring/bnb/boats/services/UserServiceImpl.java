@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
        Account myuser = userRepo.findByEmail(email);
        if (myuser == null) {
-            throw new UsernameNotFoundException("Invalid username");
+            throw new UsernameNotFoundException("Invalid email");
         }
        User springSecurityUser = new User(myuser.getEmail(), myuser.getPassword(), mapRolesToAuthorities(myuser.getRolesId()));
        return springSecurityUser;
