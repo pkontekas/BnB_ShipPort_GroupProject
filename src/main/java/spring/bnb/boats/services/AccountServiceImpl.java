@@ -36,4 +36,28 @@ public class AccountServiceImpl implements AccountService{
         
         return authorities;
     }
+
+    @Override
+    public void insertAccount(Account acc) {
+        accountRepo.save(acc);
+    }
+
+    @Override
+    public String checkIfEmailExists(String email) {
+        Account tempacc = accountRepo.findByEmail(email);
+        if (tempacc == null) {
+            return "Email ok";
+        }
+        return "Email taken";
+    }
+
+    @Override
+    public boolean existsAccountByEmail(String email) {
+        return accountRepo.existsAccountByEmail(email);
+    }
+
+    @Override
+    public void updateAccountRole(Integer accountId, Integer roleId) {
+        //TO DO
+    }
 }

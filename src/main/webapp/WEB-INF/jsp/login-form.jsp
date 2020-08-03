@@ -5,7 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="springform" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="springform" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +14,16 @@
         <title>Log in</title>
     </head>
     <body>
-        <h1>Log in</h1>
+        <h1>Log in Form</h1>
+<%--
+        <c:if test="${param.error != null}">
+            <b>Sorry you entered wrong credentials. Try again!!!</b>
+        </c:if>
+        <c:if test="${param.logout != null}">
+            <b>You have successfully logged out!!!!</b>
+        </c:if>
+--%>
+            
         <springform:form method="POST">
             <p>
                 E-mail: <input type="email" name="email"/>
@@ -22,7 +32,8 @@
                 Password: <input type="password" name="password"/>
             </p>
             <input type="submit" value="Login"/>
-            
         </springform:form>
+
+        <a href="preregisteraccount">Register</a>
     </body>
 </html>
