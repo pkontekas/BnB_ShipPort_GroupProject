@@ -50,15 +50,15 @@ public class Booking implements Serializable {
     @Basic(optional = false)
     @Column(name = "finalPrice")
     private BigDecimal finalPrice;
+    @JoinColumn(name = "accounts_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Account accountsId;
     @JoinColumn(name = "boats_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Boat boatsId;
     @JoinColumn(name = "reviews_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Review reviewsId;
-    @JoinColumn(name = "users_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private MyUser usersId;
 
     public Booking() {
     }
@@ -106,6 +106,14 @@ public class Booking implements Serializable {
         this.finalPrice = finalPrice;
     }
 
+    public Account getAccountsId() {
+        return accountsId;
+    }
+
+    public void setAccountsId(Account accountsId) {
+        this.accountsId = accountsId;
+    }
+
     public Boat getBoatsId() {
         return boatsId;
     }
@@ -120,14 +128,6 @@ public class Booking implements Serializable {
 
     public void setReviewsId(Review reviewsId) {
         this.reviewsId = reviewsId;
-    }
-
-    public MyUser getUsersId() {
-        return usersId;
-    }
-
-    public void setUsersId(MyUser usersId) {
-        this.usersId = usersId;
     }
 
     @Override

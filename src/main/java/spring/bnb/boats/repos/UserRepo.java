@@ -6,10 +6,10 @@
 package spring.bnb.boats.repos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import spring.bnb.boats.models.MyUser;
+import spring.bnb.boats.models.Account;
 
 
-public interface UserRepo extends JpaRepository<MyUser, Integer>{
+public interface UserRepo extends JpaRepository<Account, Integer>{
     
-    public MyUser findByEmail(String email);
+    public Account findByEmail(String email);
 }

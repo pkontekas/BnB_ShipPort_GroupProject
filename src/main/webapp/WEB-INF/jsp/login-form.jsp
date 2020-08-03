@@ -24,6 +24,5 @@
             <input type="submit" value="Login"/>
             
         </springform:form>
-          TODO ADD All fields of user
     </body>
 </html>

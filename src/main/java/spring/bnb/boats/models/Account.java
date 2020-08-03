@@ -23,18 +23,18 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author pkontekas
  */
 @Entity
-@Table(name = "users")
+@Table(name = "accounts")
 @XmlRootElement
-//@NamedQueries({
-//    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-//    @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
-//    @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name"),
-//    @NamedQuery(name = "User.findBySurname", query = "SELECT u FROM User u WHERE u.surname = :surname"),
-//    @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
-//    @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
-//    @NamedQuery(name = "User.findByLanguage", query = "SELECT u FROM User u WHERE u.language = :language"),
-//    @NamedQuery(name = "User.findByCellphone", query = "SELECT u FROM User u WHERE u.cellphone = :cellphone")})
-public class MyUser implements Serializable {
+@NamedQueries({
+    @NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a"),
+    @NamedQuery(name = "Account.findById", query = "SELECT a FROM Account a WHERE a.id = :id"),
+    @NamedQuery(name = "Account.findByName", query = "SELECT a FROM Account a WHERE a.name = :name"),
+    @NamedQuery(name = "Account.findBySurname", query = "SELECT a FROM Account a WHERE a.surname = :surname"),
+    @NamedQuery(name = "Account.findByEmail", query = "SELECT a FROM Account a WHERE a.email = :email"),
+    @NamedQuery(name = "Account.findByPassword", query = "SELECT a FROM Account a WHERE a.password = :password"),
+    @NamedQuery(name = "Account.findByLanguage", query = "SELECT a FROM Account a WHERE a.language = :language"),
+    @NamedQuery(name = "Account.findByCellphone", query = "SELECT a FROM Account a WHERE a.cellphone = :cellphone")})
+public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -61,22 +61,22 @@ public class MyUser implements Serializable {
     private byte[] profilePic;
     @Column(name = "cellphone")
     private String cellphone;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersId")
-    private Collection<Boat> boatCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersId")
-    private Collection<Booking> bookingCollection;
     @JoinColumn(name = "roles_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Role rolesId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountsId")
+    private Collection<Boat> boatCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountsId")
+    private Collection<Booking> bookingCollection;
 
-    public MyUser() {
+    public Account() {
     }
 
-    public MyUser(Integer id) {
+    public Account(Integer id) {
         this.id = id;
     }
 
-    public MyUser(Integer id, String name, String surname, String email, String password) {
+    public Account(Integer id, String name, String surname, String email, String password) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -148,6 +148,14 @@ public class MyUser implements Serializable {
         this.cellphone = cellphone;
     }
 
+    public Role getRolesId() {
+        return rolesId;
+    }
+
+    public void setRolesId(Role rolesId) {
+        this.rolesId = rolesId;
+    }
+
     @XmlTransient
     public Collection<Boat> getBoatCollection() {
         return boatCollection;
@@ -166,14 +174,6 @@ public class MyUser implements Serializable {
         this.bookingCollection = bookingCollection;
     }
 
-    public Role getRolesId() {
-        return rolesId;
-    }
-
-    public void setRolesId(Role rolesId) {
-        this.rolesId = rolesId;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -184,10 +184,10 @@ public class MyUser implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MyUser)) {
+        if (!(object instanceof Account)) {
             return false;
         }
-        MyUser other = (MyUser) object;
+        Account other = (Account) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -196,7 +196,7 @@ public class MyUser implements Serializable {
 
     @Override
     public String toString() {
-        return "spring.bnb.boats.models.User[ id=" + id + " ]";
+        return "spring.bnb.boats.models.Account[ id=" + id + " ]";
     }
     
 }

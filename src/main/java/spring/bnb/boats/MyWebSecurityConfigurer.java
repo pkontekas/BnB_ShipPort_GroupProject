@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import spring.bnb.boats.service.UserService;
+import spring.bnb.boats.services.UserService;
 
 
 @EnableWebSecurity
@@ -36,11 +31,11 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()//Restrict access based on the HttpServletRequest
-                .antMatchers("/").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/").hasAnyRole("ADMIN", "USER", "OWNER")
                 .and()
                 .formLogin() //We are customizing the form login process
                 .loginPage("/loginPage") //This is the url to show the login page
-                .usernameParameter("email") // custom WebSecurityConfigurerAdapter know that "email" is a principal parameter now
+                .usernameParameter("email") // custom WebSecurityConfigurerAdapter knows that "email" is a principal parameter now
                 .permitAll()
                 .and()
                 .logout()

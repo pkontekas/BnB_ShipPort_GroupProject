@@ -76,12 +76,12 @@ public class Boat implements Serializable {
     private BigDecimal currentPrice;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "boatsId")
     private Collection<Boatphoto> boatphotoCollection;
+    @JoinColumn(name = "accounts_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Account accountsId;
     @JoinColumn(name = "ports_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Port portsId;
-    @JoinColumn(name = "users_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private MyUser usersId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "boatsId")
     private Collection<Booking> bookingCollection;
 
@@ -210,20 +210,20 @@ public class Boat implements Serializable {
         this.boatphotoCollection = boatphotoCollection;
     }
 
+    public Account getAccountsId() {
+        return accountsId;
+    }
+
+    public void setAccountsId(Account accountsId) {
+        this.accountsId = accountsId;
+    }
+
     public Port getPortsId() {
         return portsId;
     }
 
     public void setPortsId(Port portsId) {
         this.portsId = portsId;
-    }
-
-    public MyUser getUsersId() {
-        return usersId;
-    }
-
-    public void setUsersId(MyUser usersId) {
-        this.usersId = usersId;
     }
 
     @XmlTransient
