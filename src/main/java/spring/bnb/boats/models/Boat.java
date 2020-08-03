@@ -81,7 +81,7 @@ public class Boat implements Serializable {
     private Port portsId;
     @JoinColumn(name = "users_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private User usersId;
+    private MyUser usersId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "boatsId")
     private Collection<Booking> bookingCollection;
 
@@ -218,11 +218,11 @@ public class Boat implements Serializable {
         this.portsId = portsId;
     }
 
-    public User getUsersId() {
+    public MyUser getUsersId() {
         return usersId;
     }
 
-    public void setUsersId(User usersId) {
+    public void setUsersId(MyUser usersId) {
         this.usersId = usersId;
     }
 

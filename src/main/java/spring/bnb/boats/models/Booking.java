@@ -58,7 +58,7 @@ public class Booking implements Serializable {
     private Review reviewsId;
     @JoinColumn(name = "users_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private User usersId;
+    private MyUser usersId;
 
     public Booking() {
     }
@@ -122,11 +122,11 @@ public class Booking implements Serializable {
         this.reviewsId = reviewsId;
     }
 
-    public User getUsersId() {
+    public MyUser getUsersId() {
         return usersId;
     }
 
-    public void setUsersId(User usersId) {
+    public void setUsersId(MyUser usersId) {
         this.usersId = usersId;
     }
 

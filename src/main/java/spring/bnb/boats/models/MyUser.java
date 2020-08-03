@@ -25,16 +25,16 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "users")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-    @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
-    @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name"),
-    @NamedQuery(name = "User.findBySurname", query = "SELECT u FROM User u WHERE u.surname = :surname"),
-    @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
-    @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
-    @NamedQuery(name = "User.findByLanguage", query = "SELECT u FROM User u WHERE u.language = :language"),
-    @NamedQuery(name = "User.findByCellphone", query = "SELECT u FROM User u WHERE u.cellphone = :cellphone")})
-public class User implements Serializable {
+//@NamedQueries({
+//    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+//    @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
+//    @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name"),
+//    @NamedQuery(name = "User.findBySurname", query = "SELECT u FROM User u WHERE u.surname = :surname"),
+//    @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
+//    @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
+//    @NamedQuery(name = "User.findByLanguage", query = "SELECT u FROM User u WHERE u.language = :language"),
+//    @NamedQuery(name = "User.findByCellphone", query = "SELECT u FROM User u WHERE u.cellphone = :cellphone")})
+public class MyUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -69,14 +69,14 @@ public class User implements Serializable {
     @ManyToOne(optional = false)
     private Role rolesId;
 
-    public User() {
+    public MyUser() {
     }
 
-    public User(Integer id) {
+    public MyUser(Integer id) {
         this.id = id;
     }
 
-    public User(Integer id, String name, String surname, String email, String password) {
+    public MyUser(Integer id, String name, String surname, String email, String password) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -184,10 +184,10 @@ public class User implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
+        if (!(object instanceof MyUser)) {
             return false;
         }
-        User other = (User) object;
+        MyUser other = (MyUser) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

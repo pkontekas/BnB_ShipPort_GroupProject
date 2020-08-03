@@ -38,7 +38,7 @@ public class Role implements Serializable {
     @Column(name = "role")
     private String role;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolesId")
-    private Collection<User> userCollection;
+    private Collection<MyUser> userCollection;
 
     public Role() {
     }
@@ -69,11 +69,11 @@ public class Role implements Serializable {
     }
 
     @XmlTransient
-    public Collection<User> getUserCollection() {
+    public Collection<MyUser> getUserCollection() {
         return userCollection;
     }
 
-    public void setUserCollection(Collection<User> userCollection) {
+    public void setUserCollection(Collection<MyUser> userCollection) {
         this.userCollection = userCollection;
     }
 
