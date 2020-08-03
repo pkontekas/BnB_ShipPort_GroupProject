@@ -10,17 +10,17 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Role;
-import spring.bnb.boats.repos.UserRepo;
+import spring.bnb.boats.repos.AccountRepo;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class AccountServiceImpl implements AccountService{
     
     @Autowired
-    UserRepo userRepo;
+    AccountRepo accountRepo;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-       Account myuser = userRepo.findByEmail(email);
+       Account myuser = accountRepo.findByEmail(email);
        if (myuser == null) {
             throw new UsernameNotFoundException("Invalid email");
         }

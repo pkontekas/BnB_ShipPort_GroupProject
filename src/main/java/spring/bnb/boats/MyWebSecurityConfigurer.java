@@ -9,14 +9,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import spring.bnb.boats.services.UserService;
+import spring.bnb.boats.services.AccountService;
 
 
 @EnableWebSecurity
 public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter{
     
     @Autowired
-    private UserService userService;
+    private AccountService accountService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -46,7 +46,7 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter{
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(userService);
+        auth.setUserDetailsService(accountService);
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
