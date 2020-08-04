@@ -31,8 +31,10 @@ public class RegistrationController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/preregisteraccount")
-    public String showRegisterForm(ModelMap mm) {
+    public String showRegisterForm(ModelMap mm, 
+            @ModelAttribute("passerror") String error) {
         mm.addAttribute("newaccount", new Account());
+        mm.addAttribute("passerror", error);
         return "registration";
     }
 
@@ -52,13 +54,14 @@ public class RegistrationController {
             }
 
             if (!acc.getPassword().equals(secondpass)) {
-                redirectAttributes.addFlashAttribute("passerror", "Γραψτα σωστα");
+                redirectAttributes.addFlashAttribute("passerror", "Passwords differ!");
 
                 return "redirect:preregisteraccount";
             }
             acc.setPassword(passwordEncoder.encode(secondpass));
             //need to set the role foreign key to 2 - next line might need to be checked/corrected
-            acc.setRolesId(roleService.fetchRoleByID(2));
+            //acc.setRolesId(new Role(2));
+            acc.setRolesId(roleService.fetchRoleById(2));
 
             //if all is ok add the new user account to database
             accountService.insertAccount(acc);

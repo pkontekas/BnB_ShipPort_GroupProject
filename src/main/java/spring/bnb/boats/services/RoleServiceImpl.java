@@ -1,27 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import spring.bnb.boats.models.Role;
 import spring.bnb.boats.repos.RoleRepo;
 
-/**
- *
- * @author mapan
- */
+@Service
 public class RoleServiceImpl implements RoleService{
     
     @Autowired
     RoleRepo roleRepo;
 
     @Override
-    public Role fetchRoleByID(int id) {
-        return roleRepo.findById(id).get();
+    public Role fetchRoleById(int id) {
+        return roleRepo.getOne(id);
     }
-    
-    
+     
 }
