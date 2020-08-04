@@ -18,6 +18,8 @@
             <form:input type="text" path="cellphone" id="cellphone"/><br>
             
             <!--TO DO maybe change cellphone to number on above line, and add profile pic field at some point-->
+            <label for="profilePic">Profile Picture</label><br>
+            <form:input type="file" path="profilePic" id="profilePic"/><br>
             <label for="surname">Last Name</label><br>
             <form:input type="text" path="surname" id="surname" required="true"/><br>
             <label for="email">Email</label><br>

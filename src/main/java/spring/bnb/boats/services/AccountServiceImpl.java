@@ -2,6 +2,7 @@ package spring.bnb.boats.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -36,7 +37,8 @@ public class AccountServiceImpl implements AccountService{
         
         return authorities;
     }
-
+    
+    @Transactional  
     @Override
     public void insertAccount(Account acc) {
         accountRepo.save(acc);

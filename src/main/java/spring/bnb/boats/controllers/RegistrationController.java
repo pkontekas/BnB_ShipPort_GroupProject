@@ -12,6 +12,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Role;
 import spring.bnb.boats.services.AccountService;
+import spring.bnb.boats.services.RoleService;
+
 
 /**
  * @author pkontekas
@@ -21,6 +23,9 @@ public class RegistrationController {
 
     @Autowired
     AccountService accountService;
+    
+    @Autowired
+    RoleService roleService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -53,7 +58,7 @@ public class RegistrationController {
             }
             acc.setPassword(passwordEncoder.encode(secondpass));
             //need to set the role foreign key to 2 - next line might need to be checked/corrected
-            acc.setRolesId(new Role(2));
+            acc.setRolesId(roleService.fetchRoleByID(2));
 
             //if all is ok add the new user account to database
             accountService.insertAccount(acc);
