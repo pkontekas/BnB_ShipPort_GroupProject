@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package spring.bnb.boats.models;
 
 import java.io.Serializable;
@@ -16,10 +21,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
+ *
  * @author pkontekas
  */
 @Entity
@@ -48,31 +56,37 @@ public class Boat implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Size(max = 45)
     @Column(name = "manufacturer")
     private String manufacturer;
+    @Size(max = 45)
     @Column(name = "model")
     private String model;
-    @Column(name = "constructionYear")
+    @Column(name = "construction_year")
     private Integer constructionYear;
-    @Column(name = "boatType")
+    @Size(max = 45)
+    @Column(name = "boat_type")
     private String boatType;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "length")
     private BigDecimal length;
-    @Column(name = "passengerCapacity")
+    @Column(name = "passenger_capacity")
     private Integer passengerCapacity;
-    @Column(name = "enginePower")
+    @Size(max = 45)
+    @Column(name = "engine_power")
     private String enginePower;
+    @Size(max = 45)
     @Column(name = "fuel")
     private String fuel;
-    @Column(name = "fuelTankCapacity")
+    @Column(name = "fuel_tank_capacity")
     private BigDecimal fuelTankCapacity;
-    @Column(name = "cruiseSpeed")
+    @Column(name = "cruise_speed")
     private Integer cruiseSpeed;
-    @Column(name = "maxSpeed")
+    @Column(name = "max_speed")
     private Integer maxSpeed;
     @Basic(optional = false)
-    @Column(name = "currentPrice")
+    @NotNull
+    @Column(name = "current_price")
     private BigDecimal currentPrice;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "boatsId")
     private Collection<Boatphoto> boatphotoCollection;

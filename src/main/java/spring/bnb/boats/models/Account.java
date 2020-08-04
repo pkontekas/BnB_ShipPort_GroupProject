@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package spring.bnb.boats.models;
 
 import java.io.Serializable;
@@ -16,11 +21,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import org.hibernate.validator.constraints.Email;
 
 /**
+ *
  * @author pkontekas
  */
 @Entity
@@ -44,23 +51,33 @@ public class Account implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "name")
     private String name;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 60)
     @Column(name = "surname")
     private String surname;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "email")
-    @Email(message = "Invalid email address")
     private String email;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 65)
     @Column(name = "password")
     private String password;
+    @Size(max = 45)
     @Column(name = "language")
     private String language;
     @Lob
-    @Column(name = "profilePic")
+    @Column(name = "profile_pic")
     private byte[] profilePic;
+    @Size(max = 45)
     @Column(name = "cellphone")
     private String cellphone;
     @JoinColumn(name = "roles_id", referencedColumnName = "id")
@@ -200,5 +217,5 @@ public class Account implements Serializable {
     public String toString() {
         return "spring.bnb.boats.models.Account[ id=" + id + " ]";
     }
-
+    
 }

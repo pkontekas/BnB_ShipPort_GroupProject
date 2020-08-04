@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package spring.bnb.boats.models;
 
 import java.io.Serializable;
@@ -16,9 +21,11 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ *
  * @author pkontekas
  */
 @Entity
@@ -39,16 +46,19 @@ public class Booking implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @Column(name = "startDate")
+    @NotNull
+    @Column(name = "start_date")
     @Temporal(TemporalType.DATE)
     private Date startDate;
     @Basic(optional = false)
-    @Column(name = "endDate")
+    @NotNull
+    @Column(name = "end_date")
     @Temporal(TemporalType.DATE)
     private Date endDate;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
-    @Column(name = "finalPrice")
+    @NotNull
+    @Column(name = "final_price")
     private BigDecimal finalPrice;
     @JoinColumn(name = "accounts_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
