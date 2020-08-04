@@ -45,23 +45,27 @@ public class RegistrationController {
             //TO DO @RequestParam("devimage") MultipartFile devimage,
             ModelMap mm,
             RedirectAttributes redirectAttributes) {
-
+        
+        boolean thereIsError=false;
         try {
             if (accountService.existsAccountByEmail(acc.getEmail())) {
                 System.out.println("There is an account with that email: " + acc.getEmail());
-                mm.addAttribute("kindoferror", "There is an account with that email.");
-                return "error";
+                redirectAttributes.addFlashAttribute("emailerror", "Email Account already exists!");
+                thereIsError=true;
             }
 
             if (!acc.getPassword().equals(secondpass)) {
                 redirectAttributes.addFlashAttribute("passerror", "Passwords differ!");
-
-                return "redirect:preregisteraccount";
+                thereIsError=true;
+                
             }
+            if (thereIsError)
+                    return "redirect:preregisteraccount";
+            
             acc.setPassword(passwordEncoder.encode(secondpass));
-            //need to set the role foreign key to 2 - next line might need to be checked/corrected
-            //acc.setRolesId(new Role(2));
-            acc.setRolesId(roleService.fetchRoleById(2));
+            //need to set the role foreign key to 2 -> User - next two lines both seem to work so choose one
+            acc.setRolesId(new Role(2));
+            //acc.setRolesId(roleService.fetchRoleById(2));
 
             //if all is ok add the new user account to database
             accountService.insertAccount(acc);

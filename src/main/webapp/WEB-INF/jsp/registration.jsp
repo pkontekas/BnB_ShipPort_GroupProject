@@ -19,18 +19,18 @@
             <label for="cellphone">Cellphone Number</label><br>
             <form:input type="text" path="cellphone" id="cellphone"/><br>
             
-            <!--TO DO maybe change cellphone to number on above line, and add profile pic field at some point-->
+            <!--TO DO maybe change cellphone to number on above line, and add profile pic functionality at some point-->
             <label for="profilePic">Profile Picture</label><br>
             <form:input type="file" path="profilePic" id="profilePic"/><br>
-            
+            ${emailerror}<br>
             <label for="email">Email</label><br>
             <form:input type="email" path="email" id="email" required="true"/><br><br>
+            ${passerror}<br>
             <label for="password">Password</label><br>
             <form:password id="password" path="password" required="true"/><br>
             <label for="password"></label>
             <input type="password" placeholder="Repeat pass" name="secondpass"/><br><br>
             <form:button type="Submit">Register</form:button>    
         </form:form>
-            ${passerror}
     </body>
 </html>

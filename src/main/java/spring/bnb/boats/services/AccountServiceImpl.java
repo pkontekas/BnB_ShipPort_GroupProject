@@ -23,7 +23,7 @@ public class AccountServiceImpl implements AccountService{
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
        Account myuser = accountRepo.findByEmail(email);
        if (myuser == null) {
-            throw new UsernameNotFoundException("Invalid email");
+            throw new UsernameNotFoundException("Invalid email address.");
         }
        User springSecurityUser = new User(myuser.getEmail(), myuser.getPassword(), mapRolesToAuthorities(myuser.getRolesId()));
        return springSecurityUser;
@@ -58,6 +58,7 @@ public class AccountServiceImpl implements AccountService{
         return accountRepo.existsAccountByEmail(email);
     }
 
+    @Transactional
     @Override
     public void updateAccountRole(Integer accountId, Integer roleId) {
         //TO DO
