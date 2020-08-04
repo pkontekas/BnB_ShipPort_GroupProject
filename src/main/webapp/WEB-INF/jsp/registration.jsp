@@ -23,9 +23,9 @@
             <label for="email">Email</label><br>
             <form:input type="email" path="email" id="email" required="true"/><br><br>
             <label for="password">Password</label>
-            <form:password type="password" id="password" path="password" required="true"/><br>
+            <form:password id="password" path="password" required="true"/><br>
             <label for="password">Password</label>
-            <form:input type="password" id="secondpass" path="secondpass" required="true"/><br>
+            <input type="password" placeholder="Repeat pass" name="secondpass"/><br>
             <form:button type="Submit">Register</form:button>    
         </form:form>
     </body>
