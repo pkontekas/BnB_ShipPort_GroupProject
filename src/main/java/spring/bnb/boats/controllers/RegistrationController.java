@@ -1,6 +1,5 @@
 package spring.bnb.boats.controllers;
 
-import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,6 @@ import spring.bnb.boats.models.Role;
 import spring.bnb.boats.services.AccountService;
 import spring.bnb.boats.services.RoleService;
 
-
 /**
  * @author pkontekas
  */
@@ -25,7 +23,7 @@ public class RegistrationController {
 
     @Autowired
     AccountService accountService;
-    
+
     @Autowired
     RoleService roleService;
 
@@ -33,7 +31,7 @@ public class RegistrationController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/preregisteraccount")
-    public String showRegisterForm(ModelMap mm, 
+    public String showRegisterForm(ModelMap mm,
             @ModelAttribute("passerror") String error) {
         mm.addAttribute("newaccount", new Account());
         mm.addAttribute("passerror", error);
@@ -47,29 +45,26 @@ public class RegistrationController {
             @RequestParam("profilepic") MultipartFile profilepic,
             ModelMap mm,
             RedirectAttributes redirectAttributes) {
-        
-        boolean thereIsError=false;
+
+        boolean thereIsError = false;
         try {
             if (accountService.existsAccountByEmail(acc.getEmail())) {
                 System.out.println("There is an account with that email: " + acc.getEmail());
                 redirectAttributes.addFlashAttribute("emailerror", "Email Account already exists!");
-                thereIsError=true;
+                thereIsError = true;
             }
 
             if (!acc.getPassword().equals(secondpass)) {
                 redirectAttributes.addFlashAttribute("passerror", "Passwords differ!");
-                thereIsError=true;
-                
+                thereIsError = true;
+
             }
-            if (thereIsError)
-                    return "redirect:preregisteraccount";
+            if (thereIsError) {
+                return "redirect:preregisteraccount";
+            }
             // Second way with RequestParam instead of ModelAttribute
-            try {
             acc.setProfilePic(profilepic.getBytes());
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            
+
             acc.setPassword(passwordEncoder.encode(secondpass));
             //need to set the role foreign key to 2 -> User - next two lines both seem to work so choose one
             acc.setRolesId(new Role(2));
@@ -80,9 +75,9 @@ public class RegistrationController {
 
             mm.addAttribute("account", acc);
             return "index";
-        } catch (Exception e) {
-            e.printStackTrace();
-            mm.addAttribute("kindoferror", e.getMessage());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            mm.addAttribute("kindoferror", ex.getMessage());
             return "error";
         }
     }

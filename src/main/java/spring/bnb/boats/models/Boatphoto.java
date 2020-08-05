@@ -19,6 +19,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -31,6 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Boatphoto.findAll", query = "SELECT b FROM Boatphoto b"),
     @NamedQuery(name = "Boatphoto.findById", query = "SELECT b FROM Boatphoto b WHERE b.id = :id"),
+    @NamedQuery(name = "Boatphoto.findByPhotoName", query = "SELECT b FROM Boatphoto b WHERE b.photoName = :photoName"),
     @NamedQuery(name = "Boatphoto.findByDefaultphoto", query = "SELECT b FROM Boatphoto b WHERE b.defaultphoto = :defaultphoto")})
 public class Boatphoto implements Serializable {
 
@@ -40,6 +42,11 @@ public class Boatphoto implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "photo_name")
+    private String photoName;
     @Basic(optional = false)
     @NotNull
     @Lob
@@ -60,8 +67,9 @@ public class Boatphoto implements Serializable {
         this.id = id;
     }
 
-    public Boatphoto(Integer id, byte[] photo, short defaultphoto) {
+    public Boatphoto(Integer id, String photoName, byte[] photo, short defaultphoto) {
         this.id = id;
+        this.photoName = photoName;
         this.photo = photo;
         this.defaultphoto = defaultphoto;
     }
@@ -72,6 +80,14 @@ public class Boatphoto implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getPhotoName() {
+        return photoName;
+    }
+
+    public void setPhotoName(String photoName) {
+        this.photoName = photoName;
     }
 
     public byte[] getPhoto() {
