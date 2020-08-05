@@ -11,10 +11,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import spring.bnb.boats.services.AccountService;
 
-
 @EnableWebSecurity
-public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter{
-    
+public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private AccountService accountService;
 
@@ -31,18 +30,24 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()//Restrict access based on the HttpServletRequest
-                .antMatchers("/").hasAnyRole("ADMIN", "USER", "OWNER")
+                .antMatchers("/admin/**").hasRole("ADMIN")//added for admin access
+                //.antMatchers("/").hasAnyRole("ADMIN", "USER", "OWNER")
+                .antMatchers("/").permitAll()//added permit instead of above line
                 .and()
                 .formLogin() //We are customizing the form login process
-                .loginPage("/loginPage") //This is the url to show the login page
+                .loginPage("/login.html") //This is the url to show the login page
+                .loginProcessingUrl("/performlogin")//new line
+                .defaultSuccessUrl("/index.jsp", true)//new line
                 .usernameParameter("email") // custom WebSecurityConfigurerAdapter knows that "email" is a principal parameter now
                 .permitAll()
                 .and()
                 .logout()
+                .logoutUrl("/perform_logout")//new line
+                .deleteCookies("JSESSIONID")//new line
                 .and()
                 .exceptionHandling().accessDeniedPage("/access-denied");
     }
-    
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
@@ -50,12 +55,11 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter{
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
-    
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder;
     }
-    
-    
+
 }

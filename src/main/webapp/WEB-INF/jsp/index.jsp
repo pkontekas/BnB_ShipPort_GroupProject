@@ -13,5 +13,7 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <a href="login.html">Login</a>
+        <a href="preregisteraccount">Register</a>
     </body>
 </html>

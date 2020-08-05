@@ -21,7 +21,7 @@
             
             <!--TO DO maybe change cellphone to number on above line, and add profile pic functionality at some point-->
             <label for="profilePic">Profile Picture</label><br>
-            <input type="file" name="profilepic" enctype="multipart/form-data"/><br>
+            <input type="file" name="profilepic"/><br>
             ${emailerror}<br>
             <label for="email">Email</label><br>
             <form:input type="email" path="email" id="email" required="true"/><br><br>
@@ -29,7 +29,8 @@
             <label for="password">Password</label><br>
             <form:password id="password" path="password" required="true"/><br>
             <label for="password"></label>
-            <input type="password" placeholder="Repeat pass" name="secondpass"/><br><br>
+            <input type="password" placeholder="Repeat pass" name="secondpass" required="true"/><br><br>
+            
             <form:button type="Submit">Register</form:button>    
         </form:form>
     </body>

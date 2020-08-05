@@ -24,14 +24,14 @@
         </c:if>
 --%>
             
-        <springform:form method="POST">
+        <springform:form method="POST" action="performlogin">
             <p>
-                E-mail: <input type="email" name="email"/>
+                E-mail: <input type="email" name="email" value=""/>
             </p>
             <p>
                 Password: <input type="password" name="password"/>
             </p>
-            <input type="submit" value="Login"/>
+            <input name="submit" type="submit" value="submit"/>
         </springform:form>
 
         <a href="preregisteraccount">Register</a>

@@ -22,17 +22,18 @@ import spring.bnb.boats.services.RoleService;
 public class RegistrationController {
 
     @Autowired
-    AccountService accountService;
-
-    @Autowired
-    RoleService roleService;
+    private AccountService accountService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    //@Autowired
+    //private RoleService roleService;
+    
     @GetMapping("/preregisteraccount")
     public String showRegisterForm(ModelMap mm,
             @ModelAttribute("passerror") String error) {
+
         mm.addAttribute("newaccount", new Account());
         mm.addAttribute("passerror", error);
         return "registration";
@@ -60,7 +61,9 @@ public class RegistrationController {
 
             }
             if (thereIsError) {
-                return "redirect:preregisteraccount";
+            return "redirect:preregisteraccount";
+            //must change this, TO DO must find a way to reshow the form with other inputs already filled in from before
+            //return "registration";
             }
             // Second way with RequestParam instead of ModelAttribute
             acc.setProfilePic(profilepic.getBytes());
