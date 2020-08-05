@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>User Account Registration</h1>
-        <form:form action="doinsertaccount" method="post" modelAttribute="newaccount">
+        <form:form action="doinsertaccount" method="post" modelAttribute="newaccount" enctype="multipart/form-data">
             <label for="language">Preferred Language</label><br>
             <form:input type="text" path="language" id="language" required="true" value="English"/><br>
             <label for="name">First Name</label><br>
@@ -21,7 +21,7 @@
             
             <!--TO DO maybe change cellphone to number on above line, and add profile pic functionality at some point-->
             <label for="profilePic">Profile Picture</label><br>
-            <form:input type="file" path="profilePic" id="profilePic"/><br>
+            <input type="file" name="profilepic" enctype="multipart/form-data"/><br>
             ${emailerror}<br>
             <label for="email">Email</label><br>
             <form:input type="email" path="email" id="email" required="true"/><br><br>
