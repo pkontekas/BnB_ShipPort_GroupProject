@@ -14,6 +14,7 @@
     <body>
         <h1>Hello World!</h1>
         <a href="login.html">Login</a>
-        <a href="preregisteraccount">Register</a>
+        <a href="preregisteraccount">Register</a><br>
+        <a href="preregisterboat">Register Boat</a>
     </body>
 </html>
