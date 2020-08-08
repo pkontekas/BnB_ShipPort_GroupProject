@@ -24,4 +24,9 @@ public class BoatServiceImpl implements BoatService {
         return boatRepo.findAll();
     }
 
+    @Override
+    public Boat fetchBoatById(Integer id) {
+        return boatRepo.getOne(id);
+    }
+
 }

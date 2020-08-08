@@ -13,5 +13,10 @@
     </head>
     <body>
         <h1>Show Boat Info</h1>
+        <ul>
+            <li>Manufacturer: ${boatdetails.manufacturer}</li>
+            <li>Model: ${boatdetails.model}</li>
+            <li>Year: ${boatdetails.constructionYear}</li>
+        </ul>
     </body>
 </html>

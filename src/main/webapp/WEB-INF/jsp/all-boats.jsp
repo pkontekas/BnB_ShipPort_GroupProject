@@ -29,9 +29,9 @@
             <td>Port: ${b.portsId.portName}</td><br>
             <td>City: ${b.portsId.city}</td><br>   
             <td>
-                <form action="showboatinfo" method="post">
+                <form action="showboatinfo" method="get">
                     <input type="hidden" name="id" value="${b.id}">                                     
-                    <button type="Submit">View Boat</button>
+                    <button type="submit">View Boat</button>
                 </form>
             </td>
         </tr>

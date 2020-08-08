@@ -7,6 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Port;
@@ -46,9 +47,11 @@ public class BoatController {
         return "all-boats";
     }
 
-    @PostMapping("/showboatinfo")
-    public String showBoatInfo() {
+    @GetMapping("/showboatinfo") // TODO Post -> error 405 method not allowed
+    public String showBoatInfo(ModelMap mm,@RequestParam (name="id") int id) {
+        Boat boat = boatService.fetchBoatById(id);
+        mm.addAttribute("boatdetails", boat);
         return "boat-info";
     }
-
+   
 }
