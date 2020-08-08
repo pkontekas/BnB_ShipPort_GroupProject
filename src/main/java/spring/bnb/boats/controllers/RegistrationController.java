@@ -13,11 +13,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Role;
 import spring.bnb.boats.services.AccountService;
-import spring.bnb.boats.services.RoleService;
 
-/**
- * @author pkontekas
- */
+
 @Controller
 public class RegistrationController {
 

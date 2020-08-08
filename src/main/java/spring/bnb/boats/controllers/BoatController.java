@@ -18,10 +18,6 @@ import spring.bnb.boats.models.Port;
 import spring.bnb.boats.services.BoatService;
 import spring.bnb.boats.services.PortService;
 
-/**
- *
- * @author mapan
- */
 @Controller
 public class BoatController {
     
@@ -45,7 +41,7 @@ public class BoatController {
     
     @PostMapping("/doinsertport")
     public String insertBoat(@ModelAttribute("newboat") Boat boat){
-        boat.setAccountsId(new Account(1)); // TODO should take the User Acount from session
+        boat.setAccountsId(new Account(1)); // TODO should take the User Acount - Owner from Current Session
         boatService.insertBoat(boat);
         return "index";
     }
