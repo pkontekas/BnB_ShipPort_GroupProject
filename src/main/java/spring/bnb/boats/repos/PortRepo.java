@@ -5,4 +5,5 @@ import spring.bnb.boats.models.Port;
 
 public interface PortRepo extends JpaRepository<Port, Integer>{
     
+    public Port getPortById(int portid);
 }

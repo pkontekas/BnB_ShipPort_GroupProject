@@ -19,10 +19,6 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//                auth.inMemoryAuthentication()
-//                .withUser("user").password("{noop}1234").roles("USER")
-//                .and()
-//                .withUser("admin").password("{noop}4321").roles("ADMIN", "USER");
         auth.authenticationProvider(authenticationProvider());
     }
 
@@ -36,12 +32,12 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin() //We are customizing the form login process
                 .loginPage("/login.html") //This is the url to show the login page
-                .loginProcessingUrl("/performlogin")//new line
-                .defaultSuccessUrl("/index.jsp", true)//new line
+                .loginProcessingUrl("/performlogin")//login form will POST data to this URL to check email and password
+                .defaultSuccessUrl("/", true)//new line
                 .usernameParameter("email") // custom WebSecurityConfigurerAdapter knows that "email" is a principal parameter now
                 .permitAll()
                 .and()
-                .logout()
+                .logout().permitAll()
                 .logoutUrl("/perform_logout")//new line
                 .deleteCookies("JSESSIONID")//new line
                 .and()

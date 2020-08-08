@@ -23,7 +23,7 @@ public class AccountServiceImpl implements AccountService{
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
        Account myuser = accountRepo.findByEmail(email);
        if (myuser == null) {
-            throw new UsernameNotFoundException("Invalid email address.");
+            throw new UsernameNotFoundException("Mail address not found!");
         }
        User springSecurityUser = new User(myuser.getEmail(), myuser.getPassword(), mapRolesToAuthorities(myuser.getRolesId()));
        return springSecurityUser;

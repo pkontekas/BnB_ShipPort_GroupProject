@@ -13,6 +13,7 @@ import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Port;
 import spring.bnb.boats.services.BoatService;
 import spring.bnb.boats.services.PortService;
+import spring.bnb.boats.services.PortphotoService;
 
 @Controller
 public class BoatController {
@@ -22,6 +23,9 @@ public class BoatController {
 
     @Autowired
     BoatService boatService;
+    
+    @Autowired
+    PortphotoService ppService; 
 
     @GetMapping("/preregisterboat")
     public String showBoatRegisterForm(ModelMap mm) {
@@ -51,6 +55,9 @@ public class BoatController {
     public String showBoatInfo(ModelMap mm,@RequestParam (name="boatId") int id) {
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
+        //TO DO use the port this boat is located to get the specific port default photo
+        //and put it in a mm attribute to send it to boat-info
+        //ppService.getPortphotoByPortsId(boat.getPortsId().getId());
         return "boat-info";
     }
    

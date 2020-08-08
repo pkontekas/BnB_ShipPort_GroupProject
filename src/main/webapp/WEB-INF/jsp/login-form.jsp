@@ -26,7 +26,7 @@
             
         <springform:form method="POST" action="performlogin">
             <p>
-                E-mail: <input type="email" name="email" value="" required="true"/>
+                E-mail: <input type="email" name="email" required="true"/>
             </p>
             <p>
                 Password: <input type="password" name="password" required="true"/>

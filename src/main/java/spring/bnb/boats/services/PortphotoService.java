@@ -1,8 +1,10 @@
 package spring.bnb.boats.services;
 
-import java.sql.Blob;
+import spring.bnb.boats.models.Portphoto;
 
 public interface PortphotoService {
     
-        public Blob getPortphotoById(int id);
+        public Portphoto getPortphotoByPortsId(int portsid);
+        
+        //public int getIdByPortsId(int portsid);
 }
