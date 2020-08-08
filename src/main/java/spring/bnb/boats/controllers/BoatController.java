@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats.controllers;
 
 import java.util.List;
@@ -20,29 +15,40 @@ import spring.bnb.boats.services.PortService;
 
 @Controller
 public class BoatController {
-    
+
     @Autowired
     PortService portService;
-    
+
     @Autowired
     BoatService boatService;
-    
+
     @GetMapping("/preregisterboat")
-    public String showBoatRegisterForm(ModelMap mm){
+    public String showBoatRegisterForm(ModelMap mm) {
         mm.addAttribute("newboat", new Boat());
-        
         return "boat-registration";
     }
-    
-    @ModelAttribute("ports")
-    public List<Port> getListOfPorts(){
-        return portService.getAllPorts();
-    }
-    
-    @PostMapping("/doinsertport")
-    public String insertBoat(@ModelAttribute("newboat") Boat boat){
+
+    @PostMapping("/doinsertboat")
+    public String insertBoat(@ModelAttribute("newboat") Boat boat) {
         boat.setAccountsId(new Account(1)); // TODO should take the User Acount - Owner from Current Session
         boatService.insertBoat(boat);
         return "index";
     }
+
+    @ModelAttribute("allports")
+    public List<Port> getListOfPorts() {
+        return portService.getAllPorts();
+    }
+
+    @GetMapping("/showallboats")
+    public String showAllBoats(ModelMap mm) {
+        mm.addAttribute("allboats", boatService.getAllBoats());
+        return "all-boats";
+    }
+
+    @PostMapping("/showboatinfo")
+    public String showBoatInfo() {
+        return "boat-info";
+    }
+
 }

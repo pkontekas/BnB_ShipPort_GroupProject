@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Boat Registration</h1>
-        <form:form action="doinsertport" method="post" modelAttribute="newboat">
+        <form:form action="doinsertboat" method="post" modelAttribute="newboat">
             <label for="manufacturer">Manufacturer</label><br>
             <form:input type="text" path="manufacturer" id="manufacturer" required="true" /><br>
             <label for="model">Model</label><br>
@@ -41,7 +41,7 @@
             <form:input type="number" path="currentPrice" id="currentPrice"/><br>
             <label for="portsId">Port:</label>
             <form:select path="portsId">
-                <form:options items="${ports}" itemLabel="portName" itemValue="id"/>
+                <form:options items="${allports}" itemLabel="portName" itemValue="id"/>
             </form:select><br>
 
             <form:button type="Submit">Register Boat</form:button>
