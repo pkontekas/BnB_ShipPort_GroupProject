@@ -30,7 +30,7 @@
             <td>City: ${b.portsId.city}</td><br>   
             <td>
                 <form action="showboatinfo" method="GET">
-                    <input type="hidden" name="boatId" value="${b.id}">                                     
+                    <input type="hidden" name="boatId" value="${b.id}">
                     <button type="Submit">View Boat</button>
                 </form>
             </td>

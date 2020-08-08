@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>User Account Registration</h1>
-        <form:form action="doinsertaccount" method="post" modelAttribute="newaccount" enctype="multipart/form-data">
+        <form:form action="doinsertaccount" method="POST" modelAttribute="newaccount" enctype="multipart/form-data">
             <label for="nationality">Preferred Language</label><br>
             <form:input type="text" path="nationality" id="nationality" required="true" value="English"/><br>
             <label for="name">First Name</label><br>

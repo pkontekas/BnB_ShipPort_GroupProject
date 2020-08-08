@@ -14,33 +14,33 @@
     </head>
     <body>
         <h1>Boat Registration</h1>
-        <form:form action="doinsertboat" method="post" modelAttribute="newboat">
+        <form:form action="doinsertboat" method="POST" modelAttribute="newboat">
             <label for="manufacturer">Manufacturer</label><br>
             <form:input type="text" path="manufacturer" id="manufacturer" required="true" /><br>
             <label for="model">Model</label><br>
             <form:input type="text" path="model" id="model" required="true"/><br>
             <label for="constructionYear">Construction Year</label><br>
-            <form:input type="number" path="constructionYear" id="constructionYear" /><br>
+            <form:input type="number" path="constructionYear" id="constructionYear" required="true"/><br>
             <label for="boatType">Boat Type</label><br>
-            <form:input type="text" path="boatType" id="boatType"/><br>
+            <form:input type="text" path="boatType" id="boatType" required="true"/><br>
             <label for="boatLength">Length</label><br>
-            <form:input type="number" path="boatLength" id="boatLength"/><br>
+            <form:input type="number" path="boatLength" id="boatLength" required="true"/><br>
             <label for="passengerCapacity">Passenger Capacity</label><br>
-            <form:input type="number" path="passengerCapacity" id="passengerCapacity"/><br>
+            <form:input type="number" path="passengerCapacity" id="passengerCapacity" required="true"/><br>
             <label for="enginePower">Engine Power</label><br>
-            <form:input type="text" path="enginePower" id="enginePower"/><br>
-            <label for="fuel">Fuel</label><br>
-            <form:input type="text" path="fuel" id="fuel"/><br>
+            <form:input type="text" path="enginePower" id="enginePower" required="true"/><br>
+            <label for="fuel">Fuel Type</label><br>
+            <form:input type="text" path="fuel" id="fuel" required="true"/><br>
             <label for="fuelTankCapacity">Fuel Tank Capacity</label><br>
-            <form:input type="number" path="fuelTankCapacity" id="fuelTankCapacity"/><br>
+            <form:input type="number" path="fuelTankCapacity" id="fuelTankCapacity" required="true"/><br>
             <label for="cruiseSpeed">Cruise Speed</label><br>
-            <form:input type="number" path="cruiseSpeed" id="cruiseSpeed"/><br>
+            <form:input type="number" path="cruiseSpeed" id="cruiseSpeed" required="true"/><br>
             <label for="maxSpeed">Max Speed</label><br>
-            <form:input type="number" path="maxSpeed" id="maxSpeed"/><br>
+            <form:input type="number" path="maxSpeed" id="maxSpeed" required="true"/><br>
             <label for="currentPrice">Current Price</label><br>
-            <form:input type="number" path="currentPrice" id="currentPrice"/><br>
+            <form:input type="number" path="currentPrice" id="currentPrice" required="true"/><br>
             <label for="portsId">Port:</label>
-            <form:select path="portsId">
+            <form:select path="portsId" required="true">
                 <form:options items="${allports}" itemLabel="portName" itemValue="id"/>
             </form:select><br>
 

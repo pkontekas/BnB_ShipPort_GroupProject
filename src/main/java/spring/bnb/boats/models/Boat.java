@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats.models;
 
 import java.io.Serializable;
@@ -27,7 +22,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
  * @author pkontekas
  */
 @Entity
@@ -47,8 +41,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Boat.findByFuelTankCapacity", query = "SELECT b FROM Boat b WHERE b.fuelTankCapacity = :fuelTankCapacity"),
     @NamedQuery(name = "Boat.findByCruiseSpeed", query = "SELECT b FROM Boat b WHERE b.cruiseSpeed = :cruiseSpeed"),
     @NamedQuery(name = "Boat.findByMaxSpeed", query = "SELECT b FROM Boat b WHERE b.maxSpeed = :maxSpeed"),
-    @NamedQuery(name = "Boat.findByCurrentPrice", query = "SELECT b FROM Boat b WHERE b.currentPrice = :currentPrice"),
-    @NamedQuery(name = "Boat.findByLength", query = "SELECT b FROM Boat b WHERE b.length = :length")})
+    @NamedQuery(name = "Boat.findByCurrentPrice", query = "SELECT b FROM Boat b WHERE b.currentPrice = :currentPrice")})
 public class Boat implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -89,8 +82,6 @@ public class Boat implements Serializable {
     @NotNull
     @Column(name = "current_price")
     private BigDecimal currentPrice;
-    @Column(name = "length")
-    private BigDecimal length;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "boatsId")
     private Collection<Boatphoto> boatphotoCollection;
     @JoinColumn(name = "accounts_id", referencedColumnName = "id")
@@ -216,14 +207,6 @@ public class Boat implements Serializable {
 
     public void setCurrentPrice(BigDecimal currentPrice) {
         this.currentPrice = currentPrice;
-    }
-
-    public BigDecimal getLength() {
-        return length;
-    }
-
-    public void setLength(BigDecimal length) {
-        this.length = length;
     }
 
     @XmlTransient

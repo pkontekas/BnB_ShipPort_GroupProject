@@ -32,7 +32,7 @@ public class AccountServiceImpl implements AccountService{
     private List<SimpleGrantedAuthority> mapRolesToAuthorities(Role role) {
         List<SimpleGrantedAuthority> authorities = new ArrayList();
         
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.getRole());
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.getRoleName());
         authorities.add(authority);
         
         return authorities;

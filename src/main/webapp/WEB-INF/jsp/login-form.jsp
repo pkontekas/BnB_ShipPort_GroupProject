@@ -26,12 +26,12 @@
             
         <springform:form method="POST" action="performlogin">
             <p>
-                E-mail: <input type="email" name="email" value=""/>
+                E-mail: <input type="email" name="email" value="" required="true"/>
             </p>
             <p>
-                Password: <input type="password" name="password"/>
+                Password: <input type="password" name="password" required="true"/>
             </p>
-            <input name="submit" type="submit" value="submit"/>
+            <input name="Submit" type="Submit" value="Submit"/>
         </springform:form>
 
         <a href="preregisteraccount">Register</a>

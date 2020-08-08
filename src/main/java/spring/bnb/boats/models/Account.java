@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats.models;
 
 import java.io.Serializable;
@@ -27,7 +22,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
  * @author pkontekas
  */
 @Entity
@@ -41,8 +35,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Account.findByEmail", query = "SELECT a FROM Account a WHERE a.email = :email"),
     @NamedQuery(name = "Account.findByPassword", query = "SELECT a FROM Account a WHERE a.password = :password"),
     @NamedQuery(name = "Account.findByNationality", query = "SELECT a FROM Account a WHERE a.nationality = :nationality"),
-    @NamedQuery(name = "Account.findByCellphone", query = "SELECT a FROM Account a WHERE a.cellphone = :cellphone"),
-    @NamedQuery(name = "Account.findByLanguage", query = "SELECT a FROM Account a WHERE a.language = :language")})
+    @NamedQuery(name = "Account.findByCellphone", query = "SELECT a FROM Account a WHERE a.cellphone = :cellphone")})
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -81,9 +74,6 @@ public class Account implements Serializable {
     @Size(max = 45)
     @Column(name = "cellphone")
     private String cellphone;
-    @Size(max = 45)
-    @Column(name = "language")
-    private String language;
     @JoinColumn(name = "roles_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Role rolesId;
@@ -169,14 +159,6 @@ public class Account implements Serializable {
 
     public void setCellphone(String cellphone) {
         this.cellphone = cellphone;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
     }
 
     public Role getRolesId() {

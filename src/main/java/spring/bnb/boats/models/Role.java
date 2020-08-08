@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats.models;
 
 import java.io.Serializable;
@@ -24,7 +19,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
  * @author pkontekas
  */
 @Entity
@@ -33,8 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r"),
     @NamedQuery(name = "Role.findById", query = "SELECT r FROM Role r WHERE r.id = :id"),
-    @NamedQuery(name = "Role.findByRoleName", query = "SELECT r FROM Role r WHERE r.roleName = :roleName"),
-    @NamedQuery(name = "Role.findByRole", query = "SELECT r FROM Role r WHERE r.role = :role")})
+    @NamedQuery(name = "Role.findByRoleName", query = "SELECT r FROM Role r WHERE r.roleName = :roleName")})
 public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,11 +41,6 @@ public class Role implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "role_name")
     private String roleName;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "role")
-    private String role;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolesId")
     private Collection<Account> accountCollection;
 
@@ -63,10 +51,9 @@ public class Role implements Serializable {
         this.id = id;
     }
 
-    public Role(Integer id, String roleName, String role) {
+    public Role(Integer id, String roleName) {
         this.id = id;
         this.roleName = roleName;
-        this.role = role;
     }
 
     public Integer getId() {
@@ -83,14 +70,6 @@ public class Role implements Serializable {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     @XmlTransient

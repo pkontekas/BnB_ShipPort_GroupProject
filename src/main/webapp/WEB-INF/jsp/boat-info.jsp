@@ -17,6 +17,18 @@
             <li>Manufacturer: ${boatdetails.manufacturer}</li>
             <li>Model: ${boatdetails.model}</li>
             <li>Year: ${boatdetails.constructionYear}</li>
+            <li>Type: ${boatdetails.boatType}</li>
+            <li>Length: ${boatdetails.boatLength}</li>
+            <li>Fuel Type: ${boatdetails.fuel}</li>
+            <li>Cruise Speed: ${boatdetails.cruiseSpeed}</li>
+            <li>Price: ${boatdetails.currentPrice}</li>
+            <li>Port: ${boatdetails.portsId.portName}</li>
+            <li>City: ${boatdetails.portsId.city}</li>
+        </ul>
+        
+        <ul>
+            <li>Owner: ${boatdetails.accountsId.name} ${boatdetails.accountsId.surname}</li>
+            <li>Email: ${boatdetails.accountsId.email}</li>
         </ul>
     </body>
 </html>
