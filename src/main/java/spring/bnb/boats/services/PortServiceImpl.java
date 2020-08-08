@@ -22,5 +22,4 @@ public class PortServiceImpl implements PortService{
         return portRepo.getOne(portid);
     }
     
-    
 }

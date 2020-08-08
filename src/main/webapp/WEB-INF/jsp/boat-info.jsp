@@ -29,6 +29,7 @@
         <ul>
             <li>Owner: ${boatdetails.accountsId.name} ${boatdetails.accountsId.surname}</li>
             <li>Email: ${boatdetails.accountsId.email}</li>
+            <li>Cellphone: ${boatdetails.accountsId.cellphone}</li>
         </ul>
     </body>
 </html>
