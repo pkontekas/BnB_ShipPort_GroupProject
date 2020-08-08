@@ -23,8 +23,8 @@
             <form:input type="number" path="constructionYear" id="constructionYear" /><br>
             <label for="boatType">Boat Type</label><br>
             <form:input type="text" path="boatType" id="boatType"/><br>
-            <label for="length">Length</label><br>
-            <form:input type="number" path="length" id="length"/><br>
+            <label for="boatLength">Length</label><br>
+            <form:input type="number" path="boatLength" id="boatLength"/><br>
             <label for="passengerCapacity">Passenger Capacity</label><br>
             <form:input type="number" path="passengerCapacity" id="passengerCapacity"/><br>
             <label for="enginePower">Engine Power</label><br>

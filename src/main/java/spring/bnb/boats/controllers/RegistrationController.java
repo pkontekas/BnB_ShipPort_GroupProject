@@ -68,7 +68,7 @@ public class RegistrationController {
             acc.setPassword(passwordEncoder.encode(secondpass));
             //need to set the role foreign key to 2 -> User - next two lines both seem to work so choose one
             acc.setRolesId(new Role(2));
-            //acc.setRolesId(roleService.fetchRoleById(2));
+            //acc.setRolesId(roleService.getRoleById(2));
 
             //if all is ok add the new user account to database
             accountService.insertAccount(acc);

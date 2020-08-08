@@ -25,8 +25,8 @@ public class BoatServiceImpl implements BoatService {
     }
 
     @Override
-    public Boat fetchBoatById(Integer id) {
-        return boatRepo.getOne(id);
+    public Boat getBoatById(int boatid) {
+        return boatRepo.getOne(boatid);
     }
 
 }

@@ -4,5 +4,5 @@ import spring.bnb.boats.models.Role;
 
 public interface RoleService {
     
-    public Role fetchRoleById(int id);
+    public Role getRoleById(int roleid);
 }

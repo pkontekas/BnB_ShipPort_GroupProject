@@ -12,8 +12,8 @@ public class RoleServiceImpl implements RoleService{
     RoleRepo roleRepo;
 
     @Override
-    public Role fetchRoleById(int id) {
-        return roleRepo.getOne(id);
+    public Role getRoleById(int roleid) {
+        return roleRepo.getOne(roleid);
     }
      
 }

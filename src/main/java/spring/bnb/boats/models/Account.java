@@ -40,8 +40,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Account.findBySurname", query = "SELECT a FROM Account a WHERE a.surname = :surname"),
     @NamedQuery(name = "Account.findByEmail", query = "SELECT a FROM Account a WHERE a.email = :email"),
     @NamedQuery(name = "Account.findByPassword", query = "SELECT a FROM Account a WHERE a.password = :password"),
-    @NamedQuery(name = "Account.findByLanguage", query = "SELECT a FROM Account a WHERE a.language = :language"),
-    @NamedQuery(name = "Account.findByCellphone", query = "SELECT a FROM Account a WHERE a.cellphone = :cellphone")})
+    @NamedQuery(name = "Account.findByNationality", query = "SELECT a FROM Account a WHERE a.nationality = :nationality"),
+    @NamedQuery(name = "Account.findByCellphone", query = "SELECT a FROM Account a WHERE a.cellphone = :cellphone"),
+    @NamedQuery(name = "Account.findByLanguage", query = "SELECT a FROM Account a WHERE a.language = :language")})
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -72,14 +73,17 @@ public class Account implements Serializable {
     @Column(name = "password")
     private String password;
     @Size(max = 45)
-    @Column(name = "language")
-    private String language;
+    @Column(name = "nationality")
+    private String nationality;
     @Lob
     @Column(name = "profile_pic")
     private byte[] profilePic;
     @Size(max = 45)
     @Column(name = "cellphone")
     private String cellphone;
+    @Size(max = 45)
+    @Column(name = "language")
+    private String language;
     @JoinColumn(name = "roles_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Role rolesId;
@@ -143,12 +147,12 @@ public class Account implements Serializable {
         this.password = password;
     }
 
-    public String getLanguage() {
-        return language;
+    public String getNationality() {
+        return nationality;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 
     public byte[] getProfilePic() {
@@ -165,6 +169,14 @@ public class Account implements Serializable {
 
     public void setCellphone(String cellphone) {
         this.cellphone = cellphone;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public Role getRolesId() {

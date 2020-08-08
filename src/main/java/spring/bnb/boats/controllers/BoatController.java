@@ -48,8 +48,8 @@ public class BoatController {
     }
 
     @GetMapping("/showboatinfo") // TODO Post -> error 405 method not allowed
-    public String showBoatInfo(ModelMap mm,@RequestParam (name="id") int id) {
-        Boat boat = boatService.fetchBoatById(id);
+    public String showBoatInfo(ModelMap mm,@RequestParam (name="boatId") int id) {
+        Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
         return "boat-info";
     }

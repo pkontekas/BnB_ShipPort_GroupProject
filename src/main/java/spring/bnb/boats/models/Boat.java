@@ -40,14 +40,15 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Boat.findByModel", query = "SELECT b FROM Boat b WHERE b.model = :model"),
     @NamedQuery(name = "Boat.findByConstructionYear", query = "SELECT b FROM Boat b WHERE b.constructionYear = :constructionYear"),
     @NamedQuery(name = "Boat.findByBoatType", query = "SELECT b FROM Boat b WHERE b.boatType = :boatType"),
-    @NamedQuery(name = "Boat.findByLength", query = "SELECT b FROM Boat b WHERE b.length = :length"),
+    @NamedQuery(name = "Boat.findByBoatLength", query = "SELECT b FROM Boat b WHERE b.boatLength = :boatLength"),
     @NamedQuery(name = "Boat.findByPassengerCapacity", query = "SELECT b FROM Boat b WHERE b.passengerCapacity = :passengerCapacity"),
     @NamedQuery(name = "Boat.findByEnginePower", query = "SELECT b FROM Boat b WHERE b.enginePower = :enginePower"),
     @NamedQuery(name = "Boat.findByFuel", query = "SELECT b FROM Boat b WHERE b.fuel = :fuel"),
     @NamedQuery(name = "Boat.findByFuelTankCapacity", query = "SELECT b FROM Boat b WHERE b.fuelTankCapacity = :fuelTankCapacity"),
     @NamedQuery(name = "Boat.findByCruiseSpeed", query = "SELECT b FROM Boat b WHERE b.cruiseSpeed = :cruiseSpeed"),
     @NamedQuery(name = "Boat.findByMaxSpeed", query = "SELECT b FROM Boat b WHERE b.maxSpeed = :maxSpeed"),
-    @NamedQuery(name = "Boat.findByCurrentPrice", query = "SELECT b FROM Boat b WHERE b.currentPrice = :currentPrice")})
+    @NamedQuery(name = "Boat.findByCurrentPrice", query = "SELECT b FROM Boat b WHERE b.currentPrice = :currentPrice"),
+    @NamedQuery(name = "Boat.findByLength", query = "SELECT b FROM Boat b WHERE b.length = :length")})
 public class Boat implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,8 +69,8 @@ public class Boat implements Serializable {
     @Column(name = "boat_type")
     private String boatType;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "length")
-    private BigDecimal length;
+    @Column(name = "boat_length")
+    private BigDecimal boatLength;
     @Column(name = "passenger_capacity")
     private Integer passengerCapacity;
     @Size(max = 45)
@@ -88,6 +89,8 @@ public class Boat implements Serializable {
     @NotNull
     @Column(name = "current_price")
     private BigDecimal currentPrice;
+    @Column(name = "length")
+    private BigDecimal length;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "boatsId")
     private Collection<Boatphoto> boatphotoCollection;
     @JoinColumn(name = "accounts_id", referencedColumnName = "id")
@@ -151,12 +154,12 @@ public class Boat implements Serializable {
         this.boatType = boatType;
     }
 
-    public BigDecimal getLength() {
-        return length;
+    public BigDecimal getBoatLength() {
+        return boatLength;
     }
 
-    public void setLength(BigDecimal length) {
-        this.length = length;
+    public void setBoatLength(BigDecimal boatLength) {
+        this.boatLength = boatLength;
     }
 
     public Integer getPassengerCapacity() {
@@ -213,6 +216,14 @@ public class Boat implements Serializable {
 
     public void setCurrentPrice(BigDecimal currentPrice) {
         this.currentPrice = currentPrice;
+    }
+
+    public BigDecimal getLength() {
+        return length;
+    }
+
+    public void setLength(BigDecimal length) {
+        this.length = length;
     }
 
     @XmlTransient

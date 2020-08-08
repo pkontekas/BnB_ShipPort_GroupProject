@@ -10,8 +10,8 @@
     <body>
         <h1>User Account Registration</h1>
         <form:form action="doinsertaccount" method="post" modelAttribute="newaccount" enctype="multipart/form-data">
-            <label for="language">Preferred Language</label><br>
-            <form:input type="text" path="language" id="language" required="true" value="English"/><br>
+            <label for="nationality">Preferred Language</label><br>
+            <form:input type="text" path="nationality" id="nationality" required="true" value="English"/><br>
             <label for="name">First Name</label><br>
             <form:input type="text" path="name" id="name" required="true"/><br>
             <label for="surname">Last Name</label><br>
