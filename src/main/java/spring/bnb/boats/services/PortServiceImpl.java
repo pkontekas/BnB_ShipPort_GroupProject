@@ -16,6 +16,11 @@ public class PortServiceImpl implements PortService{
     public List<Port> getAllPorts() {
         return portRepo.findAll();
     }
+
+    @Override
+    public Port getPortById(int portid) {
+        return portRepo.getOne(portid);
+    }
     
     
 }
