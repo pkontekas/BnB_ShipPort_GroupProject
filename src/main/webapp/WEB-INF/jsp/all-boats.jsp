@@ -26,9 +26,8 @@
             <td>Fuel Type: ${b.fuel}</td><br>
             <td>Cruise Speed: ${b.cruiseSpeed} knots</td><br>
             <td>Price: ${b.currentPrice}</td><br>
-            <%-- TO DO  can't make the next two lines work for port info 
-            <td>Port: ${b.portEntity.portName}</td><br>
-            <td>City: ${b.Port.city}</td><br>   --%>
+            <td>Port: ${b.portsId.portName}</td><br>
+            <td>City: ${b.portsId.city}</td><br>   
             <td>
                 <form action="showboatinfo" method="post">
                     <input type="hidden" name="id" value="${b.id}">                                     
