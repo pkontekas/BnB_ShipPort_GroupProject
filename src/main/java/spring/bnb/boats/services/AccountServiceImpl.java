@@ -58,9 +58,15 @@ public class AccountServiceImpl implements AccountService{
         return accountRepo.existsAccountByEmail(email);
     }
 
+    @Override
+    public Account getAccountByEmail(String email) {
+       return accountRepo.findByEmail(email);
+    }
+    
     @Transactional
     @Override
     public void updateAccountRole(Integer accountId, Integer roleId) {
         //TODO
     }
+
 }

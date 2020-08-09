@@ -12,6 +12,8 @@ public interface AccountService extends UserDetailsService {
     
     public boolean existsAccountByEmail(String email);
     
+    public Account getAccountByEmail(String email);
+    
     //for future TO DO
     public void updateAccountRole(Integer accountId, Integer roleId);
 }
