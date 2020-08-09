@@ -5,4 +5,5 @@ import spring.bnb.boats.models.Portphoto;
 
 public interface PortphotoRepo extends JpaRepository<Portphoto, Integer> {
     
+    Portphoto findByPortsId(int portsid);
 }

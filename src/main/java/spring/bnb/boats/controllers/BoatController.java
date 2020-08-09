@@ -1,5 +1,7 @@
 package spring.bnb.boats.controllers;
 
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,9 +25,9 @@ public class BoatController {
 
     @Autowired
     BoatService boatService;
-    
+
     @Autowired
-    PortphotoService ppService; 
+    PortphotoService ppService;
 
     @GetMapping("/preregisterboat")
     public String showBoatRegisterForm(ModelMap mm) {
@@ -52,13 +54,23 @@ public class BoatController {
     }
 
     @GetMapping("/showboatinfo") // TODO Post -> error 405 method not allowed
-    public String showBoatInfo(ModelMap mm,@RequestParam (name="boatId") int id) {
+    public String showBoatInfo(ModelMap mm, @RequestParam(name = "boatId") int id) {
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
         //TO DO use the port this boat is located to get the specific port default photo
         //and put it in a mm attribute to send it to boat-info
-        //ppService.getPortphotoByPortsId(boat.getPortsId().getId());
+        
+        //following commented section does not work yet for Blob
+        
+//        Blob portimage = null;
+//        try {
+//            portimage = new javax.sql.rowset.serial.SerialBlob(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//        mm.addAttribute("portimage", portimage);
+
         return "boat-info";
     }
-   
+
 }
