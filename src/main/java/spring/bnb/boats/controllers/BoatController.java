@@ -1,5 +1,6 @@
 package spring.bnb.boats.controllers;
 
+import java.security.Principal;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.List;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Port;
+import spring.bnb.boats.services.AccountService;
 import spring.bnb.boats.services.BoatService;
 import spring.bnb.boats.services.PortService;
 import spring.bnb.boats.services.PortphotoService;
@@ -28,6 +30,9 @@ public class BoatController {
 
     @Autowired
     PortphotoService ppService;
+    
+    @Autowired
+    AccountService accountService;
 
     @GetMapping("/preregisterboat")
     public String showBoatRegisterForm(ModelMap mm) {
@@ -36,8 +41,10 @@ public class BoatController {
     }
 
     @PostMapping("/doinsertboat")
-    public String insertBoat(@ModelAttribute("newboat") Boat boat) {
-        boat.setAccountsId(new Account(1)); // TODO should take the User Acount - Owner from Current Session
+    public String insertBoat(@ModelAttribute("newboat") Boat boat, Principal principal) {
+        String accountEmail = principal.getName();
+        Account account = accountService.getAccountByEmail(accountEmail);
+        boat.setAccountsId(account); // TODO should take the User Acount - Owner from Current Session
         boatService.insertBoat(boat);
         return "index";
     }
