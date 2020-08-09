@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +14,9 @@
         <title>JSP Page</title>
     </head>
     <body>
+    <security:authorize access="isAuthenticated()">
+        authenticated as <security:authentication property="principal.username" /> 
+    </security:authorize>
         <h1>Boat Registration</h1>
         <form:form action="doinsertboat" method="POST" modelAttribute="newboat">
             <label for="manufacturer">Manufacturer</label><br>

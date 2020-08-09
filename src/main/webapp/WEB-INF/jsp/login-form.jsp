@@ -102,7 +102,7 @@
 
   <div class="form">
     <h1>Login</h1>
-    <form class="main-form needs-validation" novalidate method="POST" action="performlogin" >
+    <springform:form cssClass="main-form needs-validation" novalidate="true" method="POST" action="performlogin" >
 
       <div class="form-group col-sm-2 col-md-3 col-xl-3 col-form-label">
         <label for="email">E-mail</label>
@@ -145,7 +145,7 @@
         })
       </script>
 
-</form>
+</springform:form>
 
   </div>
 
