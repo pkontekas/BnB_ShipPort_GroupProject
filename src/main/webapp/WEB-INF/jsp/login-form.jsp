@@ -150,7 +150,7 @@
   </div>
 
   <div class="footer">
-    &copy 2020;
+    &copy 2020
   </div>
 
 
