@@ -27,6 +27,9 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()//Restrict access based on the HttpServletRequest
                 .antMatchers("/admin/**").hasRole("ADMIN")//added for admin access
+                //next line will be added to restrict access to boat registration
+                //.antMatchers("/preregisterboat").hasAnyRole("ADMIN", "USER", "OWNER")
+                
                 //.antMatchers("/").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/").permitAll()//added permit instead of above line
                 .and()
