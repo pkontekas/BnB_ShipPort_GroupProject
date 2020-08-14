@@ -12,10 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <a href="login.html">Login</a><br>
-        <a href="preregisteraccount">Register</a><br>
-        <a href="preregisterboat">Register Boat</a><br>
-        <a href="showallboats">Show All Boats</a>
+        <jsp:include page="navbar.jsp"/>
+        <h1>Hello World! I am the main page!</h1>
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>

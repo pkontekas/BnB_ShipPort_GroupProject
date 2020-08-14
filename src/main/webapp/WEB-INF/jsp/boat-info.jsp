@@ -12,6 +12,9 @@
         <title>Show info per boat</title>
     </head>
     <body>
+
+        <jsp:include page="navbar.jsp"/>
+
         <h1>Show Boat Info</h1>
         <ul>
             <li>Manufacturer: ${boatdetails.manufacturer}</li>
@@ -24,14 +27,16 @@
             <li>Price: ${boatdetails.currentPrice}</li>
             <li>Port: ${boatdetails.portsId.portName}</li>
             <li>City: ${boatdetails.portsId.city}</li>
-            
         </ul>
-<!--            <img alt="failport" src="data:image/jpeg;base64,$----{portimage}">-->
-        
+        <!--            <img alt="failport" src="data:image/jpeg;base64,$----{portimage}">-->
+
         <ul>
             <li>Owner: ${boatdetails.accountsId.name} ${boatdetails.accountsId.surname}</li>
             <li>Email: ${boatdetails.accountsId.email}</li>
             <li>Cellphone: ${boatdetails.accountsId.cellphone}</li>
         </ul>
+
+        <jsp:include page="footer.jsp"/>
+
     </body>
 </html>

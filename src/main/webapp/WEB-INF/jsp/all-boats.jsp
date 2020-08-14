@@ -13,28 +13,34 @@
         <title>Show all boats</title>
     </head>
     <body>
+
+        <jsp:include page="navbar.jsp"/>
+
         <h1>Show all boats</h1>
         <%-- "JSTL for each" to show specific boat information we want in the page, for each Boat, 
         also added a button for "view boat" that takes user to boat-info carrying the boat id --%>
-    <c:forEach items="${allboats}" var="b">
+        <c:forEach items="${allboats}" var="b">
         <tr>
             <td>Manufacturer: ${b.manufacturer}</td><br>
-            <td>Model: ${b.model}</td><br>
-            <td>Year: ${b.constructionYear}</td><br>
-            <td>Type: ${b.boatType}</td><br>
-            <td>Length: ${b.boatLength} feet</td><br>
-            <td>Fuel Type: ${b.fuel}</td><br>
-            <td>Cruise Speed: ${b.cruiseSpeed} knots</td><br>
-            <td>Price: ${b.currentPrice}</td><br>
-            <td>Port: ${b.portsId.portName}</td><br>
-            <td>City: ${b.portsId.city}</td><br>   
-            <td>
-                <form action="showboatinfo" method="GET">
-                    <input type="hidden" name="boatId" value="${b.id}">
-                    <button type="Submit">View Boat</button>
-                </form>
-            </td>
-        </tr>
-    </c:forEach>
+        <td>Model: ${b.model}</td><br>
+        <td>Year: ${b.constructionYear}</td><br>
+        <td>Type: ${b.boatType}</td><br>
+        <td>Length: ${b.boatLength} feet</td><br>
+        <td>Fuel Type: ${b.fuel}</td><br>
+        <td>Cruise Speed: ${b.cruiseSpeed} knots</td><br>
+        <td>Price: ${b.currentPrice}</td><br>
+        <td>Port: ${b.portsId.portName}</td><br>
+        <td>City: ${b.portsId.city}</td><br>   
+        <td>
+            <form action="showboatinfo" method="GET">
+                <input type="hidden" name="boatId" value="${b.id}">
+                <button type="Submit">View Boat</button>
+            </form>
+        </td>
+    </tr>
+</c:forEach>
+
+<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

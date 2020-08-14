@@ -9,18 +9,18 @@
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>Registration</title>
         <style>
-           
+
             .form {
                 display: flex;
                 justify-content: center;
-                
             }
+
         </style>
     </head>
     <body>
+
         <jsp:include page="navbar.jsp"/>
-        
-        
+
         <div class="form container">
             <form:form action="doinsertaccount" method="POST" modelAttribute="newaccount" enctype="multipart/form-data">
                 <h1>User Registration</h1>
@@ -48,25 +48,22 @@
                     <label for="email">E-mail</label>
                     <input type="email" path="email" class="form-control" id="email" required>
                     <div class="invalid-feedback">please enter your E-mail</div>
-
                 </div>
                 <div class="form-group col-16">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password">
-                </div>
-                <label for="password"></label>
-                <input type="password" placeholder="Repeat pass" name="secondpass" required="true" /><br><br>
 
+                    <label for="secondpass"></label>
+                    <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" required/><br><br>
+                </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                     <label class="form-check-label" for="exampleCheck1">Terms & Conditions</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-
-
             </form:form>
         </div>
-        </div>
+
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

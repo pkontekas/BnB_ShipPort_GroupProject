@@ -8,7 +8,7 @@ public class AuthenticationController {
 
     @GetMapping("/login.html")
     public String showLoginPage() {
-        return "login-form";
+        return "navbar";
     }
 
     @GetMapping("/access-denied")
