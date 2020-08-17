@@ -21,5 +21,5 @@ public class PortServiceImpl implements PortService{
     public Port getPortById(int portid) {
         return portRepo.getOne(portid);
     }
-    
+
 }

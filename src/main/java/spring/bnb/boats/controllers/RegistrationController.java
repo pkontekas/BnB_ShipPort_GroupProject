@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spring.bnb.boats.models.Account;
-import spring.bnb.boats.models.Role;
 import spring.bnb.boats.services.AccountService;
-
+import spring.bnb.boats.services.RoleService;
 
 @Controller
 public class RegistrationController {
@@ -24,9 +23,9 @@ public class RegistrationController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    //@Autowired
-    //private RoleService roleService;
-    
+    @Autowired
+    private RoleService roleService;
+
     @GetMapping("/preregisteraccount")
     public String showRegisterForm(ModelMap mm,
             @ModelAttribute("passerror") String error) {
@@ -58,17 +57,16 @@ public class RegistrationController {
 
             }
             if (thereIsError) {
-            return "redirect:preregisteraccount";
-            //must change this, TO DO must find a way to reshow the form with other inputs already filled in from before
-            //return "registration";
+                return "redirect:preregisteraccount";
+                //must change this, TO DO must find a way to reshow the form with other inputs already filled in from before
+                //return "registration";
             }
             // Second way with RequestParam instead of ModelAttribute
             acc.setProfilePic(profilepic.getBytes());
 
             acc.setPassword(passwordEncoder.encode(secondpass));
-            //need to set the role foreign key to 2 -> User - next two lines both seem to work so choose one
-            acc.setRolesId(new Role(2));
-            //acc.setRolesId(roleService.getRoleById(2));
+            //need to set the role foreign key to 2 -> User 
+            acc.setRolesId(roleService.getRoleById(2));
 
             //if all is ok add the new user account to database
             accountService.insertAccount(acc);

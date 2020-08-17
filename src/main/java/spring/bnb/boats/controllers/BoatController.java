@@ -1,9 +1,9 @@
 package spring.bnb.boats.controllers;
 
+import java.io.UnsupportedEncodingException;
 import java.security.Principal;
-import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.List;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -30,7 +30,7 @@ public class BoatController {
 
     @Autowired
     PortphotoService ppService;
-    
+
     @Autowired
     AccountService accountService;
 
@@ -60,22 +60,24 @@ public class BoatController {
         return "all-boats";
     }
 
-    @GetMapping("/showboatinfo") // TODO Post -> error 405 method not allowed
+    @GetMapping("/showboatinfo") // TODO POST instead of GET -> error 405 method not allowed
     public String showBoatInfo(ModelMap mm, @RequestParam(name = "boatId") int id) {
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
-        //TO DO use the port this boat is located to get the specific port default photo
-        //and put it in a mm attribute to send it to boat-info
-        
-        //following commented section does not work yet for Blob
-        
-//        Blob portimage = null;
-//        try {
-//            portimage = new javax.sql.rowset.serial.SerialBlob(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//        mm.addAttribute("portimage", portimage);
+        //use the port this boat is located to get the specific port photo
+        //TO DO to only bring the photo from the correct Port that has defaultPhoto field = 1 or just leave 1 photo per port
+
+        byte[] imageBeforeEncoding = Base64.encodeBase64(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());
+        String base64EncodedImage = "";
+        try {
+            base64EncodedImage = new String(imageBeforeEncoding, "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            //TO DO to fix this: If image does not exist we get an exception and we are thrown into error page
+            ex.printStackTrace();
+            mm.addAttribute("kindoferror", ex.getMessage());
+        }
+        //and put it in a mm attribute to send it to boat-info in encoded form
+        mm.addAttribute("portimage", base64EncodedImage);
 
         return "boat-info";
     }

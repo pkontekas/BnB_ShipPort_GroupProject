@@ -28,9 +28,9 @@
             <li>Cruise Speed: ${boatdetails.cruiseSpeed}</li>
             <li>Price: ${boatdetails.currentPrice}</li>
             <li>Port: ${boatdetails.portsId.portName}</li>
+            <img alt="portimage" src="data:image/jpeg;base64,${portimage}"/>
             <li>City: ${boatdetails.portsId.city}</li>
         </ul>
-        <!--            <img alt="failport" src="data:image/jpeg;base64,$----{portimage}">-->
 
         <ul>
             <li>Owner: ${boatdetails.accountsId.name} ${boatdetails.accountsId.surname}</li>
