@@ -35,7 +35,7 @@
         <br>
         <br>
         <div class="footer">
-            &copy 2020
+            &copy BNB-ShipPort Group Project Copyright 2020
         </div>
         
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +15,7 @@
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>Navbar</title>
     </head>
-    
+
     <style>
         .navbar {
             background-color :#3282B8 ;
@@ -32,7 +33,7 @@
             color: #3282B8;
         }
     </style>
-    
+
     <body>
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="/">BoatBnB</a>
@@ -80,11 +81,11 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <springform:form method="POST" action="performlogin">
+                    <springform:form method="POST" action="performlogin">
+                        <div class="modal-body">
                             <div class="form-group">
                                 <label for="email">Email address</label>
-                                <input type="email" name="email" autocomplete="on" class="form-control" id="email" required
+                                <input type="email" name="email" autocomplete="on" class="form-control" id="logemail" required
                                        aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                                     else.</small>
@@ -93,18 +94,17 @@
                                 <label for="password">Password</label>
                                 <input type="password" name="password" autocomplete="off" class="form-control" required
                                        id="navpassword">
-                                <a href="">forgot my password</a>
+                                <a href="#">forgot my password</a>
                             </div>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="check">
+                                <input type="checkbox" class="form-check-input" id="remember">
                                 <label class="form-check-label" for="check">Remember me</label>
                             </div>
-                        </springform:form>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Sign in</button>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="Submit" name="Submit" value="Submit" class="btn btn-primary">Sign in</button>
+                        </div>
+                    </springform:form>
                 </div>
             </div>
         </div>
@@ -118,6 +118,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-        
+
     </body>
 </html>
