@@ -44,8 +44,8 @@
                     <springform:input type="number" path="cellphone" cssClass="form-control" id="cellphone"/>
                 </div>
                 <div class="form-group col-16">
-                    <label for="profilePic">Upload Photo</label>
-                    <springform:input type="file" path="profilePic" cssClass="form-control" id="profilepic"/>
+                    <springform:label path="profilePic">Upload Photo</springform:label>
+                    <input type="file" name="profilepic" class="form-control" id="profilepic"/>
                 </div>
                 <div class="form-group col-16">
                     <label for="email">E-mail</label>
@@ -53,9 +53,9 @@
                     <div class="invalid-feedback">please enter your E-mail</div>
                 </div>
                 <div class="form-group col-16">
-                    <label for="password">Password</label>
-                    <springform:input type="password" path="password" cssClass="form-control" id="firstpass" required="true"/><br>
-                    <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" id="secondpass" required><br>
+                    <label for="firstUserPass">Password</label>
+                    <springform:input type="password" path="password" cssClass="form-control" id="firstUserPass" required="true"/><br>
+                    <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" id="secondUserPass" required><br>
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
