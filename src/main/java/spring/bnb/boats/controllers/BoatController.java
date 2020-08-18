@@ -44,7 +44,7 @@ public class BoatController {
     public String insertBoat(@ModelAttribute("newboat") Boat boat, Principal principal) {
         String accountEmail = principal.getName();
         Account account = accountService.getAccountByEmail(accountEmail);
-        boat.setAccountsId(account); // TODO should take the User Acount - Owner from Current Session
+        boat.setAccountsId(account);
         boatService.insertBoat(boat);
         return "index";
     }
