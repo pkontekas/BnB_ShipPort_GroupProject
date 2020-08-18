@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,47 +21,49 @@
 
         <jsp:include page="navbar.jsp"/>
 
-        <div class="form container">
-            <form:form action="doinsertaccount" method="POST" modelAttribute="newaccount" enctype="multipart/form-data">
+        <div class="form container"> 
+            <springform:form action="doinsertaccount" method="POST" modelAttribute="newaccount" enctype="multipart/form-data">
                 <h1>User Registration</h1>
                 <div class="form-group col-16">
                     <label for="nationality">Preferred Language</label>
-                    <input type="text" path="nationality" id="nationality" class="form-control" required value="English">
+                    <springform:select type="text" path="nationality" cssClass="form-control">
+                        <springform:option selected="true" value="English">English</springform:option>
+                        <springform:option value="Greek">Greek</springform:option>
+                    </springform:select>
                 </div>
-                <div class="form-group col-16 ">
+                <div class="form-group col-16">
                     <label for="name">First Name</label>
-                    <input type="text" path="name" class="form-control" id="name" required>
+                    <springform:input type="text" path="name" cssClass="form-control" id="name" required="true"/>
                 </div>
-                <div class="form-group col-16 ">
+                <div class="form-group col-16">
                     <label for="surname">Last Name</label>
-                    <input type="text" path="surname" class="form-control" id="surname" required>
+                    <springform:input type="text" path="surname" cssClass="form-control" id="surname" required="true"/>
                 </div>
                 <div class="form-group col-16">
                     <label for="cellphone">Cellphone Number</label>
-                    <input type="text" path="cellphone" class="form-control" id="cellphone">
+                    <springform:input type="number" path="cellphone" cssClass="form-control" id="cellphone"/>
                 </div>
                 <div class="form-group col-16">
-                    <label for="profilepic">Upload Photo</label>
-                    <input type="file" path="profilepic" class="form-control" id="profilepic" >
+                    <label for="profilePic">Upload Photo</label>
+                    <springform:input type="file" path="profilePic" cssClass="form-control" id="profilepic"/>
                 </div>
-                <div class="form-group col-16 ">
+                <div class="form-group col-16">
                     <label for="email">E-mail</label>
-                    <input type="email" path="email" class="form-control" id="email" required>
+                    <springform:input type="email" path="email" cssClass="form-control" id="email" required="true"/>
                     <div class="invalid-feedback">please enter your E-mail</div>
                 </div>
                 <div class="form-group col-16">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password">
-
-                    <label for="secondpass"></label>
-                    <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" required/><br><br>
+                    <springform:input type="password" path="password" cssClass="form-control" id="firstpass" required="true"/><br>
+                    <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" id="secondpass" required><br>
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                     <label class="form-check-label" for="exampleCheck1">Terms & Conditions</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form:form>
+                <button type="Submit" value="Submit" class="btn btn-primary">Submit</button>
+
+            </springform:form>
         </div>
 
         <jsp:include page="footer.jsp"/>

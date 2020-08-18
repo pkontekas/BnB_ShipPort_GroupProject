@@ -11,7 +11,7 @@ import spring.bnb.boats.models.Boatphoto;
  *
  * @author mapan
  */
-public interface BoatphotosService {
+public interface BoatphotoService {
     
     public void storeFilesToDB(Boatphoto boatphoto);
 }

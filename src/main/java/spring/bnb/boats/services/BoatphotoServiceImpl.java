@@ -16,7 +16,7 @@ import spring.bnb.boats.repos.BoatphotoRepo;
  * @author mapan
  */
 @Service
-public class BoatphotoServiceImpl implements BoatphotosService{
+public class BoatphotoServiceImpl implements BoatphotoService{
     
     @Autowired
     BoatphotoRepo boatphotoRepo;

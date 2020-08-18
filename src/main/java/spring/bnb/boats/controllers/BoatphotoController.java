@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import spring.bnb.boats.models.Boatphoto;
-import spring.bnb.boats.services.BoatphotosService;
+import spring.bnb.boats.services.BoatphotoService;
 
 /**
  *
@@ -22,7 +22,7 @@ import spring.bnb.boats.services.BoatphotosService;
 public class BoatphotoController {
     
     @Autowired
-    BoatphotosService boatphotoService;
+    BoatphotoService boatphotoService;
     
     @PostMapping("/uploadphotoboat")
     public String uploadBoatphoto(@RequestParam(value = "boatphoto") MultipartFile multipart){
