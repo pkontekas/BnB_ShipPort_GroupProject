@@ -27,7 +27,7 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()//Restrict access based on the HttpServletRequest
                 .antMatchers("/admin/**").hasRole("ADMIN")//added for admin access
-                //next line will be added to restrict access to boat registration
+                //next line will be added to restrict access to boat registration to just logged in users
                 //.antMatchers("/preregisterboat").hasAnyRole("ADMIN", "USER", "OWNER")
                 
                 //.antMatchers("/").hasAnyRole("ADMIN", "USER", "OWNER")
@@ -41,7 +41,7 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout().permitAll()
-                .logoutUrl("/perform_logout")//new line
+                .logoutUrl("/performlogout")//new line
                 .deleteCookies("JSESSIONID")//new line
                 .and()
                 .exceptionHandling().accessDeniedPage("/access-denied");

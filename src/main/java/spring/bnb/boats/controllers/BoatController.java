@@ -76,7 +76,7 @@ public class BoatController {
             ex.printStackTrace();
             mm.addAttribute("kindoferror", ex.getMessage());
         }
-        //and put it in a mm attribute to send it to boat-info in encoded form
+        //puts it in a mm attribute to send it to boat-info in encoded form
         mm.addAttribute("portimage", base64EncodedImage);
 
         return "boat-info";
