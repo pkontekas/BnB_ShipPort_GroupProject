@@ -25,26 +25,32 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()//had to add this to successfully log out probably because it needed a POST logout
                 .authorizeRequests()//Restrict access based on the HttpServletRequest
-                .antMatchers("/admin/**").hasRole("ADMIN")//added for admin access
-                //next line will be added to restrict access to boat registration to just logged in users
-                //.antMatchers("/preregisterboat").hasAnyRole("ADMIN", "USER", "OWNER")
+                    .antMatchers("/admin/**").hasRole("ADMIN")//added for admin access
+                    //next line will be added to restrict access to boat registration to just logged in users
+                    //.antMatchers("/preregisterboat").hasAnyRole("ADMIN", "USER", "OWNER")
                 
-                //.antMatchers("/").hasAnyRole("ADMIN", "USER", "OWNER")
-                .antMatchers("/").permitAll()//added permit instead of above line
-                .and()
+                    //.antMatchers("/").hasAnyRole("ADMIN", "USER", "OWNER")
+                    .antMatchers("/").permitAll()//added permit all instead of above line
+                    //.antMatchers("/performlogout").hasAnyRole("ADMIN", "USER", "OWNER")
+                    .and()
                 .formLogin() //We are customizing the form login process
-                .loginPage("/login.html") //This is the url to show the login page
-                .loginProcessingUrl("/performlogin")//login form will POST data to this URL to check email and password
-                .defaultSuccessUrl("/", true)//new line
-                .usernameParameter("email") // custom WebSecurityConfigurerAdapter knows that "email" is a principal parameter now
-                .permitAll()
-                .and()
-                .logout().permitAll()
-                .logoutUrl("/performlogout")//new line
-                .deleteCookies("JSESSIONID")//new line
-                .and()
-                .exceptionHandling().accessDeniedPage("/access-denied");
+                    .loginPage("/login.html") //This is the url to show the login page
+                    .loginProcessingUrl("/performlogin")//login form will POST data to this URL to check email and password
+                    .defaultSuccessUrl("/")//new line
+                    .usernameParameter("email") // custom WebSecurityConfigurerAdapter knows that "email" is a principal parameter now
+                    .permitAll()
+                    .and()
+                .logout()
+                    .logoutUrl("/performlogout")
+                    .logoutSuccessUrl("/")//after logging out go to index page
+                    .invalidateHttpSession(true)
+                    .deleteCookies("JSESSIONID")
+                    .permitAll()
+                    .and()
+                .exceptionHandling()
+                    .accessDeniedPage("/access-denied");
     }
 
     @Bean
