@@ -44,7 +44,7 @@ public class BoatController {
     public String insertBoat(@ModelAttribute("newboat") Boat boat, Principal principal) {
         String accountEmail = principal.getName();
         Account account = accountService.getAccountByEmail(accountEmail);
-        boat.setAccountsId(account); // TODO should take the User Acount - Owner from Current Session
+        boat.setAccountsId(account);
         boatService.insertBoat(boat);
         return "index";
     }
@@ -76,7 +76,7 @@ public class BoatController {
             ex.printStackTrace();
             mm.addAttribute("kindoferror", ex.getMessage());
         }
-        //and put it in a mm attribute to send it to boat-info in encoded form
+        //puts it in a mm attribute to send it to boat-info in encoded form
         mm.addAttribute("portimage", base64EncodedImage);
 
         return "boat-info";

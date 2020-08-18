@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -65,13 +66,20 @@
                         </a>
                         <div class="dropdown-menu" style="background-color: #3282B8 " aria-labelledby="navbarDropdownMenuLink">
                             <a id="drop" class="dropdown-item" href="#">Profile </a>
-                            <a id="drop" class="dropdown-item" href="#">Logout</a>
+                            <a id="drop" class="dropdown-item" href="/performlogout">Logout</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </nav>
 
+        <c:if test="${param.logout != null}">
+            <i>You successfully logged out!!!</i>
+        </c:if>
+        <c:if test="${param.error != null}">
+            <i>Invalid username and password</i>
+        </c:if>   
+        
         <div id="loginmodal" class="modal" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -81,7 +89,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <springform:form method="POST" action="performlogin">
+                    <springform:form method="POST" action="${pageContext.request.contextPath}/performlogin">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="email">Email address</label>

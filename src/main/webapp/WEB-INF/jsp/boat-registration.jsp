@@ -29,19 +29,19 @@
 
                 <div class="row">
                     <div class="col-sm">
-                        <div class="form-group ">
+                        <div class="form-group">
                             <label for="manufacturer">Manufacturer</label>
                             <input type="text" path="manufacturer" id="manufacturer" class="form-control" required>
                         </div>
-                        <div class="form-group  ">
+                        <div class="form-group">
                             <label for="model">Model</label>
                             <input type="text" path="model" class="form-control" id="model" required>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group">
                             <label for="constructionYear">Construction Year</label>
                             <input type="text" path="constructionYear" class="form-control" id="constructionYear" required>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group">
                             <label for="boatType">Boat Type</label>
                             <input type="text" path="boatType" class="form-control" id="boatType" required>
                         </div>
@@ -49,7 +49,7 @@
                             <label for="boatLength">Length (ft)</label>
                             <input type="number" path="boatLength" class="form-control" id="boatLength" required>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group">
                             <label for="passengerCapacity">Passenger Capacity</label>
                             <input type="number" path="passengerCapacity" class="form-control" id="passengerCapacity" required>
                         </div>
@@ -59,7 +59,7 @@
                         </form:select>
                     </div>
                     <div class="col-sm">
-                        <div class="form-group ">
+                        <div class="form-group">
                             <label for="enginePower">Engine Power</label>
                             <input type="text" path="enginePower" class="form-control" id="enginePower" required>
                         </div>
@@ -67,7 +67,7 @@
                             <label for="fuel">Fuel Type</label>
                             <input type="text" path="fuel" class="form-control" id="fuel" required>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group">
                             <label for="fuelTankCapacity">Fuel Tank Capacity</label>
                             <input type="number" path="fuelTankCapacity" class="form-control" id="fuelTankCapacity" required>
                         </div>
@@ -79,7 +79,7 @@
                             <label for="maxSpeed">Max Speed (knots)</label>
                             <input type="number" path="maxSpeed" class="form-control" id="maxSpeed" required>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group">
                             <label for="currentPrice">Current Price (Euro)</label>
                             <input type="number" path="currentPrice" class="form-control" id="currentPrice" required>
                         </div>
