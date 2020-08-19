@@ -1,5 +1,6 @@
 package spring.bnb.boats.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -45,6 +46,7 @@ public class Boatphoto implements Serializable {
     @NotNull
     @Lob
     @Column(name = "photo")
+    @JsonIgnore
     private byte[] photo;
     @Basic(optional = false)
     @NotNull

@@ -1,5 +1,8 @@
 package spring.bnb.boats.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -42,6 +45,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Boat.findByCruiseSpeed", query = "SELECT b FROM Boat b WHERE b.cruiseSpeed = :cruiseSpeed"),
     @NamedQuery(name = "Boat.findByMaxSpeed", query = "SELECT b FROM Boat b WHERE b.maxSpeed = :maxSpeed"),
     @NamedQuery(name = "Boat.findByCurrentPrice", query = "SELECT b FROM Boat b WHERE b.currentPrice = :currentPrice")})
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.PropertyGenerator.class, 
+  property = "id")
 public class Boat implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -86,6 +92,7 @@ public class Boat implements Serializable {
     private Collection<Boatphoto> boatphotoCollection;
     @JoinColumn(name = "accounts_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
+    @JsonManagedReference
     private Account accountsId;
     @JoinColumn(name = "ports_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
@@ -267,5 +274,5 @@ public class Boat implements Serializable {
     public String toString() {
         return "spring.bnb.boats.models.Boat[ id=" + id + " ]";
     }
-    
+
 }

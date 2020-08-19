@@ -5,6 +5,10 @@
  */
 package spring.bnb.boats.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -34,6 +38,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Portphoto.findById", query = "SELECT p FROM Portphoto p WHERE p.id = :id"),
     @NamedQuery(name = "Portphoto.findByPhotoName", query = "SELECT p FROM Portphoto p WHERE p.photoName = :photoName"),
     @NamedQuery(name = "Portphoto.findByDefaultphoto", query = "SELECT p FROM Portphoto p WHERE p.defaultphoto = :defaultphoto")})
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.PropertyGenerator.class, 
+  property = "id")
 public class Portphoto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,6 +58,7 @@ public class Portphoto implements Serializable {
     @NotNull
     @Lob
     @Column(name = "photo")
+    @JsonIgnore
     private byte[] photo;
     @Basic(optional = false)
     @NotNull
@@ -58,6 +66,7 @@ public class Portphoto implements Serializable {
     private short defaultphoto;
     @JoinColumn(name = "ports_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
+    @JsonBackReference
     private Port portsId;
 
     public Portphoto() {

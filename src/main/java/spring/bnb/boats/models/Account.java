@@ -1,5 +1,10 @@
 package spring.bnb.boats.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -36,6 +41,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Account.findByPassword", query = "SELECT a FROM Account a WHERE a.password = :password"),
     @NamedQuery(name = "Account.findByNationality", query = "SELECT a FROM Account a WHERE a.nationality = :nationality"),
     @NamedQuery(name = "Account.findByCellphone", query = "SELECT a FROM Account a WHERE a.cellphone = :cellphone")})
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.PropertyGenerator.class, 
+  property = "id")
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -64,22 +72,27 @@ public class Account implements Serializable {
     @NotNull
     @Size(min = 1, max = 65)
     @Column(name = "password")
+    @JsonIgnore
     private String password;
     @Size(max = 45)
     @Column(name = "nationality")
     private String nationality;
     @Lob
     @Column(name = "profile_pic")
+    @JsonIgnore
     private byte[] profilePic;
     @Size(max = 45)
     @Column(name = "cellphone")
     private String cellphone;
     @JoinColumn(name = "roles_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
+    @JsonManagedReference
     private Role rolesId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountsId")
+    @JsonBackReference
     private Collection<Boat> boatCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountsId")
+    @JsonBackReference
     private Collection<Booking> bookingCollection;
 
     public Account() {
@@ -211,5 +224,5 @@ public class Account implements Serializable {
     public String toString() {
         return "spring.bnb.boats.models.Account[ id=" + id + " ]";
     }
-    
+
 }

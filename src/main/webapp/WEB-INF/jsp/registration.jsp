@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-group col-16">
                     <springform:label path="profilePic">Upload Photo</springform:label>
-                    <input type="file" name="profilepic" class="form-control" id="profilepic"/>
+                    <input type="file" name="profilePic" class="form-control" id="profilePic" required="false"/>
                 </div>
                 <div class="form-group col-16">
                     <label for="email">E-mail</label>
