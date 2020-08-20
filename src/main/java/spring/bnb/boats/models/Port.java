@@ -5,7 +5,12 @@
  */
 package spring.bnb.boats.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -34,7 +39,12 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Port.findAll", query = "SELECT p FROM Port p"),
     @NamedQuery(name = "Port.findById", query = "SELECT p FROM Port p WHERE p.id = :id"),
     @NamedQuery(name = "Port.findByPortName", query = "SELECT p FROM Port p WHERE p.portName = :portName"),
-    @NamedQuery(name = "Port.findByCity", query = "SELECT p FROM Port p WHERE p.city = :city")})
+    @NamedQuery(name = "Port.findByCity", query = "SELECT p FROM Port p WHERE p.city = :city"),
+    @NamedQuery(name = "Port.findByLongitude", query = "SELECT p FROM Port p WHERE p.longitude = :longitude"),
+    @NamedQuery(name = "Port.findByLatitude", query = "SELECT p FROM Port p WHERE p.latitude = :latitude")})
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.PropertyGenerator.class, 
+  property = "id")
 public class Port implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,8 +63,16 @@ public class Port implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "city")
     private String city;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "longitude")
+    private BigDecimal longitude;
+    @Column(name = "latitude")
+    private BigDecimal latitude;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "portsId")
+    @JsonManagedReference
     private Collection<Portphoto> portphotoCollection;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "portsId")
     private Collection<Boat> boatCollection;
 
@@ -95,7 +113,23 @@ public class Port implements Serializable {
         this.city = city;
     }
 
-    @XmlTransient
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+     @XmlTransient
     public Collection<Portphoto> getPortphotoCollection() {
         return portphotoCollection;
     }
@@ -112,7 +146,7 @@ public class Port implements Serializable {
     public void setBoatCollection(Collection<Boat> boatCollection) {
         this.boatCollection = boatCollection;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;

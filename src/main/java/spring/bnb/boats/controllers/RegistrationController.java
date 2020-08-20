@@ -39,7 +39,7 @@ public class RegistrationController {
     public String insertAccount(
             @ModelAttribute("newaccount") Account acc,
             @RequestParam("secondpass") String secondpass,
-            @RequestParam("profilepic") MultipartFile profilepic,
+            @RequestParam("profilePic") MultipartFile profilePic,
             ModelMap mm,
             RedirectAttributes redirectAttributes) {
 
@@ -62,7 +62,7 @@ public class RegistrationController {
                 //return "registration";
             }
             // Second way with RequestParam instead of ModelAttribute
-            acc.setProfilePic(profilepic.getBytes());
+            acc.setProfilePic(profilePic.getBytes());
 
             acc.setPassword(passwordEncoder.encode(secondpass));
             //need to set the role foreign key to 2 -> User 

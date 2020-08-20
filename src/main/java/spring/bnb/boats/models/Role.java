@@ -1,5 +1,8 @@
 package spring.bnb.boats.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -28,6 +31,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r"),
     @NamedQuery(name = "Role.findById", query = "SELECT r FROM Role r WHERE r.id = :id"),
     @NamedQuery(name = "Role.findByRoleName", query = "SELECT r FROM Role r WHERE r.roleName = :roleName")})
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,6 +48,7 @@ public class Role implements Serializable {
     @Column(name = "role_name")
     private String roleName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolesId")
+    @JsonBackReference
     private Collection<Account> accountCollection;
 
     public Role() {
@@ -105,5 +112,5 @@ public class Role implements Serializable {
     public String toString() {
         return "spring.bnb.boats.models.Role[ id=" + id + " ]";
     }
-    
+
 }
