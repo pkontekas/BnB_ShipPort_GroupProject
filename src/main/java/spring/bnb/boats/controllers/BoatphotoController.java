@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Boatphoto;
 import spring.bnb.boats.services.BoatphotoService;
 
@@ -28,7 +29,7 @@ public class BoatphotoController {
     public String uploadBoatphoto(@RequestParam(value = "boatphoto") MultipartFile multipart){
         Boatphoto boatphoto = new Boatphoto();
         boatphoto.setPhotoName(multipart.getOriginalFilename());
-        
+//        boatphoto.setBoatsId(new Boat(10));
         try {
             boatphoto.setPhoto(multipart.getBytes());
         } catch (IOException ex) {

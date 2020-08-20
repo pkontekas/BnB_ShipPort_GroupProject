@@ -41,12 +41,13 @@ public class BoatController {
     }
 
     @PostMapping("/doinsertboat")
-    public String insertBoat(@ModelAttribute("newboat") Boat boat, Principal principal) {
+    public String insertBoat(ModelMap mm,@ModelAttribute("newboat") Boat boat, Principal principal) {
         String accountEmail = principal.getName();
         Account account = accountService.getAccountByEmail(accountEmail);
         boat.setAccountsId(account);
         boatService.insertBoat(boat);
-        return "index";
+//        mm.addAttribute("boatid", boat.getId());
+        return "upload-photoboat";
     }
 
     @ModelAttribute("allports")

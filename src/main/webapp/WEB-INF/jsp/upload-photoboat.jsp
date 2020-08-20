@@ -14,6 +14,7 @@
     <body>
         <h1>Upload Boat photos</h1>
         <form enctype="multipart/form-data" action="/uploadphotoboat" method="POST">
+            
             <input type="file" name="boatphoto">
             <input type="submit">
         </form>
