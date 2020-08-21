@@ -7,7 +7,7 @@ public interface BoatService {
     
     public List<Boat> getAllBoats();
     
-    public void insertBoat(Boat boat);
+    public Boat insertBoat(Boat boat);
     
     public Boat getBoatById(int boatid);
 }

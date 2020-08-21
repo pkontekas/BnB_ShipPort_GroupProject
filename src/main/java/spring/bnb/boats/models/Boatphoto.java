@@ -51,7 +51,7 @@ public class Boatphoto implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "defaultphoto")
-    private short defaultphoto;
+    private boolean defaultphoto;
     @JoinColumn(name = "boats_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Boat boatsId;
@@ -63,7 +63,7 @@ public class Boatphoto implements Serializable {
         this.id = id;
     }
 
-    public Boatphoto(Integer id, String photoName, byte[] photo, short defaultphoto) {
+    public Boatphoto(Integer id, String photoName, byte[] photo, boolean defaultphoto) {
         this.id = id;
         this.photoName = photoName;
         this.photo = photo;
@@ -94,11 +94,11 @@ public class Boatphoto implements Serializable {
         this.photo = photo;
     }
 
-    public short getDefaultphoto() {
+    public boolean getDefaultphoto() {
         return defaultphoto;
     }
 
-    public void setDefaultphoto(short defaultphoto) {
+    public void setDefaultphoto(boolean defaultphoto) {
         this.defaultphoto = defaultphoto;
     }
 

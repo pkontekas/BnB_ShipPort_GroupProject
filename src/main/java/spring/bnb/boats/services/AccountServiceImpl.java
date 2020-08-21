@@ -12,33 +12,37 @@ import org.springframework.stereotype.Service;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Role;
 import spring.bnb.boats.repos.AccountRepo;
+import spring.bnb.boats.repos.RoleRepo;
 
 @Service
-public class AccountServiceImpl implements AccountService{
-    
+public class AccountServiceImpl implements AccountService {
+
     @Autowired
     AccountRepo accountRepo;
 
+    @Autowired
+    RoleRepo roleRepo;
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-       Account myuser = accountRepo.findByEmail(email);
-       if (myuser == null) {
+        Account myuser = accountRepo.findByEmail(email);
+        if (myuser == null) {
             throw new UsernameNotFoundException("Mail address not found!");
         }
-       User springSecurityUser = new User(myuser.getEmail(), myuser.getPassword(), mapRolesToAuthorities(myuser.getRolesId()));
-       return springSecurityUser;
+        User springSecurityUser = new User(myuser.getEmail(), myuser.getPassword(), mapRolesToAuthorities(myuser.getRolesId()));
+        return springSecurityUser;
     }
-    
+
     private List<SimpleGrantedAuthority> mapRolesToAuthorities(Role role) {
         List<SimpleGrantedAuthority> authorities = new ArrayList();
-        
+
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.getRoleName());
         authorities.add(authority);
-        
+
         return authorities;
     }
-    
-    @Transactional  
+
+    @Transactional
     @Override
     public void insertAccount(Account acc) {
         accountRepo.save(acc);
@@ -60,13 +64,19 @@ public class AccountServiceImpl implements AccountService{
 
     @Override
     public Account getAccountByEmail(String email) {
-       return accountRepo.findByEmail(email);
+        return accountRepo.findByEmail(email);
     }
-    
+
     @Transactional
     @Override
-    public void updateAccountRole(Integer accountId, Integer roleId) {
-        //TODO
+    public void updateAccountRoleToOwner(int accountId, int roleId) {
+        
+        Account myaccount = accountRepo.getOne(accountId);
+        Role myrole = roleRepo.getOne(roleId);
+        if (myaccount.getRolesId().getId() != 3) {
+            myaccount.setRolesId(myrole);
+            accountRepo.save(myaccount);
+        }
     }
 
 }

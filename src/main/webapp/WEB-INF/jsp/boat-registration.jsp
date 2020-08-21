@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group">
                             <label for="constructionYear">Construction Year</label>
-                            <springform:input type="text" path="constructionYear" cssClass="form-control" id="constructionYear" required="true" />
+                            <springform:input type="number" path="constructionYear" cssClass="form-control" id="constructionYear" required="true" />
                         </div>
                         <div class="form-group">
                             <label for="boatType">Boat Type</label>

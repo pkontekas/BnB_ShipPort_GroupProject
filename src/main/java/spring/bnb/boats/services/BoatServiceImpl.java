@@ -15,8 +15,8 @@ public class BoatServiceImpl implements BoatService {
 
     @Transactional
     @Override
-    public void insertBoat(Boat boat) {
-        boatRepo.save(boat);
+    public Boat insertBoat(Boat boat) {
+        return boatRepo.save(boat);
     }
 
     @Override

@@ -61,18 +61,18 @@ public class RegistrationController {
                 //must change this, TO DO must find a way to reshow the form with other inputs already filled in from before
                 //return "registration";
             }
-            // Second way with RequestParam instead of ModelAttribute
+            
             acc.setProfilePic(profilePic.getBytes());
-
             acc.setPassword(passwordEncoder.encode(secondpass));
-            //need to set the role foreign key to 2 -> User 
+            //need to set the role foreign key to 2 -> User Role
             acc.setRolesId(roleService.getRoleById(2));
 
             //if all is ok add the new user account to database
             accountService.insertAccount(acc);
-
+            //clearing password
+            acc.setPassword("");
             mm.addAttribute("account", acc);
-            return "index";
+            return "redirect:/login.html";
         } catch (Exception ex) {
             ex.printStackTrace();
             mm.addAttribute("kindoferror", ex.getMessage());

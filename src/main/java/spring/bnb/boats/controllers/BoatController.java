@@ -41,12 +41,17 @@ public class BoatController {
     }
 
     @PostMapping("/doinsertboat")
-    public String insertBoat(ModelMap mm,@ModelAttribute("newboat") Boat boat, Principal principal) {
+    public String insertBoat(ModelMap mm,
+            @ModelAttribute("newboat") Boat boat,
+            Principal principal) {
+        
         String accountEmail = principal.getName();
         Account account = accountService.getAccountByEmail(accountEmail);
         boat.setAccountsId(account);
-        boatService.insertBoat(boat);
-//        mm.addAttribute("boatid", boat.getId());
+        Boat myboat = boatService.insertBoat(boat);
+        mm.addAttribute("myboat", myboat.getId());
+        accountService.updateAccountRoleToOwner(account.getId(), 3);
+
         return "upload-photoboat";
     }
 
@@ -63,9 +68,10 @@ public class BoatController {
 
     @GetMapping("/showboatinfo") // TODO POST instead of GET -> error 405 method not allowed
     public String showBoatInfo(ModelMap mm, @RequestParam(name = "boatId") int id) {
+        
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
-        //use the port this boat is located to get the specific port photo
+        //using the port this boat is located to get the specific port photo
         //TO DO to only bring the photo from the correct Port that has defaultPhoto field = 1 or just leave 1 photo per port
 
         byte[] imageBeforeEncoding = Base64.encodeBase64(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());

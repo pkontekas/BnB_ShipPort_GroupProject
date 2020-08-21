@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats.controllers;
 
 import java.io.IOException;
@@ -11,25 +6,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Boatphoto;
+import spring.bnb.boats.services.BoatService;
 import spring.bnb.boats.services.BoatphotoService;
 
-/**
- *
- * @author mapan
- */
 @Controller
 public class BoatphotoController {
-    
+
     @Autowired
     BoatphotoService boatphotoService;
     
+    @Autowired
+    BoatService boatService;
+
     @PostMapping("/uploadphotoboat")
-    public String uploadBoatphoto(@RequestParam(value = "boatphoto") MultipartFile multipart){
+    public String uploadBoatphoto(@RequestParam(value = "photo") MultipartFile multipart,
+            @RequestParam(name = "boatid") int id) {
+        
         Boatphoto boatphoto = new Boatphoto();
         boatphoto.setPhotoName(multipart.getOriginalFilename());
-//        boatphoto.setBoatsId(new Boat(10));
+        
+        boatphoto.setBoatsId(boatService.getBoatById(id));
+        
+        boatphoto.setDefaultphoto(true);
         try {
             boatphoto.setPhoto(multipart.getBytes());
         } catch (IOException ex) {
