@@ -72,9 +72,8 @@ public class AccountServiceImpl implements AccountService {
     public void updateAccountRoleToOwner(int accountId, int roleId) {
         
         Account myaccount = accountRepo.getOne(accountId);
-        Role myrole = roleRepo.getOne(roleId);
-        if (myaccount.getRolesId().getId() != 3) {
-            myaccount.setRolesId(myrole);
+        if (roleId != 3) {
+            myaccount.setRolesId(roleRepo.getOne(3));
             accountRepo.save(myaccount);
         }
     }

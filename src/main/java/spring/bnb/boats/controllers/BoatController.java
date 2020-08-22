@@ -50,7 +50,7 @@ public class BoatController {
         boat.setAccountsId(account);
         Boat myboat = boatService.insertBoat(boat);
         mm.addAttribute("myboat", myboat);
-        accountService.updateAccountRoleToOwner(account.getId(), 3);
+        accountService.updateAccountRoleToOwner(account.getId(), account.getRolesId().getId());
 
         return "upload-photoboat";
     }
