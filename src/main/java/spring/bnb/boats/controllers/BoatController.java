@@ -49,7 +49,7 @@ public class BoatController {
         Account account = accountService.getAccountByEmail(accountEmail);
         boat.setAccountsId(account);
         Boat myboat = boatService.insertBoat(boat);
-        mm.addAttribute("myboat", myboat.getId());
+        mm.addAttribute("myboat", myboat);
         accountService.updateAccountRoleToOwner(account.getId(), 3);
 
         return "upload-photoboat";
