@@ -21,47 +21,59 @@
 
         <jsp:include page="navbar.jsp"/>
 
+
         <div class="form container"> 
             <springform:form action="doinsertaccount" method="POST" modelAttribute="newaccount" enctype="multipart/form-data">
                 <h1>User Registration</h1>
-                <div class="form-group col-16">
-                    <label for="nationality">Preferred Language</label>
-                    <springform:select type="text" path="nationality" cssClass="form-control">
-                        <springform:option selected="true" value="English">English</springform:option>
-                        <springform:option value="Greek">Greek</springform:option>
-                    </springform:select>
-                </div>
-                <div class="form-group col-16">
-                    <label for="name">First Name</label>
-                    <springform:input type="text" path="name" cssClass="form-control" id="name" required="true"/>
-                </div>
-                <div class="form-group col-16">
-                    <label for="surname">Last Name</label>
-                    <springform:input type="text" path="surname" cssClass="form-control" id="surname" required="true"/>
-                </div>
-                <div class="form-group col-16">
-                    <label for="cellphone">Cellphone Number</label>
-                    <springform:input type="number" path="cellphone" cssClass="form-control" id="cellphone"/>
-                </div>
-                <div class="form-group col-16">
-                    <springform:label path="profilePic">Upload Photo</springform:label>
-                    <input type="file" name="profilePic" class="form-control" id="profilePic" required="false"/>
-                </div>
-                <div class="form-group col-16">
-                    <label for="email">E-mail</label>
-                    <springform:input type="email" path="email" cssClass="form-control" id="email" required="true"/>
-                    <div class="invalid-feedback">please enter your E-mail</div>
-                </div>
-                <div class="form-group col-16">
-                    <label for="firstUserPass">Password</label>
-                    <springform:input type="password" path="password" cssClass="form-control" id="firstUserPass" required="true"/><br>
-                    <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" id="secondUserPass" required><br>
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                    <label class="form-check-label" for="exampleCheck1">Terms & Conditions</label>
-                </div>
-                <button type="Submit" value="Submit" class="btn btn-primary">Submit</button>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="name">First Name</label>
+                            <springform:input type="text" path="name" cssClass="form-control" id="name" pattern="[A-Za-z]+" required="true"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="cellphone">Cellphone Number</label>
+                            <springform:input type="number" path="cellphone" min="0" cssClass="form-control" id="cellphone"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="nationality">Preferred Language</label>
+                            <springform:select type="text" path="nationality" cssClass="form-control">
+                                <springform:option selected="true" value="English">English</springform:option>
+                                <springform:option value="Greek">Greek</springform:option>
+                            </springform:select>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstUserPass">Password</label>
+                            <springform:input type="password" path="password" cssClass="form-control" id="firstUserPass" required="true"/><br>
+                            
+                        </div>
+
+
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="surname">Last Name</label>
+                            <springform:input type="text" path="surname" cssClass="form-control" id="surname" pattern="[A-Za-z]+" required="true"/>
+                        </div> 
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <springform:input type="email" path="email" cssClass="form-control" id="email" required="true"/>
+                        </div>
+                        <div class="form-group">
+                            <springform:label path="profilePic">Upload Photo</springform:label>
+                                <input type="file" name="profilePic" class="form-control" id="profilePic" required="false"/>
+                            </div>
+                                <div class="form-group">
+                                    <label for=""> &nbsp; </label>
+                                    <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" id="secondUserPass" required><br>
+                                </div>  
+                        </div> 
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                        <label class="form-check-label" for="exampleCheck1">Terms & Conditions</label>
+                    </div>
+                    <button type="Submit" value="Submit" class="btn btn-primary">Submit</button>
 
             </springform:form>
         </div>

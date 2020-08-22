@@ -18,7 +18,9 @@
     </head>
 
     <style>
+       
         .navbar {
+            padding: 20px;
             background-color :#3282B8 ;
             color: white;
         }
