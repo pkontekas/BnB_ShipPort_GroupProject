@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
         <title>Show all boats</title>
         <style>
             .pTitle {
@@ -33,14 +32,12 @@
                 height: 300px;
                 width: 300px;
                 background-color: white;
-
                 overflow: hidden;
             }
 
             .checked {
                 color: gold;
             }
-
 
             .card-title {
                 color: #0f4c75
@@ -80,9 +77,7 @@
                 color: white;
                 font-size: 25px;
                 align-items: center;
-                justify-items: center;
                 display: flex;
-
 
             }
 
@@ -112,30 +107,28 @@
                 margin-left: 0;
             }
         </style>
+
     </head>
+
     <body>
 
         <jsp:include page="navbar.jsp"/>
 
         <div class="searchForm row">
-
             <div class="col-xs">
-
                 <div class="borderForm">
                     <h1>Search</h1>
                     <form>
-
                         <div class="form-group">
                             <label for="destination">Where would you like to go?</label>
-                            <input type="text" name="destination" class="form-control" id="" placeholder="Port,City" required="true" pattern="[A-Za-z]+"
+                            <input type="text" name="destination" class="form-control" placeholder="Port, City" required="true" pattern="[A-Za-z]+"
                                    >
                             <div class="invalid-feedback">please choose destination <br> <small>alphabetic characters</small>  </div>
                         </div>
                         <div class="form-group">
                             <label for="duration">Duration</label>
-                            <select name="duration" id="duration" required="true" class="form-control">
+                            <select name="duration" id="destduration" required="true" class="form-control">
                                 <option value="" selected disabled hidden>Any</option>
-                                <option value="0half">half day</option>
                                 <option value="1day">1 day</option>
                                 <option value="2days">2 days</option>
                                 <option value="3days">3 days</option>
@@ -143,7 +136,7 @@
                                 <option value="5days">5 days</option>
                                 <option value="6days">6 days</option>
                                 <option value="week">1 week</option>
-                                <option value="8days">8 day</option>
+                                <option value="8days">8 days</option>
                                 <option value="9days">9 days</option>
                                 <option value="10days">10 days</option>
                                 <option value="11days">11 days</option>
@@ -151,18 +144,17 @@
                                 <option value="13days">13 days</option>
                                 <option value="14days">14 days</option>
                                 <option value="15days">15 days</option>
-                                <option value="2week">2 week</option>
+                                <option value="2week">2 weeks</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="startDate">Start date</label>
-                            <input type="date" class="form-control" id="startDate" required aria-describedby="">
-
+                            <input type="date" class="form-control" id="deststartDate" required>
                         </div>
                         <div class="form-group">
-                            <label for="typeBoat">Type boat</label>
-                            <select name="typeBoat" id="typeBoat"  class="form-control">
+                            <label for="typeBoat">Boat Type</label>
+                            <select name="typeBoat" id="desttypeBoat" class="form-control">
                                 <option value="" selected disabled hidden></option>
                                 <option value="yacht">Yacht</option>
                                 <option value="catamaran">Catamaran</option>
@@ -172,7 +164,7 @@
                         </div>
                         <div class="form-group">
                             <label for="length">Length</label>
-                            <select name="length" id="length"  class="form-control">
+                            <select name="length" id="destlength" class="form-control">
                                 <option value="" selected disabled hidden></option>
                                 <option value="any">Any</option>
                                 <option value="0-6m">until 20ft/0-6m </option>
@@ -184,8 +176,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="numPassenger">Number of passenger</label>
-                            <select name="numPassenger" id="numPassenger" class="form-control">
+                            <label for="numPassenger">Number of passengers</label>
+                            <select name="numPassenger" id="destnumPassenger" class="form-control">
                                 <option value="" selected disabled hidden></option>
                                 <option value="1person">1 person</option>
                                 <option value="2persons">2 persons</option>
@@ -202,9 +194,9 @@
                         </div>
                         <div class="form-group">
                             <label for="priceRange">Price range per day</label>
-                            <select name="priceRange" id="priceRange" class="form-control">
+                            <select name="priceRange" id="destpriceRange" class="form-control">
                                 <option value="" selected disabled hidden></option>
-                                <option value="1price">0-500 &euro;</option>
+                                <option value="1price">0 - 500 &euro;</option>
                                 <option value="2price">500 &euro; - 1000 &euro;</option>
                                 <option value="3price">1000 &euro; - 1500 &euro;</option>
                                 <option value="4price">1500 &euro; - 2000 &euro;</option>
@@ -215,17 +207,17 @@
                         </div>
                         <div class="form-group">
                             <label for="sortBy">Sort by</label>
-                            <select name="sortBy" id="sortBy" class="form-control">
+                            <select name="sortBy" id="destsortBy" class="form-control">
                                 <option value="" selected disabled hidden></option>
-                                <option value="lowToHigh">Highest price</option>
-                                <option value="highToLow">Lowest Price</option>
-                                <option value="smallToBig">Biggest</option>
-                                <option value="bigToSmall">smallest</option>
+                                <option value="popular">Popular</option>
+                                <option value="HighToLow">Highest Price</option>
+                                <option value="LowToHigh">Lowest Price</option>
+                                <option value="BigToSmall">Biggest</option>
+                                <option value="SmallToBig">Smallest</option>
                             </select>
                         </div>
-                        <button type="submit" class="searchBtn btn-primary"><i class="fa fa-search"></i>&nbsp;
+                        <button type="Submit" class="searchBtn btn-primary"><i class="fa fa-search"></i>&nbsp;
                             Search &nbsp;</button>
-
                     </form>
                 </div>
             </div>
@@ -235,12 +227,13 @@
                     <div class="pTitle">
                         <h1>Rental boats</h1>
                     </div>
+
                     <c:forEach items="${allboats}" var="b">
 
                         <div class="card">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img src="image/yacht.jpg" class="card-img" alt="">
+                                    <img src="image/yacht.jpg" class="card-img" alt="alt_Boat">
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="card-body">
@@ -275,7 +268,6 @@
                                         <div>
                                             <i class="position fa fa-map-marker"><strong> Port: </strong>${b.portsId.portName}</i>
                                         </div>
-
                                         <div class="cardFooter row">
                                             <div class="col-sm-10">
                                                 <p class="price">Price ${b.currentPrice} Euro/day</p>
@@ -289,17 +281,14 @@
 
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </c:forEach>
                 </div>
             </div>
         </div>   
-
 
         <jsp:include page="footer.jsp"/>
 

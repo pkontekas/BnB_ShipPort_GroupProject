@@ -44,7 +44,7 @@ public class BoatController {
     public String insertBoat(ModelMap mm,
             @ModelAttribute("newboat") Boat boat,
             Principal principal) {
-        
+
         String accountEmail = principal.getName();
         Account account = accountService.getAccountByEmail(accountEmail);
         boat.setAccountsId(account);
@@ -68,7 +68,7 @@ public class BoatController {
 
     @GetMapping("/showboatinfo") // TODO POST instead of GET -> error 405 method not allowed
     public String showBoatInfo(ModelMap mm, @RequestParam(name = "boatId") int id) {
-        
+
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
         //using the port this boat is located to get the specific port photo
