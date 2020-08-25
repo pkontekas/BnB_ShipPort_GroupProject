@@ -9,50 +9,315 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
         <title>Show all boats</title>
+        <style>
+            .pTitle {
+                text-align: center;
+            }
+
+            .view {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .card-img {
+                height: 300px;
+                width: 300px;
+                background-color: white;
+
+                overflow: hidden;
+            }
+
+            .checked {
+                color: gold;
+            }
+
+
+            .card-title {
+                color: #0f4c75
+            }
+
+            .description {
+                margin-top: 10px;
+                color: #3282b8;
+            }
+
+            .position {
+                color: #3282b8;
+            }
+
+            label {
+                width: 100%;
+            }
+
+            .toolTip {
+                color: black;
+                background-color: lightgreen;
+                border: 1px solid;
+                border-radius: 10px;
+            }
+
+            .city {
+                margin-top: 5px;
+            }
+
+            .cardFooter {
+                background-color: #0a9ab5;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .price {
+                color: white;
+                font-size: 25px;
+                align-items: center;
+                justify-items: center;
+                display: flex;
+
+
+            }
+
+            .viewBtn {
+
+                color: white;
+                justify-content: flex-end;
+                display: flex;
+                align-items: center;
+                margin-top: 10px;
+
+            }
+
+            .borderForm {
+                padding-top: 10px;
+                border: 2px solid #0a9ab5;
+                width: 300px;
+                margin-left: 170px;
+                margin-top: 60px;
+                padding: 15px;
+                background-color: #0a9ab5;
+                color: white;
+                font-size: 15px;
+            }
+
+            .boat {
+                margin-left: 0;
+            }
+        </style>
     </head>
     <body>
 
         <jsp:include page="navbar.jsp"/>
 
-        <h1>Show all boats</h1>
-        <%-- "JSTL for each" to show specific boat information we want in the page, for each Boat, 
-        also added a button for "view boat" that takes user to boat-info carrying the boat id --%>
-        <c:forEach items="${allboats}" var="b">
-        <tr>
-            <td>Manufacturer: ${b.manufacturer}</td><br>
-        <td>Model: ${b.model}</td><br>
-        <td>Year: ${b.constructionYear}</td><br>
-        <td>Type: ${b.boatType}</td><br>
-        <td>Length: ${b.boatLength} feet</td><br>
-        <td>Fuel Type: ${b.fuel}</td><br>
-        <td>Cruise Speed: ${b.cruiseSpeed} knots</td><br>
-        <td>Price: ${b.currentPrice}</td><br>
-        <td>Port: ${b.portsId.portName}</td><br>
-        <td>City: ${b.portsId.city}</td><br>   
-        <td>
-            <form action="showboatinfo" method="GET">
-                <input type="hidden" name="boatId" value="${b.id}">
-                <button type="Submit">View Boat</button>
-            </form>
-        </td>
-    </tr>
-</c:forEach>
+        <div class="searchForm row">
 
-<jsp:include page="footer.jsp"/>
+            <div class="col-xs">
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-crossorigin="anonymous"></script>
+                <div class="borderForm">
+                    <h1>Search</h1>
+                    <form>
 
-</body>
+                        <div class="form-group">
+                            <label for="destination">Where would you like to go?</label>
+                            <input type="text" name="destination" class="form-control" id="" placeholder="Port,City" required="true" pattern="[A-Za-z]+"
+                                   >
+                            <div class="invalid-feedback">please choose destination <br> <small>alphabetic characters</small>  </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">Duration</label>
+                            <select name="duration" id="duration" required="true" class="form-control">
+                                <option value="" selected disabled hidden>Any</option>
+                                <option value="0half">half day</option>
+                                <option value="1day">1 day</option>
+                                <option value="2days">2 days</option>
+                                <option value="3days">3 days</option>
+                                <option value="4days">4 days</option>
+                                <option value="5days">5 days</option>
+                                <option value="6days">6 days</option>
+                                <option value="week">1 week</option>
+                                <option value="8days">8 day</option>
+                                <option value="9days">9 days</option>
+                                <option value="10days">10 days</option>
+                                <option value="11days">11 days</option>
+                                <option value="12days">12 days</option>
+                                <option value="13days">13 days</option>
+                                <option value="14days">14 days</option>
+                                <option value="15days">15 days</option>
+                                <option value="2week">2 week</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startDate">Start date</label>
+                            <input type="date" class="form-control" id="startDate" required aria-describedby="">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="typeBoat">Type boat</label>
+                            <select name="typeBoat" id="typeBoat"  class="form-control">
+                                <option value="" selected disabled hidden></option>
+                                <option value="yacht">Yacht</option>
+                                <option value="catamaran">Catamaran</option>
+                                <option value="motorBoat">Motor boat</option>
+                                <option value="ribBoat">Rib boat</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="length">Length</label>
+                            <select name="length" id="length"  class="form-control">
+                                <option value="" selected disabled hidden></option>
+                                <option value="any">Any</option>
+                                <option value="0-6m">until 20ft/0-6m </option>
+                                <option value="6-8m">20-26ft/6-8m</option>
+                                <option value="8-10m">26-32ft/8-10m</option>
+                                <option value="10-12m">32-40ft/10-12m</option>
+                                <option value="12-15m">40-50ft/12-15m</option>
+                                <option value="up14m">up to 50ft/15m</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="numPassenger">Number of passenger</label>
+                            <select name="numPassenger" id="numPassenger" class="form-control">
+                                <option value="" selected disabled hidden></option>
+                                <option value="1person">1 person</option>
+                                <option value="2persons">2 persons</option>
+                                <option value="3persons">3 persons</option>
+                                <option value="4persons">4 persons</option>
+                                <option value="5persons">5 persons</option>
+                                <option value="6persons">6 persons</option>
+                                <option value="7persons">1 persons</option>
+                                <option value="8persons">8 persons</option>
+                                <option value="9persons">9 persons</option>
+                                <option value="10persons">10 persons</option>
+                                <option value="upTo10">up to 10 persons</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="priceRange">Price range per day</label>
+                            <select name="priceRange" id="priceRange" class="form-control">
+                                <option value="" selected disabled hidden></option>
+                                <option value="1price">0-500 &euro;</option>
+                                <option value="2price">500 &euro; - 1000 &euro;</option>
+                                <option value="3price">1000 &euro; - 1500 &euro;</option>
+                                <option value="4price">1500 &euro; - 2000 &euro;</option>
+                                <option value="5price">2000 &euro; - 2500 &euro;</option>
+                                <option value="6price">2500 &euro; - 3000 &euro;</option>
+                                <option value="upTo10">up to 3000 &euro; </option> 
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sortBy">Sort by</label>
+                            <select name="sortBy" id="sortBy" class="form-control">
+                                <option value="" selected disabled hidden></option>
+                                <option value="lowToHigh">Highest price</option>
+                                <option value="highToLow">Lowest Price</option>
+                                <option value="smallToBig">Biggest</option>
+                                <option value="bigToSmall">smallest</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="searchBtn btn-primary"><i class="fa fa-search"></i>&nbsp;
+                            Search &nbsp;</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="boat col-sm-8">
+                <div class="boats">
+                    <div class="pTitle">
+                        <h1>Rental boats</h1>
+                    </div>
+                    <c:forEach items="${allboats}" var="b">
+
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img src="image/yacht.jpg" class="card-img" alt="">
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="card-body">
+                                        <div>
+                                            <h2 class="card-title">${b.manufacturer}  ${b.model}</h2>
+                                        </div>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+
+                                            &nbsp; <a class="toolTip" href="#" title="The owner offers free cancellation
+                                                      up to 15 days before check-in.">&nbsp; Flexible cancellation or change! &nbsp; </a>
+                                        </div>
+                                        <div class="description">
+                                            <p><small class="description">${b.boatType} boat model ${b.constructionYear} Length <i
+                                                        class="fa fa-arrow-left"></i><i class="fa fa-arrow-right"></i> ${b.boatLength}
+                                                    feet </small></p>
+                                        </div>
+                                        <div class="icons">
+                                            <small class="text-muted"><i class="fa fa-users"></i> ${b.passengerCapacity} people</small> &nbsp;
+                                            &nbsp;<small class="text-muted"><i class="fa fa-bed"></i> 6 bed</small> &nbsp;
+                                            &nbsp;<small class="text-muted"><i class="fa fa-bath"></i> 2 bath</small>&nbsp;
+                                            &nbsp;<small class="text-muted"><i class="fa fa-tachometer"></i> ${b.cruiseSpeed} knots</small> &nbsp;
+                                            &nbsp;<small class="text-muted"><i class="fa fa-fire"></i> ${b.fuel}</small>
+                                        </div>
+                                        <div class="city">
+                                            <p><strong>City: </strong> ${b.portsId.city}</p>
+                                        </div>
+                                        <div>
+                                            <i class="position fa fa-map-marker"><strong> Port: </strong>${b.portsId.portName}</i>
+                                        </div>
+
+                                        <div class="cardFooter row">
+                                            <div class="col-sm-10">
+                                                <p class="price">Price ${b.currentPrice} Euro/day</p>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <form action="showboatinfo" method="GET">
+                                                    <input type="hidden" name="boatId" value="${b.id}">
+                                                    <button type="Submit" class="viewBtn btn-primary"><i
+                                                            class="fa fa-search"></i>&nbsp; View &nbsp;</button>
+                                                </form>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </c:forEach>
+                </div>
+            </div>
+        </div>   
+
+
+        <jsp:include page="footer.jsp"/>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $(document).tooltip();
+            });
+        </script>
+    </body>
 </html>

@@ -29,10 +29,10 @@
             }
 
             .myVideo {
-
+background-color: whitesmoke;
                 display: flex;
                 justify-content: center;
-
+                overflow: hidden;
 
             }
 
@@ -91,10 +91,13 @@
             }
 
             .popularPort {
+                background-color: whitesmoke;
                 text-align: center;
                 color: #0f4c75;
                 margin-bottom: 30px;
                 margin-top: 30px;
+                padding-bottom: 30px;
+                padding-top: 20px;
             }
 
             .port {
@@ -103,7 +106,7 @@
             }
 
             .romantic {
-                margin-bottom: 0;
+                margin-bottom: 0px;
                 background-color: white;
                 padding-left: 350px;
 
@@ -128,48 +131,49 @@
     <body>
 
         <jsp:include page="navbar.jsp"/>
-
-        <div class="firstMessage jumbotron jumbotron-fluid">
+        <div class="firstMessage"
+             <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-5">Welcome to BoatBnB</h1>
                 <p class="lead">Discover and live the experience...</p>
             </div>
         </div>
+    </div>
 
-        <div class="myVideo">
-            <video autoplay muted loop>
-                <source src="image/untitled.mp4" type="video/mp4">
-            </video>
+    <div class="myVideo">
+        <video autoplay muted loop>
+            <source src="image/untitled.mp4" type="video/mp4">
+        </video>
 
-        </div>
+    </div>
 
-        <div class="searchPosition container">
-            <div class="search">
-                <form>
-                    <div class="form-row">
-                        <div class="col-4">
-                            <label for="">Where would you like to go?</label>
-                            <input type="text" class="form-control" placeholder="Port,Town">
-                        </div>
-                        <div class="col-3">
-                            <label for="">Duration</label>
-                            <input type="text" min="0" class="form-control" placeholder="Any">
-                        </div>
-                        <div class="col-3">
-                            <label for="">Start Date</label>
-                            <input type="date" class="form-control" placeholder="Start Date">
-                        </div>
-                        <div class="col-2">
-                            <label for="">&nbsp;</label>
-                            <button type="button" class="btn btn-primary form-control"><i class="fa fa-search"></i>&nbsp;
-                                Search</button>
-                        </div>
+    <div class="searchPosition container">
+        <div class="search">
+            <form>
+                <div class="form-row">
+                    <div class="col-4">
+                        <label for="">Where would you like to go?</label>
+                        <input type="text" class="form-control" placeholder="Port,Town">
                     </div>
-                </form>
-            </div>
+                    <div class="col-3">
+                        <label for="">Duration</label>
+                        <input type="text" min="0" class="form-control" placeholder="Any">
+                    </div>
+                    <div class="col-3">
+                        <label for="">Start Date</label>
+                        <input type="date" class="form-control" placeholder="Start Date">
+                    </div>
+                    <div class="col-2">
+                        <label for="">&nbsp;</label>
+                        <button type="button" class="btn btn-primary form-control"><i class="fa fa-search"></i>&nbsp;
+                            Search</button>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <div class="popularBoat jumbotron jumbotron-fluid">
+    </div>
+    <div class="popularBoat">
+        <div class="jumbotron-fluid">
             <div class="container">
                 <h1 class=" headerBoat display">The ideal boat for you</h1>
 
@@ -198,61 +202,62 @@
             </div>
 
         </div>
+    </div>
+<div class="popularPort">
+    <h1> Popular destinations</h1>
+    <div class="port row">
+        <div class="col-sm-3">
 
+            <a href="">
+                <h5 class="tPort">Piraeus</h5><img class="img" src="image/piraeusPort.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-sm-3">
 
-        <h1 class="popularPort">Popular destinations</h1>
-        <div class="port row">
-            <div class="col-sm-3">
+            <a href="">
+                <h5 class="tPort">Paros</h5><img class="img" src="image/parosPort.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-sm-3">
 
-                <a href="">
-                    <h5 class="tPort">Piraeus</h5><img class="img" src="image/piraeusPort.jpg" alt="">
-                </a>
+            <a href="">
+                <h5 class="tPort">Mykonos</h5> <img class="img" src="image/mykonosPort.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-sm-3">
+
+            <a href="">
+                <h5 class="tPort">Heraklion</h5><img class="img" src="image/heraklionPort.jpg" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+    <div class="romantic  jumbotron-fluid">
+        <div class="row">
+
+            <div class="col-sm-3 ">
+                <img id="sunsetBoat" src="image/sunsetonboat.jpg" alt="">
             </div>
-            <div class="col-sm-3">
 
-                <a href="">
-                    <h5 class="tPort">Paros</h5><img class="img" src="image/parosPort.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-sm-3">
-
-                <a href="">
-                    <h5 class="tPort">Mykonos</h5> <img class="img" src="image/mykonosPort.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-sm-3">
-
-                <a href="">
-                    <h5 class="tPort">Heraklion</h5><img class="img" src="image/heraklionPort.jpg" alt="">
-                </a>
+            <div class="romanticMessage col-sm-4">
+                <h1 class="display-6">Discover the world</h1>
+                <p class="lead">And live the moment . .
+                </p>
             </div>
         </div>
-        <div class="romantic jumbotron jumbotron-fluid">
-            <div class="row">
+    </div>
 
-                <div class="col-sm-3 ">
-                    <img id="sunsetBoat" src="image/sunsetonboat.jpg" alt="">
-                </div>
+    <jsp:include page="footer.jsp"/>
 
-                <div class="romanticMessage col-sm-4">
-                    <h1 class="display-6">Discover the world</h1>
-                    <p class="lead">And live the moment . .
-                    </p>
-                </div>
-            </div>
-        </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
 
-        <jsp:include page="footer.jsp"/>
-
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-
-    </body>
+</body>
 </html>

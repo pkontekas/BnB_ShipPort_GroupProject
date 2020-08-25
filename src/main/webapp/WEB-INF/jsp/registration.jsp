@@ -23,13 +23,14 @@
 
 
         <div class="form container"> 
-            <springform:form action="doinsertaccount" method="POST" modelAttribute="newaccount" enctype="multipart/form-data">
+            <springform:form cssClass="main-form needs-validation" novalidate="true" action="doinsertaccount" method="POST" modelAttribute="newaccount" enctype="multipart/form-data">
                 <h1>User Registration</h1>
                 <div class="row">
                     <div class="col-sm">
                         <div class="form-group">
-                            <label for="name">First Name</label>
+                            <label for="name">First Name<small class="text-muted"> (required)</small></label>
                             <springform:input type="text" path="name" cssClass="form-control" id="name" pattern="[A-Za-z]+" required="true"/>
+                        <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div>
                         <div class="form-group">
                             <label for="cellphone">Cellphone Number</label>
@@ -37,31 +38,33 @@
                         </div>
                         <div class="form-group">
                             <label for="nationality">Preferred Language</label>
-                            <springform:select type="text" path="nationality" cssClass="form-control">
-                                <springform:option selected="true" value="English">English</springform:option>
+                            <springform:select type="text" required="true" path="nationality" cssClass="form-control">
+                                <springform:option selected="true"  value="English">English</springform:option>
                                 <springform:option value="Greek">Greek</springform:option>
                             </springform:select>
                         </div>
                         <div class="form-group">
-                            <label for="firstUserPass">Password</label>
-                            <springform:input type="password" path="password" cssClass="form-control" id="firstUserPass" required="true"/><br>
-                            
+                            <label for="firstUserPass">Password<small class="text-muted"> (required)</small></label>
+                            <springform:input type="password" path="password" cssClass="form-control" id="firstUserPass" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required="true"/>
+                            <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
                         </div>
 
 
                     </div>
                     <div class="col-sm">
                         <div class="form-group">
-                            <label for="surname">Last Name</label>
+                            <label for="surname">Last Name<small class="text-muted"> (required)</small></label>
                             <springform:input type="text" path="surname" cssClass="form-control" id="surname" pattern="[A-Za-z]+" required="true"/>
+                       <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div> 
                         <div class="form-group">
-                            <label for="email">E-mail</label>
+                            <label for="email">E-mail<small class="text-muted"> (required)</small></label>
                             <springform:input type="email" path="email" cssClass="form-control" id="email" required="true"/>
+                        <div class="invalid-feedback">Email format required</div>
                         </div>
                         <div class="form-group">
                             <springform:label path="profilePic">Upload Photo</springform:label>
-                                <input type="file" name="profilePic" class="form-control" id="profilePic" required="false"/>
+                                <input type="file" name="profilePic" class="form-control" id="profilePic"/>
                             </div>
                                 <div class="form-group">
                                     <label for=""> &nbsp; </label>
@@ -74,7 +77,16 @@
                         <label class="form-check-label" for="exampleCheck1">Terms & Conditions</label>
                     </div>
                     <button type="Submit" value="Submit" class="btn btn-primary">Submit</button>
-
+  <script>
+                var form = document.querySelector('.needs-validation');
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                })
+            </script>
             </springform:form>
         </div>
 
