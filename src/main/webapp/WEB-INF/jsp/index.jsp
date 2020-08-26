@@ -25,11 +25,11 @@
                 width: 250px;
                 display: flex;
                 justify-content: center;
-
+                
             }
 
             .myVideo {
-background-color: whitesmoke;
+                background-color: whitesmoke;
                 display: flex;
                 justify-content: center;
                 overflow: hidden;
@@ -106,9 +106,9 @@ background-color: whitesmoke;
             }
 
             .romantic {
-                margin-bottom: 0px;
+                margin-bottom: 20px;
                 background-color: white;
-                padding-left: 350px;
+                margin-left: 350px;
 
             }
 
@@ -172,6 +172,7 @@ background-color: whitesmoke;
             </form>
         </div>
     </div>
+    <div class="container-fluid">
     <div class="popularBoat">
         <div class="jumbotron-fluid">
             <div class="container">
@@ -203,35 +204,35 @@ background-color: whitesmoke;
 
         </div>
     </div>
-<div class="popularPort">
-    <h1> Popular destinations</h1>
-    <div class="port row">
-        <div class="col-sm-3">
+    <div class="popularPort">
+        <h1> Popular destinations</h1>
+        <div class="port row">
+            <div class="col-sm-3">
 
-            <a href="">
-                <h5 class="tPort">Piraeus</h5><img class="img" src="image/piraeusPort.jpg" alt="">
-            </a>
-        </div>
-        <div class="col-sm-3">
+                <a href="">
+                    <h5 class="tPort">Piraeus</h5><img class="img" src="image/piraeusPort.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-sm-3">
 
-            <a href="">
-                <h5 class="tPort">Paros</h5><img class="img" src="image/parosPort.jpg" alt="">
-            </a>
-        </div>
-        <div class="col-sm-3">
+                <a href="">
+                    <h5 class="tPort">Paros</h5><img class="img" src="image/parosPort.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-sm-3">
 
-            <a href="">
-                <h5 class="tPort">Mykonos</h5> <img class="img" src="image/mykonosPort.jpg" alt="">
-            </a>
-        </div>
-        <div class="col-sm-3">
+                <a href="">
+                    <h5 class="tPort">Mykonos</h5> <img class="img" src="image/mykonosPort.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-sm-3">
 
-            <a href="">
-                <h5 class="tPort">Heraklion</h5><img class="img" src="image/heraklionPort.jpg" alt="">
-            </a>
+                <a href="">
+                    <h5 class="tPort">Heraklion</h5><img class="img" src="image/heraklionPort.jpg" alt="">
+                </a>
+            </div>
         </div>
     </div>
-</div>
     <div class="romantic  jumbotron-fluid">
         <div class="row">
 
@@ -246,7 +247,7 @@ background-color: whitesmoke;
             </div>
         </div>
     </div>
-
+</div>
     <jsp:include page="footer.jsp"/>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
