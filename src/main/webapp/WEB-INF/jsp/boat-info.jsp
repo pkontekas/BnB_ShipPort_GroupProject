@@ -103,7 +103,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
         <script src="/js/chat.js"></script>
-        <script src="https://www.paypal.com/sdk/js?client-id=AbER9XUd9t2fAyfQIqhlGTn9_ngBsoyaKoz7KGFUAwrz1eHuFahHGg4ONsX2CX7gv4msztOj_5y1JJ9i">
+        <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih">
             // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
         <script src="/js/paypal.js"></script>
     </body>

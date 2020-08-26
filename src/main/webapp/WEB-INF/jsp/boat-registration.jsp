@@ -17,11 +17,12 @@
 
     </head>
     <body>
-        <security:authorize access="isAuthenticated()">
-            authenticated as <security:authentication property="principal.username" /> 
-        </security:authorize>
 
         <jsp:include page="navbar.jsp"/>
+
+        <security:authorize access="isAuthenticated()">
+            <br> authenticated as <security:authentication property="principal.username" /> 
+        </security:authorize>
 
         <div class="form container">
             <springform:form action="doinsertboat" method="POST" modelAttribute="newboat">
