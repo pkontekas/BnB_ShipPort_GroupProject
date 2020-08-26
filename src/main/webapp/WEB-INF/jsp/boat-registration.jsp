@@ -32,57 +32,61 @@
                     <div class="col-sm">
                         <div class="form-group">
                             <label for="manufacturer">Manufacturer</label>
-                            <springform:input type="text" path="manufacturer" id="manufacturer" cssClass="form-control" required="true" />
+                            <springform:input type="text" path="manufacturer" id="manufacturer" cssClass="form-control" required="true"/>
                         </div>
                         <div class="form-group">
                             <label for="model">Model</label>
-                            <springform:input type="text" path="model" cssClass="form-control" id="model" required="true" />
+                            <springform:input type="text" path="model" cssClass="form-control" id="model" required="true"/>
                         </div>
                         <div class="form-group">
                             <label for="constructionYear">Construction Year</label>
-                            <springform:input type="number" path="constructionYear" cssClass="form-control" id="constructionYear" required="true" />
+                            <springform:input type="number" path="constructionYear" cssClass="form-control" id="constructionYear" required="true" min="1900" max="2020"/>
                         </div>
                         <div class="form-group">
                             <label for="boatType">Boat Type</label>
-                            <springform:input type="text" path="boatType" cssClass="form-control" id="boatType" required="true" />
+                            <springform:input type="text" path="boatType" cssClass="form-control" id="boatType" required="true"/>
                         </div>
                         <div class="form-group">
                             <label for="boatLength">Length (ft)</label>
-                            <springform:input type="number" path="boatLength" cssClass="form-control" id="boatLength" required="true" />
+                            <springform:input type="number" path="boatLength" cssClass="form-control" id="boatLength" required="true" min="2"/>
                         </div>
                         <div class="form-group">
                             <label for="passengerCapacity">Passenger Capacity</label>
-                            <springform:input type="number" path="passengerCapacity" cssClass="form-control" id="passengerCapacity" required="true" />
+                            <springform:input type="number" path="passengerCapacity" cssClass="form-control" id="passengerCapacity" required="true" min="0" max="50"/>
+                        </div>
+                                                <div class="form-group">
+                            <label for="beds">Beds</label>
+                            <springform:input type="number" path="beds" cssClass="form-control" id="beds" required="true" min="0" max="20"/>
                         </div>
                         <label for="portsId">Port:</label>
                         <springform:select path="portsId" required="true">
-                            <springform:options items="${allports}" itemLabel="portName" itemValue="id" />
+                            <springform:options items="${allports}" itemLabel="portName" itemValue="id"/>
                         </springform:select>
                     </div>
                     <div class="col-sm">
                         <div class="form-group">
                             <label for="enginePower">Engine Power</label>
-                            <springform:input type="text" path="enginePower" cssClass="form-control" id="enginePower" required="true" />
+                            <springform:input type="text" path="enginePower" cssClass="form-control" id="enginePower" required="true" min="10"/>
                         </div>
                         <div class="form-group">
                             <label for="fuel">Fuel Type</label>
-                            <springform:input type="text" path="fuel" cssClass="form-control" id="fuel" required="true" />
+                            <springform:input type="text" path="fuel" cssClass="form-control" id="fuel" required="true"/>
                         </div>
                         <div class="form-group">
-                            <label for="fuelTankCapacity">Fuel Tank Capacity</label>
-                            <springform:input type="number" path="fuelTankCapacity" cssClass="form-control" id="fuelTankCapacity" required="true" />
+                            <label for="fuelTankCapacity">Fuel Tank Capacity (gal)</label>
+                            <springform:input type="number" path="fuelTankCapacity" cssClass="form-control" id="fuelTankCapacity" required="true" min="50"/>
                         </div>
                         <div class="form-group">
                             <label for="cruiseSpeed">Cruise Speed (knots)</label>
-                            <springform:input type="number" path="cruiseSpeed" cssClass="form-control" id="cruiseSpeed" required="true" />
+                            <springform:input type="number" path="cruiseSpeed" cssClass="form-control" id="cruiseSpeed" required="true" min="0"/>
                         </div>
                         <div class="form-group">
                             <label for="maxSpeed">Max Speed (knots)</label>
-                            <springform:input type="number" path="maxSpeed" cssClass="form-control" id="maxSpeed" required="true" />
+                            <springform:input type="number" path="maxSpeed" cssClass="form-control" id="maxSpeed" required="true" min="0"/>
                         </div>
                         <div class="form-group">
                             <label for="currentPrice">Current Price (Euro)</label>
-                            <springform:input type="number" path="currentPrice" cssClass="form-control" id="currentPrice" required="true" />
+                            <springform:input type="number" path="currentPrice" cssClass="form-control" id="currentPrice" required="true" min="50"/>
                         </div>
                     </div>
                 </div>

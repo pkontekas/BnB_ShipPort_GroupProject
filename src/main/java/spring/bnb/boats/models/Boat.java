@@ -39,6 +39,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Boat.findByBoatType", query = "SELECT b FROM Boat b WHERE b.boatType = :boatType"),
     @NamedQuery(name = "Boat.findByBoatLength", query = "SELECT b FROM Boat b WHERE b.boatLength = :boatLength"),
     @NamedQuery(name = "Boat.findByPassengerCapacity", query = "SELECT b FROM Boat b WHERE b.passengerCapacity = :passengerCapacity"),
+    @NamedQuery(name = "Boat.findByBeds", query = "SELECT b FROM Boat b WHERE b.beds = :beds"),
     @NamedQuery(name = "Boat.findByEnginePower", query = "SELECT b FROM Boat b WHERE b.enginePower = :enginePower"),
     @NamedQuery(name = "Boat.findByFuel", query = "SELECT b FROM Boat b WHERE b.fuel = :fuel"),
     @NamedQuery(name = "Boat.findByFuelTankCapacity", query = "SELECT b FROM Boat b WHERE b.fuelTankCapacity = :fuelTankCapacity"),
@@ -46,8 +47,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Boat.findByMaxSpeed", query = "SELECT b FROM Boat b WHERE b.maxSpeed = :maxSpeed"),
     @NamedQuery(name = "Boat.findByCurrentPrice", query = "SELECT b FROM Boat b WHERE b.currentPrice = :currentPrice")})
 @JsonIdentityInfo(
-  generator = ObjectIdGenerators.PropertyGenerator.class, 
-  property = "id")
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Boat implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -72,6 +73,8 @@ public class Boat implements Serializable {
     private BigDecimal boatLength;
     @Column(name = "passenger_capacity")
     private Integer passengerCapacity;
+    @Column(name = "beds")
+    private Integer beds;
     @Size(max = 45)
     @Column(name = "engine_power")
     private String enginePower;
@@ -166,6 +169,14 @@ public class Boat implements Serializable {
 
     public void setPassengerCapacity(Integer passengerCapacity) {
         this.passengerCapacity = passengerCapacity;
+    }
+
+    public Integer getBeds() {
+        return beds;
+    }
+
+    public void setBeds(Integer beds) {
+        this.beds = beds;
     }
 
     public String getEnginePower() {
@@ -264,10 +275,7 @@ public class Boat implements Serializable {
             return false;
         }
         Boat other = (Boat) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override

@@ -254,7 +254,7 @@
                                         </div>
                                         <div class="icons">
                                             <small class="text-muted"><i class="fa fa-users"></i> ${b.passengerCapacity} people</small> &nbsp;
-                                            &nbsp;<small class="text-muted"><i class="fa fa-bed"></i> 6 bed</small> &nbsp;
+                                            &nbsp;<small class="text-muted"><i class="fa fa-bed"></i> ${b.beds} beds</small> &nbsp;
                                             &nbsp;<small class="text-muted"><i class="fa fa-bath"></i> 2 bath</small>&nbsp;
                                             &nbsp;<small class="text-muted"><i class="fa fa-tachometer"></i> ${b.cruiseSpeed} knots</small> &nbsp;
                                             &nbsp;<small class="text-muted"><i class="fa fa-fire"></i> ${b.fuel}</small>
