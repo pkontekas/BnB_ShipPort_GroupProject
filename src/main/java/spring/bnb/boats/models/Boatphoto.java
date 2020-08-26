@@ -50,7 +50,7 @@ public class Boatphoto implements Serializable {
     private byte[] photo;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "defaultphoto")
+    @Column(name = "defaultphoto", columnDefinition = "TINYINT(4)")
     private boolean defaultphoto;
     @JoinColumn(name = "boats_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
