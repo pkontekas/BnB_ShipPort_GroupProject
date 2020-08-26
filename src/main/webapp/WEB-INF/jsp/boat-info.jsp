@@ -47,7 +47,7 @@
             <li>Email: ${boatdetails.accountsId.email}</li>
             <li>Cellphone: ${boatdetails.accountsId.cellphone}</li>
         </ul>
-
+        <security:authorize access="isAuthenticated()">
         <div id="username-page">
             <div class="username-page-container">
                 <h1 class="title">Logged in as</h1>
@@ -65,6 +65,7 @@
                 </form>
             </div>
         </div>
+        </security:authorize>
 
         <div id="chat-page" class="hidden">
             <div class="chat-container">
