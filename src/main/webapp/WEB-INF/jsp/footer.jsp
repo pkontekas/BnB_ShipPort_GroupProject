@@ -19,7 +19,6 @@
 
         <style>
             .footer {
-                
                 left: 0;
                 bottom: 0;
                 width: 100%;
@@ -45,17 +44,15 @@
             <div class="info">
                 <div class="row">
                     <div class="col-sm-4">
-
                         <h4>BoatBnB</h4>
-                        <li> <a class="info" href=""> About us</a></li>
+                        <li> <a class="info" href="">About us</a></li>
                         <li><a class="info" href="">Contact</a></li>
                         <li><a class="info" href="">Careers</a></li>
-
                     </div>
                     <div class="col-sm-4">
                         <h4>Information</h4>
-                        <li><a class="info" href="">Register your boat</a></li>
-                        <li><a class="info" href="">All boats</a></li>
+                        <li><a class="info" href="/preregisterboat">Register your boat</a></li>
+                        <li><a class="info" href="/showallboats">All boats</a></li>
                         <li><a class="info" href="">Reviews&nbsp; <span class="fa fa-star checked"></span></a></li>
                     </div>
                     <div class="col-sm-4">

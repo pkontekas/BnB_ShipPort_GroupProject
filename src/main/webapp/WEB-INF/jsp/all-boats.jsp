@@ -78,17 +78,14 @@
                 font-size: 25px;
                 align-items: center;
                 display: flex;
-
             }
 
             .viewBtn {
-
                 color: white;
                 justify-content: flex-end;
                 display: flex;
                 align-items: center;
                 margin-top: 10px;
-
             }
 
             .borderForm {
@@ -144,7 +141,7 @@
                                 <option value="13days">13 days</option>
                                 <option value="14days">14 days</option>
                                 <option value="15days">15 days</option>
-                                <option value="2week">2 weeks</option>
+                                <option value="2weeks">2 weeks</option>
                             </select>
                         </div>
 
@@ -185,11 +182,11 @@
                                 <option value="4persons">4 persons</option>
                                 <option value="5persons">5 persons</option>
                                 <option value="6persons">6 persons</option>
-                                <option value="7persons">1 persons</option>
+                                <option value="7persons">7 persons</option>
                                 <option value="8persons">8 persons</option>
                                 <option value="9persons">9 persons</option>
                                 <option value="10persons">10 persons</option>
-                                <option value="upTo10">up to 10 persons</option>
+                                <option value="upTo12">up to 12 persons</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -273,6 +270,7 @@
                                                 <p class="price">Price ${b.currentPrice} Euro/day</p>
                                             </div>
                                             <div class="col-sm-2">
+
                                                 <form action="showboatinfo" method="GET">
                                                     <input type="hidden" name="boatId" value="${b.id}">
                                                     <button type="Submit" class="viewBtn btn-primary"><i
