@@ -36,9 +36,9 @@
             <img alt="portimage" src="data:image/jpeg;base64,${portimage}"/>
             <li>City: ${boatdetails.portsId.city}</li>
             <li>Pay Instantly:
-                
+
                 <div id="paypal-button-container"></div>
-                
+
             </li>
         </ul>
 
@@ -48,29 +48,29 @@
             <li>Cellphone: ${boatdetails.accountsId.cellphone}</li>
         </ul>
         <security:authorize access="isAuthenticated()">
-        <div id="username-page">
-            <div class="username-page-container">
-                <h1 class="title">Logged in as</h1>
-                <form id="usernameForm" name="usernameForm">
-                    <div class="form-group">
-                        <security:authorize access="isAuthenticated()">
+            <div id="username-page">
+                <div class="username-page-container">
+                    <h1 class="title">Logged in as</h1>
+                    <form id="usernameForm" name="usernameForm">
+                        <div class="form-group">
+                            <security:authorize access="isAuthenticated()">
 
-                            <input type="text" id="name" value="<security:authentication property="principal.username" />" 
-                                   autocomplete="off" class="form-control" disabled="true" />
-                        </security:authorize>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="accent username-submit">Start Chatting</button>
-                    </div>
-                </form>
+                                <input type="text" id="name" value="<security:authentication property="principal.username" />" 
+                                       autocomplete="off" class="form-control" disabled="true" />
+                            </security:authorize>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="accent username-submit">Start Chatting</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
         </security:authorize>
 
         <div id="chat-page" class="hidden">
             <div class="chat-container">
                 <div class="chat-header">
-                    <h2>Q&A with the owner</h2>
+                    <h2>Join the current discussion!</h2>
                 </div>
                 <div class="connecting">
                     Connecting...

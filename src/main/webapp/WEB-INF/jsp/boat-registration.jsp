@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>Boat Registration</title>
-
     </head>
     <body>
 
@@ -54,7 +53,7 @@
                             <label for="passengerCapacity">Passenger Capacity</label>
                             <springform:input type="number" path="passengerCapacity" cssClass="form-control" id="passengerCapacity" required="true" min="0" max="50"/>
                         </div>
-                                                <div class="form-group">
+                        <div class="form-group">
                             <label for="beds">Beds</label>
                             <springform:input type="number" path="beds" cssClass="form-control" id="beds" required="true" min="0" max="20"/>
                         </div>

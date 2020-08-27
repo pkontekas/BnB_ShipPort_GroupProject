@@ -142,7 +142,7 @@
 
     <div class="myVideo">
         <video autoplay muted loop>
-            <source src="image/untitled.mp4" type="video/mp4">
+            <source src="image/indexVideo.mp4" type="video/mp4">
         </video>
 
     </div>
