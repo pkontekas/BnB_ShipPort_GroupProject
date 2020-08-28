@@ -19,8 +19,10 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <title>Show all boats</title>
         <style>
+
             .pTitle {
                 text-align: center;
+                color: #0a9ab5;
             }
 
             .view {
@@ -28,16 +30,27 @@
                 justify-content: flex-end;
             }
 
+            .card {
+
+                flex-grow: 2;
+                justify-content: flex-end;
+
+                display: flex;
+            }
+
             .card-img {
                 height: 300px;
                 width: 300px;
                 background-color: white;
                 overflow: hidden;
+
+
             }
 
             .checked {
                 color: gold;
             }
+
 
             .card-title {
                 color: #0f4c75
@@ -50,6 +63,7 @@
 
             .position {
                 color: #3282b8;
+
             }
 
             label {
@@ -65,34 +79,44 @@
 
             .city {
                 margin-top: 5px;
+                color: #3282b8;
             }
 
             .cardFooter {
                 background-color: #0a9ab5;
-                margin-top: 10px;
-                margin-bottom: 10px;
+                flex-grow: 2;
+                justify-content: flex-end;
+                display: flex;
+                justify-content: space-between;
             }
 
             .price {
                 color: white;
                 font-size: 25px;
                 align-items: center;
+                justify-items: center;
                 display: flex;
+                margin-left: 15px;
+
             }
 
             .viewBtn {
+
                 color: white;
                 justify-content: flex-end;
                 display: flex;
                 align-items: center;
                 margin-top: 10px;
+                margin-right: 15px;
+                border-radius: 5PX;
+                
+                
             }
 
             .borderForm {
                 padding-top: 10px;
                 border: 2px solid #0a9ab5;
                 width: 300px;
-                margin-left: 170px;
                 margin-top: 60px;
                 padding: 15px;
                 background-color: #0a9ab5;
@@ -103,6 +127,32 @@
             .boat {
                 margin-left: 0;
             }
+
+            .searchForm {
+                flex-grow: 2;
+                display: flex;
+                justify-content: center;
+                background-color: whitesmoke;
+
+            }
+
+            .firstCol {
+                flex-grow: 1;
+                justify-content: flex-start;
+                display: flex;
+                align-items: center;
+            }
+
+            .secondCol {
+                flex-grow: 6;
+                justify-content: flex-start;
+                display: flex;
+                align-items: center;
+            }
+            .searchBtn{
+                 border-radius: 5PX;
+                 width: 100px;
+            }
         </style>
 
     </head>
@@ -111,8 +161,8 @@
 
         <jsp:include page="navbar.jsp"/>
 
-        <div class="searchForm row">
-            <div class="col-xs">
+        <div class="searchForm row container-fluid">
+            <div class="col-xs-2">
                 <div class="borderForm">
                     <h1>Search</h1>
                     <form>
@@ -226,13 +276,13 @@
                     </div>
 
                     <c:forEach items="${allboats}" var="b">
+                        <div class="card container-fluid">
 
-                        <div class="card">
                             <div class="row">
-                                <div class="col-sm-4">
+                                <div class="firstCol col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                                     <img src="image/yacht.jpg" class="card-img" alt="alt_Boat">
                                 </div>
-                                <div class="col-sm-8">
+                                <div class="secondCol col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                                     <div class="card-body">
                                         <div>
                                             <h2 class="card-title">${b.manufacturer}  ${b.model}</h2>
@@ -243,9 +293,9 @@
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
-
-                                            &nbsp; <a class="toolTip" href="#" title="The owner offers free cancellation
-                                                      up to 15 days before check-in.">&nbsp; Flexible cancellation or change! &nbsp; </a>
+                                            <br>
+                                            <a class="toolTip" href="#" title="The owner offers free cancellation
+                                               up to 15 days before check-in.">&nbsp; Flexible cancellation or change! &nbsp; </a>
                                         </div>
                                         <div class="description">
                                             <p><small class="description">${b.boatType} boat model ${b.constructionYear} Length <i
@@ -266,15 +316,15 @@
                                             <i class="position fa fa-map-marker"><strong> Port: </strong>${b.portsId.portName}</i>
                                         </div>
                                         <div class="cardFooter row">
-                                            <div class="col-sm-10">
+                                            <div class="col-xs-4 col-sm-6 col-md-8 col-lg-8 col-xl-8">
                                                 <p class="price">Price ${b.currentPrice} Euro/day</p>
                                             </div>
-                                            <div class="col-sm-2">
+                                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
 
                                                 <form action="showboatinfo" method="GET">
                                                     <input type="hidden" name="boatId" value="${b.id}">
                                                     <button type="Submit" class="viewBtn btn-primary"><i
-                                                            class="fa fa-search"></i>&nbsp; View &nbsp;</button>
+                                                            class="fa fa-search"></i>&nbsp; VIEW BOAT &nbsp;</button>
                                                 </form>
 
                                             </div>

@@ -14,7 +14,18 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>Boat Registration</title>
-
+        <style>
+            h1{
+                text-align: center;
+                padding-bottom: 20px;
+                padding-top: 10px;
+            }
+            .boatRegistration{
+                padding-bottom: 40px;
+                
+            }
+            
+        </style>
     </head>
     <body>
 
@@ -23,7 +34,7 @@
         <security:authorize access="isAuthenticated()">
             <br> authenticated as <security:authentication property="principal.username" /> 
         </security:authorize>
-
+            <div class="boatRegistration">
         <div class="form container">
             <springform:form action="doinsertboat" method="POST" modelAttribute="newboat">
                 <h1>Boat Registration</h1>
@@ -94,7 +105,7 @@
                 <button type="submit" class="btn btn-primary">Register</button>
             </springform:form>
         </div>
-
+</div>
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
