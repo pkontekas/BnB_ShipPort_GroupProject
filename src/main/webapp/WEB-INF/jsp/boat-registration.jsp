@@ -65,7 +65,7 @@
                             <label for="passengerCapacity">Passenger Capacity</label>
                             <springform:input type="number" path="passengerCapacity" cssClass="form-control" id="passengerCapacity" required="true" min="0" max="50"/>
                         </div>
-                                                <div class="form-group">
+                        <div class="form-group">
                             <label for="beds">Beds</label>
                             <springform:input type="number" path="beds" cssClass="form-control" id="beds" required="true" min="0" max="20"/>
                         </div>
