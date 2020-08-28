@@ -75,6 +75,7 @@
                 background-color: lightgreen;
                 border: 1px solid;
                 border-radius: 10px;
+                width:33%;
             }
 
             .city {
@@ -294,8 +295,8 @@
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <br>
-                                            <a class="toolTip" href="#" title="The owner offers free cancellation
-                                               up to 15 days before check-in.">&nbsp; Flexible cancellation or change! &nbsp; </a>
+                                            <div class="toolTip" title="The owner offers free cancellation
+                                               up to 15 days before check-in.">&nbsp; Flexible cancellation or change! &nbsp; </div>
                                         </div>
                                         <div class="description">
                                             <p><small class="description">${b.boatType} boat model ${b.constructionYear} Length <i
