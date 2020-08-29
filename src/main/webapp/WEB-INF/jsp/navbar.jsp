@@ -116,7 +116,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="Submit" name="Submit" value="Submit" class="btn btn-primary">Sign in</button>
+                            <button type="Submit" name="Submit" class="btn btn-primary">Sign in</button>
                         </div>
                     </springform:form>
                 </div>

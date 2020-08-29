@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +18,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
         <title>Login</title>
     </head>
 
@@ -24,7 +25,10 @@
         .loginForm {
             display: flex;
             justify-content: center;
+            padding-bottom: 200px;
             padding-top: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
         .titleLogin {
             padding-top: 20px;
@@ -33,46 +37,48 @@
         body{
             background-color: whitesmoke;
         }
-        .widthForm{
-            width: 300px;
-        }
     </style>
 
     <body>
 
-        <div class="titleLogin">
-            <h1>Login form</h1>
-        </div>
-        <div class="loginForm">
-            <springform:form cssClass="main-form needs-validation">
-                <div class="widthForm form-group " >
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" required="true" id="email" aria-describedby="emailHelp">
-                    <div class="invalid-feedback">Email format required</div>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" required="true"  id="password">
-                    <div class="invalid-feedback">Password required</div>
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+        <jsp:include page="navbar.jsp"/>
 
-                <script>
-                    var form = document.querySelector('.needs-validation');
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    });
-                </script>
-            </springform:form>
+        <div class="titleLogin">
+            <h1>Login Form</h1>
         </div>
+        <div class="loginForm row">
+            <div class="col-xs-11 col-sm-9 col-md-7 col-lg-4">
+                <springform:form method="POST" action="${pageContext.request.contextPath}/performlogin" cssClass="main-form needs-validation" novalidate="true">
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" name="email" autocomplete="on" class="form-control" id="logemail" required
+                               aria-describedby="emailHelp">
+                        <div class="invalid-feedback">This email address does not exist in our database.</div>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" autocomplete="off" class="form-control" required
+                               id="navpassword">
+                        <div class="invalid-feedback">Invalid password. Try again.</div>
+                    </div>
+                    <button type="Submit" name="Submit" class="btn btn-primary">Sign in</button>
+                    <script>
+                        var form = document.querySelector('.needs-validation');
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        });
+                    </script>
+                </springform:form>
+            </div>
+        </div>
+
+        <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

@@ -44,19 +44,19 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <h4>BoatBnB</h4>
-                        <li> <a class="info" href="">About us</a></li>
-                        <li><a class="info" href="/contact-us">Contact</a></li>
-                        <li><a class="info" href="">Careers</a></li>
+                        <li><a class="info" href="/about">About us</a></li>
+                        <li><a class="info" href="/contactus">Contact</a></li>
+                        <li><a class="info" href="/#">Careers</a></li>
                     </div>
                     <div class="col-sm-4">
                         <h4>Information</h4>
                         <li><a class="info" href="/preregisterboat">Register your boat</a></li>
                         <li><a class="info" href="/showallboats">All boats</a></li>
-                        <li><a class="info" href="">Reviews&nbsp; <span class="fa fa-star checked"></span></a></li>
+                        <li><a class="info" href="/#">Reviews&nbsp; <span class="fa fa-star checked"></span></a></li>
                     </div>
                     <div class="col-sm-4">
                         <h4>Do you need help?</h4>
-                        <p><a class="info" href=""><i class="material-icons">&#xe0be;</i><br>
+                        <p><a class="info" href="/#"><i class="material-icons">&#xe0be;</i><br>
                                 info@BoatBnB.com</a>
                         </p>
                     </div>

@@ -25,24 +25,19 @@
                 width: 250px;
                 display: flex;
                 justify-content: center;
-                
             }
-
             .myVideo {
                 background-color: whitesmoke;
                 display: flex;
                 justify-content: center;
                 overflow: hidden;
-
             }
-
             .firstMessage {
                 padding: 25px;
                 background-color: white;
                 color: #0f4c75;
                 text-align: center;
             }
-
             .search {
                 padding-bottom: 25px;
                 padding-right: 45px;
@@ -55,75 +50,47 @@
                 left: 5px;
                 border-radius: 10px;
             }
-
             .searchPosition {
                 display: flex;
                 justify-content: center;
-
-
             }
-
-            .tPort {
+            .index4items {
                 position: absolute;
                 top: 8px;
-                left: 16px;
-                color: white;
-
-            }
-
-            .tBoat {
-                position: absolute;
-                top: 8px;
-                left: 16px;
+                left: 28%;
                 color: white;
             }
-
-
-
-
-
             .popularBoat {
                 background-color: white;
                 text-align: center;
                 color: #0f4c75;
                 margin-bottom: 30px;
-
             }
-
             .popularPort {
                 background-color: whitesmoke;
                 text-align: center;
                 color: #0f4c75;
                 margin-bottom: 30px;
                 margin-top: 30px;
-                padding-bottom: 30px;
                 padding-top: 20px;
             }
-
             .port {
-                margin-bottom: 30px;
-
+                padding-bottom: 50px;
             }
-
             .romantic {
                 margin-bottom: 20px;
                 background-color: white;
-                margin-left: 350px;
-
             }
-
             .romanticMessage {
                 margin-top: 40px;
-                margin-left: 40px;
                 color: #0f4c75;
             }
-
             #sunsetBoat {
                 border-radius: 50%;
             }
-            .headerBoat{
+            .headerIndex{
                 text-align: center;
-                padding-bottom: 40px;
+                margin-bottom: 60px;
                 margin-top: 0px;
             } 
         </style>
@@ -131,123 +98,123 @@
     <body>
 
         <jsp:include page="navbar.jsp"/>
-        <div class="firstMessage"
-             <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-5">Welcome to BoatBnB</h1>
-                <p class="lead">Discover and live the experience...</p>
+
+        <div class="firstMessage">
+            <div class="jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-5">Welcome to BoatBnB</h1>
+                    <p class="lead">Discover and live the experience...</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="myVideo">
-        <video autoplay muted loop>
-            <source src="image/indexVideo.mp4" type="video/mp4">
-        </video>
+        <div class="row container-fluid justify-content-center">
+            <div class="col-sm-9">
+                <div class="myVideo embed-responsive embed-responsive-16by9">
+                    <video autoplay muted loop controls>
+                        <source src="image/indexVideo.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
 
-    </div>
-
-    <div class="searchPosition container">
-        <div class="search">
-            <form>
-                <div class="form-row">
-                    <div class="col-4">
-                        <label for="">Where would you like to go?</label>
-                        <input type="text" class="form-control" placeholder="Port,Town">
+        <div class="searchPosition container">
+            <div class="search">
+                <form>
+                    <div class="form-row">
+                        <div class="col-4">
+                            <label for="">Where would you like to go?</label>
+                            <input type="text" class="form-control" placeholder="Port,Town">
+                        </div>
+                        <div class="col-3">
+                            <label for="">Duration</label>
+                            <input type="text" min="0" class="form-control" placeholder="Any">
+                        </div>
+                        <div class="col-3">
+                            <label for="">Start Date</label>
+                            <input type="date" class="form-control" placeholder="Start Date">
+                        </div>
+                        <div class="col-2">
+                            <label for="">&nbsp;</label>
+                            <button type="button" class="btn btn-primary form-control"><i class="fa fa-search"></i>&nbsp;
+                                Search</button>
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <label for="">Duration</label>
-                        <input type="text" min="0" class="form-control" placeholder="Any">
+                </form>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="popularBoat">
+                <div class="jumbotron-fluid">
+                    <h1 class="headerIndex display">The ideal boat for you</h1>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+                        <div href="">
+                            <h5 class="index4items">Rib Boat</h5><img class="img img-fluid" src="image/rib.jpg" alt="rib">
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <label for="">Start Date</label>
-                        <input type="date" class="form-control" placeholder="Start Date">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+                        <div href="">
+                            <h5 class="index4items">Catamaran</h5><img class="img img-fluid" src="image/catamaran.jpg" alt="catam">
+                        </div>
                     </div>
-                    <div class="col-2">
-                        <label for="">&nbsp;</label>
-                        <button type="button" class="btn btn-primary form-control"><i class="fa fa-search"></i>&nbsp;
-                            Search</button>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+                        <div href="">
+                            <h5 class="index4items">Motorboat</h5><img class="img img-fluid" src="image/motorboat.jpg" alt="motor">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+                        <div href="">
+                            <h5 class="index4items">Yacht</h5> <img class="img img-fluid" src="image/yacht.jpg" alt="yacht">
+                        </div>
                     </div>
                 </div>
-            </form>
-        </div>
-    </div>
-    <div class="container-fluid">
-    <div class="popularBoat">
-        <div class="jumbotron-fluid">
-            <div class="container">
-                <h1 class=" headerBoat display">The ideal boat for you</h1>
-
             </div>
+        </div>
+
+        <div class="popularPort">
+            <h1 class="headerIndex">Popular destinations</h1>
+            <div class="container-fluid">
+                <div class="port row d-flex justify-content-center">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+                        <div href="">
+                            <h5 class="index4items">Piraeus</h5><img class="img img-fluid" src="image/piraeusPort.jpg" alt="peir">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+                        <div href="">
+                            <h5 class="index4items">Paros</h5><img class="img img-fluid" src="image/parosPort.jpg" alt="par">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+
+                        <div href="">
+                            <h5 class="index4items">Mykonos</h5> <img class="img img-fluid" src="image/mykonosPort.jpg" alt="mik">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
+                        <div href="">
+                            <h5 class="index4items">Heraklion</h5><img class="img img-fluid" src="image/heraklionPort.jpg" alt="ira">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="romantic jumbotron-fluid">
             <div class="row">
-                <div class="col-sm-3">
-                    <a href="">
-                        <h5 class="tBoat">Rib Boat</h5><img class="img" src="image/rib.jpg" alt="">
-                    </a>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center">
+                    <img id="sunsetBoat" src="image/sunsetonboat.jpg" alt="sunset">
                 </div>
-                <div class="col-sm-3">
-                    <a href="">
-                        <h5 class="tBoat">Catamaran</h5><img class="img" src="image/catamaran.jpg" alt="">
-                    </a>
+
+                <div class="romanticMessage col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <h1 class="display-6 d-flex justify-content-center">Discover the world</h1>
+                    <p class="lead d-flex justify-content-center">And live the moment . .</p>
                 </div>
-                <div class="col-sm-3">
-                    <a href="">
-                        <h5 class="tBoat">Motorboat</h5><img class="img" src="image/motorboat.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-3">
-                    <a href="">
-                        <h5 class="tBoat">Yacht</h5> <img class="img" src="image/yacht.jpg" alt="">
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="popularPort">
-        <h1> Popular destinations</h1>
-        <div class="port row">
-            <div class="col-sm-3">
-
-                <a href="">
-                    <h5 class="tPort">Piraeus</h5><img class="img" src="image/piraeusPort.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-sm-3">
-
-                <a href="">
-                    <h5 class="tPort">Paros</h5><img class="img" src="image/parosPort.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-sm-3">
-
-                <a href="">
-                    <h5 class="tPort">Mykonos</h5> <img class="img" src="image/mykonosPort.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-sm-3">
-
-                <a href="">
-                    <h5 class="tPort">Heraklion</h5><img class="img" src="image/heraklionPort.jpg" alt="">
-                </a>
             </div>
         </div>
     </div>
-    <div class="romantic  jumbotron-fluid">
-        <div class="row">
-
-            <div class="col-sm-3 ">
-                <img id="sunsetBoat" src="image/sunsetonboat.jpg" alt="">
-            </div>
-
-            <div class="romanticMessage col-sm-4">
-                <h1 class="display-6">Discover the world</h1>
-                <p class="lead">And live the moment . .
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
     <jsp:include page="footer.jsp"/>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
