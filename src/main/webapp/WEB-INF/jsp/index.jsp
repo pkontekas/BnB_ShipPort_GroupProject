@@ -20,9 +20,9 @@
                 margin: 0px;
                 background-color: whitesmoke;
             }
-            .img {
-                height: 150px;
-                width: 250px;
+            .imgitems {
+                height: 250px;
+                width: 300px;
                 display: flex;
                 justify-content: center;
             }
@@ -54,10 +54,10 @@
                 display: flex;
                 justify-content: center;
             }
-            .index4items {
+            .index4headerItems {
                 position: absolute;
                 top: 8px;
-                left: 28%;
+                left: 24%;
                 color: white;
             }
             .popularBoat {
@@ -108,10 +108,10 @@
             </div>
         </div>
 
-        <div class="row container-fluid justify-content-center">
+        <div class="myVideo row container-fluid justify-content-center">
             <div class="col-sm-9">
-                <div class="myVideo embed-responsive embed-responsive-16by9">
-                    <video autoplay muted loop controls>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video autoplay muted loop>
                         <source src="image/indexVideo.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -151,22 +151,22 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <div href="">
-                            <h5 class="index4items">Rib Boat</h5><img class="img img-fluid" src="image/rib.jpg" alt="rib">
+                            <h5 class="index4headerItems">Rib Boat</h5><img class="imgitems img-fluid" src="image/rib.jpg" alt="rib">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <div href="">
-                            <h5 class="index4items">Catamaran</h5><img class="img img-fluid" src="image/catamaran.jpg" alt="catam">
+                            <h5 class="index4headerItems">Catamaran</h5><img class="imgitems img-fluid" src="image/catamaran1920x1200.jpg" alt="catam">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <div href="">
-                            <h5 class="index4items">Motorboat</h5><img class="img img-fluid" src="image/motorboat.jpg" alt="motor">
+                            <h5 class="index4headerItems">Motorboat</h5><img class="imgitems img-fluid" src="image/motorboat.jpg" alt="motor">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <div href="">
-                            <h5 class="index4items">Yacht</h5> <img class="img img-fluid" src="image/yacht.jpg" alt="yacht">
+                            <h5 class="index4headerItems">Yacht</h5> <img class="imgitems img-fluid" src="image/luxury-yacht1920x1200.jpg" alt="yacht">
                         </div>
                     </div>
                 </div>
@@ -179,23 +179,23 @@
                 <div class="port row d-flex justify-content-center">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <div href="">
-                            <h5 class="index4items">Piraeus</h5><img class="img img-fluid" src="image/piraeusPort.jpg" alt="peir">
+                            <h5 class="index4headerItems">Piraeus</h5><img class="imgitems img-fluid" src="image/piraeusPort.jpg" alt="peir">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <div href="">
-                            <h5 class="index4items">Paros</h5><img class="img img-fluid" src="image/parosPort.jpg" alt="par">
+                            <h5 class="index4headerItems">Paros</h5><img class="imgitems img-fluid" src="image/parosPort.jpg" alt="par">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
 
                         <div href="">
-                            <h5 class="index4items">Mykonos</h5> <img class="img img-fluid" src="image/mykonosPort.jpg" alt="mik">
+                            <h5 class="index4headerItems">Mykonos</h5> <img class="imgitems img-fluid" src="image/mykonosPort.jpg" alt="mik">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <div href="">
-                            <h5 class="index4items">Heraklion</h5><img class="img img-fluid" src="image/heraklionPort.jpg" alt="ira">
+                            <h5 class="index4headerItems">Heraklion</h5><img class="imgitems img-fluid" src="image/heraklion1280x800.jpg" alt="ira">
                         </div>
                     </div>
                 </div>

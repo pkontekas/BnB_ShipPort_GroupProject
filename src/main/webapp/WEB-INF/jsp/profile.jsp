@@ -14,7 +14,7 @@
         <title>Registration</title>
 
         <style>
-            .form {
+            .profileform {
                 display: flex;
                 justify-content: center;
                 padding-bottom: 40px;
@@ -33,7 +33,7 @@
         <jsp:include page="navbar.jsp"/>
 
         <h1 class="updateRegistration">Update User</h1>
-        <div class="form container"> 
+        <div class="profileform container"> 
             <springform:form cssClass="main-form needs-validation" novalidate="true" action="doupdateaccount" method="POST" modelAttribute="" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm">

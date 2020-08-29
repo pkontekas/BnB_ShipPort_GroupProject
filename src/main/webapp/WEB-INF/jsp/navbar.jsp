@@ -69,7 +69,7 @@
                             My account
                         </a>
                         <div class="dropdown-menu" style="background-color: #3282B8 " aria-labelledby="navbarDropdownMenuLink">
-                            <a id="drop" class="dropdown-item" href="#">Profile </a>
+                            <a id="drop" class="dropdown-item" href="/myprofile">Profile </a>
                             <a id="drop" class="dropdown-item" href="<c:url value="/performlogout"/>">Logout</a>
                         </div>
                     </li>

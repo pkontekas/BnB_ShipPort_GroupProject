@@ -27,11 +27,11 @@
                 text-align: center;
                 padding: 45px;
             }
-            .info {
+            .footerinfo {
                 list-style: none;
                 color: white;
             }
-            .checked {
+            .footerchecked {
                 color: gold;
             }
         </style>
@@ -39,38 +39,42 @@
     </head>
 
     <body>
-        <div class="footer">
-            <div class="info">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h4>BoatBnB</h4>
-                        <li><a class="info" href="/about">About us</a></li>
-                        <li><a class="info" href="/contactus">Contact</a></li>
-                        <li><a class="info" href="/#">Careers</a></li>
+        <footer class="footer">
+            <div class="container">
+                <span>
+                    <div class="footerinfo">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h4>BoatBnB</h4>
+                                <li><a class="footerinfo" href="/about">About</a></li>
+                                <li><a class="footerinfo" href="/contactus">Contact Us</a></li>
+                                <li><a class="footerinfo" href="/#">Careers</a></li>
+                            </div>
+                            <div class="col-sm-4">
+                                <h4>Information</h4>
+                                <li><a class="footerinfo" href="/preregisterboat">Register your boat</a></li>
+                                <li><a class="footerinfo" href="/showallboats">All boats</a></li>
+                                <li><a class="footerinfo" href="/#">Reviews&nbsp; <span class="fa fa-star footerchecked"></span></a></li>
+                            </div>
+                            <div class="col-sm-4">
+                                <h4>Do you need help?</h4>
+                                <p><a class="footerinfo" href="/#"><i class="material-icons">&#xe0be;</i><br>
+                                        info@BoatBnB.com</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-4">
-                        <h4>Information</h4>
-                        <li><a class="info" href="/preregisterboat">Register your boat</a></li>
-                        <li><a class="info" href="/showallboats">All boats</a></li>
-                        <li><a class="info" href="/#">Reviews&nbsp; <span class="fa fa-star checked"></span></a></li>
-                    </div>
-                    <div class="col-sm-4">
-                        <h4>Do you need help?</h4>
-                        <p><a class="info" href="/#"><i class="material-icons">&#xe0be;</i><br>
-                                info@BoatBnB.com</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div>
-                <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
-                <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
-                <i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i>
+                    <hr>
+                    <div>
+                        <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
+                        <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
+                        <i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i>
 
+                    </div>
+                    &copy BNB-ShipPort Group Project Copyright 2020
+                </span>
             </div>
-            &copy BNB-ShipPort Group Project Copyright 2020
-        </div>
+        </footer>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
