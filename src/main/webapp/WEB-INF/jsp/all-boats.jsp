@@ -18,8 +18,8 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <title>Show all boats</title>
-        <style>
 
+        <style>
             .pTitle {
                 text-align: center;
                 color: #0a9ab5;
@@ -34,7 +34,6 @@
 
                 flex-grow: 2;
                 justify-content: flex-end;
-
                 display: flex;
             }
 
@@ -43,14 +42,11 @@
                 width: 300px;
                 background-color: white;
                 overflow: hidden;
-
-
             }
 
             .checked {
                 color: gold;
             }
-
 
             .card-title {
                 color: #0f4c75
@@ -63,7 +59,6 @@
 
             .position {
                 color: #3282b8;
-
             }
 
             label {
@@ -75,7 +70,7 @@
                 background-color: lightgreen;
                 border: 1px solid;
                 border-radius: 10px;
-                width:33%;
+                width:245px;
             }
 
             .city {
@@ -95,14 +90,11 @@
                 color: white;
                 font-size: 25px;
                 align-items: center;
-                justify-items: center;
                 display: flex;
                 margin-left: 15px;
-
             }
 
             .viewBtn {
-
                 color: white;
                 justify-content: flex-end;
                 display: flex;
@@ -110,8 +102,6 @@
                 margin-top: 10px;
                 margin-right: 15px;
                 border-radius: 5PX;
-                
-                
             }
 
             .borderForm {
@@ -134,7 +124,6 @@
                 display: flex;
                 justify-content: center;
                 background-color: whitesmoke;
-
             }
 
             .firstCol {
@@ -151,15 +140,14 @@
                 align-items: center;
             }
             .searchBtn{
-                 border-radius: 5PX;
-                 width: 100px;
+                border-radius: 5PX;
+                width: 100px;
             }
         </style>
 
     </head>
 
     <body>
-
         <jsp:include page="navbar.jsp"/>
 
         <div class="searchForm row container-fluid">
@@ -168,10 +156,10 @@
                     <h1>Search</h1>
                     <form>
                         <div class="form-group">
-                            <label for="destination">Where would you like to go?</label>
+                            <label for="destination">Where to sail?</label>
                             <input type="text" name="destination" class="form-control" placeholder="Port, City" required="true" pattern="[A-Za-z]+"
                                    >
-                            <div class="invalid-feedback">please choose destination <br> <small>alphabetic characters</small>  </div>
+                            <div class="invalid-feedback">Choose destination <br> <small>alphabetic characters only</small>  </div>
                         </div>
                         <div class="form-group">
                             <label for="duration">Duration</label>
@@ -190,12 +178,10 @@
                                 <option value="11days">11 days</option>
                                 <option value="12days">12 days</option>
                                 <option value="13days">13 days</option>
-                                <option value="14days">14 days</option>
-                                <option value="15days">15 days</option>
                                 <option value="2weeks">2 weeks</option>
+                                <option value="over2weeks">Over 2 weeks</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label for="startDate">Start date</label>
                             <input type="date" class="form-control" id="deststartDate" required>
@@ -220,7 +206,7 @@
                                 <option value="8-10m">26-32ft/8-10m</option>
                                 <option value="10-12m">32-40ft/10-12m</option>
                                 <option value="12-15m">40-50ft/12-15m</option>
-                                <option value="up14m">up to 50ft/15m</option>
+                                <option value="over15m">over 50ft/15m</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -231,13 +217,10 @@
                                 <option value="2persons">2 persons</option>
                                 <option value="3persons">3 persons</option>
                                 <option value="4persons">4 persons</option>
-                                <option value="5persons">5 persons</option>
                                 <option value="6persons">6 persons</option>
-                                <option value="7persons">7 persons</option>
                                 <option value="8persons">8 persons</option>
-                                <option value="9persons">9 persons</option>
                                 <option value="10persons">10 persons</option>
-                                <option value="upTo12">up to 12 persons</option>
+                                <option value="12ormore">12 or more</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -250,7 +233,7 @@
                                 <option value="4price">1500 &euro; - 2000 &euro;</option>
                                 <option value="5price">2000 &euro; - 2500 &euro;</option>
                                 <option value="6price">2500 &euro; - 3000 &euro;</option>
-                                <option value="upTo10">up to 3000 &euro; </option> 
+                                <option value="over3k">over 3000 &euro; </option> 
                             </select>
                         </div>
                         <div class="form-group">
@@ -281,7 +264,7 @@
 
                             <div class="row">
                                 <div class="firstCol col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                                    <img src="image/yacht.jpg" class="card-img" alt="alt_Boat">
+                                    <img class="card-img" src="data:image/jpeg;base64,${boatImagesMap[b.id]}" alt="boatImagesMap"/>
                                 </div>
                                 <div class="secondCol col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                                     <div class="card-body">
@@ -296,7 +279,7 @@
                                             <span class="fa fa-star checked"></span>
                                             <br>
                                             <div class="toolTip" title="The owner offers free cancellation
-                                               up to 15 days before check-in.">&nbsp; Flexible cancellation or change! &nbsp; </div>
+                                                 up to 15 days before check-in.">&nbsp; Flexible cancellation or change! &nbsp; </div>
                                         </div>
                                         <div class="description">
                                             <p><small class="description">${b.boatType} boat model ${b.constructionYear} Length <i
@@ -324,7 +307,7 @@
 
                                                 <form action="showboatinfo" method="GET">
                                                     <input type="hidden" name="boatId" value="${b.id}">
-                                                    <button type="Submit" class="viewBtn btn-primary"><i
+                                                    <button type="Submit" class="viewBtn btn btn-primary"><i
                                                             class="fa fa-search"></i>&nbsp; VIEW BOAT &nbsp;</button>
                                                 </form>
 

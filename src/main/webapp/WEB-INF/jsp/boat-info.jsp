@@ -34,6 +34,7 @@
             <li id="boatPricePerDay" value="${boatdetails.currentPrice}">Price: ${boatdetails.currentPrice}</li>
             <li>Port: ${boatdetails.portsId.portName}</li>
             <img alt="portimage" src="data:image/jpeg;base64,${portimage}"/>
+            <img alt="boatimage" src="data:image/jpeg;base64,${boatimage}"/>
             <li>City: ${boatdetails.portsId.city}</li>
             <li>Pay Instantly:
 

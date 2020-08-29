@@ -1,25 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import spring.bnb.boats.models.Boatphoto;
+import spring.bnb.boats.repos.BoatRepo;
 import spring.bnb.boats.repos.BoatphotoRepo;
 
-/**
- *
- * @author mapan
- */
 @Service
-public class BoatphotoServiceImpl implements BoatphotoService{
-    
+public class BoatphotoServiceImpl implements BoatphotoService {
+
     @Autowired
     BoatphotoRepo boatphotoRepo;
+
+    @Autowired
+    BoatRepo boatRepo;
 
     @Transactional
     @Override
@@ -27,4 +22,10 @@ public class BoatphotoServiceImpl implements BoatphotoService{
         boatphotoRepo.save(boatphoto);
     }
     
+    @Override
+    public Boatphoto findDefaultBoatphotoByBoatsIdNative(Integer boatsId)
+    {
+        return boatphotoRepo.findDefaultBoatphotoByBoatsIdNative(boatsId);
+    }
+
 }
