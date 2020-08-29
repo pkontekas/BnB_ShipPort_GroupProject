@@ -195,7 +195,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <div href="">
-                            <h5 class="index4headerItems">Heraklion</h5><img class="imgitems img-fluid" src="image/heraklion1280x800.jpg" alt="ira">
+                            <h5 class="index4headerItems">Heraklion</h5><img class="imgitems img-fluid" src="image/heraklion1024x683.jpg" alt="ira">
                         </div>
                     </div>
                 </div>
