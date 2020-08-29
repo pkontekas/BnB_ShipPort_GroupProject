@@ -18,7 +18,6 @@
     </head>
 
     <style>
-       
         .navbar {
             padding: 20px;
             background-color :#3282B8 ;
@@ -39,10 +38,10 @@
 
     <body>
         <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="/">BoatBnB</a>
+            <a class="navbar-brand" href="/"><img src="image/logo.jpg" style="height: 50px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="fa fa-bars" style="background-color: white;"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
@@ -77,7 +76,7 @@
                 </ul>
             </div>
         </nav>
-                        
+
         <div>
             <c:if test="${param.logout != null}">
                 <i>You successfully logged out!!!</i>
@@ -86,7 +85,7 @@
                 <i>Invalid username and password</i>
             </c:if>   
         </div>
-                        
+
         <div id="loginmodal" class="modal" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">

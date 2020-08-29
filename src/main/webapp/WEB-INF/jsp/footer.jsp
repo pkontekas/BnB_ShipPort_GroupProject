@@ -34,7 +34,6 @@
             .checked {
                 color: gold;
             }
-
         </style>
 
     </head>
@@ -46,7 +45,7 @@
                     <div class="col-sm-4">
                         <h4>BoatBnB</h4>
                         <li> <a class="info" href="">About us</a></li>
-                        <li><a class="info" href="contact-us">Contact</a></li>
+                        <li><a class="info" href="/contact-us">Contact</a></li>
                         <li><a class="info" href="">Careers</a></li>
                     </div>
                     <div class="col-sm-4">

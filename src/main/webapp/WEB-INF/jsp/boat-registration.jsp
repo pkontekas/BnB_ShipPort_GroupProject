@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>Boat Registration</title>
+
         <style>
             h1{
                 text-align: center;
@@ -24,6 +25,7 @@
                 padding-bottom: 40px;
             }
         </style>
+
     </head>
     <body>
 
@@ -35,38 +37,44 @@
 
         <div class="boatRegistration">
             <div class="form container">
-                <springform:form action="doinsertboat" method="POST" modelAttribute="newboat">
+                <springform:form cssClass="main-form needs-validation" novalidate="true"  action="doinsertboat" method="POST" modelAttribute="newboat">
                     <h1>Boat Registration</h1>
-
                     <div class="row">
                         <div class="col-sm">
                             <div class="form-group">
-                                <label for="manufacturer">Manufacturer</label>
-                                <springform:input type="text" path="manufacturer" id="manufacturer" cssClass="form-control" required="true"/>
+                                <label for="manufacturer">Manufacturer </label>
+                                <springform:input type="text" path="manufacturer" id="manufacturer" cssClass="form-control" required="true"/> 
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="model">Model</label>
                                 <springform:input type="text" path="model" cssClass="form-control" id="model" required="true"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="constructionYear">Construction Year</label>
                                 <springform:input type="number" path="constructionYear" cssClass="form-control" id="constructionYear" required="true" min="1900" max="2020"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="boatType">Boat Type</label>
                                 <springform:input type="text" path="boatType" cssClass="form-control" id="boatType" required="true"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="boatLength">Length (ft)</label>
                                 <springform:input type="number" path="boatLength" cssClass="form-control" id="boatLength" required="true" min="2"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="passengerCapacity">Passenger Capacity</label>
                                 <springform:input type="number" path="passengerCapacity" cssClass="form-control" id="passengerCapacity" required="true" min="0" max="50"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="beds">Beds</label>
                                 <springform:input type="number" path="beds" cssClass="form-control" id="beds" required="true" min="0" max="20"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <label for="portsId">Port:</label>
                             <springform:select path="portsId" required="true">
@@ -77,34 +85,54 @@
                             <div class="form-group">
                                 <label for="enginePower">Engine Power</label>
                                 <springform:input type="text" path="enginePower" cssClass="form-control" id="enginePower" required="true" min="10"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="fuel">Fuel Type</label>
-                                <springform:input type="text" path="fuel" cssClass="form-control" id="fuel" required="true"/>
+                                <select name="fuel" id="fuel" required="true" class="form-control">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="Petrol">Petrol</option>
+                                </select>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="fuelTankCapacity">Fuel Tank Capacity (gal)</label>
                                 <springform:input type="number" path="fuelTankCapacity" cssClass="form-control" id="fuelTankCapacity" required="true" min="50"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="cruiseSpeed">Cruise Speed (knots)</label>
                                 <springform:input type="number" path="cruiseSpeed" cssClass="form-control" id="cruiseSpeed" required="true" min="0"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="maxSpeed">Max Speed (knots)</label>
                                 <springform:input type="number" path="maxSpeed" cssClass="form-control" id="maxSpeed" required="true" min="0"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">
                                 <label for="currentPrice">Current Price (Euro)</label>
                                 <springform:input type="number" path="currentPrice" cssClass="form-control" id="currentPrice" required="true" min="50"/>
+                                <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                         </div>
                     </div>
+
                     <button type="submit" class="btn btn-primary">Register</button>
+                    <script>
+                        var form = document.querySelector('.needs-validation');
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        });
+                    </script>
                 </springform:form>
             </div>
         </div>
-
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

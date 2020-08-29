@@ -17,41 +17,36 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
-        <title>JSP Page</title>
-        <style>
+        <title>Contact Us Page</title>
 
+        <style>
             .profile {
                 flex-grow: 2;
                 display: flex;
-
             }
             .titleContact{
                 text-align: center;
                 padding: 30px;
-
             }
             .profileCards{
                 padding-bottom: 100px;
             }
         </style>
+
     </head>
     <body>
         <jsp:include page="navbar.jsp"/>
         <div class="titleContact">
-            <h1 >
-                Contact us
-            </h1>
+            <h1>Contact us</h1>
         </div>
-
-
         <div class="profileCards container-fluid">
             <div class="row">
                 <div class="profile col-xs-sm-md-lg-xl">
                     <div class="card">
-                        <img src="image/dionisis.jpg" alt="Dionisis" style="width:100%">
-                        <h1>Dionisis Tsilioris</h1>
-                        <p class="title">Junior full stuck developer </p>
-                        <p>email address<br> diontsilioris@gmail.com</p>
+                        <img src="image/dionisis.jpg" alt="Philip" style="width:100%">
+                        <h1>Philip Kontekas</h1>
+                        <p class="title">Junior Full Stack Developer </p>
+                        <p>email address<br> phkontekas@gmail.com</p>
                         <div>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-linkedin"></i></a>
@@ -65,7 +60,7 @@
                     <div class="card">
                         <img src="image/dionisis.jpg" alt="Dionisis" style="width:100%">
                         <h1>Dionisis Tsilioris</h1>
-                        <p class="title">Junior full stuck developer </p>
+                        <p class="title">Junior Full Stack Developer </p>
                         <p>email address<br> diontsilioris@gmail.com</p>
                         <div>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -79,8 +74,8 @@
                 <div class="profile col-xs-sm-md-lg-xl">
                     <div class="card">
                         <img src="image/dionisis.jpg" alt="Dionisis" style="width:100%">
-                        <h1>Dionisis Tsilioris</h1>
-                        <p class="title">Junior full stuck developer </p>
+                        <h1>Markos Pantazis</h1>
+                        <p class="title">Junior Full Stack Developer </p>
                         <p>email address<br> diontsilioris@gmail.com</p>
                         <div>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -91,9 +86,9 @@
                         <p><button>Contact</button></p>
                     </div>
                 </div>
-
             </div>
         </div>
+        
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -105,5 +100,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+        
     </body>
 </html>
