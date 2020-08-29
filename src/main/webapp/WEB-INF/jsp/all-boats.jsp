@@ -156,7 +156,7 @@
                     <h1>Search</h1>
                     <form>
                         <div class="form-group">
-                            <label for="destination">Where to sail?</label>
+                            <label for="destination">Where to sail ?</label>
                             <input type="text" name="destination" class="form-control" placeholder="Port, City" required="true" pattern="[A-Za-z]+"
                                    >
                             <div class="invalid-feedback">Choose destination <br> <small>alphabetic characters only</small>  </div>
@@ -289,7 +289,7 @@
                                         <div class="icons">
                                             <small class="text-muted"><i class="fa fa-users"></i> ${b.passengerCapacity} people</small> &nbsp;
                                             &nbsp;<small class="text-muted"><i class="fa fa-bed"></i> ${b.beds} beds</small> &nbsp;
-                                            &nbsp;<small class="text-muted"><i class="fa fa-bath"></i> 2 bath</small>&nbsp;
+                                            &nbsp;<small class="text-muted"><i class="fa fa-bath"></i> WC</small>&nbsp;
                                             &nbsp;<small class="text-muted"><i class="fa fa-tachometer"></i> ${b.cruiseSpeed} knots</small> &nbsp;
                                             &nbsp;<small class="text-muted"><i class="fa fa-fire"></i> ${b.fuel}</small>
                                         </div>
