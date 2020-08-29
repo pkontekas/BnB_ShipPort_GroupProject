@@ -320,7 +320,12 @@
                     </c:forEach>
                 </div>
             </div>
-        </div>   
+        </div>
+        
+        <span>Page: </span>
+        <c:forEach begin="1" end="${totalPages}" var="i">
+            <a href="/page/<c:out value="${i}"/>"><c:out value="${i}"/></a>
+        </c:forEach>  
 
         <jsp:include page="footer.jsp"/>
 

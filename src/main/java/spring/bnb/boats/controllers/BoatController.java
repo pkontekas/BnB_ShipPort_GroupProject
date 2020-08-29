@@ -7,10 +7,12 @@ import java.util.List;
 import java.util.Map;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import spring.bnb.boats.models.Account;
@@ -65,11 +67,21 @@ public class BoatController {
     public List<Port> getListOfPorts() {
         return portService.getAllPorts();
     }
-
+    
     @GetMapping("/showallboats")
     public String showAllBoats(ModelMap mm) {
+        return listAllBoats(mm, 1);
+    }
+
+    @GetMapping("/page/{pageNumber}")
+    public String listAllBoats(ModelMap mm,
+            @PathVariable ("pageNumber") int currentPage) {
         
-        List<Boat> boats = boatService.getAllBoats();
+        Page<Boat> page = boatService.getAllBoats(currentPage);
+        List<Boat> boats = page.getContent();
+        int totalPages = page.getTotalPages();
+        mm.addAttribute("totalPages", totalPages);
+        mm.addAttribute("currentPage", currentPage);
         mm.addAttribute("allboats", boats);
         
         Map<Integer,String> boatPhotosEncoded = new HashMap<>();
