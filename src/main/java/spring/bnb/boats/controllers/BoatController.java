@@ -73,7 +73,7 @@ public class BoatController {
         return listAllBoats(mm, 1);
     }
 
-    @GetMapping("/page/{pageNumber}")
+    @GetMapping("/showallboats/page/{pageNumber}")
     public String listAllBoats(ModelMap mm,
             @PathVariable ("pageNumber") int currentPage) {
         
