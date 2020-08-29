@@ -31,7 +31,6 @@
             }
 
             .card {
-
                 flex-grow: 2;
                 justify-content: flex-end;
                 display: flex;
@@ -100,8 +99,9 @@
                 display: flex;
                 align-items: center;
                 margin-top: 10px;
-                margin-right: 15px;
-                border-radius: 5PX;
+                margin-right: 80px;
+                border-radius: 5px;
+                width:130px;
             }
 
             .borderForm {
@@ -307,10 +307,9 @@
 
                                                 <form action="showboatinfo" method="GET">
                                                     <input type="hidden" name="boatId" value="${b.id}">
-                                                    <button type="Submit" class="viewBtn btn btn-primary"><i
+                                                    <button type="Submit" class="viewBtn btn-primary"><i
                                                             class="fa fa-search"></i>&nbsp; VIEW BOAT &nbsp;</button>
                                                 </form>
-
                                             </div>
                                         </div>
                                     </div>
@@ -321,7 +320,7 @@
                 </div>
             </div>
         </div>
-        
+
         <span>Page: </span>
         <c:forEach begin="1" end="${totalPages}" var="i">
             <a href="/page/<c:out value="${i}"/>"><c:out value="${i}"/></a>

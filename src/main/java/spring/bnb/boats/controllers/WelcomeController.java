@@ -21,9 +21,4 @@ public class WelcomeController {
         return "about-us";
     }
 
-    @RequestMapping("/myprofile")
-    public String myprofile() {
-        return "profile";
-    }
-
 }

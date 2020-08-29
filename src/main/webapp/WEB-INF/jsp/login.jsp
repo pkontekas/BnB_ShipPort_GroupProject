@@ -43,6 +43,8 @@
 
         <jsp:include page="navbar.jsp"/>
 
+        Dear Visitor, <br>you will have to authenticate to access this feature!
+        
         <div class="titleLogin">
             <h1>Login Form</h1>
         </div>

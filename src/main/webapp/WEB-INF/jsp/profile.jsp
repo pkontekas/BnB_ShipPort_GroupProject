@@ -41,12 +41,12 @@
                     <div class="col-sm">
                         <div class="form-group">
                             <label for="name">First Name</label>
-                            <springform:input type="text" path="name" cssClass="form-control" id="profilename" pattern="[A-Za-z]+" required="true"/>
+                            <springform:input type="text" path="name" cssClass="form-control" pattern="[A-Za-z]+" required="true"/>
                             <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div>
                         <div class="form-group">
                             <label for="cellphone">Cellphone Number</label>
-                            <springform:input type="number" path="cellphone" min="0" cssClass="form-control" id="profilecellphone"/>
+                            <springform:input type="number" path="cellphone" min="0" cssClass="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for="nationality">Preferred Language</label>
@@ -57,29 +57,30 @@
                         </div>
                         <div class="form-group">
                             <label for="firstUserPass">Password</label>
-                            <springform:input type="password" path="password" cssClass="form-control" id="firstUserPass" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required="true"/>
+                            <springform:input type="password" path="password" cssClass="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required="true"/>
                             <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
                         </div>
                     </div>
                     <div class="col-sm">
                         <div class="form-group">
                             <label for="surname">Last Name</label>
-                            <springform:input type="text" path="surname" cssClass="form-control" id="surname" pattern="[A-Za-z]+" required="true"/>
+                            <springform:input type="text" path="surname" cssClass="form-control" pattern="[A-Za-z]+" required="true"/>
                             <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div> 
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            <springform:input type="email" path="email" cssClass="form-control" id="email" required="true"/>
+                            <springform:input type="email" path="email" cssClass="form-control" required="true"/>
                             <div class="invalid-feedback">Email format required</div>
                         </div>
                         <div class="form-group">
                             <springform:label path="profilePic">Upload Photo</springform:label>
-                            <input type="file" name="profilePic" class="form-control" id="profilePic"/>
+                            <input type="file" name="profilePic" class="form-control"/>
+                            <small class="form-text text-muted">Please upload a photo if you plan to become an Owner.</small>
                         </div>
                         <div class="form-group">
                             <label for=""> &nbsp; </label>
-                            <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" id="secondUserPass" required><br>
-                        </div>  
+                            <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" required><br>
+                        </div>
                     </div> 
                 </div>
                 <button type="Submit" value="Submit" class="btn btn-primary">Submit</button>
