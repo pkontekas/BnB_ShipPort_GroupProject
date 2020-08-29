@@ -5,13 +5,15 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <title>Registration</title>
+        <title>Update My Profile</title>
 
         <style>
             .profileform {
@@ -32,9 +34,9 @@
 
         <jsp:include page="navbar.jsp"/>
 
-        <h1 class="updateRegistration">Update User</h1>
+        <h1 class="updateRegistration">Update My Profile</h1>
         <div class="profileform container"> 
-            <springform:form cssClass="main-form needs-validation" novalidate="true" action="doupdateaccount" method="POST" modelAttribute="" enctype="multipart/form-data">
+            <springform:form cssClass="main-form needs-validation" novalidate="true" action="doupdateaccount" modelAttribute="oldaccount" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm">
                         <div class="form-group">
@@ -83,7 +85,7 @@
                 <button type="Submit" value="Submit" class="btn btn-primary">Submit</button>
                 <script>
                     var form = document.querySelector('.needs-validation');
-                    form.addEventListener('submit', function (event) {
+                    form.addEventListener('Submit', function (event) {
                         if (form.checkValidity() === false) {
                             event.preventDefault();
                             event.stopPropagation();
