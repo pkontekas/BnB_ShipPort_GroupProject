@@ -323,7 +323,14 @@
 
         <span>Page: </span>
         <c:forEach begin="1" end="${totalPages}" var="i">
-            <a href="/page/<c:out value="${i}"/>"><c:out value="${i}"/></a>
+            <c:choose>
+                <c:when test="${i!=currentPage}">
+                    <a href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a>
+                </c:when>
+                <c:otherwise>
+                    <c:out value="${i}"/>
+                </c:otherwise>        
+            </c:choose>   
         </c:forEach>  
 
         <jsp:include page="footer.jsp"/>
