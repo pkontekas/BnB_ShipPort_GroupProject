@@ -318,10 +318,10 @@
                         </div>
                     </c:forEach>
                 </div>
-            </div>
-        </div>
-
-        <nav aria-label="Page navigation example">
+          
+            
+            
+                    <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <c:if test="${currentPage gt 1}">
                     <li class="page-item"><a class="page-link" href="/showallboats/page/${currentPage - 1}">Previous</a></li>
@@ -342,6 +342,10 @@
             </ul>
         </nav>
 
+              </div>
+        </div>
+
+      
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
