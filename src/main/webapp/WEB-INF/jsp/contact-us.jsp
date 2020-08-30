@@ -20,16 +20,45 @@
         <title>Contact Us Page</title>
 
         <style>
-            .profile {
-                flex-grow: 2;
-                display: flex;
-            }
+          
             .titleContact{
                 text-align: center;
                 padding: 30px;
             }
             .profileCards{
                 padding-bottom: 100px;
+            }
+            .title {
+                text-align: center;
+                color: grey;
+                font-size: 18px;
+            }
+
+            .btncontact {
+                border: none;
+                outline: 0;
+                display: inline-block;
+                padding: 8px;
+                color: white;
+                background-color: #000;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+                font-size: 18px;
+            }
+
+            .anchors {
+                text-decoration: none;
+                font-size: 22px;
+                color: black;
+            }
+
+            .btncontact:hover, a:hover {
+                opacity: 0.7;
+            }
+            .cardText{
+                text-align: center;
+                margin: 10%;
             }
         </style>
 
@@ -41,54 +70,57 @@
         </div>
         <div class="profileCards container-fluid">
             <div class="row">
-                <div class="profile col-xs-sm-md-lg-xl">
-                    <div class="card">
+                
+                <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="cardText">
                         <img src="image/dionisis.jpg" alt="Philip" style="width:100%">
                         <h1>Philip Kontekas</h1>
                         <p class="title">Junior Full Stack Developer </p>
                         <p>email address<br> phkontekas@gmail.com</p>
                         <div>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"> <i class="fa fa-github"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="anchors" href="#"> <i class="fa fa-github"></i></a>
                         </div>
-                        <p><button>Contact</button></p>
+                        <p><button class="btncontact">Contact</button></p>
                     </div>
                 </div>
-                <div class="profile col-xs-sm-md-lg-xl">
-                    <div class="card">
-                        <img src="image/dionisis.jpg" alt="Dionisis" style="width:100%">
+                
+                
+                   <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="cardText">
+                        <img src="image/dionisis.jpg" alt="Philip" style="width:100%">
                         <h1>Dionisis Tsilioris</h1>
                         <p class="title">Junior Full Stack Developer </p>
                         <p>email address<br> diontsilioris@gmail.com</p>
                         <div>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"> <i class="fa fa-github"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="anchors" href="#"> <i class="fa fa-github"></i></a>
                         </div>
-                        <p><button>Contact</button></p>
+                        <p><button class="btncontact">Contact</button></p>
                     </div>
                 </div>
-                <div class="profile col-xs-sm-md-lg-xl">
-                    <div class="card">
-                        <img src="image/dionisis.jpg" alt="Dionisis" style="width:100%">
-                        <h1>Markos Pantazis</h1>
+                   <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="cardText">
+                        <img src="image/dionisis.jpg" alt="Philip" style="width:100%;">
+                        <h1>Philip Kontekas</h1>
                         <p class="title">Junior Full Stack Developer </p>
-                        <p>email address<br> diontsilioris@gmail.com</p>
+                        <p>email address<br> phkontekas@gmail.com</p>
                         <div>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"> <i class="fa fa-github"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="anchors" href="#"> <i class="fa fa-github"></i></a>
                         </div>
-                        <p><button>Contact</button></p>
+                        <p><button class="btncontact">Contact</button></p>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -100,6 +132,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-        
+
     </body>
 </html>
