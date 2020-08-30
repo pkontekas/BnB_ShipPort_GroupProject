@@ -38,7 +38,7 @@
 
     <body>
         <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="/"><img src="image/logo.jpg" style="height: 50px;"></a>
+            <a class="navbar-brand" href="/"><img src="/image/logo.jpg" style="height: 50px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-bars" style="background-color: white;"></span>
