@@ -332,7 +332,7 @@
                             <li class="page-item"><a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a></li>
                         </c:when>
                         <c:otherwise>
-                            <c:out value="${i}"/>
+                            <li class="page-item disabled"><a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a></li>
                         </c:otherwise>        
                     </c:choose>   
                 </c:forEach>
