@@ -4,7 +4,7 @@ var usernamePage = document.querySelector('#username-page');
 var chatPage = document.querySelector('#chat-page');
 var usernameForm = document.querySelector('#usernameForm');
 var messageForm = document.querySelector('#messageForm');
-var messageInput = document.querySelector('#message');
+var messageInput = document.querySelector('#user-message');
 var messageArea = document.querySelector('#messageArea');
 var connectingElement = document.querySelector('.connecting');
 
@@ -17,7 +17,7 @@ var colors = [
 ];
 
 function connect(event) {
-    username = document.querySelector('#name').value.trim();
+    username = document.querySelector('#chat-username').value.trim();
 
     if(username) {
         usernamePage.classList.add('hidden');

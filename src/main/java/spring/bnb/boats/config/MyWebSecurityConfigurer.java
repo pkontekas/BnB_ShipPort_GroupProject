@@ -31,6 +31,7 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 //next line will be added to restrict access to boat registration to just logged in users
                 .antMatchers("/preregisterboat").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/preupdateaccount").hasAnyRole("ADMIN", "USER", "OWNER")
+                .antMatchers("/chatpage").hasAnyRole("ADMIN", "USER", "OWNER")
                 //.antMatchers("/").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/").permitAll()//added permit all instead of above line
                 //.antMatchers("/performlogout").hasAnyRole("ADMIN", "USER", "OWNER")

@@ -318,30 +318,35 @@
                         </div>
                     </c:forEach>
                 </div>
-          
-            
-            
-                    <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <c:if test="${currentPage gt 1}">
-                    <li class="page-item"><a class="page-link" href="/showallboats/page/${currentPage - 1}">Previous</a></li>
-                </c:if>
-                <c:forEach begin="1" end="${totalPages}" var="i">
-                    <c:choose>
-                        <c:when test="${i!=currentPage}">
-                            <li class="page-item"><a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a></li>
-                        </c:when>
-                        <c:otherwise>
-                            <li class="page-item disabled"><a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a></li>
-                        </c:otherwise>        
-                    </c:choose>   
-                </c:forEach>
-                <c:if test="${currentPage lt totalPages}">
-                    <li class="page-item"><a class="page-link" href="/showallboats/page/${currentPage + 1}">Next</a></li>
-                </c:if>
-            </ul>
-        </nav>
 
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <c:if test="${currentPage gt 1}">
+                                <li class="page-item">
+                                    <a class="page-link" href="/showallboats/page/${currentPage - 1}">Previous</a>
+                                </li>
+                            </c:if>
+                            <c:forEach begin="1" end="${totalPages}" var="i">
+                                <c:choose>
+                                    <c:when test="${i!=currentPage}">
+                                        <li class="page-item">
+                                            <a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a>
+                                        </li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a>
+                                        </li>
+                                    </c:otherwise>        
+                                </c:choose>   
+                            </c:forEach>
+                            <c:if test="${currentPage lt totalPages}">
+                                <li class="page-item">
+                                    <a class="page-link" href="/showallboats/page/${currentPage + 1}">Next</a>
+                                </li>
+                            </c:if>
+                    </ul>
+                </nav>
               </div>
         </div>
 

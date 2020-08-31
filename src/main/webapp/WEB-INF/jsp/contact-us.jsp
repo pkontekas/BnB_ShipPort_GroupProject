@@ -105,7 +105,7 @@
                 </div>
                    <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="cardText">
-                        <img src="image/dionisis.jpg" alt="Philip" style="width:100%;">
+                        <img src="image/Pantazis.jpg" alt="Markos" style="width:100%;">
                         <h1>Markos Pantazis</h1>
                         <p class="title">Junior Full Stack Developer </p>
                         <p>email address<br> markpantazis@gmail.com</p>
