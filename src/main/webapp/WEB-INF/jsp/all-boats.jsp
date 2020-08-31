@@ -305,7 +305,7 @@
                                             </div>
                                             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
 
-                                                <form action="showboatinfo" method="GET">
+                                                <form action="/showboatinfo" method="GET">
                                                     <input type="hidden" name="boatId" value="${b.id}">
                                                     <button type="Submit" class="viewBtn btn-primary"><i
                                                             class="fa fa-search"></i>&nbsp; VIEW BOAT &nbsp;</button>
