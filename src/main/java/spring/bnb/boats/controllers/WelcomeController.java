@@ -20,5 +20,10 @@ public class WelcomeController {
     public String aboutus() {
         return "about-us";
     }
+    
+    @RequestMapping("/chatpage")
+    public String showChat() {
+        return "chat";
+    }
 
 }
