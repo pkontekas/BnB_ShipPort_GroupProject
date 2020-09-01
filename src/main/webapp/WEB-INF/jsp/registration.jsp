@@ -68,8 +68,8 @@
                         </div>
                         <div class="form-group">
                             <springform:label path="profilePic">Upload Photo</springform:label>
-                                <input type="file" name="profilePic" class="form-control" id="profilePic"/>
-                            </div>
+                                <input type="file" name="profilepic" class="form-control"/>
+                        </div>
                             <div class="form-group">
                                 <label for=""> &nbsp; </label>
                                 <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" id="secondUserPass" required><br>
