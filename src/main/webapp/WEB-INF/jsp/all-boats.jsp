@@ -113,6 +113,9 @@
                 background-color: #0a9ab5;
                 color: white;
                 font-size: 15px;
+                position: sticky;
+                top:25px;
+                bottom:50px;
             }
 
             .boat {
