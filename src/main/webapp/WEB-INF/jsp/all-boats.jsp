@@ -23,6 +23,7 @@
             .pTitle {
                 text-align: center;
                 color: #0a9ab5;
+                margin: 20px;
             }
 
             .view {
@@ -83,6 +84,7 @@
                 justify-content: flex-end;
                 display: flex;
                 justify-content: space-between;
+                 border-radius: 5px;
             }
 
             .price {
@@ -91,6 +93,7 @@
                 align-items: center;
                 display: flex;
                 margin-left: 15px;
+               
             }
 
             .viewBtn {
@@ -108,14 +111,16 @@
                 padding-top: 10px;
                 border: 2px solid #0a9ab5;
                 width: 300px;
-                margin-top: 60px;
+                margin-top: 90px;
                 padding: 15px;
                 background-color: #0a9ab5;
                 color: white;
                 font-size: 15px;
                 position: sticky;
-                top:25px;
+                top:20px;
                 bottom:50px;
+                margin-bottom: 55px;
+                 border-radius: 5px;
             }
 
             .boat {
@@ -127,6 +132,7 @@
                 display: flex;
                 justify-content: center;
                 background-color: whitesmoke;
+               
             }
 
             .firstCol {

@@ -122,19 +122,19 @@
             <div class="search">
                 <form>
                     <div class="form-row">
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                             <label for="">Destination</label> 
                             <input type="text" class="form-control" placeholder="Port,Town">
                         </div>
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                             <label for="">Duration</label>
                             <input type="text" min="0" class="form-control" placeholder="Any">
                         </div>
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                             <label for="">Start Date</label>
                             <input type="date" class="form-control" placeholder="Start Date">
                         </div>
-                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                             <label for="">&nbsp;</label>
                             <button type="button" class="btn btn-primary form-control"><i class="fa fa-search"></i>&nbsp;
                                 Search</button>
