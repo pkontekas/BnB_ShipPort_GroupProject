@@ -204,17 +204,32 @@
 
         <div class="romantic jumbotron-fluid">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center">
-                    <img id="sunsetBoat" src="image/sunsetonboat.jpg" alt="sunset">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-end">
+                    <div class="d-none d-xl-block">
+                        <img id="sunsetBoat" src="image/sunsetonboat.jpg" alt="sunset">
+                    </div>
+                </div>
+                <div class="romanticMessage col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="d-none d-xl-block">
+                        <h1 class="display-6 d-flex justify-content-left">Discover the world</h1>
+                        <p class="lead d-flex justify-content-left">And live the moment . .</p>
+                    </div>
                 </div>
 
-                <div class="romanticMessage col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <h1 class="display-6 d-flex justify-content-center">Discover the world</h1>
-                    <p class="lead d-flex justify-content-center">And live the moment . .</p>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center">
+                    <div class="d-xl-none">
+                        <img id="sunsetBoat" src="image/sunsetonboat.jpg" alt="sunset">
+                    </div>
+                </div>
+                <div class="romanticMessage col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="d-xl-none">
+                        <h1 class="display-6 d-flex justify-content-center">Discover the world</h1>
+                        <p class="lead d-flex justify-content-center">And live the moment . .</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
     <jsp:include page="footer.jsp"/>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
