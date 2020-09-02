@@ -14,13 +14,11 @@
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
         <title>Contact Us Page</title>
 
         <style>
-          
             .titleContact{
                 text-align: center;
                 padding: 30px;
@@ -33,12 +31,12 @@
                 color: grey;
                 font-size: 18px;
             }
-
             .btncontact {
                 border: none;
                 outline: 0;
                 display: inline-block;
-                padding: 8px;
+                padding-top: 8px;
+                padding-bottom:8px;
                 color: white;
                 background-color: #000;
                 text-align: center;
@@ -46,13 +44,11 @@
                 width: 100%;
                 font-size: 18px;
             }
-
             .anchors {
                 text-decoration: none;
                 font-size: 22px;
                 color: black;
             }
-
             .btncontact:hover, a:hover {
                 opacity: 0.7;
             }
@@ -66,7 +62,7 @@
     <body>
         <jsp:include page="navbar.jsp"/>
         <div class="titleContact">
-            <h1>Contact us</h1>
+            <h1>Contact the Dev Team</h1>
         </div>
         <div class="profileCards container-fluid">
             <div class="row">
@@ -87,7 +83,6 @@
                     </div>
                 </div>
                 
-                
                    <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="cardText">
                         <img src="image/dionisis.jpg" alt="Philip" style="width:100%">
@@ -105,10 +100,10 @@
                 </div>
                    <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="cardText">
-                        <img src="image/dionisis.jpg" alt="Philip" style="width:100%;">
-                        <h1>Philip Kontekas</h1>
+                        <img src="image/Pantazis.jpg" alt="Markos" style="width:100%;">
+                        <h1>Markos Pantazis</h1>
                         <p class="title">Junior Full Stack Developer </p>
-                        <p>email address<br> phkontekas@gmail.com</p>
+                        <p>email address<br> markpantazis@gmail.com</p>
                         <div>
                             <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
                             <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>

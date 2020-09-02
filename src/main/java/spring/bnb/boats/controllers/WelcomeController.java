@@ -16,9 +16,14 @@ public class WelcomeController {
         return "contact-us";
     }
 
-    @RequestMapping("/about")
+    @RequestMapping("/aboutus")
     public String aboutus() {
-        return "about-us";
+        return "about";
+    }
+    
+    @RequestMapping("/chatpage")
+    public String showChat() {
+        return "chat";
     }
 
 }

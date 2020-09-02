@@ -25,7 +25,7 @@
         <script>
             setTimeout(function () {
                 document.location = "/";
-            }, 6000); // <-- this is the delay in milliseconds
+            }, 7000); // <-- this is the delay in milliseconds
         </script>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

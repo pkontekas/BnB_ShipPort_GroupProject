@@ -46,9 +46,9 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <h4>BoatBnB</h4>
-                                <li><a class="footerinfo" href="/about">About</a></li>
+                                <li><a class="footerinfo" href="/aboutus">About</a></li>
                                 <li><a class="footerinfo" href="/contactus">Contact Us</a></li>
-                                <li><a class="footerinfo" href="/#">Careers</a></li>
+                                <li><a class="footerinfo" href="chatpage">Join the discussion</a></li>
                             </div>
                             <div class="col-sm-4">
                                 <h4>Information</h4>

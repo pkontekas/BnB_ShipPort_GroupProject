@@ -23,6 +23,7 @@
             .pTitle {
                 text-align: center;
                 color: #0a9ab5;
+                margin: 20px;
             }
 
             .view {
@@ -83,6 +84,7 @@
                 justify-content: flex-end;
                 display: flex;
                 justify-content: space-between;
+                 border-radius: 5px;
             }
 
             .price {
@@ -91,6 +93,7 @@
                 align-items: center;
                 display: flex;
                 margin-left: 15px;
+               
             }
 
             .viewBtn {
@@ -108,11 +111,16 @@
                 padding-top: 10px;
                 border: 2px solid #0a9ab5;
                 width: 300px;
-                margin-top: 60px;
+                margin-top: 90px;
                 padding: 15px;
                 background-color: #0a9ab5;
                 color: white;
                 font-size: 15px;
+                position: sticky;
+                top:20px;
+                bottom:50px;
+                margin-bottom: 55px;
+                 border-radius: 5px;
             }
 
             .boat {
@@ -124,6 +132,7 @@
                 display: flex;
                 justify-content: center;
                 background-color: whitesmoke;
+               
             }
 
             .firstCol {
@@ -305,7 +314,7 @@
                                             </div>
                                             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
 
-                                                <form action="showboatinfo" method="GET">
+                                                <form action="/showboatinfo" method="GET">
                                                     <input type="hidden" name="boatId" value="${b.id}">
                                                     <button type="Submit" class="viewBtn btn-primary"><i
                                                             class="fa fa-search"></i>&nbsp; VIEW BOAT &nbsp;</button>
@@ -318,30 +327,39 @@
                         </div>
                     </c:forEach>
                 </div>
-            </div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <c:if test="${currentPage gt 1}">
+                                <li class="page-item">
+                                    <a class="page-link" href="/showallboats/page/${currentPage - 1}">Previous</a>
+                                </li>
+                            </c:if>
+                            <c:forEach begin="1" end="${totalPages}" var="i">
+                                <c:choose>
+                                    <c:when test="${i!=currentPage}">
+                                        <li class="page-item">
+                                            <a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a>
+                                        </li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a>
+                                        </li>
+                                    </c:otherwise>        
+                                </c:choose>   
+                            </c:forEach>
+                            <c:if test="${currentPage lt totalPages}">
+                                <li class="page-item">
+                                    <a class="page-link" href="/showallboats/page/${currentPage + 1}">Next</a>
+                                </li>
+                            </c:if>
+                    </ul>
+                </nav>
+              </div>
         </div>
 
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <c:if test="${currentPage gt 1}">
-                    <li class="page-item"><a class="page-link" href="/showallboats/page/${currentPage - 1}">Previous</a></li>
-                </c:if>
-                <c:forEach begin="1" end="${totalPages}" var="i">
-                    <c:choose>
-                        <c:when test="${i!=currentPage}">
-                            <li class="page-item"><a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a></li>
-                        </c:when>
-                        <c:otherwise>
-                            <li class="page-item disabled"><a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a></li>
-                        </c:otherwise>        
-                    </c:choose>   
-                </c:forEach>
-                <c:if test="${currentPage lt totalPages}">
-                    <li class="page-item"><a class="page-link" href="/showallboats/page/${currentPage + 1}">Next</a></li>
-                </c:if>
-            </ul>
-        </nav>
-
+      
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
