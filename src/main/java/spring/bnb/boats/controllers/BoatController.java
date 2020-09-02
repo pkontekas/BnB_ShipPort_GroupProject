@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Port;
@@ -38,14 +39,25 @@ public class BoatController {
 
     @Autowired
     AccountService accountService;
-    
+
     @Autowired
     BoatphotoService bbService;
 
     @GetMapping("/preregisterboat")
-    public String showBoatRegisterForm(ModelMap mm) {
-        mm.addAttribute("newboat", new Boat());
-        return "boat-registration";
+    public String showBoatRegisterForm(ModelMap mm,
+            Principal principal,
+            RedirectAttributes redirectAttributes) {
+
+        //check if current user has profile picture
+        Account account = accountService.getAccountByEmail(principal.getName());
+        if (account.getProfilePic() != null && account.getProfilePic().length > 0) {
+            //if picture exists all is ok
+            mm.addAttribute("newboat", new Boat());
+            return "boat-registration";
+        } else {//if not, tell him to add one
+            redirectAttributes.addFlashAttribute("profpicmissing", "You need to first upload a Profile Picture!");
+            return "redirect:preupdateaccount";
+        }
     }
 
     @PostMapping("/doinsertboat")
@@ -59,7 +71,7 @@ public class BoatController {
         Boat myboat = boatService.insertBoat(boat);
         mm.addAttribute("myboat", myboat);
         accountService.updateAccountRoleToOwner(account.getId(), account.getRolesId().getId());
-
+        //uploaded boat also needs a picture as minimum so next form opens
         return "upload-photoboat";
     }
 
@@ -67,7 +79,7 @@ public class BoatController {
     public List<Port> getListOfPorts() {
         return portService.getAllPorts();
     }
-    
+
     @GetMapping("/showallboats")
     public String showAllBoats(ModelMap mm) {
         return listAllBoats(mm, 1);
@@ -75,17 +87,17 @@ public class BoatController {
 
     @GetMapping("/showallboats/page/{pageNumber}")
     public String listAllBoats(ModelMap mm,
-            @PathVariable ("pageNumber") int currentPage) {
-        
+            @PathVariable("pageNumber") int currentPage) {
+
         Page<Boat> page = boatService.getAllBoats(currentPage);
         List<Boat> boats = page.getContent();
         int totalPages = page.getTotalPages();
         mm.addAttribute("totalPages", totalPages);
         mm.addAttribute("currentPage", currentPage);
         mm.addAttribute("allboats", boats);
-        
-        Map<Integer,String> boatPhotosEncoded = new HashMap<>();
-        
+
+        Map<Integer, String> boatPhotosEncoded = new HashMap<>();
+
         byte[] imageBeforeEncoding;
         String base64EncodedImage;
         for (int i = 0; i < boats.size(); i++) {
@@ -99,14 +111,15 @@ public class BoatController {
                 mm.addAttribute("kindoferror", ex.getMessage());
             }
         }
-        
+
         //puts whole image boatId-image map in a mm attribute to send it to all-boats in encoded form
         mm.addAttribute("boatImagesMap", boatPhotosEncoded);
         return "all-boats";
     }
 
     @GetMapping("/showboatinfo") // TODO POST instead of GET -> error 405 method not allowed
-    public String showBoatInfo(ModelMap mm, @RequestParam(name = "boatId") int id) {
+    public String showBoatInfo(ModelMap mm,
+            @RequestParam(name = "boatId") int id) {
 
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
@@ -135,8 +148,7 @@ public class BoatController {
         }
         //puts encoded boat image it in a mm attribute to send it to boat-info in encoded form
         mm.addAttribute("boatimage", base64EncodedImage);
-        
+
         return "boat-info";
     }
-
 }

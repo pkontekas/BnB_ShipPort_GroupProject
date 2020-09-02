@@ -34,6 +34,8 @@
 
         <jsp:include page="navbar.jsp"/>
 
+        ${profpicmissing}
+
         <h1 class="updateRegistration">Update My Profile</h1>
         <div class="profileform container"> 
             <springform:form cssClass="main-form needs-validation" novalidate="true" action="doupdateaccount" modelAttribute="oldaccount" method="POST" enctype="multipart/form-data">
@@ -41,12 +43,12 @@
                     <div class="col-sm">
                         <div class="form-group">
                             <label for="name">First Name</label>
-                            <springform:input type="text" path="name" cssClass="form-control" pattern="[A-Za-z]+" required="true"/>
+                            <springform:input type="text" path="name" cssClass="form-control" minlength="3" pattern="[A-Za-z]+" required="true"/>
                             <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div>
                         <div class="form-group">
                             <label for="cellphone">Cellphone Number</label>
-                            <springform:input type="number" path="cellphone" min="0" cssClass="form-control"/>
+                            <springform:input type="number" path="cellphone" min="0" maxlength="9" cssClass="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for="nationality">Preferred Language</label>
@@ -56,15 +58,15 @@
                             </springform:select>
                         </div>
                         <div class="form-group">
-                            <label for="firstUserPass">Password</label>
-                            <springform:input type="password" path="password" cssClass="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required="true"/>
+                            <label for="firstUserPass"><br><br>Password</label>
+                            <springform:input type="password" path="password" cssClass="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/>
                             <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
                         </div>
                     </div>
                     <div class="col-sm">
                         <div class="form-group">
                             <label for="surname">Last Name</label>
-                            <springform:input type="text" path="surname" cssClass="form-control" pattern="[A-Za-z]+" required="true"/>
+                            <springform:input type="text" path="surname" cssClass="form-control" minlength="3" pattern="[A-Za-z]+" required="true"/>
                             <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div> 
                         <div class="form-group">
@@ -74,19 +76,19 @@
                         </div>
                         <div class="form-group">
                             <springform:label path="profilePic">Upload Photo</springform:label>
-                            <input type="file" name="profilePic" class="form-control"/>
+                            <input type="file" name="profilePic" class="form-control" accept="image.*">
                             <small class="form-text text-muted">Please upload a photo if you plan to become an Owner.</small>
                         </div>
                         <div class="form-group">
                             <label for=""> &nbsp; </label>
-                            <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" required><br>
+                            <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass">
                         </div>
                     </div> 
                 </div>
                 <button type="Submit" value="Submit" class="btn btn-primary">Submit</button>
                 <script>
                     var form = document.querySelector('.needs-validation');
-                    form.addEventListener('Submit', function (event) {
+                    form.addEventListener('submit', function (event) {
                         if (form.checkValidity() === false) {
                             event.preventDefault();
                             event.stopPropagation();
@@ -109,5 +111,4 @@
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     </body>
-</body>
 </html>

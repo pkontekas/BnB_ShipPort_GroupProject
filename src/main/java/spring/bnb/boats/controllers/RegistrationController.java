@@ -1,5 +1,6 @@
 package spring.bnb.boats.controllers;
 
+import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -28,10 +29,20 @@ public class RegistrationController {
 
     @GetMapping("/preregisteraccount")
     public String showRegisterForm(ModelMap mm,
-            @ModelAttribute("passerror") String error) {
+            @ModelAttribute("passerror") String passerror,
+            @ModelAttribute("mailerror") String mailerror,
+            @ModelAttribute("newaccount") Account acc) {
 
-        mm.addAttribute("newaccount", new Account());
-        mm.addAttribute("passerror", error);
+        //check if we have empty newaccount or not and fill the mm newaccount accordingly with empty or previously filled in account
+        if (!mm.containsAttribute("newaccount")) {
+            mm.addAttribute("newaccount", new Account());
+        }
+        else {
+            mm.addAttribute("newaccount", acc);
+        }
+        //pass the flash errors on next page
+        mm.addAttribute("passerror", passerror);
+        mm.addAttribute("mailerror", mailerror);
         return "registration";
     }
 
@@ -39,15 +50,15 @@ public class RegistrationController {
     public String insertAccount(
             @ModelAttribute("newaccount") Account acc,
             @RequestParam("secondpass") String secondpass,
-            @RequestParam("profilePic") MultipartFile profilePic,
+            @RequestParam("profilepic") MultipartFile profilepic,
             ModelMap mm,
-            RedirectAttributes redirectAttributes) {
+            RedirectAttributes redirectAttributes) throws IOException {
 
         boolean thereIsError = false;
         try {
             if (accountService.existsAccountByEmail(acc.getEmail())) {
                 System.out.println("There is an account with that email: " + acc.getEmail());
-                redirectAttributes.addFlashAttribute("emailerror", "Email Account already exists!");
+                redirectAttributes.addFlashAttribute("mailerror", "Email Account already exists! Change it!");
                 thereIsError = true;
             }
 
@@ -57,12 +68,12 @@ public class RegistrationController {
 
             }
             if (thereIsError) {
+                //pass the new info from newaccount to next page to prefill the form
+                redirectAttributes.addFlashAttribute("newaccount", acc);
                 return "redirect:preregisteraccount";
-                //must change this, TO DO must find a way to reshow the form with other inputs already filled in from before
-                //return "registration";
             }
-            
-            acc.setProfilePic(profilePic.getBytes());
+
+            acc.setProfilePic(profilepic.getBytes());
             acc.setPassword(passwordEncoder.encode(secondpass));
             //need to set the role foreign key to 2 -> User Role
             acc.setRolesId(roleService.getRoleById(2));

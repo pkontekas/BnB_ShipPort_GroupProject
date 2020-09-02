@@ -5,8 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,7 +37,7 @@
         </security:authorize>
 
         <div class="boatRegistration">
-            <div class="form container">
+            <div class="container">
                 <springform:form cssClass="main-form needs-validation" novalidate="true"  action="doinsertboat" method="POST" modelAttribute="newboat">
                     <h1>Boat Registration</h1>
                     <div class="row">
@@ -118,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-
+                                
                     <button type="submit" class="btn btn-primary">Register</button>
                     <script>
                         var form = document.querySelector('.needs-validation');

@@ -19,7 +19,8 @@
 
     <style>
         .navbar {
-            padding: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
             background-color :#3282B8 ;
             color: white;
         }
@@ -77,7 +78,7 @@
             </div>
         </nav>
 
-        <div>
+        <div class="text-center">
             <c:if test="${param.logout != null}">
                 <i>You successfully logged out!!!</i>
             </c:if>

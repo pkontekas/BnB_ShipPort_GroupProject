@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -53,7 +54,7 @@
                 <springform:form method="POST" action="${pageContext.request.contextPath}/performlogin" cssClass="main-form needs-validation" novalidate="true">
                     <div class="form-group">
                         <label for="email">Email address</label>
-                        <input type="email" name="email" autocomplete="on" class="form-control" id="logemail" required
+                        <input type="email" name="email" autocomplete="on" class="form-control" required
                                aria-describedby="emailHelp">
                         <div class="invalid-feedback">This email address does not exist in our database.</div>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
@@ -61,8 +62,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" autocomplete="off" class="form-control" required
-                               id="navpassword">
+                        <input type="password" name="password" autocomplete="off" class="form-control" required>
                         <div class="invalid-feedback">Invalid password. Try again.</div>
                     </div>
                     <button type="Submit" name="Submit" class="btn btn-primary">Sign in</button>
@@ -92,5 +92,4 @@
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     </body>
-
 </html>

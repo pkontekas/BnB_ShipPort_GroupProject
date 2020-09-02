@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
-<%@ taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,8 +10,8 @@
         <title>Registration</title>
 
         <style>
-            .form {
-                display: flex;
+            .regform {
+                display: d-flex;
                 justify-content: center;
                 padding-bottom: 40px;
                 padding-top: 30px;
@@ -19,6 +19,9 @@
             .titleRegistration{
                 padding-top: 20px;
                 text-align: center;
+            }
+            .rederror{
+                color: lightcoral;
             }
         </style>
 
@@ -28,19 +31,19 @@
         <jsp:include page="navbar.jsp"/>
 
         <h1 class="titleRegistration">User Registration</h1>
-        <div class="form container"> 
+        <div class="regform container"> 
 
             <springform:form cssClass="main-form needs-validation" novalidate="true" action="doinsertaccount" method="POST" modelAttribute="newaccount" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm">
                         <div class="form-group">
                             <label for="name">First Name<small class="text-muted"> (required)</small></label>
-                            <springform:input type="text" path="name" cssClass="form-control" id="name" pattern="[A-Za-z]+" required="true"/>
+                            <springform:input path="name" id="name" cssClass="form-control" pattern="[A-Za-z]+" minlength="3" required="true"/>
                             <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div>
                         <div class="form-group">
                             <label for="cellphone">Cellphone Number</label>
-                            <springform:input type="number" path="cellphone" min="0" cssClass="form-control" id="cellphone"/>
+                            <springform:input type="number" path="cellphone" min="0" maxlength="9" cssClass="form-control" id="cellphone"/>
                         </div>
                         <div class="form-group">
                             <label for="nationality">Preferred Language</label>
@@ -50,35 +53,35 @@
                             </springform:select>
                         </div>
                         <div class="form-group">
-                            <label for="firstUserPass">Password<small class="text-muted"> (required)</small></label>
-                            <springform:input type="password" path="password" cssClass="form-control" id="firstUserPass" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required="true"/>
+                            <label for="firstUserPass">Password<small class="text-muted"> (required) <br><div class="rederror">${passerror}</div></small></label>
+                            <springform:password path="password" cssClass="form-control" id="firstUserPass" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required="true"/>
                             <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
                         </div>
                     </div>
                     <div class="col-sm">
                         <div class="form-group">
                             <label for="surname">Last Name<small class="text-muted"> (required)</small></label>
-                            <springform:input type="text" path="surname" cssClass="form-control" id="surname" pattern="[A-Za-z]+" required="true"/>
+                            <springform:input path="surname" cssClass="form-control" id="surname" minlength="3" pattern="[A-Za-z]+" required="true"/>
                             <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div> 
                         <div class="form-group">
-                            <label for="email">E-mail<small class="text-muted"> (required)</small></label>
+                            <label for="email">E-mail<small class="text-muted"> (required) <br><div class="rederror">${mailerror}</div></small></label>
                             <springform:input type="email" path="email" cssClass="form-control" id="email" required="true"/>
-                            <div class="invalid-feedback">Email format required</div>
+                            <div class="invalid-feedback">Email formatting required</div>
                         </div>
                         <div class="form-group">
-                            <springform:label path="profilePic">Upload Photo</springform:label>
-                                <input type="file" name="profilePic" class="form-control" id="profilePic"/>
-                            </div>
+                            <label for="profilepic">Upload Photo</label>
+                                <input type="file" name="profilepic" class="form-control" accept="image/*">
+                        </div>
                             <div class="form-group">
                                 <label for=""> &nbsp; </label>
-                                <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" id="secondUserPass" required><br>
+                                <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass" required><br>
                             </div>  
                         </div> 
                     </div>
                     <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                        <label class="form-check-label" for="exampleCheck1">Terms & Conditions</label>
+                        <input type="checkbox" class="form-check-input" id="exampleCheck2" required>
+                        <label class="form-check-label" for="exampleCheck2">Terms & Conditions</label>
                     </div>
                     <button type="Submit" value="Submit" class="btn btn-primary">Submit</button>
                     <script>
@@ -106,5 +109,4 @@
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     </body>
-</body>
 </html>
