@@ -11,11 +11,18 @@
 
         <jsp:include page="navbar.jsp"/>
 
-        <h1>No access baby. This is Spring Security</h1>
-        <a href="${pageContext.request.contextPath}/login.html">Go to login</a>
+        <div class="text-center">
+            <h1>No access on this page sorry. This is Spring Security.</h1>
+            <a href="${pageContext.request.contextPath}/">Go to Main Page</a>
+        </div>
 
         <jsp:include page="footer.jsp"/>
 
+        <script>
+            setTimeout(function () {
+                document.location = "/";
+            }, 8000); // <-- this is the delay in milliseconds
+        </script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

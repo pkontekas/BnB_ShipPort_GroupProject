@@ -28,6 +28,7 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .csrf().disable()//had to add this to successfully log out probably because it needed a POST logout
                 .authorizeRequests()//Restrict access based on the HttpServletRequest
                 .antMatchers("/admin/**").hasRole("ADMIN")//added for admin access
+                .antMatchers("/preregisteraccount").hasAnyRole("ADMIN", "ANONYMOUS")
                 //next line will be added to restrict access to boat registration to just logged in users
                 .antMatchers("/preregisterboat").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/preupdateaccount").hasAnyRole("ADMIN", "USER", "OWNER")
