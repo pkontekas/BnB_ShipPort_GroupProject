@@ -21,14 +21,16 @@
                 justify-content: center;
                 padding-bottom: 40px;
                 padding-top: 30px;
-
             }
             .updateRegistration{
                 padding-top: 20px;
                 text-align: center;
             }
-            .errorMessages{
+            .errorMsg{
                 color:red;
+            }
+            .successMsg{
+                color:lightgreen;
             }
         </style>
 
@@ -36,21 +38,21 @@
     <body>
 
         <jsp:include page="navbar.jsp"/>
-        <div class="errorMessages font-italic">
-            ${profpicmissing}
-            ${upresult}
+        <div class="errorMsg font-italic text-center">
             ${passerror}
+        </div>
+        <div class="font-weight-bold text-center successMsg">
+            ${upresult}
         </div>
         <h1 class="updateRegistration">Update My Profile</h1>
         <div class="profileform container"> 
             <springform:form cssClass="main-form needs-validation" novalidate="true" action="doupdateaccount" modelAttribute="oldaccount" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm">
-
                         <div class="form-group">
                             <label for="name">First Name</label>
                             <springform:input path="name" cssClass="form-control" minlength="2" pattern="[A-Za-z]+" required="true"/>
-                            <div class="invalid-feedback">Use only alphabetic characters.</div>
+                            <div class="invalid-feedback">Use only alphabetic and at least 2 characters.</div>
                         </div>
                         <div class="form-group">
                             <label for="cellphone">Cellphone Number</label>
@@ -66,7 +68,7 @@
                         <div class="form-group">
                             <label for="oldpass">Current Password <small class="text-muted"> (required)</small></label>
                             <input type="password" class="form-control" name="oldpass" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
-                            <div class="invalid-feedback">Invalid password entered.</div>
+                            <div class="invalid-feedback">Invalid password.</div>
                         </div>
                         <div class="form-group">
                             <label for="">New Password</label>
@@ -78,7 +80,7 @@
                         <div class="form-group">
                             <label for="surname">Last Name</label>
                             <springform:input path="surname" cssClass="form-control" minlength="2" pattern="[A-Za-z]+" required="true"/>
-                            <div class="invalid-feedback">Use only alphabetic characters.</div>
+                            <div class="invalid-feedback">Use only alphabetic and at least 2 characters.</div>
                         </div> 
                         <springform:input type="hidden" path="email" cssClass="form-control" required="true"/>
                         <springform:input type="hidden" path="id"/>
@@ -90,7 +92,10 @@
                         </div>
                         <div class="text-center form-group">
                             <label for="oldprofilepic">Current Photo</label>
-                            <img class="img-fluid rounded mx-auto d-block" alt="oldprofilepic" src="data:image/jpeg;base64,${oldprofilepic}"/>
+                            <img class="img-fluid rounded mx-auto d-block" alt="noUserProfilePic" src="data:image/jpeg;base64,${oldprofilepic}"/>
+                            <div class="errorMsg font-italic text-center">
+                                ${profpicmissing}
+                            </div>
                         </div>
                     </div> 
                 </div>

@@ -18,16 +18,24 @@
     <body>
 
         <jsp:include page="navbar.jsp"/>
-
-        <h1>Upload Boat photo</h1>
-        <springform:form enctype="multipart/form-data" action="/uploadphotoboat" method="POST">
-            <input type="file" name="photo">
-            <input hidden type="number" name="boatid" value="${myboat.id}">
-            <button type="Submit" value="Submit">Submit</button>
-        </springform:form>
-
-        <jsp:include page="footer.jsp"/>
         
+        <div class="text-center justify-content-center">
+            <h1>Upload Boat photo</h1><small class="text-muted"> (required)</small>
+            <springform:form enctype="multipart/form-data" action="/uploadphotoboat" method="POST">
+                <input type="file" name="photo">
+                <input hidden type="number" name="boatid" value="${myboat.id}">
+                <button type="Submit" value="Submit">Submit</button>
+            </springform:form>
+        </div>
+        
+        <jsp:include page="footer.jsp"/>
+
+        <script>
+            // Warning before leaving the page (back button, or outgoinglink)
+            window.onbeforeunload = function () {
+                return "Please cancel and Submit a Boat Photograph first because it's mandatory and as an Boat Owner you need it.";
+            };
+        </script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

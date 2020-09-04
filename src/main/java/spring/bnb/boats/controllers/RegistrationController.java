@@ -59,11 +59,9 @@ public class RegistrationController {
                 redirectAttributes.addFlashAttribute("mailerror", "Email Account already exists! Change it!");
                 thereIsError = true;
             }
-
             if (!acc.getPassword().equals(secondpass)) {
                 redirectAttributes.addFlashAttribute("passerror", "Passwords differ!");
                 thereIsError = true;
-
             }
             if (thereIsError) {
                 //pass the new info from newaccount to next page to prefill the form
@@ -72,9 +70,12 @@ public class RegistrationController {
             }
             //if picture exists set it
             if (profilepic != null) {
-                if (profilepic.getBytes().length > 0) {
+                if (!profilepic.isEmpty() && profilepic.getBytes().length > 0) {
                     acc.setProfilePic(profilepic.getBytes());
                 }
+            }
+            else {
+            //TO DO use a defaultphoto  from static image defaultProfilePic.png
             }
             
             acc.setPassword(passwordEncoder.encode(secondpass));

@@ -60,7 +60,8 @@ public class BoatController {
                 return "redirect:preupdateaccount";
             }
         }
-        return "boat-registration";
+        redirectAttributes.addFlashAttribute("profpicmissing", "You need to first upload a Profile Picture!");
+        return "redirect:preupdateaccount";
     }
 
     @PostMapping("/doinsertboat")

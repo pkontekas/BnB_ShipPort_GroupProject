@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spring.bnb.boats.models.Boatphoto;
 import spring.bnb.boats.services.BoatService;
 import spring.bnb.boats.services.BoatphotoService;
@@ -21,7 +22,8 @@ public class BoatphotoController {
 
     @PostMapping("/uploadphotoboat")
     public String uploadBoatphoto(@RequestParam(value = "photo") MultipartFile multipart,
-            @RequestParam(name = "boatid") int id) {
+            @RequestParam(name = "boatid") int id,
+            RedirectAttributes redirectAttributes) {
         
         Boatphoto boatphoto = new Boatphoto();
         boatphoto.setPhotoName(multipart.getOriginalFilename());
@@ -35,6 +37,7 @@ public class BoatphotoController {
             ex.printStackTrace();
         }
         boatphotoService.storeFilesToDB(boatphoto);
-        return "index";
+        redirectAttributes.addFlashAttribute("boatsuccess", "Boat successfully registered, would you like to register another?");
+        return "redirect:preregisterboat";
     }
 }
