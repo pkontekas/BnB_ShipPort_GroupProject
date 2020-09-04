@@ -27,65 +27,74 @@
                 padding-top: 20px;
                 text-align: center;
             }
+            .errorMessages{
+                color:red;
+            }
         </style>
 
     </head>
     <body>
 
         <jsp:include page="navbar.jsp"/>
-
-        ${profpicmissing}
-
+        <div class="errorMessages font-italic">
+            ${profpicmissing}
+            ${upresult}
+            ${passerror}
+        </div>
         <h1 class="updateRegistration">Update My Profile</h1>
         <div class="profileform container"> 
             <springform:form cssClass="main-form needs-validation" novalidate="true" action="doupdateaccount" modelAttribute="oldaccount" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm">
+
                         <div class="form-group">
                             <label for="name">First Name</label>
-                            <springform:input type="text" path="name" cssClass="form-control" minlength="3" pattern="[A-Za-z]+" required="true"/>
+                            <springform:input path="name" cssClass="form-control" minlength="2" pattern="[A-Za-z]+" required="true"/>
                             <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div>
                         <div class="form-group">
                             <label for="cellphone">Cellphone Number</label>
-                            <springform:input type="number" path="cellphone" min="0" maxlength="9" cssClass="form-control"/>
+                            <springform:input type="number" path="cellphone" min="0" cssClass="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for="nationality">Preferred Language</label>
                             <springform:select type="text" required="true" path="nationality" cssClass="form-control">
-                                <springform:option selected="true"  value="English">English</springform:option>
+                                <springform:option selected="true" value="English">English</springform:option>
                                 <springform:option value="Greek">Greek</springform:option>
                             </springform:select>
                         </div>
                         <div class="form-group">
-                            <label for="firstUserPass"><br><br>Password</label>
-                            <springform:input type="password" path="password" cssClass="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/>
+                            <label for="oldpass">Current Password <small class="text-muted"> (required)</small></label>
+                            <input type="password" class="form-control" name="oldpass" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                            <div class="invalid-feedback">Invalid password entered.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">New Password</label>
+                            <springform:password path="password" cssClass="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/>
                             <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
                         </div>
                     </div>
                     <div class="col-sm">
                         <div class="form-group">
                             <label for="surname">Last Name</label>
-                            <springform:input type="text" path="surname" cssClass="form-control" minlength="3" pattern="[A-Za-z]+" required="true"/>
+                            <springform:input path="surname" cssClass="form-control" minlength="2" pattern="[A-Za-z]+" required="true"/>
                             <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div> 
+                        <springform:input type="hidden" path="email" cssClass="form-control" required="true"/>
+                        <springform:input type="hidden" path="id"/>
+                        <springform:input type="hidden" path="rolesId"/>
                         <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <springform:input type="email" path="email" cssClass="form-control" required="true"/>
-                            <div class="invalid-feedback">Email format required</div>
+                            <label for="profilepic">Upload Photo</label>
+                            <input type="file" name="profilepic" class="form-control" accept="image.*">
+                            <small class="form-text text-muted">Please upload a valid photo if you are a Ship Owner.</small>
                         </div>
-                        <div class="form-group">
-                            <springform:label path="profilePic">Upload Photo</springform:label>
-                            <input type="file" name="profilePic" class="form-control" accept="image.*">
-                            <small class="form-text text-muted">Please upload a photo if you plan to become an Owner.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for=""> &nbsp; </label>
-                            <input type="password" class="form-control" placeholder="Repeat pass" name="secondpass">
+                        <div class="text-center form-group">
+                            <label for="oldprofilepic">Current Photo</label>
+                            <img class="img-fluid rounded mx-auto d-block" alt="oldprofilepic" src="data:image/jpeg;base64,${oldprofilepic}"/>
                         </div>
                     </div> 
                 </div>
-                <button type="Submit" value="Submit" class="btn btn-primary">Submit</button>
+                <button type="Submit" class="btn btn-primary">Update Profile</button>
                 <script>
                     var form = document.querySelector('.needs-validation');
                     form.addEventListener('submit', function (event) {

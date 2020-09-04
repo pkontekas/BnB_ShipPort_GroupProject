@@ -1,6 +1,5 @@
 package spring.bnb.boats.controllers;
 
-import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -36,8 +35,7 @@ public class RegistrationController {
         //check if we have empty newaccount or not and fill the mm newaccount accordingly with empty or previously filled in account
         if (!mm.containsAttribute("newaccount")) {
             mm.addAttribute("newaccount", new Account());
-        }
-        else {
+        } else {
             mm.addAttribute("newaccount", acc);
         }
         //pass the flash errors on next page
@@ -52,7 +50,7 @@ public class RegistrationController {
             @RequestParam("secondpass") String secondpass,
             @RequestParam("profilepic") MultipartFile profilepic,
             ModelMap mm,
-            RedirectAttributes redirectAttributes) throws IOException {
+            RedirectAttributes redirectAttributes) {
 
         boolean thereIsError = false;
         try {
@@ -72,8 +70,13 @@ public class RegistrationController {
                 redirectAttributes.addFlashAttribute("newaccount", acc);
                 return "redirect:preregisteraccount";
             }
-
-            acc.setProfilePic(profilepic.getBytes());
+            //if picture exists set it
+            if (profilepic != null) {
+                if (profilepic.getBytes().length > 0) {
+                    acc.setProfilePic(profilepic.getBytes());
+                }
+            }
+            
             acc.setPassword(passwordEncoder.encode(secondpass));
             //need to set the role foreign key to 2 -> User Role
             acc.setRolesId(roleService.getRoleById(2));

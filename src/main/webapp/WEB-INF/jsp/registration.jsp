@@ -21,7 +21,7 @@
                 text-align: center;
             }
             .rederror{
-                color: lightcoral;
+                color: red;
             }
         </style>
 
@@ -53,7 +53,7 @@
                             </springform:select>
                         </div>
                         <div class="form-group">
-                            <label for="firstUserPass">Password<small class="text-muted"> (required) <br><div class="rederror">${passerror}</div></small></label>
+                            <label for="firstUserPass">Password<small class="text-muted"> (required) <br><div class="rederror font-italic">${passerror}</div></small></label>
                             <springform:password path="password" cssClass="form-control" id="firstUserPass" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required="true"/>
                             <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
                         </div>
@@ -65,7 +65,7 @@
                             <div class="invalid-feedback">Use only alphabetic characters.</div>
                         </div> 
                         <div class="form-group">
-                            <label for="email">E-mail<small class="text-muted"> (required) <br><div class="rederror">${mailerror}</div></small></label>
+                            <label for="email">E-mail<small class="text-muted"> (required) <br><div class="rederror font-italic">${mailerror}</div></small></label>
                             <springform:input type="email" path="email" cssClass="form-control" id="email" required="true"/>
                             <div class="invalid-feedback">Email formatting required</div>
                         </div>

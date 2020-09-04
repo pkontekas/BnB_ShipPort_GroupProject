@@ -48,16 +48,19 @@ public class BoatController {
             Principal principal,
             RedirectAttributes redirectAttributes) {
 
+        mm.addAttribute("newboat", new Boat());
         //check if current user has profile picture
         Account account = accountService.getAccountByEmail(principal.getName());
-        if (account.getProfilePic() != null && account.getProfilePic().length > 0) {
-            //if picture exists all is ok
-            mm.addAttribute("newboat", new Boat());
-            return "boat-registration";
-        } else {//if not, tell him to add one
-            redirectAttributes.addFlashAttribute("profpicmissing", "You need to first upload a Profile Picture!");
-            return "redirect:preupdateaccount";
+        if (account.getProfilePic() != null) {
+            if (account.getProfilePic().length > 0) {
+                //if picture exists all is ok
+                return "boat-registration";
+            } else {//if not, tell him to add one
+                redirectAttributes.addFlashAttribute("profpicmissing", "You need to first upload a Profile Picture!");
+                return "redirect:preupdateaccount";
+            }
         }
+        return "boat-registration";
     }
 
     @PostMapping("/doinsertboat")
@@ -117,7 +120,7 @@ public class BoatController {
         return "all-boats";
     }
 
-    @GetMapping("/showboatinfo") // TODO POST instead of GET -> error 405 method not allowed
+    @GetMapping("/showboatinfo") // TODO make it POST instead of GET -> error 405 method not allowed
     public String showBoatInfo(ModelMap mm,
             @RequestParam(name = "boatId") int id) {
 

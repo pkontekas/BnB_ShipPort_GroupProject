@@ -78,4 +78,9 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
+    @Transactional
+    @Override
+    public void updateAccount(Account a) {
+        accountRepo.save(a);
+    }
 }

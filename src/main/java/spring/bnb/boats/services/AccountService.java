@@ -15,4 +15,6 @@ public interface AccountService extends UserDetailsService {
     public Account getAccountByEmail(String email);
     
     public void updateAccountRoleToOwner(int accountId, int roleId);
+    
+    public void updateAccount(Account a);
 }

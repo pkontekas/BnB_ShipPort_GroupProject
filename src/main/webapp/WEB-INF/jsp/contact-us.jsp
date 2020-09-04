@@ -72,7 +72,7 @@
                         <img src="image/dionisis.jpg" alt="Philip" style="width:100%">
                         <h1>Philip Kontekas</h1>
                         <p class="title">Junior Full Stack Developer </p>
-                        <p>email address<br> phkontekas@gmail.com</p>
+                        <p>email address:<br> phkontekas@gmail.com</p>
                         <div>
                             <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
                             <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
@@ -88,7 +88,7 @@
                         <img src="image/dionisis.jpg" alt="Dionisis" style="width:100%">
                         <h1>Dionisis Tsilioris</h1>
                         <p class="title">Junior Full Stack Developer </p>
-                        <p>email address<br> diontsilioris@gmail.com</p>
+                        <p>email address:<br> diontsilioris@gmail.com</p>
                         <div>
                             <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
                             <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
@@ -103,7 +103,7 @@
                         <img src="image/Pantazis.jpg" alt="Markos" style="width:100%;">
                         <h1>Markos Pantazis</h1>
                         <p class="title">Junior Full Stack Developer </p>
-                        <p>email address<br> markpantazis@gmail.com</p>
+                        <p>email address:<br> markpantazis@gmail.com</p>
                         <div>
                             <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
                             <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
