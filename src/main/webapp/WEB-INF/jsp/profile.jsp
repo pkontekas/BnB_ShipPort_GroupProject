@@ -21,10 +21,16 @@
                 justify-content: center;
                 padding-bottom: 40px;
                 padding-top: 30px;
+                  font-style: italic;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: 650;
             }
             .updateRegistration{
                 padding-top: 20px;
                 text-align: center;
+                  font-style: italic;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: 650;
             }
             .errorMsg{
                 color:red;

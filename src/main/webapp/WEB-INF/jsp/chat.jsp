@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <security:authorize access="isAuthenticated()">
 
-                                <input type="text" id="chat-username" value="<security:authentication property="principal.username" />" 
+                                <input type="text" id="chat-username" value=${username} 
                                        autocomplete="off" class="form-control" disabled="true" />
                             </security:authorize>
                         </div>
