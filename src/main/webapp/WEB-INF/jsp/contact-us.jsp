@@ -77,7 +77,7 @@
                             <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
                             <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
                             <a class="anchors" href="#"><i class="fa fa-facebook"></i></a>
-                            <a class="anchors" href="https://github.com/pkontekas"> <i class="fa fa-github"></i></a>
+                            <a class="anchors" href="https://github.com/pkontekas" target="_blank"> <i class="fa fa-github"></i></a>
                         </div>
                         <p><button class="btncontact">Contact</button></p>
                     </div>
@@ -108,7 +108,7 @@
                             <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
                             <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
                             <a class="anchors" href="#"><i class="fa fa-facebook"></i></a>
-                            <a class="anchors" href="#"> <i class="fa fa-github"></i></a>
+                            <a class="anchors" href="https://github.com/markpnt" target="_blank"> <i class="fa fa-github"></i></a>
                         </div>
                         <p><button class="btncontact">Contact</button></p>
                     </div>

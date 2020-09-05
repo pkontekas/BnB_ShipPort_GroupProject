@@ -14,7 +14,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/chat.css" />
+        
         <title>Show info per boat</title>
     </head>
     
@@ -49,47 +49,7 @@
             <li>Email: ${boatdetails.accountsId.email}</li>
             <li>Cellphone: ${boatdetails.accountsId.cellphone}</li>
         </ul>
-        <security:authorize access="isAuthenticated()">
-            <div id="username-page">
-                <div class="username-page-container">
-                    <h1 class="title">Logged in as</h1>
-                    <form id="usernameForm" name="usernameForm">
-                        <div class="form-group">
-                            <security:authorize access="isAuthenticated()">
-
-                                <input type="text" id="name" value="<security:authentication property="principal.username" />" 
-                                       autocomplete="off" class="form-control" disabled="true" />
-                            </security:authorize>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="accent username-submit">Start Chatting</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </security:authorize>
-
-        <div id="chat-page" class="hidden">
-            <div class="chat-container">
-                <div class="chat-header">
-                    <h2>Join the current discussion!</h2>
-                </div>
-                <div class="connecting">
-                    Connecting...
-                </div>
-                <ul id="messageArea">
-                </ul>
-                <form id="messageForm" name="messageForm" nameForm="messageForm">
-                    <div class="form-group">
-                        <div class="input-group clearfix">
-                            <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
-                            <button type="submit" class="primary">Send</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
+        
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -101,9 +61,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-        <script src="/js/chat.js"></script>
+        
         <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
             // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
         <script src="/js/paypal.js"></script>
