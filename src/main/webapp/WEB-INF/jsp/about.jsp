@@ -14,7 +14,7 @@
     <body>
 
         <jsp:include page="navbar.jsp"/>
-        
+       
 <div class="row d-flex justify-content-center">
     <div class="col-2-offset col-8 col-2-offset">
         <h1 class="text-center">About Boat BNB</h1>

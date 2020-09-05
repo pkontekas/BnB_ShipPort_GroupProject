@@ -24,6 +24,9 @@
             }
             .boatRegistration{
                 padding-bottom: 40px;
+                font-style: italic;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: 650;
             }
         </style>
 

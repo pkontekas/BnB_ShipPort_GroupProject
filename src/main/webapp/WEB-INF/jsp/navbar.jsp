@@ -23,6 +23,8 @@
             padding-bottom: 20px;
             background-color :#3282B8 ;
             color: white;
+            font-size: 17px;
+            font-style:italic;
         }
         .navbar a,
         .navbar a:hover,
@@ -35,6 +37,7 @@
         #drop:hover{
             color: #3282B8;
         }
+
     </style>
 
     <body>
