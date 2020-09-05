@@ -140,7 +140,7 @@
 
                     <div class="request">
                         <div style="text-align:center;">
-                            <p>from ${boatdetails.currentPrice} &euro; per day <br>from 1500 &euro; per week</p>
+                            <p>from ${boatdetails.currentPrice} &euro; per day <br>from ${boatdetails.currentPrice*7} &euro; per week</p>
 
                             <button type="submit" class="searchBtn btn-primary" style="width: 100%;"><i
                                     class="fa fa-search"></i>&nbsp;
