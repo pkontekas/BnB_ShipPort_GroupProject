@@ -22,7 +22,7 @@
         <div class="text-center justify-content-center">
             <h1>Upload Boat photo</h1><small class="text-muted"> (required)</small>
             <springform:form enctype="multipart/form-data" action="/uploadphotoboat" method="POST">
-                <input type="file" name="photo">
+                <input type="file" name="photo" accept="image/*">
                 <input hidden type="number" name="boatid" value="${myboat.id}">
                 <button type="Submit" value="Submit">Submit</button>
             </springform:form>

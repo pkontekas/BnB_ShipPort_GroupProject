@@ -30,7 +30,7 @@
                 color:red;
             }
             .successMsg{
-                color:lightgreen;
+                color:green;
             }
         </style>
 
@@ -87,7 +87,7 @@
                         <springform:input type="hidden" path="rolesId"/>
                         <div class="form-group">
                             <label for="profilepic">Upload Photo</label>
-                            <input type="file" name="profilepic" class="form-control" accept="image.*">
+                            <input type="file" name="profilepic" class="form-control" accept="image/*">
                             <small class="form-text text-muted">Please upload a valid photo if you are a Ship Owner.</small>
                         </div>
                         <div class="text-center form-group">

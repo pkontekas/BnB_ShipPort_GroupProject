@@ -42,7 +42,7 @@
             <a class="navbar-brand" href="/"><img src="/image/logo.jpg" style="height: 50px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa fa-bars" style="background-color: white;"></span>
+                <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
