@@ -57,7 +57,7 @@
                                 <h4>BoatBnB</h4>
                                 <li><a class="footerinfo" href="/aboutus">About</a></li>
                                 <li><a class="footerinfo" href="/contactus">Contact Us</a></li>
-                                <li><a class="footerinfo" href="chatpage">Join the discussion</a></li>
+                                <li><a class="footerinfo" href="chatpage">Join the Discussion</a></li>
                             </div>
                             <div class="col-sm-4">
                                 <h4>Information</h4>
