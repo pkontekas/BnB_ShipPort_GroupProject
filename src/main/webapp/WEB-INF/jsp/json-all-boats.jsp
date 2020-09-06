@@ -111,7 +111,7 @@
                 padding-top: 10px;
                 border: 2px solid #0a9ab5;
                 width: 300px;
-                margin-top: 90px;
+                margin-top: 0px;
                 padding: 15px;
                 background-color: #0a9ab5;
                 color: white;
@@ -124,6 +124,7 @@
             }
 
             .boat {
+                
                 margin-left: 0;
             }
 
@@ -156,8 +157,11 @@
 
     </head>
 
-    <body>
+    <body style="background-color:whitesmoke ">
         <jsp:include page="navbar.jsp"/>
+         <div class="pTitle">
+                            <h1>Rental boats</h1>
+                        </div>
 
         <div class="searchForm row container-fluid">
             <div class="col-xs-2">
@@ -255,9 +259,7 @@
 
                 <div class="boat col-sm-8">
                     <div class="boats">
-                        <div class="pTitle">
-                            <h1>Rental boats</h1>
-                        </div>
+                       
                         <div class="row gray-div" id="boat-list">
                     <!-- To be populated by JS initially and after applying filters -->
                         </div>

@@ -24,10 +24,10 @@ function boatCard(boat) {
    
     txt +=  '<div class="card container-fluid">';
     txt +=      '<div class="row">';
-    txt +=          '<div class="firstCol col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+    txt +=          '<div class="firstCol col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">';
     txt +=              '<img class="card-img" src="image/motorboat.jpg" alt="boatImagesMap"/>';
     txt +=          '</div>';
-    txt +=          '<div class="secondCol col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">';
+    txt +=          '<div class="secondCol col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">';
     txt +=              '<div class="card-body">';
     txt +=          '<div>';
     txt +=              '<h2 class="card-title">' + boat.manufacturer + ' ' + boat.model + '</h2>';
@@ -59,10 +59,10 @@ function boatCard(boat) {
     txt +=              '<i class="position fa fa-map-marker"><strong> Port: </strong>' + boat.portsId.portName + '</i>';
     txt +=          '</div>';
     txt +=          '<div class="cardFooter row">';
-    txt +=              '<div class="col-xs-4 col-sm-6 col-md-8 col-lg-8 col-xl-8">';
+    txt +=              '<div class="col-xs-sm-md-lg-xl">';
     txt +=                  '<p class="price">Price ' + boat.currentPrice + ' Euro/day</p>';
     txt +=              '</div>';
-    txt +=              '<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">';
+    txt +=              '<div class="col-xs-sm-md-lg-xl">';
     txt +=                  '<form action="/showboatinfo" method="GET">';
     txt +=                      '<input type="hidden" name="boatId" value="' + boat.id + '">';
     txt +=                      '<button type="Submit" class="viewBtn btn-primary"><iclass="fa fa-search"></i>&nbsp; VIEW BOAT &nbsp;</button>';
