@@ -30,16 +30,16 @@
             padding-top: 30px;
             padding-left: 20px;
             padding-right: 20px;
-              font-style: italic;
-                font-family: Georgia, 'Times New Roman', Times, serif;
-                font-weight: 650;
+            font-style: italic;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 600;
         }
         .titleLogin {
             padding-top: 20px;
             text-align: center;
-              font-style: italic;
-                font-family: Georgia, 'Times New Roman', Times, serif;
-                font-weight: 650;
+            font-style: italic;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 600;
         }
         body{
             background-color: whitesmoke;
@@ -50,8 +50,9 @@
 
         <jsp:include page="navbar.jsp"/>
 
-        Dear Visitor, <br>you will have to authenticate to access this feature!
-        
+        <div class="text-center" style="color: green">
+            Dear Visitor, <br>you will have to login to access more features!
+        </div>
         <div class="titleLogin">
             <h1>Login Form</h1>
         </div>
@@ -61,27 +62,17 @@
                     <div class="form-group">
                         <label for="email">Email address</label>
                         <input type="email" name="email" autocomplete="on" class="form-control" required
-                               aria-describedby="emailHelp">
-                        <div class="invalid-feedback">This email address does not exist in our database.</div>
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                               aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
+                        <div class="invalid-feedback">Email format is invalid.</div>
+                        <small id="emailHelp" class="form-text text-muted mt-3">We'll never share your email with anyone
                             else.</small>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" autocomplete="off" class="form-control" required>
-                        <div class="invalid-feedback">Invalid password. Try again.</div>
+                        <input type="password" name="password" autocomplete="off" class="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                        <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
                     </div>
                     <button type="Submit" name="Submit" class="btn btn-primary">Sign in</button>
-                    <script>
-                        var form = document.querySelector('.needs-validation');
-                        form.addEventListener('submit', function (event) {
-                            if (form.checkValidity() === false) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        });
-                    </script>
                 </springform:form>
             </div>
         </div>
@@ -97,5 +88,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+        <script src="/js/validations.js"></script>
     </body>
 </html>

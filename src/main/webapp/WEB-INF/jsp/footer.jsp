@@ -26,7 +26,7 @@
                 color: white;
                 text-align: center;
                 padding-top: 20px;
-                padding-bottom: 20px;
+                padding-bottom: 5px;
             }
             .footerinfo {
                 list-style: none;

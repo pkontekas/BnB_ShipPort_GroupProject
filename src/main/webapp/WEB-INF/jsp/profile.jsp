@@ -21,16 +21,15 @@
                 justify-content: center;
                 padding-bottom: 40px;
                 padding-top: 30px;
-                  font-style: italic;
+                font-style: italic;
                 font-family: Georgia, 'Times New Roman', Times, serif;
-                font-weight: 650;
+                font-weight: 600;
             }
             .updateRegistration{
                 padding-top: 20px;
                 text-align: center;
-                  font-style: italic;
+                font-style: italic;
                 font-family: Georgia, 'Times New Roman', Times, serif;
-                font-weight: 650;
             }
             .errorMsg{
                 color:red;
@@ -56,12 +55,12 @@
                 <div class="row">
                     <div class="col-sm">
                         <div class="form-group">
-                            <label for="name">First Name</label>
+                            <label for="name">First Name<small class="text-muted"> (required)</small></label>
                             <springform:input path="name" cssClass="form-control" minlength="2" pattern="[A-Za-z]+" required="true"/>
                             <div class="invalid-feedback">Use only alphabetic and at least 2 characters.</div>
                         </div>
                         <div class="form-group">
-                            <label for="cellphone">Cellphone Number</label>
+                            <label for="cellphone">Cellphone Number<small class="text-muted"> (optional)</small></label>
                             <springform:input type="number" path="cellphone" min="0" cssClass="form-control"/>
                         </div>
                         <div class="form-group">
@@ -72,19 +71,20 @@
                             </springform:select>
                         </div>
                         <div class="form-group">
-                            <label for="oldpass">Current Password <small class="text-muted"> (required)</small></label>
-                            <input type="password" class="form-control" name="oldpass" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                            <label for="oldpass">Current Password<small class="text-muted"> (required)</small></label>
+                            <input type="password" autocomplete="off" class="form-control" name="oldpass" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
                             <div class="invalid-feedback">Invalid password.</div>
                         </div>
                         <div class="form-group">
-                            <label for="">New Password</label>
-                            <springform:password path="password" cssClass="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/>
+                            <label for="">New Password<small class="text-muted"> (optional)</small></label>
+                            <springform:password autocomplete="off" path="password" minlength="8" cssClass="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/>
                             <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
+                            <small class="form-text text-muted">Only enter if you want to change it.</small>
                         </div>
                     </div>
                     <div class="col-sm">
                         <div class="form-group">
-                            <label for="surname">Last Name</label>
+                            <label for="surname">Last Name<small class="text-muted"> (required)</small></label>
                             <springform:input path="surname" cssClass="form-control" minlength="2" pattern="[A-Za-z]+" required="true"/>
                             <div class="invalid-feedback">Use only alphabetic and at least 2 characters.</div>
                         </div> 
@@ -92,13 +92,13 @@
                         <springform:input type="hidden" path="id"/>
                         <springform:input type="hidden" path="rolesId"/>
                         <div class="form-group">
-                            <label for="profilepic">Upload Photo</label>
+                            <label for="profilepic">Upload Photo<small class="text-muted"> (optional)</small></label>
                             <input type="file" name="profilepic" class="form-control" accept="image/*">
                             <small class="form-text text-muted">Please upload a valid photo if you are a Ship Owner.</small>
                         </div>
                         <div class="text-center form-group">
                             <label for="oldprofilepic">Current Photo</label>
-                            <img class="img-fluid rounded mx-auto d-block" alt="noUserProfilePic" src="data:image/jpeg;base64,${oldprofilepic}"/>
+                            <img class="img-fluid rounded-circle mx-auto d-block" alt="noUserProfilePic" src="data:image/jpeg;base64,${oldprofilepic}"/>
                             <div class="errorMsg font-italic text-center">
                                 ${profpicmissing}
                             </div>
@@ -106,16 +106,6 @@
                     </div> 
                 </div>
                 <button type="Submit" class="btn btn-primary">Update Profile</button>
-                <script>
-                    var form = document.querySelector('.needs-validation');
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    });
-                </script>
             </springform:form>
         </div>
 
@@ -130,5 +120,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+        <script src="/js/validations.js"></script>
     </body>
 </html>

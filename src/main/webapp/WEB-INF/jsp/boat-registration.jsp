@@ -21,12 +21,13 @@
                 text-align: center;
                 padding-bottom: 20px;
                 padding-top: 10px;
+                font-weight: 600;
             }
             .boatRegistration{
                 padding-bottom: 40px;
                 font-style: italic;
                 font-family: Georgia, 'Times New Roman', Times, serif;
-                font-weight: 650;
+                font-weight: 600;
             }
         </style>
 
@@ -35,7 +36,7 @@
 
         <jsp:include page="navbar.jsp"/>
 
-        <div class="font-weight-bold text-center">
+        <div class="font-weight-bold text-center" style="color:green">
             ${boatsuccess}
         </div>
 
@@ -122,21 +123,12 @@
                             </div>
                         </div>
                     </div>
-
                     <button type="submit" class="btn btn-primary">Register</button>
-                    <script>
-                        var form = document.querySelector('.needs-validation');
-                        form.addEventListener('submit', function (event) {
-                            if (form.checkValidity() === false) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        });
-                    </script>
                 </springform:form>
+                    
             </div>
         </div>
+        
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -148,5 +140,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+        <script src="/js/validations.js"></script>
     </body>
 </html>
