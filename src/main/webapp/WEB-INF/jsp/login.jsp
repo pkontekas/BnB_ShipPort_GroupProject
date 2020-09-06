@@ -28,8 +28,6 @@
             justify-content: center;
             padding-bottom: 200px;
             padding-top: 30px;
-            padding-left: 20px;
-            padding-right: 20px;
             font-style: italic;
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-weight: 600;
@@ -53,27 +51,29 @@
         <div class="text-center" style="color: green">
             Dear Visitor, <br>you will have to login to access more features!
         </div>
-        <div class="titleLogin">
-            <h1>Login Form</h1>
-        </div>
-        <div class="loginForm row">
-            <div class="col-xs-11 col-sm-9 col-md-7 col-lg-4">
-                <springform:form method="POST" action="${pageContext.request.contextPath}/performlogin" cssClass="main-form needs-validation" novalidate="true">
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" name="email" autocomplete="on" class="form-control" required
-                               aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
-                        <div class="invalid-feedback">Email format is invalid.</div>
-                        <small id="emailHelp" class="form-text text-muted mt-3">We'll never share your email with anyone
-                            else.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" autocomplete="off" class="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
-                        <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
-                    </div>
-                    <button type="Submit" name="Submit" class="btn btn-primary">Sign in</button>
-                </springform:form>
+        <div class="container">
+            <div class="titleLogin">
+                <h1>Login Form</h1>
+            </div>
+            <div class="loginForm row">
+                <div class="col-xs-11 col-sm-9 col-md-7 col-lg-6">
+                    <springform:form method="POST" action="${pageContext.request.contextPath}/performlogin" cssClass="main-form needs-validation" novalidate="true">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" name="email" autocomplete="on" class="form-control" required
+                                   aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
+                            <div class="invalid-feedback">Email format is invalid.</div>
+                            <small id="emailHelp" class="form-text text-muted mt-3">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" autocomplete="off" class="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                            <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
+                        </div>
+                        <button type="Submit" name="Submit" class="btn btn-primary">Sign in</button>
+                    </springform:form>
+                </div>
             </div>
         </div>
 

@@ -71,7 +71,8 @@
                 border: 1px solid;
                 font-family: Arial;
                 margin: 0 auto;
-                padding: 20px;
+                padding-top: 20px;
+                padding-bottom: 20px;
             }
             .progressBar {
                 padding-bottom: 20px;
@@ -180,7 +181,7 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                     <div class="ownerContact">
-                        <img src="image/dionisis.jpg" class="rounded-circle  img-fluid" alt="ownerPic">
+                        <img src="data:image/jpeg;base64,${boatdetails.accountsId.profilePic}" class="rounded-circle img-fluid" alt="ownerPic">
                     </div>
                     <div class="contact">
                         <li>Owner: ${boatdetails.accountsId.name} ${boatdetails.accountsId.surname}</li>
