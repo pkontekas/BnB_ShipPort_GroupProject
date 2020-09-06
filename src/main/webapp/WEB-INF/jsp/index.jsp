@@ -12,8 +12,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <title>JSP Page</title>
         <style>
             body {
@@ -33,7 +32,8 @@
                 overflow: hidden;
             }
             .firstMessage {
-                padding: 25px;
+                padding-top: 25px;
+                padding-bottom: 25px;
                 background-color: white;
                 color: #0f4c75;
                 text-align: center;
@@ -57,7 +57,7 @@
             .index4headerItems {
                 position: absolute;
                 top: 8px;
-                left: 24%;
+                left: 23%;
                 color: white;
             }
             .popularBoat {
@@ -122,19 +122,19 @@
             <div class="search">
                 <form>
                     <div class="form-row">
-                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                             <label for="">Destination</label> 
                             <input type="text" class="form-control" placeholder="Port,Town">
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                             <label for="">Duration</label>
                             <input type="text" min="0" class="form-control" placeholder="Any">
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                             <label for="">Start Date</label>
                             <input type="date" class="form-control" placeholder="Start Date">
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2">
                             <label for="">&nbsp;</label>
                             <button type="button" class="btn btn-primary form-control"><i class="fa fa-search"></i>&nbsp;
                                 Search</button>
@@ -202,7 +202,7 @@
             </div>
         </div>
 
-        <div class="romantic jumbotron-fluid">
+        <div class="romantic jumbotron-fluid container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-end">
                     <div class="d-none d-xl-block">
@@ -211,11 +211,12 @@
                 </div>
                 <div class="romanticMessage col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="d-none d-xl-block">
-                        <h1 class="display-6 d-flex justify-content-left">Discover the world</h1>
-                        <p class="lead d-flex justify-content-left">And live the moment . .</p>
+                        <h1 class="justify-content-left">Discover the world</h1>
+                        <p class="lead justify-content-left">And live the moment . .</p>
                     </div>
                 </div>
-
+            </div>
+            <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center">
                     <div class="d-xl-none">
                         <img id="sunsetBoat" src="image/sunsetonboat.jpg" alt="sunset">
@@ -223,13 +224,13 @@
                 </div>
                 <div class="romanticMessage col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="d-xl-none">
-                        <h1 class="display-6 d-flex justify-content-center">Discover the world</h1>
+                        <h1 class="d-flex justify-content-center">Discover the world</h1>
                         <p class="lead d-flex justify-content-center">And live the moment . .</p>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
     <jsp:include page="footer.jsp"/>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

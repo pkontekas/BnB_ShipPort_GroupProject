@@ -73,16 +73,17 @@ public class MyProfileController {
 
         Account dbAccount = accountService.getAccountByEmail(principal.getName());
         try {
-            //set picture if not empty in form
-            if (!profilepic.isEmpty()) {
-                if (profilepic.getBytes().length > 0) {
-                    acc.setProfilePic(profilepic.getBytes());
-                }
+            //set picture if not empty in form and valid length
+            if (!profilepic.isEmpty() && profilepic.getBytes().length > 0) {
+                acc.setProfilePic(profilepic.getBytes());
             } else {//if form is empty we will need to reupload original picture if it exists
                 if (dbAccount.getProfilePic() != null) {
                     if (dbAccount.getProfilePic().length > 0) {
                         acc.setProfilePic(dbAccount.getProfilePic());
                     }
+                }
+                else {
+                //TO DO Set a default picture from static image
                 }
             }
             String dbpass = dbAccount.getPassword();

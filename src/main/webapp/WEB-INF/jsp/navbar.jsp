@@ -23,6 +23,8 @@
             padding-bottom: 20px;
             background-color :#3282B8 ;
             color: white;
+            font-size: 17px;
+            font-style:italic;
         }
         .navbar a,
         .navbar a:hover,
@@ -35,6 +37,7 @@
         #drop:hover{
             color: #3282B8;
         }
+
     </style>
 
     <body>
@@ -42,7 +45,7 @@
             <a class="navbar-brand" href="/"><img src="/image/logo.jpg" style="height: 50px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa fa-bars" style="background-color: white;"></span>
+                <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
@@ -83,7 +86,7 @@
                 <i>You successfully logged out!!!</i>
             </c:if>
             <c:if test="${param.error != null}">
-                <i>Invalid username and password</i>
+                <i style="color: red">Invalid email and password</i>
             </c:if>   
         </div>
 
@@ -96,24 +99,26 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <springform:form method="POST" action="${pageContext.request.contextPath}/performlogin">
+                    <springform:form method="POST" action="${pageContext.request.contextPath}/performlogin" cssClass="main-form needs-validation" novalidate="true">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="email">Email address</label>
                                 <input type="email" name="email" autocomplete="on" class="form-control" id="logemail" required
-                                       aria-describedby="emailHelp">
+                                       aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
+                                <div class="invalid-feedback">Invalid email format.</div>
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                                     else.</small>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" name="password" autocomplete="off" class="form-control" required
-                                       id="navpassword">
-                                <a href="#">forgot my password</a>
+                                       id="navpassword" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+                                <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
+                                <a href="#">Forgot My Password</a>
                             </div>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="remember">
-                                <label class="form-check-label" for="check">Remember me</label>
+                                <input type="checkbox" class="form-check-input" id="rememberme">
+                                <label class="form-check-label" for="rememberme">Remember me</label>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -133,6 +138,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-
+        <script src="/js/validations.js"></script>
     </body>
 </html>

@@ -21,7 +21,7 @@ public class BoatphotoController {
     BoatService boatService;
 
     @PostMapping("/uploadphotoboat")
-    public String uploadBoatphoto(@RequestParam(value = "photo") MultipartFile multipart,
+    public String uploadBoatphoto(@RequestParam(value = "photoboat") MultipartFile multipart,
             @RequestParam(name = "boatid") int id,
             RedirectAttributes redirectAttributes) {
         

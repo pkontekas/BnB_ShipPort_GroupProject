@@ -25,11 +25,20 @@
                 background-color: #3282B8;
                 color: white;
                 text-align: center;
-                padding: 45px;
+                padding-top: 20px;
+                padding-bottom: 5px;
             }
             .footerinfo {
                 list-style: none;
                 color: white;
+                
+            }
+            .footerinfo li{
+                padding-bottom: 5px;
+               font-style: italic; 
+            }
+            .footerinfo p{
+               font-style: italic; 
             }
             .footerchecked {
                 color: gold;
@@ -39,7 +48,7 @@
     </head>
 
     <body>
-        <footer class="footer">
+        <footer class="footer ">
             <div class="container">
                 <span>
                     <div class="footerinfo">
@@ -48,7 +57,7 @@
                                 <h4>BoatBnB</h4>
                                 <li><a class="footerinfo" href="/aboutus">About</a></li>
                                 <li><a class="footerinfo" href="/contactus">Contact Us</a></li>
-                                <li><a class="footerinfo" href="chatpage">Join the discussion</a></li>
+                                <li><a class="footerinfo" href="chatpage">Join the Discussion</a></li>
                             </div>
                             <div class="col-sm-4">
                                 <h4>Information</h4>
@@ -71,7 +80,7 @@
                         <i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i>
 
                     </div>
-                    &copy BNB-ShipPort Group Project Copyright 2020
+                    <p> &copy BNB-ShipPort Group Project Copyright 2020</p>
                 </span>
             </div>
         </footer>

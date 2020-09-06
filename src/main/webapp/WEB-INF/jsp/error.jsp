@@ -12,13 +12,23 @@
         <title>Error Page</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style>
+            .fontClass
+            {
+                font-style: italic;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: 600;
+            }
+        </style>
     </head>
     <body>
 
         <jsp:include page="navbar.jsp"/>
-
-        <h4>Error Page.<br>Something went wrong. Try again!<br>
-            ${kindoferror}</h4>
+        <div class="fontClass text-center">
+            <h4>Error Page.<br>Something went wrong. Try again!<br>
+                ${kindoferror}</h4>
+            Wait while we redirect you back to our Site!
+        </div>
 
         <jsp:include page="footer.jsp"/>
 
