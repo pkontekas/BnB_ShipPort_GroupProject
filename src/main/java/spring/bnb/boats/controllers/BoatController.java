@@ -118,7 +118,7 @@ public class BoatController {
 
         //puts whole image boatId-image map in a mm attribute to send it to all-boats in encoded form
         mm.addAttribute("boatImagesMap", boatPhotosEncoded);
-        return "all-boats";
+        return "json-all-boats";
     }
 
     @GetMapping("/showboatinfo") // TODO make it POST instead of GET -> error 405 method not allowed
