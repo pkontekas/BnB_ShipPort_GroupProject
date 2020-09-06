@@ -212,14 +212,14 @@
                 <div class="romanticMessage col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="d-none d-xl-block">
                         <h1 class="justify-content-left">Discover the world</h1>
-                        <p class="lead justify-content-left">And live the moment . .</p>
+                        <p class="lead justify-content-left ml-5">And live the moment . .</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center">
                     <div class="d-xl-none">
-                        <img id="sunsetBoat" src="image/sunsetonboat.jpg" alt="sunset">
+                        <img class="img-fluid" id="sunsetBoat" src="image/sunsetonboat.jpg" alt="sunset">
                     </div>
                 </div>
                 <div class="romanticMessage col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">

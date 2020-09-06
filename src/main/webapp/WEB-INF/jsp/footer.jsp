@@ -31,7 +31,6 @@
             .footerinfo {
                 list-style: none;
                 color: white;
-                
             }
             .footerinfo li{
                 padding-bottom: 5px;
@@ -61,7 +60,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <h4>Information</h4>
-                                <li><a class="footerinfo" href="/preregisterboat">Register your boat</a></li>
+                                <li><a class="footerinfo" href="/preregisterboat">Register Your Boat</a></li>
                                 <li><a class="footerinfo" href="/showallboats">All boats</a></li>
                                 <li><a class="footerinfo" href="/#">Reviews&nbsp; <span class="fa fa-star footerchecked"></span></a></li>
                             </div>
@@ -94,5 +93,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+        
     </body>
 </html>
