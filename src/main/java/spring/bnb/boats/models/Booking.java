@@ -67,6 +67,7 @@ public class Booking implements Serializable {
     @ManyToOne(optional = false)
     private Boat boatsId;
     @JoinColumn(name = "reviews_id", referencedColumnName = "id")
+    //had changed next line from false to true
     @ManyToOne(optional = true)
     private Review reviewsId;
 

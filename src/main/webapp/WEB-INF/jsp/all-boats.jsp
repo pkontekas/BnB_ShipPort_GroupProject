@@ -154,11 +154,12 @@
                 width: 100px;
             }
         </style>
-
     </head>
 
-    <body style="background-color: whitesmoke ">
+    <body style="background-color: whitesmoke">
+
         <jsp:include page="navbar.jsp"/>
+
         <div class="pTitle">
             <h1>Rental Boats</h1>
         </div>
@@ -328,7 +329,7 @@
                         </div>
                     </c:forEach>
                 </div>
-                
+
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <c:if test="${currentPage gt 1}">
