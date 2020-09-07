@@ -59,16 +59,15 @@
                 font-weight: 500;
             }
             .request {
-                background-color: #a2d5f2 ;
+                background-color:#a2d5f2 ;
                 color:white;
                 font-weight: 500;
                 font-size: large;
-
                 margin-top: 45px;
                 text-align: center;
             }
             .requestbtn{
-                background-color:  #3282b8;
+                background-color:  #3282b8 ;
                 color: white;
             }
             .rate{
@@ -97,7 +96,7 @@
             .fa {
                 font-size: 25px;
             }
-            
+
             .collapsible {
                 background-color:#3282b8 ;
                 color: white;
@@ -110,17 +109,22 @@
                 font-size: 15px;
             }
 
-          
-            .active, .collapsible:hover {
+
+            .actives, .collapsible:hover {
                 background-color: #a2d5f2;
             }
 
-            
+
             .content {
                 padding: 0 18px;
                 display: none;
                 overflow: hidden;
                 background-color: #f1f1f1;
+            }
+            .payment{
+                border: 1px solid;
+                text-align: center;
+                margin-bottom: 20px;
             }
         </style>
     </head>
@@ -177,30 +181,22 @@
                             </p>
                         </div>
 
-
-                        <!--                        <p>
-                                                    <b>Terms</b><br>
-                                                <ul>Mandatory extras</ul>
-                                                <li>Docking fee when boarding : $12 per person per day</li><br>
-                                                <ul>Timetable</ul>
-                                                <li>For day charters check-in starts from 8:00 h.</li>
-                                                <li>For day charters check-out is until 13:00 h.</li><br>
-                                                <ul>Base port</ul>
-                                                <li>The Mooring at the base port is included</li>
-                                                <li>The boat must return to the home port every night</li>
-                                                <li>There is no overnight stay on board the boat</li><br>
-                                                <ul>Other conditions</ul>
-                                                <li>Second payment is due one month before charter</li>
-                                                <li>If the charter is not possible because of severe weather conditions you will be offered an alternative day. If no other date can be found, you will get a full refund.</li>
-                                                <br>
-                                                All prices include tax.
-                                                </p>-->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
                     <h5 class="text-center">${boatdetails.portsId.portName} Port</h5>
                     <img alt="portimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${portimage}"/>
 
+                    
+                    <div class="bookingMessage">
+                        <h1>Secure booking</h1>
+                        
+                        
+                        
+                    </div>
+                    
+                    
+                    
                     <div class="request">
                         <div class="text-center">
                             <p>from ${boatdetails.currentPrice} &euro; per day <br>from ${boatdetails.currentPrice*7} &euro; per week</p>
@@ -315,8 +311,12 @@
                         allowfullscreen></iframe>
             </div>
         </div>
-        <div class="container">
-            <div id="paypal-button-container"></div>
+        <div class="payment container">
+            <h1>Payment methods</h1>
+            <p>You can contact the owner <br>
+                by e-mail: <a href="mailto:${boatdetails.accountsId.email}">${boatdetails.accountsId.email}</a> <br>
+                or <br> </p>
+            <div id="paypal-button-container" ></div>
         </div>
 
         <jsp:include page="footer.jsp"/>
@@ -339,7 +339,7 @@
 
             for (i = 0; i < coll.length; i++) {
                 coll[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
+                    this.classList.toggle("actives");
                     var content = this.nextElementSibling;
                     if (content.style.display === "block") {
                         content.style.display = "none";
