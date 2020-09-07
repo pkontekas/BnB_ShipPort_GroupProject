@@ -59,24 +59,37 @@
                 font-weight: 500;
             }
             .request {
-                background-color:  #0a9ab5;
+                background-color: #a2d5f2 ;
                 color:white;
                 font-weight: 500;
                 font-size: large;
-                border: 1px solid;
+
                 margin-top: 45px;
                 text-align: center;
             }
-            .ratingBar {
+            .requestbtn{
+                background-color:  #3282b8;
+                color: white;
+            }
+            .rate{
                 border: 1px solid;
+
+            }
+            .ratingBar {
+                padding-left: 15px;
+                background-color: #3282B8;
+                color:white;
                 font-family: Arial;
                 margin: 0 auto;
-                padding-top: 20px;
-                padding-bottom: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin-top:5px;
             }
             .progressBar {
                 padding-bottom: 20px;
+                color:#0a9ab5;
             }
+
             .heading {
                 font-size: 25px;
                 margin-right: 25px;
@@ -84,10 +97,35 @@
             .fa {
                 font-size: 25px;
             }
+            
+            .collapsible {
+                background-color:#3282b8 ;
+                color: white;
+                cursor: pointer;
+                padding: 18px;
+                width: 100%;
+                border: none;
+                text-align: center;
+                outline: none;
+                font-size: 15px;
+            }
+
+          
+            .active, .collapsible:hover {
+                background-color: #a2d5f2;
+            }
+
+            
+            .content {
+                padding: 0 18px;
+                display: none;
+                overflow: hidden;
+                background-color: #f1f1f1;
+            }
         </style>
     </head>
 
-    <body>
+    <body style="background-color:whitesmoke">
 
         <jsp:include page="navbar.jsp"/>
 
@@ -119,32 +157,54 @@
                         Live the adventure of the day and enjoy the Beautiful Sea like never before! <br>
                     </p>
                     <div class="text-left">
-                        <p>
-                            <b>Terms</b><br>
-                        <ul>Mandatory extras</ul>
-                        <li>Docking fee when boarding : $12 per person per day</li><br>
-                        <ul>Timetable</ul>
-                        <li>For day charters check-in starts from 8:00 h.</li>
-                        <li>For day charters check-out is until 13:00 h.</li><br>
-                        <ul>Base port</ul>
-                        <li>The Mooring at the base port is included</li>
-                        <li>The boat must return to the home port every night</li>
-                        <li>There is no overnight stay on board the boat</li><br>
-                        <ul>Other conditions</ul>
-                        <li>Second payment is due one month before charter</li>
-                        <li>If the charter is not possible because of severe weather conditions you will be offered an alternative day. If no other date can be found, you will get a full refund.</li>
-                        <br>
-                        All prices include tax.
-                        </p>
+                        <button type="button" class="collapsible">Terms</button>
+                        <div class="content">
+                            <p>
+                            <ul>Mandatory extras</ul>
+                            <li>Docking fee when boarding : $12 per person per day</li><br>
+                            <ul>Timetable</ul>
+                            <li>For day charters check-in starts from 8:00 h.</li>
+                            <li>For day charters check-out is until 13:00 h.</li><br>
+                            <ul>Base port</ul>
+                            <li>The Mooring at the base port is included</li>
+                            <li>The boat must return to the home port every night</li>
+                            <li>There is no overnight stay on board the boat</li><br>
+                            <ul>Other conditions</ul>
+                            <li>Second payment is due one month before charter</li>
+                            <li>If the charter is not possible because of severe weather conditions you will be offered an alternative day. If no other date can be found, you will get a full refund.</li>
+                            <br>
+                            All prices include tax. 
+                            </p>
+                        </div>
+
+
+                        <!--                        <p>
+                                                    <b>Terms</b><br>
+                                                <ul>Mandatory extras</ul>
+                                                <li>Docking fee when boarding : $12 per person per day</li><br>
+                                                <ul>Timetable</ul>
+                                                <li>For day charters check-in starts from 8:00 h.</li>
+                                                <li>For day charters check-out is until 13:00 h.</li><br>
+                                                <ul>Base port</ul>
+                                                <li>The Mooring at the base port is included</li>
+                                                <li>The boat must return to the home port every night</li>
+                                                <li>There is no overnight stay on board the boat</li><br>
+                                                <ul>Other conditions</ul>
+                                                <li>Second payment is due one month before charter</li>
+                                                <li>If the charter is not possible because of severe weather conditions you will be offered an alternative day. If no other date can be found, you will get a full refund.</li>
+                                                <br>
+                                                All prices include tax.
+                                                </p>-->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
                     <h5 class="text-center">${boatdetails.portsId.portName} Port</h5>
                     <img alt="portimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${portimage}"/>
+
                     <div class="request">
                         <div class="text-center">
                             <p>from ${boatdetails.currentPrice} &euro; per day <br>from ${boatdetails.currentPrice*7} &euro; per week</p>
-                            <button type="submit" class="searchBtn btn-primary" style="width: 100%;"><i
+                            <button type="submit" class="requestbtn" style="width: 100%;"><i
                                     class="fa fa-search"></i>&nbsp;
                                 Request an Offer &nbsp;</button>
                         </div>
@@ -174,7 +234,7 @@
                         <li>Port: ${boatdetails.portsId.portName}</li>
                         <li id="boatPricePerDay" value="${boatdetails.currentPrice}">Price: ${boatdetails.currentPrice}</li>
                     </div>
-                    <button type="submit" class="searchBtn btn-primary" style="width:100%;"><i
+                    <button type="submit" class="requestbtn " style="width:100%;"><i
                             class="fa fa-search"></i>&nbsp;
                         Request an Offer &nbsp;</button>
                 </div>
@@ -192,34 +252,35 @@
             </div>
         </div>
 
-        <div class="ratingBar container">
-            <span class="heading">User Rating</span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <p>4.1 average based on 254 reviews.</p>
-            <hr style="border:3px solid #f1f1f1">
-
+        <div class="rate container">
+            <div class="ratingBar">
+                <span class="heading">User Rating</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <p>4.1 average based on 254 reviews.</p>
+                <!--            <hr style="border:3px solid #f1f1f1">-->
+            </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="progressBar">
                         <h5>General Maintenance</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:10%"></div>
+                            <div class="progress-bar" style="width:75%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Cleanliness</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:10%"></div>
+                            <div class="progress-bar" style="width:90%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Comfort</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:10%"></div>
+                            <div class="progress-bar" style="width:70%"></div>
                         </div>
                     </div>
                 </div>
@@ -228,19 +289,19 @@
                     <div class="progressBar">
                         <h5>Harbour</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:10%"></div>
+                            <div class="progress-bar" style="width:70%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Hospitality</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:10%"></div>
+                            <div class="progress-bar" style="width:95%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Value for money</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:10%"></div>
+                            <div class="progress-bar" style="width:95%"></div>
                         </div>
                     </div>
                 </div>
@@ -272,5 +333,21 @@
         <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
             // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
         <script src="/js/paypal.js"></script>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        </script>
     </body>
 </html>

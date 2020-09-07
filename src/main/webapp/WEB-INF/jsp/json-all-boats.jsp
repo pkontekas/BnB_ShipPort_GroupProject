@@ -179,6 +179,7 @@
                             <label for="startDate">Start Date</label>
                             <input type="date" class="form-control" id="deststartDate" required>
                         </div>
+                        
                         <div class="form-group">
                             <label for="typeBoat">Boat Type</label>
                             <select name="typeBoat" id="desttypeBoat" class="form-control" onchange="reloadBoats()">
