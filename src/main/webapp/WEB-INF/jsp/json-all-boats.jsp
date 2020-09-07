@@ -150,9 +150,9 @@
                     <h1>Search</h1>
                     <form>
                         <div class="form-group">
-                            <label for="destination">Where to sail ?</label>
-                            <input type="text" id="search-text" name="destination" class="form-control" placeholder="Port, City" required="true" pattern="[A-Za-z]+">
-                            <div class="invalid-feedback">Choose destination <br> <small>alphabetic characters only</small>  </div>
+                            <label for="destination">Where to Sail ?</label>
+                            <input type="text" id="search-text" name="destination" class="form-control" placeholder="Port, City" required="true">
+                            <div class="invalid-feedback">Choose Destination <br></div>
                         </div>
                         <div class="form-group">
                             <label for="duration">Duration</label>
@@ -176,7 +176,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="startDate">Start date</label>
+                            <label for="startDate">Start Date</label>
                             <input type="date" class="form-control" id="deststartDate" required>
                         </div>
                         <div class="form-group">
@@ -193,23 +193,23 @@
                             <label for="length">Length</label>
                             <select name="length" id="destlength" class="form-control" onchange="reloadBoats()">
                                 <option value="any">Any</option>
-                                <option value="0-20">until 20ft/0-6m </option>
+                                <option value="0-20">Until 20ft/0-6m </option>
                                 <option value="21-30">20-30ft/6-9m</option>
                                 <option value="31-50">30-50ft/10-15m</option>
-                                <option value="over50">over 50ft/15m</option>
+                                <option value="over50">Over 50ft/15m</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="numPassenger">Number of passengers</label>
+                            <label for="numPassenger">Number of Passengers</label>
                             <select name="numPassenger" id="destnumPassenger" class="form-control" onchange="reloadBoats()">
                                 <option value="any" selected>Any</option>
-                                <option value="1-4">1-4 person</option>
-                                <option value="5-8">5-8 persons</option>
-                                <option value="over8">9 or more</option>
+                                <option value="1-4">1-4 people</option>
+                                <option value="5-8">5-8 people</option>
+                                <option value="over8">over 8 people</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="priceRange">Price range per day</label>
+                            <label for="priceRange">Price Range per Day</label>
                             <select name="priceRange" id="destpriceRange" class="form-control" onchange="reloadBoats()">
                                 <option value="any" selected>Any</option>
                                 <option value="1price">0 - 300 &euro;</option>
@@ -219,14 +219,14 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="sort-by">Sort by</label>
+                            <label for="sort-by">Sort By</label>
                             <select name="sort-by" id="sort-options" class="form-control" onchange="reloadBoats()">
                                 <option value="" selected disabled hidden></option>
-                                <option value="popular">Popular</option>
+                                <option value="popular">Most Popular</option>
                                 <option value="price-asc">Highest Price</option>
                                 <option value="price-desc">Lowest Price</option>
-                                <option value="size-asc">Biggest</option>
-                                <option value="size-desc">Smallest</option>
+                                <option value="size-asc">Biggest Boat</option>
+                                <option value="size-desc">Smallest Boat</option>
                             </select>
                         </div>
                         <button type="Submit" class="searchBtn btn-primary" onclick="reloadBoats()"><i class="fa fa-search"></i>&nbsp;
@@ -265,8 +265,8 @@
                                             <li class="page-item disabled">
                                                 <a class="page-link" href="/showallboats/page/<c:out value="${i}"/>"><c:out value="${i}"/></a>
                                             </li>
-                                        </c:otherwise>        
-                                    </c:choose>   
+                                        </c:otherwise>
+                                    </c:choose>
                                 </c:forEach>
                                 <c:if test="${currentPage lt totalPages}">
                                     <li class="page-item">

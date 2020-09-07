@@ -47,7 +47,11 @@ fetch("/api/allboats")
 
 //TO DO does not work yet will need 2 sources cityNames and portNames
 $("#search-text").autocomplete({
-    source: cityNames //portNames
+    source: cityNames
+});
+
+$("#search-text").autocomplete({
+    source: portNames
 });
 
 function boatCard(boat) {
@@ -74,15 +78,15 @@ function boatCard(boat) {
                         up to 15 days before check-in.">&nbsp; Flexible cancellation or change! &nbsp; </div>';
     txt += '</div>';
     txt += '<div class="description">';
-    txt += '<p><small class="description">' + boat.boatType + ' boat model ' + boat.constructionYear +
-            ' Length <i class="fa fa-arrow-left"></i><i class="fa fa-arrow-right"></i>' + boat.boatLength + ' feet </small></p>';
+    txt += '<p><small class="description">' + boat.boatType + ' boat, model ' + boat.constructionYear +
+            ', Length <i class="fa fa-arrow-left"></i><i class="fa fa-arrow-right"></i>  ' + boat.boatLength + ' feet </small></p>';
     txt += '</div>';
     txt += '<div class="icons">';
-    txt += '<small class="text-muted"><i class="fa fa-users"></i>' + boat.passengerCapacity + ' people</small> &nbsp;';
-    txt += '&nbsp;<small class="text-muted"><i class="fa fa-bed"></i>' + boat.beds + ' beds</small> &nbsp;';
-    txt += '&nbsp;<small class="text-muted"><i class="fa fa-bath"></i> WC</small>&nbsp;';
-    txt += '&nbsp;<small class="text-muted"><i class="fa fa-tachometer"></i>' + boat.cruiseSpeed + ' knots</small> &nbsp;';
-    txt += '&nbsp;<small class="text-muted"><i class="fa fa-fire"></i>' + boat.fuel + '</small>';
+    txt += '<small class="text-muted"><i class="fa fa-users"> </i>  ' + boat.passengerCapacity + ' people</small> &nbsp;';
+    txt += '&nbsp;<small class="text-muted"><i class="fa fa-bed"> </i>  ' + boat.beds + ' beds</small> &nbsp;';
+    txt += '&nbsp;<small class="text-muted"><i class="fa fa-bath"> </i>  WC</small>&nbsp;';
+    txt += '&nbsp;<small class="text-muted"><i class="fa fa-tachometer"> </i>  ' + boat.cruiseSpeed + ' knots</small> &nbsp;';
+    txt += '&nbsp;<small class="text-muted"><i class="fa fa-fire"> </i>  ' + boat.fuel + '</small>';
     txt += '</div>';
     txt += '<div class="city">';
     txt += '<p><strong>City: </strong>' + boat.portsId.city + '</p>';
