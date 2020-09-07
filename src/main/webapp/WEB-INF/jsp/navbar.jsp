@@ -37,7 +37,7 @@
         #drop:hover{
             color: #3282B8;
         }
-
+  
     </style>
 
     <body>
@@ -101,7 +101,7 @@
                     </div>
                     <springform:form method="POST" action="${pageContext.request.contextPath}/performlogin" cssClass="main-form needs-validation" novalidate="true">
                         <div class="modal-body">
-                            <div class="form-group">
+                            <div class="form-group" style="width: 100%">
                                 <label for="email">Email address</label>
                                 <input type="email" name="email" autocomplete="on" class="form-control" id="logemail" required
                                        aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
