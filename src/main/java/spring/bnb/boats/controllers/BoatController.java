@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import spring.bnb.boats.dao.ImageDao;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Port;
@@ -128,30 +129,16 @@ public class BoatController {
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
         //using the port this boat is located to get the specific port photo
-
+        
+        ImageDao imgDao = new ImageDao();
         byte[] imageBeforeEncoding = Base64.encodeBase64(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());
-        String base64EncodedImage = "";
-        try {
-            base64EncodedImage = new String(imageBeforeEncoding, "UTF-8");
-        } catch (UnsupportedEncodingException ex) {
-            //TO DO to fix this: If image does not exist we get an exception and we are thrown into error page
-            ex.printStackTrace();
-            mm.addAttribute("kindoferror", ex.getMessage());
-        }
-        //puts encoded port image in a mm attribute to send it to boat-info in encoded form
-        mm.addAttribute("portimage", base64EncodedImage);
+        mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "portimage");
 
         imageBeforeEncoding = Base64.encodeBase64(bbService.findDefaultBoatphotoByBoatsIdNative(boat.getId()).getPhoto());
-        base64EncodedImage = "";
-        try {
-            base64EncodedImage = new String(imageBeforeEncoding, "UTF-8");
-        } catch (UnsupportedEncodingException ex) {
-            //TO DO to fix this: If image does not exist we get an exception and we are thrown into error page
-            ex.printStackTrace();
-            mm.addAttribute("kindoferror", ex.getMessage());
-        }
-        //puts encoded boat image it in a mm attribute to send it to boat-info in encoded form
-        mm.addAttribute("boatimage", base64EncodedImage);
+        mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "boatimage");
+        
+        imageBeforeEncoding = Base64.encodeBase64(accountService.getAccountByBoatIdNative(boat.getId()).getProfilePic());
+        mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "ownerimage");
 
         return "boat-info";
     }

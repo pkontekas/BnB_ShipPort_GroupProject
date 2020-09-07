@@ -70,7 +70,7 @@ public class AccountServiceImpl implements AccountService {
     @Transactional
     @Override
     public void updateAccountRoleToOwner(int accountId, int roleId) {
-        
+
         Account myaccount = accountRepo.getOne(accountId);
         if (roleId != 3) {
             myaccount.setRolesId(roleRepo.getOne(3));
@@ -82,5 +82,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void updateAccount(Account a) {
         accountRepo.save(a);
+    }
+
+    @Override
+    public Account getAccountByBoatIdNative(int boatid) {
+        return accountRepo.getAccountByBoatIdNative(boatid);
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import spring.bnb.boats.dao.ImageDao;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.services.AccountService;
 
@@ -36,21 +37,12 @@ public class MyProfileController {
 
         String accountEmail = principal.getName();
         Account dbAccount = accountService.getAccountByEmail(accountEmail);
-
+        ImageDao imgDao = new ImageDao();
         //check if profile photo exists and if it does encode it in base64
         if (dbAccount.getProfilePic() != null) {
             if (dbAccount.getProfilePic().length > 0) {
-
                 byte[] imageBeforeEncoding = Base64.encodeBase64(dbAccount.getProfilePic());
-                String base64EncodedImage = "";
-                try {
-                    base64EncodedImage = new String(imageBeforeEncoding, "UTF-8");
-                } catch (UnsupportedEncodingException ex) {
-                    ex.printStackTrace();
-                    mm.addAttribute("kindoferror", ex.getMessage());
-                }
-                //puts encoded profile pic in a mm attribute to send it to profile page in encoded form
-                mm.addAttribute("oldprofilepic", base64EncodedImage);
+                mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "oldprofilepic");
             }
         }
         //clearing password

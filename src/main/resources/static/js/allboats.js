@@ -21,18 +21,18 @@ fetch("/api/allboats")
 
             // Create city names array to be used with auto completion
             boats.map(boat => {
-                if (cityNames.includes(boat.city)) {
+                if (boat.portsId.city === undefined) {
                     return;
                 }
-                cityNames.push(boat.city);
+                cityNames.push(boat.portsId.city);
             });
 
             // Create city names array to be used with auto completion
             boats.map(boat => {
-                if (portNames.includes(boat.portName)) {
+                if (boat.portsId.city === undefined) {
                     return;
                 }
-                portNames.push(boat.portName);
+                portNames.push(boat.portsId.portName);
             });
 
             let boatHTML = '';

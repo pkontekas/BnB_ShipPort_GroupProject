@@ -17,4 +17,6 @@ public interface AccountService extends UserDetailsService {
     public void updateAccountRoleToOwner(int accountId, int roleId);
     
     public void updateAccount(Account a);
+    
+    public Account getAccountByBoatIdNative(int boatid);
 }

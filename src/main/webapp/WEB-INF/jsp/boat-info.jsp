@@ -106,7 +106,7 @@
         <div class="viewPage container">
             <div class="row" style="border: 1px solid;">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-8 text-center">
-                    <h5>Boat Image</h5>
+                    <h5>Time to sail!</h5>
                     <img alt="boatimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${boatimage}"/>
                     <h4>Boat information</h4>
                     <h5>Rent this incredible ${boatdetails.boatType} and enjoy the beaches around ${boatdetails.portsId.city}</h5>
@@ -181,7 +181,7 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                     <div class="ownerContact">
-                        <img src="data:image/jpeg;base64,${boatdetails.accountsId.profilePic}" class="rounded-circle img-fluid" alt="ownerPic">
+                        <img src="data:image/jpeg;base64,${ownerimage}" class="mt-4 rounded-circle img-fluid w-75 mx-auto d-block" alt="ownerPic">
                     </div>
                     <div class="contact">
                         <li>Owner: ${boatdetails.accountsId.name} ${boatdetails.accountsId.surname}</li>
