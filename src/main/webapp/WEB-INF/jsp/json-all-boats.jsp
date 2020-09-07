@@ -92,25 +92,10 @@
                 border-radius: 5px;
                 width:130px;
             }
-/*            .borderForm {
-                padding-top: 10px;
-                border: 2px solid #0a9ab5;
-                width: 300px;
-                margin-top: 0px;
-                padding: 15px;
-                background-color: #0a9ab5;
-                color: white;
-                font-size: 15px;
-                position: sticky;
-                top:20px;
-                bottom:50px;
-                margin-bottom: 55px;
-                border-radius: 5px;
-            }*/
             .borderFormOne{
                 width: 300px;
                 padding: 15px;
-                background-color:#3282B8;
+                background-color:#0a9ab5;
                 color: white;
                 font-size: 15px;
                 border-radius: 5px;
