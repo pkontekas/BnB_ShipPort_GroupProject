@@ -1,16 +1,10 @@
 package spring.bnb.boats.controllers;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import java.io.UnsupportedEncodingException;
 import java.security.Principal;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,7 +39,7 @@ public class BoatController {
     AccountService accountService;
 
     @Autowired
-    BoatphotoService bbService;
+    BoatphotoService bpService;
 
     @GetMapping("/preregisterboat")
     public String showBoatRegisterForm(ModelMap mm,
@@ -111,8 +105,6 @@ public class BoatController {
         List<Boat> boats = boatService.getAllBoats();
         mm.addAttribute("allboats", boats);
         
-        
-        
         //create a map to store boat ids as keys and base64 encoded images
         //from boats as values to later have them in our page
 //        Map<Integer, String> boatPhotosEncoded = new HashMap<>();
@@ -132,16 +124,6 @@ public class BoatController {
 //        }
 //        //puts whole image boatId-image map in a mm attribute to send it to all-boats in encoded form
 //        mm.addAttribute("boatImagesMap", boatPhotosEncoded);
-        
-        
-        
-        
-//        GsonBuilder gsonMapBuilder = new GsonBuilder();
-//        Gson gsonObject = gsonMapBuilder.create();
-//        
-//        String JSONObject
-//        
-//        boatPhotosEncoded.put(boatPhotosEncoded, new Gson() );
         return "json-all-boats";
     }
 
@@ -157,20 +139,12 @@ public class BoatController {
         byte[] imageBeforeEncoding = Base64.encodeBase64(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());
         mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "portimage");
 
-        imageBeforeEncoding = Base64.encodeBase64(bbService.findDefaultBoatphotoByBoatsIdNative(boat.getId()).getPhoto());
+        imageBeforeEncoding = Base64.encodeBase64(bpService.findDefaultBoatphotoByBoatsIdNative(boat.getId()).getPhoto());
         mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "boatimage");
 
         imageBeforeEncoding = Base64.encodeBase64(accountService.getAccountByBoatIdNative(boat.getId()).getProfilePic());
         mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "ownerimage");
 
         return "boat-info";
-    }
-
-    @PostMapping("/boat/{boatType}")
-    public String addBoatTypeToSession(HttpSession session,
-            @PathVariable(value="boatType") String type) {
-        System.out.println(type);
-        session.setAttribute("boatTypeSelected", type);
-        return "../showallboats";
     }
 }
