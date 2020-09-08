@@ -16,6 +16,7 @@
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
         <title>Show info per boat</title>
         <style>
             .titlePage {
@@ -59,17 +60,19 @@
                 font-weight: 500;
             }
             .request {
-                background-color: #a2d5f2 ;
+                background-color:#a2d5f2 ;
                 color:white;
                 font-weight: 500;
                 font-size: large;
-
-                margin-top: 45px;
+                margin-top: 55px;
                 text-align: center;
+                border-radius: 10px;
             }
             .requestbtn{
-                background-color:  #3282b8;
+                background-color:  #3282b8 ;
                 color: white;
+                 border-radius: 10px;
+                     border-color:  #3282b8;
             }
             .rate{
                 border: 1px solid;
@@ -84,6 +87,7 @@
                 padding-top: 10px;
                 padding-bottom: 10px;
                 margin-top:5px;
+                border-radius: 5px;
             }
             .progressBar {
                 padding-bottom: 20px;
@@ -97,7 +101,7 @@
             .fa {
                 font-size: 25px;
             }
-            
+
             .collapsible {
                 background-color:#3282b8 ;
                 color: white;
@@ -108,19 +112,43 @@
                 text-align: center;
                 outline: none;
                 font-size: 15px;
+                border-radius: 5px;
             }
 
-          
-            .active, .collapsible:hover {
+
+            .actives, .collapsible:hover {
                 background-color: #a2d5f2;
             }
 
-            
+
             .content {
                 padding: 0 18px;
                 display: none;
                 overflow: hidden;
                 background-color: #f1f1f1;
+            }
+            .payment{
+                border: 1px solid;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .bookingMessage{
+                border: 1px #0f4c75 solid;
+                margin-top: 55px;
+                text-align: center;
+                color:#3282b8;
+                padding: 10px;
+                box-shadow: 5px 10px #3282b8;
+                border-radius: 10px;
+            }
+            .titleImage{
+                padding-top: 15px;
+                padding-bottom: 15px;
+
+            }
+            .iconBoat{
+                 padding-top: 15px;
+                padding-bottom: 15px;
             }
         </style>
     </head>
@@ -144,18 +172,29 @@
         <div class="viewPage container">
             <div class="row" style="border: 1px solid;">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-8 text-center">
-                    <h5>Time to sail!</h5>
+                    <h5 class="titleImage">Time to sail!</h5>
                     <img alt="boatimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${boatimage}"/>
-                    <h4>Boat information</h4>
-                    <h5>Rent this incredible ${boatdetails.boatType} and enjoy the beaches around ${boatdetails.portsId.city}</h5>
-                    <p> <b>Safe & Clean.</b> The owner of this boat has promised to comply with the safety and hygiene measures ordered by the local authorities, and to follow PortBNB's recommendations for the prevention of the coronavirus. <br>
-                    </p>
-                    <p> Sail with your family in the comfort of this great ${boatdetails.boatType} and enjoy a day full of relaxation and fun in one of the best natural scenery in the world.<br><br>
 
-                        This versatile ${boatdetails.boatType} is ideal for adults and children. <br>
-                        You can leave from ${boatdetails.portsId.portName} to sail in the bay and witness the spectacular beauty of marine life while snorkeling accompanied by an expert guide.<br><br>
-                        Live the adventure of the day and enjoy the Beautiful Sea like never before! <br>
-                    </p>
+                    <div class="iconBoat">
+                    <small class="text-muted"><i class="fa fa-users fa-3x"><br><p style="font-size:small">persons: </p> </i>  </small> &nbsp;
+                   &nbsp;  <small class="text-muted"><i class="fa fa-bed fa-3x"><br><p style="font-size:small">beds: </p> </i>  </small> &nbsp; 
+                &nbsp;  <small class="text-muted"><i class="fa fa-bath fa-3x"><br><p style="font-size:small">baths </p> </i>  </small> &nbsp;
+                &nbsp;  <small class="text-muted"><i class="fa fa-tachometer fa-3x"><br><p style="font-size:small">knots:</p> </i></small> &nbsp;
+                 &nbsp;  <small class="text-muted"><i class="fa fa-fire fa-3x"><br><p style="font-size:small">fuel type:</p> </i></small>
+</div>
+
+                    <div class="textInfoBoat">
+                        <h4>Boat information</h4>
+                        <h5>Rent this incredible ${boatdetails.boatType} and enjoy the beaches around ${boatdetails.portsId.city}</h5>
+                        <p> <b>Safe & Clean.</b> The owner of this boat has promised to comply with the safety and hygiene measures ordered by the local authorities, and to follow PortBNB's recommendations for the prevention of the coronavirus. <br>
+                        </p>
+                        <p> Sail with your family in the comfort of this great ${boatdetails.boatType} and enjoy a day full of relaxation and fun in one of the best natural scenery in the world.<br><br>
+
+                            This versatile ${boatdetails.boatType} is ideal for adults and children. <br>
+                            You can leave from ${boatdetails.portsId.portName} to sail in the bay and witness the spectacular beauty of marine life while snorkeling accompanied by an expert guide.<br><br>
+                            Live the adventure of the day and enjoy the Beautiful Sea like never before! <br>
+                        </p>
+                    </div>
                     <div class="text-left">
                         <button type="button" class="collapsible">Terms</button>
                         <div class="content">
@@ -177,29 +216,21 @@
                             </p>
                         </div>
 
-
-                        <!--                        <p>
-                                                    <b>Terms</b><br>
-                                                <ul>Mandatory extras</ul>
-                                                <li>Docking fee when boarding : $12 per person per day</li><br>
-                                                <ul>Timetable</ul>
-                                                <li>For day charters check-in starts from 8:00 h.</li>
-                                                <li>For day charters check-out is until 13:00 h.</li><br>
-                                                <ul>Base port</ul>
-                                                <li>The Mooring at the base port is included</li>
-                                                <li>The boat must return to the home port every night</li>
-                                                <li>There is no overnight stay on board the boat</li><br>
-                                                <ul>Other conditions</ul>
-                                                <li>Second payment is due one month before charter</li>
-                                                <li>If the charter is not possible because of severe weather conditions you will be offered an alternative day. If no other date can be found, you will get a full refund.</li>
-                                                <br>
-                                                All prices include tax.
-                                                </p>-->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
-                    <h5 class="text-center">${boatdetails.portsId.portName} Port</h5>
+                    <h5 class="titleImage text-center">${boatdetails.portsId.portName} Port</h5>
                     <img alt="portimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${portimage}"/>
+
+
+                    <div class="bookingMessage">
+                        <h1>Secure booking</h1>
+                        <p><i class="fa fa-check"></i> Best price guaranteed</p>
+
+                        <p><i class="fa fa-check"></i> The best offer on the <br> Internet</p>
+                    </div>
+
+
 
                     <div class="request">
                         <div class="text-center">
@@ -315,8 +346,12 @@
                         allowfullscreen></iframe>
             </div>
         </div>
-        <div class="container">
-            <div id="paypal-button-container"></div>
+        <div class="payment container">
+            <h1>Payment methods</h1>
+            <p>You can contact the owner <br>
+                by e-mail: <a href="mailto:${boatdetails.accountsId.email}">${boatdetails.accountsId.email}</a> <br>
+                or <br> You can pay online with PayPal </p>
+            <div id="paypal-button-container" ></div>
         </div>
 
         <jsp:include page="footer.jsp"/>
@@ -339,7 +374,7 @@
 
             for (i = 0; i < coll.length; i++) {
                 coll[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
+                    this.classList.toggle("actives");
                     var content = this.nextElementSibling;
                     if (content.style.display === "block") {
                         content.style.display = "none";

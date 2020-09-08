@@ -92,20 +92,25 @@
                 border-radius: 5px;
                 width:130px;
             }
-            .borderForm {
-                padding-top: 10px;
-                border: 2px solid #0a9ab5;
+            .borderFormOne{
                 width: 300px;
-                margin-top: 0px;
+                padding: 15px;
+                background-color:#0a9ab5;
+                color: white;
+                font-size: 15px;
+                border-radius: 5px;
+            }
+            .borderFormTwo{
+                width: 300px;
                 padding: 15px;
                 background-color: #0a9ab5;
                 color: white;
                 font-size: 15px;
-                position: sticky;
-                top:20px;
-                bottom:50px;
-                margin-bottom: 55px;
                 border-radius: 5px;
+                position: sticky;
+                top:0px;
+                bottom:auto;
+                margin-top: 10px;
             }
             .boat {
                 margin-left: 0;
@@ -137,16 +142,16 @@
     </head>
 
     <body style="background-color:whitesmoke">
-        
+
         <jsp:include page="navbar.jsp"/>
-        
+
         <div class="pTitle">
             <h1>Rental boats</h1>
         </div>
 
         <div class="searchForm row container-fluid">
             <div class="col-xs-2">
-                <div class="borderForm">
+                <div class="borderFormOne">
                     <h1>Search</h1>
                     <form>
                         <div class="form-group">
@@ -179,7 +184,14 @@
                             <label for="startDate">Start Date</label>
                             <input type="date" class="form-control" id="deststartDate" required>
                         </div>
-                        
+
+
+                        <button type="Submit" class="searchBtn btn-primary" onclick="reloadBoats()"><i class="fa fa-search"></i>&nbsp;
+                            Search &nbsp;</button>
+                    </form>
+                </div>
+                <div class="borderFormTwo">
+                    <form>
                         <div class="form-group">
                             <label for="typeBoat">Boat Type</label>
                             <select name="typeBoat" id="desttypeBoat" class="form-control" onchange="reloadBoats()">
@@ -230,12 +242,9 @@
                                 <option value="size-desc">Smallest Boat</option>
                             </select>
                         </div>
-                        <button type="Submit" class="searchBtn btn-primary" onclick="reloadBoats()"><i class="fa fa-search"></i>&nbsp;
-                            Search &nbsp;</button>
                     </form>
                 </div>
             </div>
-
             <div class="boat col-sm-8">
                 <div class="boats">
 
@@ -247,24 +256,25 @@
             
         </div>
 
-        <jsp:include page="footer.jsp"/>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script>
+            <jsp:include page="footer.jsp"/>
+
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
                                 $(function () {
                                     $(document).tooltip();
                                 });
-        </script>
-        <script src="/js/allboats.js"></script>
+            </script>
+            <script src="/js/allboats.js"></script>
     </body>
 </html>
