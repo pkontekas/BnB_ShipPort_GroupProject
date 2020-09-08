@@ -60,7 +60,7 @@
                                 <div class="col-sm-4">
                                     <h4>Information</h4>
                                     <li><a class="footerinfo" href="/preregisterboat">Register Your Boat</a></li>
-                                    <li><a class="footerinfo" href="/showallboats">All boats</a></li>
+                                    <li><a class="footerinfo" href="/showallboats/all">All boats</a></li>
                                     <li><a class="footerinfo" href="/#">Reviews&nbsp; <span class="fa fa-star footerchecked"></span></a></li>
                                 </div>
                                 <div class="col-sm-4">

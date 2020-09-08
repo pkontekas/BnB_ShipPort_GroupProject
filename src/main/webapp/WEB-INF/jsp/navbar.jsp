@@ -56,7 +56,7 @@
                         <a class="nav-link" href="/api/allboats">JSON</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/showallboats">All boats</a>
+                        <a class="nav-link" href="/showallboats/all">All boats</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/preregisteraccount">Register</a>

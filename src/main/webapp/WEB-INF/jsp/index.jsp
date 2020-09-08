@@ -150,24 +150,24 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <div href="">
+                        <a href="${pageContext.request.contextPath}/showallboats/Rib">
                             <h5 class="index4headerItems">Rib Boat</h5><img class="imgitems img-fluid" src="image/rib.jpg" alt="rib">
-                        </div>
+                        </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <div href="">
+                        <a href="${pageContext.request.contextPath}/showallboats/Catamaran">
                             <h5 class="index4headerItems">Catamaran</h5><img class="imgitems img-fluid" src="image/catamaran1920x1200.jpg" alt="catam">
-                        </div>
+                        </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <div href="">
+                        <a href="${pageContext.request.contextPath}/showallboats/Motorboat">
                             <h5 class="index4headerItems">Motorboat</h5><img class="imgitems img-fluid" src="image/motorboat.jpg" alt="motor">
-                        </div>
+                        </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <div href="">
+                        <a href="${pageContext.request.contextPath}/showallboats/Yacht">
                             <h5 class="index4headerItems">Yacht</h5> <img class="imgitems img-fluid" src="image/luxury-yacht1920x1200.jpg" alt="yacht">
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

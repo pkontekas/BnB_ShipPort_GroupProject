@@ -1,10 +1,13 @@
 package spring.bnb.boats.controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -85,40 +88,60 @@ public class BoatController {
         return portService.getAllPorts();
     }
 
-    @GetMapping("/showallboats")
-    public String showAllBoats(ModelMap mm) {
-        return listAllBoats(mm, 1);
-    }
+    //old method for pagination
+//    @GetMapping("/showallboats")
+//    public String showAllBoats(ModelMap mm) {
+//        return listAllBoats(mm, 1);
+//    }
 
-    @GetMapping("/showallboats/page/{pageNumber}")
+    @GetMapping("/showallboats/{boatType}")
     public String listAllBoats(ModelMap mm,
-            @PathVariable("pageNumber") int currentPage) {
+            HttpSession session,
+            @PathVariable(value="boatType") String btype)
+            //@PathVariable("pageNumber") int currentPage)
+            {
+        session.setAttribute("boatTypeSelected", btype);
 
-        Page<Boat> page = boatService.getAllBoats(currentPage);
-        List<Boat> boats = page.getContent();
-        int totalPages = page.getTotalPages();
-        mm.addAttribute("totalPages", totalPages);
-        mm.addAttribute("currentPage", currentPage);
+            //old pagination code
+//        Page<Boat> page = boatService.getAllBoats(currentPage);
+//        List<Boat> boats = page.getContent();
+//        int totalPages = page.getTotalPages();
+//        mm.addAttribute("totalPages", totalPages);
+//        mm.addAttribute("currentPage", currentPage);
+        List<Boat> boats = boatService.getAllBoats();
         mm.addAttribute("allboats", boats);
-
-        Map<Integer, String> boatPhotosEncoded = new HashMap<>();
-
-        byte[] imageBeforeEncoding;
-        String base64EncodedImage;
-        for (int i = 0; i < boats.size(); i++) {
-            imageBeforeEncoding = Base64.encodeBase64(bbService.findDefaultBoatphotoByBoatsIdNative(boats.get(i).getId()).getPhoto());
-            try {
-                base64EncodedImage = new String(imageBeforeEncoding, "UTF-8");
-                boatPhotosEncoded.put(boats.get(i).getId(), base64EncodedImage);
-            } catch (UnsupportedEncodingException ex) {
-                //TO DO to fix this: If image does not exist we get an exception and we are thrown into error page
-                ex.printStackTrace();
-                mm.addAttribute("kindoferror", ex.getMessage());
-            }
-        }
-
-        //puts whole image boatId-image map in a mm attribute to send it to all-boats in encoded form
-        mm.addAttribute("boatImagesMap", boatPhotosEncoded);
+        
+        
+        
+        //create a map to store boat ids as keys and base64 encoded images
+        //from boats as values to later have them in our page
+//        Map<Integer, String> boatPhotosEncoded = new HashMap<>();
+//        byte[] imageBeforeEncoding;
+//        String base64EncodedImage;
+//        //looping through the boats
+//        for (int i = 0; i < boats.size(); i++) {
+//            imageBeforeEncoding = Base64.encodeBase64(bbService.findDefaultBoatphotoByBoatsIdNative(boats.get(i).getId()).getPhoto());
+//            try {
+//                base64EncodedImage = new String(imageBeforeEncoding, "UTF-8");
+//                boatPhotosEncoded.put(boats.get(i).getId(), base64EncodedImage);
+//            } catch (UnsupportedEncodingException ex) {
+//                //TO DO to fix this: If image does not exist we get an exception and we are thrown into error page
+//                ex.printStackTrace();
+//                mm.addAttribute("kindoferror", ex.getMessage());
+//            }
+//        }
+//        //puts whole image boatId-image map in a mm attribute to send it to all-boats in encoded form
+//        mm.addAttribute("boatImagesMap", boatPhotosEncoded);
+        
+        
+        
+        
+//        GsonBuilder gsonMapBuilder = new GsonBuilder();
+//        Gson gsonObject = gsonMapBuilder.create();
+//        
+//        String JSONObject
+//        
+//        boatPhotosEncoded.put(boatPhotosEncoded, new Gson() );
         return "json-all-boats";
     }
 
@@ -129,17 +152,25 @@ public class BoatController {
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
         //using the port this boat is located to get the specific port photo
-        
+
         ImageDao imgDao = new ImageDao();
         byte[] imageBeforeEncoding = Base64.encodeBase64(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());
         mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "portimage");
 
         imageBeforeEncoding = Base64.encodeBase64(bbService.findDefaultBoatphotoByBoatsIdNative(boat.getId()).getPhoto());
         mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "boatimage");
-        
+
         imageBeforeEncoding = Base64.encodeBase64(accountService.getAccountByBoatIdNative(boat.getId()).getProfilePic());
         mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "ownerimage");
 
         return "boat-info";
+    }
+
+    @PostMapping("/boat/{boatType}")
+    public String addBoatTypeToSession(HttpSession session,
+            @PathVariable(value="boatType") String type) {
+        System.out.println(type);
+        session.setAttribute("boatTypeSelected", type);
+        return "../showallboats";
     }
 }
