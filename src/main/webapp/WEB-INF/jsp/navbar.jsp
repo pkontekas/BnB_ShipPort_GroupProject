@@ -37,7 +37,7 @@
         #drop:hover{
             color: #3282B8;
         }
-  
+
     </style>
 
     <body>
@@ -52,8 +52,11 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
+                    <!--                    <li class="nav-item">
+                                            <a class="nav-link" href="/api/allboats">JSON</a>
+                                        </li>-->
                     <li class="nav-item">
-                        <a class="nav-link" href="/api/allboats">JSON</a>
+                        <a class="nav-link" href="/api/allboatdtos">JSON</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/showallboats/all">All boats</a>

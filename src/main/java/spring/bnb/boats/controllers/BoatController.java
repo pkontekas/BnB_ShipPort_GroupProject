@@ -87,23 +87,23 @@ public class BoatController {
 //    public String showAllBoats(ModelMap mm) {
 //        return listAllBoats(mm, 1);
 //    }
-
     @GetMapping("/showallboats/{boatType}")
     public String listAllBoats(ModelMap mm,
             HttpSession session,
-            @PathVariable(value="boatType") String btype)
-            //@PathVariable("pageNumber") int currentPage)
-            {
+            @PathVariable(value = "boatType") String btype) //@PathVariable("pageNumber") int currentPage)
+    {
         session.setAttribute("boatTypeSelected", btype);
 
-            //old pagination code
+        //old pagination code
 //        Page<Boat> page = boatService.getAllBoats(currentPage);
 //        List<Boat> boats = page.getContent();
 //        int totalPages = page.getTotalPages();
 //        mm.addAttribute("totalPages", totalPages);
 //        mm.addAttribute("currentPage", currentPage);
-        List<Boat> boats = boatService.getAllBoats();
-        mm.addAttribute("allboats", boats);
+
+//        will be needed if we go back to old page
+//        List<Boat> boats = boatService.getAllBoats();
+//        mm.addAttribute("allboats", boats);
         
         //create a map to store boat ids as keys and base64 encoded images
         //from boats as values to later have them in our page
@@ -124,6 +124,7 @@ public class BoatController {
 //        }
 //        //puts whole image boatId-image map in a mm attribute to send it to all-boats in encoded form
 //        mm.addAttribute("boatImagesMap", boatPhotosEncoded);
+
         return "json-all-boats";
     }
 
@@ -137,14 +138,15 @@ public class BoatController {
 
         ImageDao imgDao = new ImageDao();
         byte[] imageBeforeEncoding = Base64.encodeBase64(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());
-        mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "portimage");
+        mm = imgDao.encodeImageToBase64AndPutToMm(imageBeforeEncoding, mm, "portimage");
 
         imageBeforeEncoding = Base64.encodeBase64(bpService.findDefaultBoatphotoByBoatsIdNative(boat.getId()).getPhoto());
-        mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "boatimage");
+        mm = imgDao.encodeImageToBase64AndPutToMm(imageBeforeEncoding, mm, "boatimage");
 
         imageBeforeEncoding = Base64.encodeBase64(accountService.getAccountByBoatIdNative(boat.getId()).getProfilePic());
-        mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "ownerimage");
+        mm = imgDao.encodeImageToBase64AndPutToMm(imageBeforeEncoding, mm, "ownerimage");
 
         return "boat-info";
     }
+
 }

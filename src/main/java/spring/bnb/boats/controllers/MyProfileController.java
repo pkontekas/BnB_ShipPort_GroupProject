@@ -1,6 +1,5 @@
 package spring.bnb.boats.controllers;
 
-import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +41,7 @@ public class MyProfileController {
         if (dbAccount.getProfilePic() != null) {
             if (dbAccount.getProfilePic().length > 0) {
                 byte[] imageBeforeEncoding = Base64.encodeBase64(dbAccount.getProfilePic());
-                mm = imgDao.encodeImageToBase64(imageBeforeEncoding, mm, "oldprofilepic");
+                mm = imgDao.encodeImageToBase64AndPutToMm(imageBeforeEncoding, mm, "oldprofilepic");
             }
         }
         //clearing password
