@@ -151,22 +151,26 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <a href="${pageContext.request.contextPath}/showallboats/rib">
-                            <h5 class="index4headerItems">Rib Boat</h5><img class="imgitems img-fluid" src="image/rib.jpg" alt="rib">
+                            <h5 class="index4headerItems">Rib Boat</h5>
+                            <img class="imgitems img-fluid" src="image/rib.jpg" alt="rib">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <a href="${pageContext.request.contextPath}/showallboats/catamaran">
-                            <h5 class="index4headerItems">Catamaran</h5><img class="imgitems img-fluid" src="image/catamaran1920x1200.jpg" alt="catam">
+                            <h5 class="index4headerItems">Catamaran</h5>
+                            <img class="imgitems img-fluid" src="image/catamaran1920x1200.jpg" alt="catam">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <a href="${pageContext.request.contextPath}/showallboats/motorboat">
-                            <h5 class="index4headerItems">Motorboat</h5><img class="imgitems img-fluid" src="image/motorboat.jpg" alt="motor">
+                            <h5 class="index4headerItems">Motorboat</h5>
+                            <img class="imgitems img-fluid" src="image/motorboat.jpg" alt="motor">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
                         <a href="${pageContext.request.contextPath}/showallboats/yacht">
-                            <h5 class="index4headerItems">Yacht</h5> <img class="imgitems img-fluid" src="image/luxury-yacht1920x1200.jpg" alt="yacht">
+                            <h5 class="index4headerItems">Yacht</h5>
+                            <img class="imgitems img-fluid" src="image/luxury-yacht1920x1200.jpg" alt="yacht">
                         </a>
                     </div>
                 </div>
@@ -178,25 +182,28 @@
             <div class="container-fluid">
                 <div class="port row d-flex justify-content-center">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <div href="">
-                            <h5 class="index4headerItems">Piraeus</h5><img class="imgitems img-fluid" src="image/piraeusPort.jpg" alt="peir">
-                        </div>
+                        <a href="${pageContext.request.contextPath}/showallboats/piraeus">
+                            <h5 class="index4headerItems">Piraeus</h5>
+                            <img class="imgitems img-fluid" src="image/piraeusPort.jpg" alt="peir">
+                        </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <div href="">
-                            <h5 class="index4headerItems">Paros</h5><img class="imgitems img-fluid" src="image/parosPort.jpg" alt="par">
-                        </div>
+                        <a href="${pageContext.request.contextPath}/showallboats/paros">
+                            <h5 class="index4headerItems">Paros</h5>
+                            <img class="imgitems img-fluid" src="image/parosPort.jpg" alt="par">
+                        </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-
-                        <div href="">
-                            <h5 class="index4headerItems">Mykonos</h5> <img class="imgitems img-fluid" src="image/mykonosPort.jpg" alt="mik">
-                        </div>
+                        <a href="${pageContext.request.contextPath}/showallboats/mikonos">
+                            <h5 class="index4headerItems">Mykonos</h5>
+                            <img class="imgitems img-fluid" src="image/mykonosPort.jpg" alt="mik">
+                        </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <div href="">
-                            <h5 class="index4headerItems">Heraklion</h5><img class="imgitems img-fluid" src="image/heraklion1024x683.jpg" alt="ira">
-                        </div>
+                        <a href="${pageContext.request.contextPath}/showallboats/irakleio">
+                            <h5 class="index4headerItems">Heraklion</h5>
+                            <img class="imgitems img-fluid" src="image/heraklion1024x683.jpg" alt="ira">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -242,6 +249,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
-
 </body>
 </html>

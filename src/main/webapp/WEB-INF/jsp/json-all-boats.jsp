@@ -198,7 +198,7 @@
                                 <option value="all">All</option>
                                 <option value="yacht">Yacht</option>
                                 <option value="catamaran">Catamaran</option>
-                                <option value="motorBoat">Motorboat</option>
+                                <option value="motorboat">Motorboat</option>
                                 <option value="rib">Rib Boat</option>
                             </select>
                         </div>
@@ -270,23 +270,36 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
-                                $(function () {
-                                    $(document).tooltip();
-                                });
-        </script>
-        <script>
-            function loadInitialBoatTypes() {
-                let boatTypeSelection="";
-                boatTypeSelection = '<%= session.getAttribute("boatTypeSelected")%>';
-                console.log(boatTypeSelection);
-                $('#desttypeBoat').val(boatTypeSelection);
-            }
-
-            $(document).ready(function () {
-                loadInitialBoatTypes();
-                reloadBoats();
-            });
-
+                                function loadInitialFilter() {
+                                    let filterSelection = "";
+                                    filterSelection = '<%= session.getAttribute("filterselected")%>';
+                                    if (filterSelection === "catamaran" || filterSelection === "rib" ||
+                                            filterSelection === "yacht" || filterSelection === "motorboat")
+                                        $('#desttypeBoat').val(filterSelection);
+                                    else
+                                    {
+                                        switch (filterSelection) {
+                                            case "piraeus":
+                                                $("#search-text").attr("value", "Piraeus Harbour");
+                                                return true;
+                                                break;
+                                            case "paros":
+                                                $('#search-text').val("Parikia Harbour Paros");
+                                                return true;
+                                                break;
+                                            case "mikonos":
+                                                $('#search-text').val("Mykonos");
+                                                return true;
+                                                break;
+                                            case "irakleio":
+                                                $('#search-text').val("Heraklion Port Authority");
+                                                return true;
+                                                break;
+                                            default:
+                                                return;
+                                        }
+                                    }
+                                }
         </script>
         <script src="/js/allboats.js"></script>
     </body>

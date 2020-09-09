@@ -1,85 +1,34 @@
 /* global fetch, desttypeBoat */
 
 'use strict';
-var boatsdto = [];
-//var boats = ;
-var priceList = [];
-var cityNames = [];
-var portNames = [];
-
-//old method
-//$(document).ready(function () {
-//    fetch("/api/allboats")
-//            .then(response => response.json())
-//            .then(data => {
-//                data.map(boat => {
-//                    boats.push(boat);
-//                });
-//
-//                // Find prices
-//                boats.map(boat => {
-//                    priceList.push(boat.currentPrice);
-//                });
-//
-//                // Create city names array to be used with auto completion
-//                boats.map(boat => {
-//                    if (boat.portsId.city === undefined) {
-//                        return;
-//                    }
-//                    cityNames.push(boat.portsId.city);
-//                });
-//
-//                // Create city names array to be used with auto completion
-//                boats.map(boat => {
-//                    if (boat.portsId.city === undefined) {
-//                        return;
-//                    }
-//                    portNames.push(boat.portsId.portName);
-//                });
-//
-//                let boatHTML = '';
-//                boats.map(boat => {
-//                    boatHTML += boatCard(boat);
-//                });
-//                document.getElementById('boat-list').innerHTML = boatHTML;
-//                reloadBoats();
-//            })
-//            .catch(error => {
-//                console.error('Data file not accessible: ', error);
-//            });
-//});
+let boatsdto = [];
+let priceList = [];
+let portAndCities = [];
 
 $(document).ready(function () {
     fetch("/api/allboatdtos")
             .then(response => response.json())
             .then(data => {
                 data.map(boat => {
-                    console.log(boat);
                     boatsdto.push(boat);
                 });
 
                 // Find prices
                 boatsdto.map(boat => {
-                    
                     priceList.push(boat.price);
                 });
 
-                // Create city name array to be used with auto completion
-                boatsdto.map(boat => {
-                    if (boat.city === undefined) {
-                        return;
+                // Create portAndCities name array to be used with auto completion
+                boatsdto.map(boat =>
+                {
+                    if (!portAndCities.includes(boat.portName))
+                    {
+                        portAndCities.push(boat.portName);
                     }
-                    console.log("city: ", boat.city);
-                    cityNames.push(boat.city);
-                });
-
-                // Create port name array to be used with auto completion
-                boatsdto.map(boat => {
-                    if (boat.city === undefined) {
-                        return;
+                    if (!portAndCities.includes(boat.city))
+                    {
+                        portAndCities.push(boat.city);
                     }
-                    console.log("port name: ", boat.portName);
-                    portNames.push(boat.portName);
                 });
 
                 let boatHTML = '';
@@ -94,28 +43,16 @@ $(document).ready(function () {
             });
 });
 
-
-
-//TO DO does not work yet will need 2 sources cityNames and portNames
-//$("#search-text").autocomplete({
-//    source: cityNames
-//});
-
 $("#search-text").autocomplete({
-    source: portNames
+    source: portAndCities
 });
 
 function boatCard(boat) {
-    console.log(boat);
     let txt = '';
-
     txt += '<div class="card container-fluid">';
     txt += '<div class="row">';
     txt += '<div class="firstCol col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">';
-    //txt += '<img class="card-img" src="image/motorboat.jpg" alt="boatImagesMap"/>';
-    //new line experiment
     txt += '<img class="card-img" src="data:image/jpeg;base64,' + boat.boatPhoto + '" alt="boatImage"/>';
-
     txt += '</div>';
     txt += '<div class="secondCol col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">';
     txt += '<div class="card-body">';
@@ -178,16 +115,12 @@ function reloadBoats() {
 
     if (sortBy === "price-asc") {
         boatsdto.sort(comparePriceAsc);
-        console.log(boatsdto);
     } else if (sortBy === "price-desc") {
         boatsdto.sort(comparePriceDesc);
-        console.log(boatsdto);
     } else if (sortBy === "size-desc") {
         boatsdto.sort(compareSizeDesc);
-        console.log(boatsdto);
     } else if (sortBy === "size-asc") {
         boatsdto.sort(compareSizeAsc);
-        console.log(boatsdto);
     }
 
     boatsdto.forEach(boat => {
@@ -288,7 +221,6 @@ function compareSizeDesc(a, b) {
     if (b.boatLength > a.boatLength) {
         return -1;
     }
-
     return 0;
 }
 
@@ -299,7 +231,6 @@ function compareSizeAsc(a, b) {
     if (b.boatLength < a.boatLength) {
         return -1;
     }
-
     return 0;
 }
 
@@ -310,7 +241,6 @@ function comparePriceDesc(a, b) {
     if (b.price > a.price) {
         return -1;
     }
-
     return 0;
 }
 
@@ -321,6 +251,10 @@ function comparePriceAsc(a, b) {
     if (b.price < a.price) {
         return -1;
     }
-
     return 0;
 }
+
+$(document).ready(function () {
+    $(document).tooltip();
+    loadInitialFilter();
+});
