@@ -54,28 +54,32 @@ $(document).ready(function () {
             .then(response => response.json())
             .then(data => {
                 data.map(boat => {
+                    console.log(boat);
                     boatsdto.push(boat);
                 });
 
                 // Find prices
                 boatsdto.map(boat => {
-                    priceList.push(boat.currentPrice);
+                    
+                    priceList.push(boat.price);
                 });
 
                 // Create city name array to be used with auto completion
                 boatsdto.map(boat => {
-                    if (boat.portsId.city === undefined) {
+                    if (boat.city === undefined) {
                         return;
                     }
-                    cityNames.push(boat.portsId.city);
+                    console.log("city: ", boat.city);
+                    cityNames.push(boat.city);
                 });
 
                 // Create port name array to be used with auto completion
                 boatsdto.map(boat => {
-                    if (boat.portsId.city === undefined) {
+                    if (boat.city === undefined) {
                         return;
                     }
-                    portNames.push(boat.portsId.portName);
+                    console.log("port name: ", boat.portName);
+                    portNames.push(boat.portName);
                 });
 
                 let boatHTML = '';
@@ -110,7 +114,7 @@ function boatCard(boat) {
     txt += '<div class="firstCol col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">';
     //txt += '<img class="card-img" src="image/motorboat.jpg" alt="boatImagesMap"/>';
     //new line experiment
-    txt += '<img class="card-img" src="data:image/jpeg;base64,/api/boatimage/' + boat.id + '" alt="boatImage"/>';
+    txt += '<img class="card-img" src="data:image/jpeg;base64,' + boat.boatPhoto + '" alt="boatImage"/>';
 
     txt += '</div>';
     txt += '<div class="secondCol col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">';
@@ -139,14 +143,14 @@ function boatCard(boat) {
     txt += '&nbsp;<small class="text-muted"><i class="fa fa-fire"> </i>  ' + boat.fuel + '</small>';
     txt += '</div>';
     txt += '<div class="city">';
-    txt += '<p><strong>City: </strong>' + boat.portsId.city + '</p>';
+    txt += '<p><strong>City: </strong>' + boat.city + '</p>';
     txt += '</div>';
     txt += '<div>';
-    txt += '<i class="position fa fa-map-marker"><strong> Port: </strong>' + boat.portsId.portName + '</i>';
+    txt += '<i class="position fa fa-map-marker"><strong> Port: </strong>' + boat.portName + '</i>';
     txt += '</div>';
     txt += '<div class="cardFooter row">';
     txt += '<div class="col-xs-sm-md-lg-xl">';
-    txt += '<p class="price">Price ' + boat.currentPrice + ' Euro/day</p>';
+    txt += '<p class="price">Price ' + boat.price + ' Euro/day</p>';
     txt += '</div>';
     txt += '<div class="col-xs-sm-md-lg-xl">';
     txt += '<form action="/showboatinfo" method="GET">';
@@ -205,7 +209,7 @@ function reloadBoats() {
         }
 
         if (priceRange !== "any") {
-            if (inPriceRange(priceRange, boat.currentPrice)) {
+            if (inPriceRange(priceRange, boat.price)) {
                 return;
             }
         }
@@ -300,10 +304,10 @@ function compareSizeAsc(a, b) {
 }
 
 function comparePriceDesc(a, b) {
-    if (a.currentPrice > b.currentPrice) {
+    if (a.price > b.price) {
         return 1;
     }
-    if (b.currentPrice > a.currentPrice) {
+    if (b.price > a.price) {
         return -1;
     }
 
@@ -311,10 +315,10 @@ function comparePriceDesc(a, b) {
 }
 
 function comparePriceAsc(a, b) {
-    if (a.currentPrice < b.currentPrice) {
+    if (a.price < b.price) {
         return 1;
     }
-    if (b.currentPrice < a.currentPrice) {
+    if (b.price < a.price) {
         return -1;
     }
 
