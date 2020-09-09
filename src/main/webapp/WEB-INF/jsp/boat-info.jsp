@@ -353,6 +353,7 @@
                 or <br> You can pay online with PayPal </p>
             <div id="paypal-button-container" ></div>
         </div>
+                
 
         <jsp:include page="footer.jsp"/>
 
