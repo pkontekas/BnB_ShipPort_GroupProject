@@ -52,7 +52,7 @@
                 font-weight: 500;
             }
             .specifics {
-                border-right-style: solid;
+/*                border-right-style: solid;*/
             }
             .contact li {
                 list-style-type: none;
@@ -71,11 +71,11 @@
             .requestbtn{
                 background-color:  #3282b8 ;
                 color: white;
-                 border-radius: 10px;
-                     border-color:  #3282b8;
+                border-radius: 10px;
+                border-color:  #3282b8;
             }
             .rate{
-                border: 1px solid;
+/*                border: 1px solid;*/
 
             }
             .ratingBar {
@@ -147,9 +147,16 @@
 
             }
             .iconBoat{
-                 padding-top: 15px;
+                padding-top: 15px;
                 padding-bottom: 15px;
             }
+            .bookingForm{
+                font-style: italic;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: 600;
+                color:#3282b8;
+            }
+
         </style>
     </head>
 
@@ -170,18 +177,18 @@
         </div>
 
         <div class="viewPage container">
-            <div class="row" style="border: 1px solid;">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-8 text-center">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 text-center">
                     <h5 class="titleImage">Time to sail!</h5>
                     <img alt="boatimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${boatimage}"/>
 
                     <div class="iconBoat">
-                    <small class="text-muted"><i class="fa fa-users fa-3x"><br><p style="font-size:small">persons: </p> </i>  </small> &nbsp;
-                   &nbsp;  <small class="text-muted"><i class="fa fa-bed fa-3x"><br><p style="font-size:small">beds: </p> </i>  </small> &nbsp; 
-                &nbsp;  <small class="text-muted"><i class="fa fa-bath fa-3x"><br><p style="font-size:small">baths </p> </i>  </small> &nbsp;
-                &nbsp;  <small class="text-muted"><i class="fa fa-tachometer fa-3x"><br><p style="font-size:small">knots:</p> </i></small> &nbsp;
-                 &nbsp;  <small class="text-muted"><i class="fa fa-fire fa-3x"><br><p style="font-size:small">fuel type:</p> </i></small>
-</div>
+                        <small class="text-muted"><i class="fa fa-users fa-3x"><br><p style="font-size:small">persons: </p> </i>  </small> &nbsp;
+                        &nbsp;  <small class="text-muted"><i class="fa fa-bed fa-3x"><br><p style="font-size:small">beds: </p> </i>  </small> &nbsp; 
+                        &nbsp;  <small class="text-muted"><i class="fa fa-bath fa-3x"><br><p style="font-size:small">baths </p> </i>  </small> &nbsp;
+                        &nbsp;  <small class="text-muted"><i class="fa fa-tachometer fa-3x"><br><p style="font-size:small">knots:</p> </i></small> &nbsp;
+                        &nbsp;  <small class="text-muted"><i class="fa fa-fire fa-3x"><br><p style="font-size:small">fuel type:</p> </i></small>
+                    </div>
 
                     <div class="textInfoBoat">
                         <h4>Boat information</h4>
@@ -195,30 +202,10 @@
                             Live the adventure of the day and enjoy the Beautiful Sea like never before! <br>
                         </p>
                     </div>
-                    <div class="text-left">
-                        <button type="button" class="collapsible">Terms</button>
-                        <div class="content">
-                            <p>
-                            <ul>Mandatory extras</ul>
-                            <li>Docking fee when boarding : $12 per person per day</li><br>
-                            <ul>Timetable</ul>
-                            <li>For day charters check-in starts from 8:00 h.</li>
-                            <li>For day charters check-out is until 13:00 h.</li><br>
-                            <ul>Base port</ul>
-                            <li>The Mooring at the base port is included</li>
-                            <li>The boat must return to the home port every night</li>
-                            <li>There is no overnight stay on board the boat</li><br>
-                            <ul>Other conditions</ul>
-                            <li>Second payment is due one month before charter</li>
-                            <li>If the charter is not possible because of severe weather conditions you will be offered an alternative day. If no other date can be found, you will get a full refund.</li>
-                            <br>
-                            All prices include tax. 
-                            </p>
-                        </div>
 
-                    </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
+              
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <h5 class="titleImage text-center">${boatdetails.portsId.portName} Port</h5>
                     <img alt="portimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${portimage}"/>
 
@@ -235,20 +222,59 @@
                     <div class="request">
                         <div class="text-center">
                             <p>from ${boatdetails.currentPrice} &euro; per day <br>from ${boatdetails.currentPrice*7} &euro; per week</p>
-                            <button type="submit" class="requestbtn" style="width: 100%;"><i
-                                    class="fa fa-search"></i>&nbsp;
-                                Request an Offer &nbsp;</button>
+                            <a href="" data-toggle="modal" data-target="#requestOffer">
+                                <button type="submit" class="requestbtn" style="width: 100%;"><i
+                                        class="fa fa-search"></i>&nbsp;
+                                    Request an Offer &nbsp;</button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+       </div> 
+       <div class=" container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center"> 
+                            <div class="text-left">
+                                <button type="button" class="collapsible">Terms&Conditions</button>
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-6">
+                                    <ul>Mandatory extras</ul>
+                                    <li>Docking fee when boarding : $12 per person per day</li><br>
+                                     <ul>Other conditions</ul>
+                                    <li>Second payment is due one month before charter</li>
+                                    <li>If the charter is not possible because of severe weather conditions </li>
+                                      <li>  you will be offered an alternative day. If no other date can be found,</li>
+                                       <li> you will get a full refund.</li>
+                                    </div>
+                                        <div class="col-6">
+                                         <ul>Timetable</ul>
+                                    <li>For day charters check-in starts from 8:00 h.</li>
+                                    <li>For day charters check-out is until 13:00 h.</li><br>   
+                                    <ul>Base port</ul>
+                                    <li>The Mooring at the base port is included</li>
+                                    <li>The boat must return to the home port every night</li>
+                                    <li>There is no overnight stay on board the boat</li><br>
+                                   
+                                    </div>
+                                    All prices include tax. 
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
+
+                    </div>
+                </div> 
+                            
         <div class="container">
-            <div class="row" style="border: 1px solid;">
+            <div class="row" style="">
                 <div class="specifics col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-                    <div class="boatInfo">
-                        <h3>Specifications</h3>
+                    <h3 style="text-align:center;" >Specifications</h3>
+                    <div class="boatInfo row">
+                        
+                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6">
                         <li>Manufacturer: ${boatdetails.manufacturer}</li>
                         <li>Model: ${boatdetails.model}</li>
                         <li>Year: ${boatdetails.constructionYear}</li>
@@ -256,6 +282,8 @@
                         <li>Length (ft): ${boatdetails.boatLength}</li>
                         <li>Passenger Capacity: ${boatdetails.passengerCapacity}</li>
                         <li>No. of Beds: ${boatdetails.beds}</li>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6">
                         <li>Engine Power: ${boatdetails.enginePower}</li>
                         <li>Fuel Type: ${boatdetails.fuel}</li>
                         <li>Fuel Tank Capacity: ${boatdetails.fuelTankCapacity}</li>
@@ -263,11 +291,23 @@
                         <li>Max Speed: ${boatdetails.maxSpeed}</li>
                         <li>City: ${boatdetails.portsId.city}</li>
                         <li>Port: ${boatdetails.portsId.portName}</li>
-                        <li id="boatPricePerDay" value="${boatdetails.currentPrice}">Price: ${boatdetails.currentPrice}</li>
+<!--                        <li id="boatPricePerDay" value="${boatdetails.currentPrice}">Price: ${boatdetails.currentPrice}</li>-->
+                        </div>
                     </div>
-                    <button type="submit" class="requestbtn " style="width:100%;"><i
-                            class="fa fa-search"></i>&nbsp;
-                        Request an Offer &nbsp;</button>
+<!--                    <a href="" data-toggle="modal" data-target="#requestOffer">
+                        <button type="submit" class="requestbtn " style="width:100%;"><i
+                                class="fa fa-search"></i>&nbsp;
+                            Request an Offer &nbsp;</button></a>-->
+ <div class="request">
+                        <div class="text-center">
+                            <p>from ${boatdetails.currentPrice} &euro; per day <br>from ${boatdetails.currentPrice*7} &euro; per week</p>
+                            <a href="" data-toggle="modal" data-target="#requestOffer">
+                                <button type="submit" class="requestbtn" style="width: 100%;"><i
+                                        class="fa fa-search"></i>&nbsp;
+                                    Request an Offer &nbsp;</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
@@ -353,6 +393,77 @@
                 or <br> You can pay online with PayPal </p>
             <div id="paypal-button-container" ></div>
         </div>
+
+        <div id="requestOffer" class="modal" tabindex="-1">
+            <div class=" modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color:#3282b8">Booking</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="bookingForm modal-body">
+
+                        <form class=" ">
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="">Check-in</label>
+                                    <input type="date" class="form-control" id="">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="">Check-out</label>
+                                    <input type="date" class="form-control" id="">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="">Name</label>
+                                    <input type="text" class="form-control" id=""  pattern="[A-Za-z]+" required="true">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="numPassenger">Passengers number</label>
+                                    <select name="numPassenger" id="destnumPassenger" class="form-control">
+                                        <option value="any" selected>Any</option>
+                                        <option value="1-4">1-4 people</option>
+                                        <option value="5-8">5-8 people</option>
+                                        <option value="over8">over 8 people</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="">E-mail</label>
+                                <input type="email" class="form-control" id="inputAddress">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Phone number</label>
+                                <input type="text" class="form-control" id="inputAddress2"  required="true">
+                            </div>
+
+                            <label for="">Anything else you would like to tell me.</label>
+                            <textarea id="w3review" name="w3review" rows="4" cols="50">
+  
+                            </textarea>
+                            <div class="form-row">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        Check me out
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Book me now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <jsp:include page="footer.jsp"/>
 
