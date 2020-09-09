@@ -5,7 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,7 +53,7 @@
                 font-weight: 500;
             }
             .specifics {
-/*                border-right-style: solid;*/
+                /*                border-right-style: solid;*/
             }
             .contact li {
                 list-style-type: none;
@@ -75,7 +76,7 @@
                 border-color:  #3282b8;
             }
             .rate{
-/*                border: 1px solid;*/
+                /*                border: 1px solid;*/
 
             }
             .ratingBar {
@@ -183,11 +184,11 @@
                     <img alt="boatimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${boatimage}"/>
 
                     <div class="iconBoat">
-                        <small class="text-muted"><i class="fa fa-users fa-3x"><br><p style="font-size:small">persons: </p> </i>  </small> &nbsp;
-                        &nbsp;  <small class="text-muted"><i class="fa fa-bed fa-3x"><br><p style="font-size:small">beds: </p> </i>  </small> &nbsp; 
-                        &nbsp;  <small class="text-muted"><i class="fa fa-bath fa-3x"><br><p style="font-size:small">baths </p> </i>  </small> &nbsp;
-                        &nbsp;  <small class="text-muted"><i class="fa fa-tachometer fa-3x"><br><p style="font-size:small">knots:</p> </i></small> &nbsp;
-                        &nbsp;  <small class="text-muted"><i class="fa fa-fire fa-3x"><br><p style="font-size:small">fuel type:</p> </i></small>
+                        <small class="text-muted"><i class="fa fa-users fa-3x"><br><p style="font-size:small">${boatdetails.passengerCapacity}<br>Persons </p> </i>  </small> &nbsp;
+                        &nbsp;  <small class="text-muted"><i class="fa fa-bed fa-3x"><br><p style="font-size:small">${boatdetails.beds}<br>Beds </p> </i>  </small> &nbsp; 
+                        &nbsp;  <small class="text-muted"><i class="fa fa-bath fa-3x"><br><p style="font-size:small">Bath </p> </i>  </small> &nbsp;
+                        &nbsp;  <small class="text-muted"><i class="fa fa-tachometer fa-3x"><br><p style="font-size:small">${boatdetails.cruiseSpeed}<br>Knots</p> </i></small> &nbsp;
+                        &nbsp;  <small class="text-muted"><i class="fa fa-fire fa-3x"><br><p style="font-size:small">${boatdetails.fuel}<br>Fuel</p> </i></small>
                     </div>
 
                     <div class="textInfoBoat">
@@ -202,9 +203,8 @@
                             Live the adventure of the day and enjoy the Beautiful Sea like never before! <br>
                         </p>
                     </div>
-
                 </div>
-              
+
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <h5 class="titleImage text-center">${boatdetails.portsId.portName} Port</h5>
                     <img alt="portimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${portimage}"/>
@@ -212,16 +212,14 @@
 
                     <div class="bookingMessage">
                         <h1>Secure booking</h1>
-                        <p><i class="fa fa-check"></i> Best price guaranteed</p>
+                        <p><i class="fa fa-check"></i> Best Price Guaranteed!</p>
 
-                        <p><i class="fa fa-check"></i> The best offer on the <br> Internet</p>
+                        <p><i class="fa fa-check"></i> The Best Offer on the <br> Internet</p>
                     </div>
-
-
 
                     <div class="request">
                         <div class="text-center">
-                            <p>from ${boatdetails.currentPrice} &euro; per day <br>from ${boatdetails.currentPrice*7} &euro; per week</p>
+                            <p>${boatdetails.currentPrice} &euro; per Day <br>${boatdetails.currentPrice*7} &euro; per Week</p>
                             <a href="" data-toggle="modal" data-target="#requestOffer">
                                 <button type="submit" class="requestbtn" style="width: 100%;"><i
                                         class="fa fa-search"></i>&nbsp;
@@ -231,76 +229,72 @@
                     </div>
                 </div>
             </div>
-       </div> 
-       <div class=" container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center"> 
-                            <div class="text-left">
-                                <button type="button" class="collapsible">Terms&Conditions</button>
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="col-6">
+        </div> 
+        <div class=" container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center"> 
+                    <div class="text-left">
+                        <button type="button" class="collapsible">Terms & Conditions</button>
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-6">
                                     <ul>Mandatory extras</ul>
                                     <li>Docking fee when boarding : $12 per person per day</li><br>
-                                     <ul>Other conditions</ul>
+                                    <ul>Other conditions</ul>
                                     <li>Second payment is due one month before charter</li>
                                     <li>If the charter is not possible because of severe weather conditions </li>
-                                      <li>  you will be offered an alternative day. If no other date can be found,</li>
-                                       <li> you will get a full refund.</li>
-                                    </div>
-                                        <div class="col-6">
-                                         <ul>Timetable</ul>
+                                    <li>  you will be offered an alternative day. If no other date can be found,</li>
+                                    <li> you will get a full refund.</li>
+                                </div>
+                                <div class="col-6">
+                                    <ul>Timetable</ul>
                                     <li>For day charters check-in starts from 8:00 h.</li>
                                     <li>For day charters check-out is until 13:00 h.</li><br>   
                                     <ul>Base port</ul>
                                     <li>The Mooring at the base port is included</li>
                                     <li>The boat must return to the home port every night</li>
                                     <li>There is no overnight stay on board the boat</li><br>
-                                   
-                                    </div>
-                                    All prices include tax. 
-                                    </div>
-                                </div>
 
+                                </div>
+                                All prices include tax. 
                             </div>
                         </div>
 
                     </div>
-                </div> 
-                            
+                </div>
+
+            </div>
+        </div> 
+
         <div class="container">
             <div class="row" style="">
                 <div class="specifics col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     <h3 style="text-align:center;" >Specifications</h3>
                     <div class="boatInfo row">
-                        
-                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6">
-                        <li>Manufacturer: ${boatdetails.manufacturer}</li>
-                        <li>Model: ${boatdetails.model}</li>
-                        <li>Year: ${boatdetails.constructionYear}</li>
-                        <li>Boat Type: ${boatdetails.boatType}</li>
-                        <li>Length (ft): ${boatdetails.boatLength}</li>
-                        <li>Passenger Capacity: ${boatdetails.passengerCapacity}</li>
-                        <li>No. of Beds: ${boatdetails.beds}</li>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6">
+                            <li>Manufacturer: ${boatdetails.manufacturer}</li>
+                            <li>Model: ${boatdetails.model}</li>
+                            <li>Year: ${boatdetails.constructionYear}</li>
+                            <li>Boat Type: ${boatdetails.boatType}</li>
+                            <li>Length (ft): ${boatdetails.boatLength}</li>
+                            <li>Passenger Capacity: ${boatdetails.passengerCapacity}</li>
+                            <li>No. of Beds/Cabins: ${boatdetails.beds}</li>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6">
-                        <li>Engine Power: ${boatdetails.enginePower}</li>
-                        <li>Fuel Type: ${boatdetails.fuel}</li>
-                        <li>Fuel Tank Capacity: ${boatdetails.fuelTankCapacity}</li>
-                        <li>Cruise Speed: ${boatdetails.cruiseSpeed}</li>
-                        <li>Max Speed: ${boatdetails.maxSpeed}</li>
-                        <li>City: ${boatdetails.portsId.city}</li>
-                        <li>Port: ${boatdetails.portsId.portName}</li>
-<!--                        <li id="boatPricePerDay" value="${boatdetails.currentPrice}">Price: ${boatdetails.currentPrice}</li>-->
+                            <li>Engine Power: ${boatdetails.enginePower}</li>
+                            <li>Fuel Type: ${boatdetails.fuel}</li>
+                            <li>Fuel Tank Capacity (gal): ${boatdetails.fuelTankCapacity}</li>
+                            <li>Cruise Speed (knots): ${boatdetails.cruiseSpeed}</li>
+                            <li>Max Speed (knots): ${boatdetails.maxSpeed}</li>
+                            <li>City: ${boatdetails.portsId.city}</li>
+                            <li>Port: ${boatdetails.portsId.portName}</li>
                         </div>
                     </div>
-<!--                    <a href="" data-toggle="modal" data-target="#requestOffer">
-                        <button type="submit" class="requestbtn " style="width:100%;"><i
-                                class="fa fa-search"></i>&nbsp;
-                            Request an Offer &nbsp;</button></a>-->
- <div class="request">
+
+                    <div class="request">
                         <div class="text-center">
-                            <p>from ${boatdetails.currentPrice} &euro; per day <br>from ${boatdetails.currentPrice*7} &euro; per week</p>
+                            <p>${boatdetails.currentPrice} &euro; per Day <br>${boatdetails.currentPrice*7} &euro; Per week</p>
                             <a href="" data-toggle="modal" data-target="#requestOffer">
                                 <button type="submit" class="requestbtn" style="width: 100%;"><i
                                         class="fa fa-search"></i>&nbsp;
@@ -316,8 +310,8 @@
                     </div>
                     <div class="contact">
                         <li>Owner: ${boatdetails.accountsId.name} ${boatdetails.accountsId.surname}</li>
-                        <li>Phone: ${boatdetails.accountsId.cellphone}</li>
-                        <li>E-mail: <a href="mailto:${boatdetails.accountsId.email}">${boatdetails.accountsId.email}</a> </li>
+                        <li>Call me: ${boatdetails.accountsId.cellphone}</li>
+                        <li>Email: <a href="mailto:${boatdetails.accountsId.email}">${boatdetails.accountsId.email}</a> </li>
                     </div>
                 </div>
             </div>
@@ -332,7 +326,6 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <p>4.1 average based on 254 reviews.</p>
-                <!--            <hr style="border:3px solid #f1f1f1">-->
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
@@ -389,7 +382,7 @@
         <div class="payment container">
             <h1>Payment methods</h1>
             <p>You can contact the owner <br>
-                by e-mail: <a href="mailto:${boatdetails.accountsId.email}">${boatdetails.accountsId.email}</a> <br>
+                by email: <a href="mailto:${boatdetails.accountsId.email}">${boatdetails.accountsId.email}</a> <br>
                 or <br> You can pay online with PayPal </p>
             <div id="paypal-button-container" ></div>
         </div>
@@ -403,67 +396,66 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    
                     <div class="bookingForm modal-body">
-
-                        <form class=" ">
-
+                        <form class="main-form needs-validation" novalidate="true" action="dobooking" method="POST">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="">Check-in</label>
-                                    <input type="date" class="form-control" id="">
+                                    <input type="date" name="startDate" class="form-control" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">Check-out</label>
-                                    <input type="date" class="form-control" id="">
+                                    <input name="endDate" type="date" class="form-control" id="endcheckoutdate" required>
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-8">
                                     <label for="">Name</label>
-                                    <input type="text" class="form-control" id=""  pattern="[A-Za-z]+" required="true">
+                                    <input type="text" class="form-control" pattern="[A-Za-z]+" required>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="numPassenger">Passengers number</label>
-                                    <select name="numPassenger" id="destnumPassenger" class="form-control">
-                                        <option value="any" selected>Any</option>
-                                        <option value="1-4">1-4 people</option>
-                                        <option value="5-8">5-8 people</option>
+                                <div class="form-group col-md-4">
+                                    <label for="numPassenger">Passengers</label>
+                                    <select name="passengers" id="destnumPassengers" class="form-control" required>
+                                        <option value="1" selected>1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
                                         <option value="over8">over 8 people</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="">E-mail</label>
-                                <input type="email" class="form-control" id="inputAddress">
+                                <label for="">Email Address</label>
+                                <input type="email" class="form-control" id="inputAddress" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Phone number</label>
-                                <input type="text" class="form-control" id="inputAddress2"  required="true">
+                                <input type="number" class="form-control" id="inputAddress2" required>
                             </div>
-
-                            <label for="">Anything else you would like to tell me.</label>
-                            <textarea id="w3review" name="w3review" rows="4" cols="50">
-  
+                            <label for="">Anything else you would like to tell me?</label>
+                            <textarea id="w3review" name="w3review" rows="4" cols="55">
                             </textarea>
                             <div class="form-row">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck" required>
                                     <label class="form-check-label" for="gridCheck">
                                         Check me out
                                     </label>
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Book me now</button>
+                            </div>
                         </form>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Book me now</button>
                     </div>
                 </div>
             </div>
         </div>
-
-
 
         <jsp:include page="footer.jsp"/>
 
@@ -476,24 +468,27 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+        <script src="/js/validations.js"></script>
         <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
-            // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
+        // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
         <script src="/js/paypal.js"></script>
         <script>
-            var coll = document.getElementsByClassName("collapsible");
-            var i;
+            $(document).ready(function () {
+                let collaps = document.getElementsByClassName("collapsible");
+                let trm;
 
-            for (i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function () {
-                    this.classList.toggle("actives");
-                    var content = this.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
-            }
+                for (trm = 0; trm < collaps.length; trm++) {
+                    collaps[trm].addEventListener("click", function () {
+                        this.classList.toggle("actives");
+                        let content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                }
+            });
         </script>
     </body>
 </html>
