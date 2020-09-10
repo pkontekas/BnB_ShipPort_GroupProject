@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>About</title>
         <style>
+          
             .fontClass
             {
                 font-style: italic;
@@ -22,7 +23,7 @@
     <body>
 
         <jsp:include page="navbar.jsp"/>
-        
+
         <div class="container-fluid">
             <div class="row d-flex justify-content-center">
                 <div class="col-2-offset col-8 col-2-offset">

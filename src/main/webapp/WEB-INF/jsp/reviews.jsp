@@ -141,7 +141,7 @@
                             was an amazing lunch experience, on the expensive side a bit but mouth-watering food. </p>
                     </div>
                     <div class="bookingMessage">
-                        <h2>Eua</h2>
+                        <h2>Eva</h2>
                         <div class="reviewStar">
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
