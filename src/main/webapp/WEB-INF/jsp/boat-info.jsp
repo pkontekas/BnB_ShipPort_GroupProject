@@ -473,10 +473,9 @@
         <script>
             $(document).ready(function () {
                 let collaps = document.getElementsByClassName("collapsible");
-                let trm;
 
-            for (i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function () {
+            for (let trm = 0; trm < collaps.length; trm++) {
+                collaps[trm].addEventListener("click", function () {
                     this.classList.toggle("actives");
                     var content = this.nextElementSibling;
                     if (content.style.display === "block") {
@@ -496,6 +495,7 @@
                 txt += '<span class="fa fa-star star-gray"></span>';
             }
             document.getElementById('starsavg').innerHTML = txt;
+        });
         </script>
     </body>
 </html>
