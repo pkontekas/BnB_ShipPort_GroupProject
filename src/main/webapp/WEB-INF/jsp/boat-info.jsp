@@ -17,7 +17,7 @@
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css" type="text/css">
         <title>Show info per boat</title>
         <style>
             .titlePage {
@@ -156,6 +156,10 @@
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 font-weight: 600;
                 color:#3282b8;
+            }
+            .map {
+                height: 400px;
+                width: 100%;
             }
 
         </style>
@@ -320,31 +324,28 @@
         <div class="rate container">
             <div class="ratingBar">
                 <span class="heading">User Rating</span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <p>4.1 average based on 254 reviews.</p>
+                <span id="starsavg">${reviewAvg[0]}</span>
+
+                <p>${reviewAvg[0]} average based on ${reviewsLength} reviews.</p>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="progressBar">
                         <h5>General Maintenance</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:75%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[1]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Cleanliness</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:90%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[2]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Comfort</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:70%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[3]}%"></div>
                         </div>
                     </div>
                 </div>
@@ -353,30 +354,29 @@
                     <div class="progressBar">
                         <h5>Harbour</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:70%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[4]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Hospitality</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:95%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[5]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Value for money</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:95%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[6]}%"></div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <iframe width="100%" height="450"
-                        src="https://www.google.com/maps/embed/v1/place?q=patra&key=AIzaSyD_29tF36kHRvF7jmwjAwaQbkg39EU8CAg"
-                        allowfullscreen></iframe>
+                <div id="map" class="map"></div>
+                <div hidden id="longitude">${boatdetails.portsId.longitude}</div>
+                <div hidden id="latitude">${boatdetails.portsId.latitude}</div>
             </div>
         </div>
         <div class="payment container">
@@ -441,24 +441,6 @@
 
         <jsp:include page="footer.jsp"/>
 
-        <script>
-            $(document).ready(function () {
-                let collaps = document.getElementsByClassName("collapsible");
-                let trm;
-
-                for (trm = 0; trm < collaps.length; trm++) {
-                    collaps[trm].addEventListener("click", function () {
-                        this.classList.toggle("actives");
-                        let content = this.nextElementSibling;
-                        if (content.style.display === "block") {
-                            content.style.display = "none";
-                        } else {
-                            content.style.display = "block";
-                        }
-                    });
-                }
-            });
-        </script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -471,6 +453,8 @@
         <script src="/js/validations.js"></script>
         <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
             // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
+        <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
         <script src="/js/paypal.js"></script>
+        <script src="/js/boatinfo.js"></script>
     </body>
 </html>

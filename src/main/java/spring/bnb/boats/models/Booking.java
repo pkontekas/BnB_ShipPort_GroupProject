@@ -2,7 +2,7 @@ package spring.bnb.boats.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,12 +46,12 @@ public class Booking implements Serializable {
     @NotNull
     @Column(name = "start_date")
     @Temporal(TemporalType.DATE)
-    private LocalDate startDate;
+    private Date startDate;
     @Basic(optional = false)
     @NotNull
     @Column(name = "end_date")
     @Temporal(TemporalType.DATE)
-    private LocalDate endDate;
+    private Date endDate;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
     @NotNull
@@ -82,7 +82,7 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public Booking(Integer id, LocalDate startDate, LocalDate endDate, BigDecimal finalPrice, int passengers) {
+    public Booking(Integer id, Date startDate, Date endDate, BigDecimal finalPrice, int passengers) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -98,19 +98,19 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
