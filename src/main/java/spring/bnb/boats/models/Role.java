@@ -36,17 +36,18 @@ import javax.xml.bind.annotation.XmlTransient;
         property = "id")
 public class Role implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "role_name")
+    private String roleName;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "role_name")
-    private String roleName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolesId")
     @JsonBackReference
     private Collection<Account> accountCollection;
@@ -102,10 +103,7 @@ public class Role implements Serializable {
             return false;
         }
         Role other = (Role) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override

@@ -52,12 +52,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <!--                    <li class="nav-item">
-                                            <a class="nav-link" href="/api/allboats">JSON</a>
-                                        </li>-->
-                    <li class="nav-item">
+<!--                    <li class="nav-item">
                         <a class="nav-link" href="/api/allboatdtos">JSON</a>
-                    </li>
+                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link" href="/showallboats/all">All boats</a>
                     </li>
@@ -77,6 +74,7 @@
                         </a>
                         <div class="dropdown-menu" style="background-color: #3282B8 " aria-labelledby="navbarDropdownMenuLink">
                             <a id="drop" class="dropdown-item" href="/preupdateaccount">My Profile</a>
+                            <a id="drop" class="dropdown-item" href="/myreservations">My Reservations</a>
                             <a id="drop" class="dropdown-item" href="<c:url value="/performlogout"/>">Logout</a>
                         </div>
                     </li>

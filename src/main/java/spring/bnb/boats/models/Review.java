@@ -43,16 +43,20 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Review.findByComment", query = "SELECT r FROM Review r WHERE r.comment = :comment")})
 public class Review implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "stars")
+    private short stars;
+    @Size(max = 200)
+    @Column(name = "comment")
+    private String comment;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "stars")
-    private short stars;
     @Column(name = "general_maintenance")
     private Short generalMaintenance;
     @Column(name = "cleanliness")
@@ -65,9 +69,6 @@ public class Review implements Serializable {
     private Short hospitality;
     @Column(name = "value_for_money")
     private Short valueForMoney;
-    @Size(max = 200)
-    @Column(name = "comment")
-    private String comment;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "reviewsId")
     private Collection<Booking> bookingCollection;
 
@@ -91,13 +92,6 @@ public class Review implements Serializable {
         this.id = id;
     }
 
-    public short getStars() {
-        return stars;
-    }
-
-    public void setStars(short stars) {
-        this.stars = stars;
-    }
 
     public Short getGeneralMaintenance() {
         return generalMaintenance;
@@ -147,13 +141,6 @@ public class Review implements Serializable {
         this.valueForMoney = valueForMoney;
     }
 
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
 
     @XmlTransient
     public Collection<Booking> getBookingCollection() {
@@ -178,15 +165,28 @@ public class Review implements Serializable {
             return false;
         }
         Review other = (Review) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override
     public String toString() {
         return "spring.bnb.boats.models.Review[ id=" + id + " ]";
+    }
+
+    public short getStars() {
+        return stars;
+    }
+
+    public void setStars(short stars) {
+        this.stars = stars;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
     
 }

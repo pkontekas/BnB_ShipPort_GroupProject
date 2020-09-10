@@ -51,23 +51,34 @@ import javax.xml.bind.annotation.XmlTransient;
         property = "id")
 public class Boat implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
     @Size(max = 45)
     @Column(name = "manufacturer")
     private String manufacturer;
     @Size(max = 45)
     @Column(name = "model")
     private String model;
-    @Column(name = "construction_year")
-    private Integer constructionYear;
     @Size(max = 45)
     @Column(name = "boat_type")
     private String boatType;
+    @Size(max = 45)
+    @Column(name = "engine_power")
+    private String enginePower;
+    @Size(max = 45)
+    @Column(name = "fuel")
+    private String fuel;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "current_price")
+    private BigDecimal currentPrice;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Column(name = "construction_year")
+    private Integer constructionYear;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "boat_length")
     private BigDecimal boatLength;
@@ -75,22 +86,12 @@ public class Boat implements Serializable {
     private Integer passengerCapacity;
     @Column(name = "beds")
     private Integer beds;
-    @Size(max = 45)
-    @Column(name = "engine_power")
-    private String enginePower;
-    @Size(max = 45)
-    @Column(name = "fuel")
-    private String fuel;
     @Column(name = "fuel_tank_capacity")
     private BigDecimal fuelTankCapacity;
     @Column(name = "cruise_speed")
     private Integer cruiseSpeed;
     @Column(name = "max_speed")
     private Integer maxSpeed;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "current_price")
-    private BigDecimal currentPrice;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "boatsId")
     private Collection<Boatphoto> boatphotoCollection;
     @JoinColumn(name = "accounts_id", referencedColumnName = "id")
@@ -121,22 +122,6 @@ public class Boat implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
     }
 
     public Integer getConstructionYear() {
@@ -185,14 +170,6 @@ public class Boat implements Serializable {
 
     public void setEnginePower(String enginePower) {
         this.enginePower = enginePower;
-    }
-
-    public String getFuel() {
-        return fuel;
-    }
-
-    public void setFuel(String fuel) {
-        this.fuel = fuel;
     }
 
     public BigDecimal getFuelTankCapacity() {
@@ -283,4 +260,27 @@ public class Boat implements Serializable {
         return "spring.bnb.boats.models.Boat[ id=" + id + " ]";
     }
 
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(String fuel) {
+        this.fuel = fuel;
+    }
 }

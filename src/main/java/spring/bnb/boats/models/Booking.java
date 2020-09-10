@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,10 +17,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
  * @author pkontekas
  */
 @Entity
@@ -36,7 +31,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Booking.findById", query = "SELECT b FROM Booking b WHERE b.id = :id"),
     @NamedQuery(name = "Booking.findByStartDate", query = "SELECT b FROM Booking b WHERE b.startDate = :startDate"),
     @NamedQuery(name = "Booking.findByEndDate", query = "SELECT b FROM Booking b WHERE b.endDate = :endDate"),
-    @NamedQuery(name = "Booking.findByFinalPrice", query = "SELECT b FROM Booking b WHERE b.finalPrice = :finalPrice")})
+    @NamedQuery(name = "Booking.findByFinalPrice", query = "SELECT b FROM Booking b WHERE b.finalPrice = :finalPrice"),
+    @NamedQuery(name = "Booking.findByPassengers", query = "SELECT b FROM Booking b WHERE b.passengers = :passengers"),
+    @NamedQuery(name = "Booking.findByOwnerNotes", query = "SELECT b FROM Booking b WHERE b.ownerNotes = :ownerNotes")})
 public class Booking implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,17 +46,24 @@ public class Booking implements Serializable {
     @NotNull
     @Column(name = "start_date")
     @Temporal(TemporalType.DATE)
-    private Date startDate;
+    private LocalDate startDate;
     @Basic(optional = false)
     @NotNull
     @Column(name = "end_date")
     @Temporal(TemporalType.DATE)
-    private Date endDate;
+    private LocalDate endDate;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Column(name = "final_price")
     private BigDecimal finalPrice;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "passengers")
+    private int passengers;
+    @Size(max = 200)
+    @Column(name = "owner_notes")
+    private String ownerNotes;
     @JoinColumn(name = "accounts_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Account accountsId;
@@ -78,11 +82,12 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public Booking(Integer id, Date startDate, Date endDate, BigDecimal finalPrice) {
+    public Booking(Integer id, LocalDate startDate, LocalDate endDate, BigDecimal finalPrice, int passengers) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.finalPrice = finalPrice;
+        this.passengers = passengers;
     }
 
     public Integer getId() {
@@ -93,19 +98,19 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
@@ -115,6 +120,22 @@ public class Booking implements Serializable {
 
     public void setFinalPrice(BigDecimal finalPrice) {
         this.finalPrice = finalPrice;
+    }
+
+    public int getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(int passengers) {
+        this.passengers = passengers;
+    }
+
+    public String getOwnerNotes() {
+        return ownerNotes;
+    }
+
+    public void setOwnerNotes(String ownerNotes) {
+        this.ownerNotes = ownerNotes;
     }
 
     public Account getAccountsId() {
@@ -155,10 +176,7 @@ public class Booking implements Serializable {
             return false;
         }
         Booking other = (Booking) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override

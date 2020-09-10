@@ -2,7 +2,6 @@ package spring.bnb.boats.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
@@ -48,19 +47,13 @@ import org.hibernate.annotations.DynamicUpdate;
   property = "id")
 public class Account implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "name")
     private String name;
     @Basic(optional = false)
-    @NotNull
+    @NotNull()
     @Size(min = 1, max = 60)
     @Column(name = "surname")
     private String surname;
@@ -74,18 +67,23 @@ public class Account implements Serializable {
     @NotNull
     @Size(min = 1, max = 65)
     @Column(name = "password")
-    @JsonIgnore
     private String password;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 45)
     @Column(name = "nationality")
     private String nationality;
-    @Lob
+    @Lob()
     @Column(name = "profile_pic")
-    @JsonIgnore
     private byte[] profilePic;
     @Size(max = 45)
     @Column(name = "cellphone")
     private String cellphone;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
     @JoinColumn(name = "roles_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     @JsonManagedReference
@@ -118,6 +116,64 @@ public class Account implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+
+    public byte[] getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(byte[] profilePic) {
+        this.profilePic = profilePic;
+    }
+
+
+    public Role getRolesId() {
+        return rolesId;
+    }
+
+    public void setRolesId(Role rolesId) {
+        this.rolesId = rolesId;
+    }
+
+    @XmlTransient
+    public Collection<Boat> getBoatCollection() {
+        return boatCollection;
+    }
+
+    public void setBoatCollection(Collection<Boat> boatCollection) {
+        this.boatCollection = boatCollection;
+    }
+
+    @XmlTransient
+    public Collection<Booking> getBookingCollection() {
+        return bookingCollection;
+    }
+
+    public void setBookingCollection(Collection<Booking> bookingCollection) {
+        this.bookingCollection = bookingCollection;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Account)) {
+            return false;
+        }
+        Account other = (Account) object;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
+    }
+
+    @Override
+    public String toString() {
+        return "spring.bnb.boats.models.Account[ id=" + id + " ]";
     }
 
     public String getName() {
@@ -160,71 +216,12 @@ public class Account implements Serializable {
         this.nationality = nationality;
     }
 
-    public byte[] getProfilePic() {
-        return profilePic;
-    }
-
-    public void setProfilePic(byte[] profilePic) {
-        this.profilePic = profilePic;
-    }
-
     public String getCellphone() {
         return cellphone;
     }
 
     public void setCellphone(String cellphone) {
         this.cellphone = cellphone;
-    }
-
-    public Role getRolesId() {
-        return rolesId;
-    }
-
-    public void setRolesId(Role rolesId) {
-        this.rolesId = rolesId;
-    }
-
-    @XmlTransient
-    public Collection<Boat> getBoatCollection() {
-        return boatCollection;
-    }
-
-    public void setBoatCollection(Collection<Boat> boatCollection) {
-        this.boatCollection = boatCollection;
-    }
-
-    @XmlTransient
-    public Collection<Booking> getBookingCollection() {
-        return bookingCollection;
-    }
-
-    public void setBookingCollection(Collection<Booking> bookingCollection) {
-        this.bookingCollection = bookingCollection;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Account)) {
-            return false;
-        }
-        Account other = (Account) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "spring.bnb.boats.models.Account[ id=" + id + " ]";
     }
 
 }

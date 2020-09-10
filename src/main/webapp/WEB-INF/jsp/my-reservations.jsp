@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Ena megalo container/card pou tha periexei mesa plirofories gia to kathe booking<br> 
+            diladi isws na valume edw price, checkin check out dates, passengers, fotografia tu Ploiou (isws) ke ena kubi gia na plironei paypal</h1>
     </body>
 </html>

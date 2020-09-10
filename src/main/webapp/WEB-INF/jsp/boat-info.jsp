@@ -396,50 +396,32 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    
+
                     <div class="bookingForm modal-body">
-                        <form class="main-form needs-validation" novalidate="true" action="dobooking" method="POST">
+                        <form class="main-form needs-validation" novalidate="true" action="booking" method="POST">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="">Check-in</label>
-                                    <input type="date" name="startDate" class="form-control" required>
+                                    <label for="startCheckDate">Check-in</label>
+                                    <input type="date" name="startCheckDate" class="form-control">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">Check-out</label>
-                                    <input name="endDate" type="date" class="form-control" id="endcheckoutdate" required>
+                                    <label for="endDate">Check-out</label>
+                                    <input name="endCheckDate" type="date" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-8">
-                                    <label for="">Name</label>
-                                    <input type="text" class="form-control" pattern="[A-Za-z]+" required>
-                                </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-12">
                                     <label for="numPassenger">Passengers</label>
-                                    <select name="passengers" id="destnumPassengers" class="form-control" required>
-                                        <option value="1" selected>1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="over8">over 8 people</option>
-                                    </select>
+                                    <input type="number" name="passengers" min="1" max="30" class="form-control" required>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="">Email Address</label>
-                                <input type="email" class="form-control" id="inputAddress" required>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="">Anything else you would like to tell me?</label>
+                                    <textarea id="ownerNotes" name="ownerNotes" rows="4" cols="55">
+                                    </textarea>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="">Phone number</label>
-                                <input type="number" class="form-control" id="inputAddress2" required>
-                            </div>
-                            <label for="">Anything else you would like to tell me?</label>
-                            <textarea id="w3review" name="w3review" rows="4" cols="55">
-                            </textarea>
                             <div class="form-row">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="gridCheck" required>
@@ -459,19 +441,6 @@
 
         <jsp:include page="footer.jsp"/>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-        <script src="/js/validations.js"></script>
-        <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
-        // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
-        <script src="/js/paypal.js"></script>
         <script>
             $(document).ready(function () {
                 let collaps = document.getElementsByClassName("collapsible");
@@ -490,5 +459,18 @@
                 }
             });
         </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+        <script src="/js/validations.js"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
+            // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
+        <script src="/js/paypal.js"></script>
     </body>
 </html>

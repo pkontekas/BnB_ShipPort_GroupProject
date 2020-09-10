@@ -47,12 +47,6 @@ import javax.xml.bind.annotation.XmlTransient;
   property = "id")
 public class Port implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -63,6 +57,13 @@ public class Port implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "city")
     private String city;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "longitude")
     private BigDecimal longitude;
@@ -105,13 +106,6 @@ public class Port implements Serializable {
         this.portName = portName;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
 
     public BigDecimal getLongitude() {
         return longitude;
@@ -161,15 +155,20 @@ public class Port implements Serializable {
             return false;
         }
         Port other = (Port) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override
     public String toString() {
         return "spring.bnb.boats.models.Port[ id=" + id + " ]";
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
     
 }
