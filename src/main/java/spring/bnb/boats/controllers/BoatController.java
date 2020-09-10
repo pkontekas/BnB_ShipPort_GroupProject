@@ -1,6 +1,7 @@
 package spring.bnb.boats.controllers;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -17,11 +18,13 @@ import spring.bnb.boats.dao.ImageDao;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Port;
+import spring.bnb.boats.models.Review;
 import spring.bnb.boats.services.AccountService;
 import spring.bnb.boats.services.BoatService;
 import spring.bnb.boats.services.BoatphotoService;
 import spring.bnb.boats.services.PortService;
 import spring.bnb.boats.services.PortphotoService;
+import spring.bnb.boats.services.ReviewService;
 
 @Controller
 public class BoatController {
@@ -40,6 +43,9 @@ public class BoatController {
 
     @Autowired
     BoatphotoService bpService;
+    
+    @Autowired
+    ReviewService reviewService;
 
     @GetMapping("/preregisterboat")
     public String showBoatRegisterForm(ModelMap mm,
@@ -134,6 +140,62 @@ public class BoatController {
 
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
+        List<Review> reviews = new ArrayList<>();
+        reviews = reviewService.getAllReviewsPerBoat(id);
+        List<Double> reviewAvg = new ArrayList<>();
+        if(!reviews.isEmpty()){
+            double stars = 0;
+            double maintenance = 0;
+            double cleanliness = 0;
+            double comfort = 0;
+            double harbour = 0;
+            double hospitality = 0;
+            double valueForMoney = 0;
+            for (int i = 0; i < reviews.size(); i++) {
+                stars = (stars + reviews.get(i).getStars());
+                maintenance =  (maintenance + reviews.get(i).getGeneralMaintenance());
+                cleanliness = (cleanliness + reviews.get(i).getCleanliness());
+                comfort =  (comfort + reviews.get(i).getComfort());
+                harbour = (harbour + reviews.get(i).getHarbour());
+                hospitality = (hospitality + reviews.get(i).getHospitality());
+                valueForMoney = (valueForMoney + reviews.get(i).getValueForMoney());
+            }
+            double starsAvg =  (stars / reviews.size());
+            double maintenanceAvg = ((maintenance/reviews.size()) * 10);
+            double cleanlinessAvg =  ((cleanliness/reviews.size()) * 10);
+            double comfortAvg =  ((comfort/reviews.size()) * 10);
+            double harbourAvg =  ((harbour/reviews.size()) * 10);
+            double hospitalityAvg =  ((hospitality/reviews.size()) * 10);
+            double valueForMoneyAvg =  ((valueForMoney/reviews.size()) * 10);
+            
+            reviewAvg.add(starsAvg);
+            reviewAvg.add(maintenanceAvg);
+            reviewAvg.add(cleanlinessAvg);
+            reviewAvg.add(comfortAvg);
+            reviewAvg.add(harbourAvg);
+            reviewAvg.add(hospitalityAvg);
+            reviewAvg.add(valueForMoneyAvg);
+            
+            
+
+    //        short starsAvg = (short) (stars / reviews.size());
+    //        short maintenanceAvg = (short) ((maintenance/reviews.size()) * 10);
+    //        short cleanlinessAvg = (short) ((cleanliness/reviews.size()) * 10);
+    //        short comfortAvg = (short) ((comfort/reviews.size()) * 10);
+    //        short harbourAvg = (short) ((harbour/reviews.size()) * 10);
+    //        short hospitalityAvg = (short) ((hospitality/reviews.size()) * 10);
+    //        short valueForMoneyAvg = (short) ((valueForMoney/reviews.size()) * 10);
+    //        reviewAvg.setStars(starsAvg);
+    //        reviewAvg.setGeneralMaintenance(maintenanceAvg);
+    //        reviewAvg.setCleanliness(cleanlinessAvg);
+    //        reviewAvg.setComfort(comfortAvg);
+    //        reviewAvg.setHarbour(harbourAvg);
+    //        reviewAvg.setHospitality(hospitalityAvg);
+    //        reviewAvg.setValueForMoney(valueForMoneyAvg);
+            mm.addAttribute("reviewAvg", reviewAvg);
+            mm.addAttribute("reviewsLength", reviews.size());
+        }
+        
         //using the port this boat is located to get the specific port photo
 
         ImageDao imgDao = new ImageDao();

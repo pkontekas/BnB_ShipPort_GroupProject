@@ -286,12 +286,9 @@
         <div class="rate container">
             <div class="ratingBar">
                 <span class="heading">User Rating</span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <p>4.1 average based on 254 reviews.</p>
+                <span id="starsavg">${reviewAvg[0]}</span>
+                
+                <p>${reviewAvg[0]} average based on ${reviewsLength} reviews.</p>
                 <!--            <hr style="border:3px solid #f1f1f1">-->
             </div>
             <div class="row">
@@ -299,19 +296,19 @@
                     <div class="progressBar">
                         <h5>General Maintenance</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:75%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[1]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Cleanliness</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:90%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[2]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Comfort</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:70%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[3]}%"></div>
                         </div>
                     </div>
                 </div>
@@ -320,19 +317,19 @@
                     <div class="progressBar">
                         <h5>Harbour</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:70%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[4]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Hospitality</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:95%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[5]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Value for money</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:95%"></div>
+                            <div class="progress-bar" style="width:${reviewAvg[6]}%"></div>
                         </div>
                     </div>
                 </div>
@@ -383,6 +380,16 @@
                     }
                 });
             }
+            let stars = parseInt(document.getElementById('starsavg').innerHTML);
+            txt = '';
+            for(let i=0; i< stars; i++){
+                txt += '<span class="fa fa-star checked"></span>';
+               
+            }
+            for(let j = stars; j < 5; j++) {
+                txt += '<span class="fa fa-star star-gray"></span>';
+            }
+            document.getElementById('starsavg').innerHTML = txt;
         </script>
     </body>
 </html>
