@@ -19,7 +19,7 @@
         <style>
             .bookingMessage {
                 background-color: white;
-                border: 1px #0f4c75 solid;
+                border: 1px black solid;
                 margin-top: 25px;
                 text-align: center;
                 padding: 25px;
