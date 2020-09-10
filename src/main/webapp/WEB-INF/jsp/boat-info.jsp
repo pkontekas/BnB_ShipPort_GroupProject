@@ -17,7 +17,7 @@
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css" type="text/css">
         <title>Show info per boat</title>
         <style>
             .titlePage {
@@ -157,6 +157,10 @@
                 font-weight: 600;
                 color:#3282b8;
             }
+            .map {
+                height: 400px;
+                width: 100%;
+              }
 
         </style>
     </head>
@@ -372,9 +376,9 @@
         </div>
         <div class="container">
             <div class="row">
-                <iframe width="100%" height="450"
-                        src="https://www.google.com/maps/embed/v1/place?q=patra&key=AIzaSyD_29tF36kHRvF7jmwjAwaQbkg39EU8CAg"
-                        allowfullscreen></iframe>
+                <div id="map" class="map"></div>
+                <div hidden id="longitude">${boatdetails.portsId.longitude}</div>
+                <div hidden id="latitude">${boatdetails.portsId.latitude}</div>
             </div>
         </div>
         <div class="payment container">
@@ -469,6 +473,7 @@
         <script src="/js/validations.js"></script>
         <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
         // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
+        <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
         <script src="/js/paypal.js"></script>
         <script>
             $(document).ready(function () {
@@ -497,5 +502,21 @@
             document.getElementById('starsavg').innerHTML = txt;
         });
         </script>
+         <script>
+            var longitude = parseFloat(document.getElementById('longitude').innerHTML);
+            var latitude = parseFloat(document.getElementById('latitude').innerHTML);
+            var map = new ol.Map({
+              target: 'map',
+              layers: [
+                new ol.layer.Tile({
+                  source: new ol.source.OSM()
+                })
+              ],
+              view: new ol.View({
+                center: ol.proj.fromLonLat([longitude, latitude]),
+                zoom: 11
+              })
+            });
+    </script>
     </body>
 </html>

@@ -176,23 +176,6 @@ public class BoatController {
             reviewAvg.add(harbourAvg);
             reviewAvg.add(hospitalityAvg);
             reviewAvg.add(valueForMoneyAvg);
-            
-            
-
-    //        short starsAvg = (short) (stars / reviews.size());
-    //        short maintenanceAvg = (short) ((maintenance/reviews.size()) * 10);
-    //        short cleanlinessAvg = (short) ((cleanliness/reviews.size()) * 10);
-    //        short comfortAvg = (short) ((comfort/reviews.size()) * 10);
-    //        short harbourAvg = (short) ((harbour/reviews.size()) * 10);
-    //        short hospitalityAvg = (short) ((hospitality/reviews.size()) * 10);
-    //        short valueForMoneyAvg = (short) ((valueForMoney/reviews.size()) * 10);
-    //        reviewAvg.setStars(starsAvg);
-    //        reviewAvg.setGeneralMaintenance(maintenanceAvg);
-    //        reviewAvg.setCleanliness(cleanlinessAvg);
-    //        reviewAvg.setComfort(comfortAvg);
-    //        reviewAvg.setHarbour(harbourAvg);
-    //        reviewAvg.setHospitality(hospitalityAvg);
-    //        reviewAvg.setValueForMoney(valueForMoneyAvg);
             mm.addAttribute("reviewAvg", reviewAvg);
             mm.addAttribute("reviewsLength", reviews.size());
         }
