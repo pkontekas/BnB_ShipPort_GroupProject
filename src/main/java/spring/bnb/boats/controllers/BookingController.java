@@ -12,7 +12,7 @@ public class BookingController {
         return "my-reservations";
     }
     
-    @PostMapping("/myreservations")
+    @RequestMapping("/myreservations")
     public String myReservations() {
         return "my-reservations";
     }
