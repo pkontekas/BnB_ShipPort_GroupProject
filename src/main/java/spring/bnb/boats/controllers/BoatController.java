@@ -93,12 +93,13 @@ public class BoatController {
 //    public String showAllBoats(ModelMap mm) {
 //        return listAllBoats(mm, 1);
 //    }
-    @GetMapping("/showallboats/{boatType}")
+    @GetMapping("/showallboats/{boatTypeOrPort}")
     public String listAllBoats(ModelMap mm,
             HttpSession session,
-            @PathVariable(value = "boatType") String btype) //@PathVariable("pageNumber") int currentPage)
+            @PathVariable(value = "boatTypeOrPort") String bptype)
+            //@PathVariable("pageNumber") int currentPage)
     {
-        session.setAttribute("boatTypeSelected", btype);
+        session.setAttribute("filterselected", bptype);
 
         //old pagination code
 //        Page<Boat> page = boatService.getAllBoats(currentPage);
