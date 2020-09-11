@@ -37,8 +37,8 @@ $(document).ready(function () {
     });
 });
 
-function getPrice() {
-//    var pricePerDay = document.getElementByClassName("myprice").value;
-    var pricePerDay = 1;
-    return pricePerDay;
-}
+//function getPrice() {
+////    var pricePerDay = document.getElementByClassName("myprice").value;
+//    var pricePerDay = 1;
+//    return pricePerDay;
+//}

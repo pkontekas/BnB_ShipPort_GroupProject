@@ -74,6 +74,7 @@
                         <div class="dropdown-menu" style="background-color: #3282B8;  " aria-labelledby="navbarDropdownMenuLink">
                             <a id="drop" class="dropdown-item" href="/preupdateaccount">My Profile</a>
                             <a id="drop" class="dropdown-item" href="/myreservations">Reservations</a>
+                            <a id="drop" class="dropdown-item" href="/statistics">Statistics</a>
                             <a id="drop" class="dropdown-item" href="<c:url value="/performlogout"/>">Logout</a>
                         </div>
                     </li>

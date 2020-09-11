@@ -92,14 +92,14 @@
                 border-radius: 5px;
                 width:130px;
             }
-            .borderFormOne{
+/*            .borderFormOne{
                 width: 300px;
                 padding: 15px;
                 background-color:#0a9ab5;
                 color: white;
                 font-size: 15px;
                 border-radius: 5px;
-            }
+            }*/
             .borderFormTwo{
                 width: 300px;
                 padding: 15px;
@@ -110,7 +110,7 @@
                 position: sticky;
                 top:0px;
                 bottom:auto;
-                margin-top: 10px;
+                
             }
             .boat {
                 margin-left: 0;
@@ -120,6 +120,7 @@
                 display: flex;
                 justify-content: center;
                 background-color: whitesmoke;
+                
             }
             .firstCol {
                 flex-grow: 1;
@@ -137,8 +138,8 @@
                 border-radius: 5PX;
                 width: 100px;
             }
-            
-            
+
+
         </style>
     </head>
 
@@ -152,7 +153,7 @@
 
         <div class="searchForm row container-fluid">
             <div class="col-xs-2">
-                <div class="borderFormOne">
+<!--                <div class="borderFormOne">
                     <h1>Search</h1>
                     <form>
                         <div class="form-group">
@@ -190,9 +191,21 @@
                         <button type="Submit" class="searchBtn btn-primary" onclick="reloadBoats()"><i class="fa fa-search"></i>&nbsp;
                             Search &nbsp;</button>
                     </form>
-                </div>
+                </div>-->
                 <div class="borderFormTwo">
+                    <h3>Search filters</h3>
                     <form>
+                        <div class="form-group">
+                            <label for="destination">Where to Sail ?</label>
+                            <select name="destination" id="" class="form-control" onchange="reloadBoats()">
+                                <option value="any">Any</option>
+                                <option value="pireaus">Piraeus</option>
+                                <option value="mykonos">Mykonos</option>
+                                <option value="paros">Paros</option>
+                                <option value="heraklion">Heraklion</option>
+                                <option value="zakynthos">Zakynthos</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="typeBoat">Boat Type</label>
                             <select name="typeBoat" id="desttypeBoat" class="form-control" onchange="reloadBoats()">
