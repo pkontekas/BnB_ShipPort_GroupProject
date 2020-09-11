@@ -60,12 +60,14 @@ function boatCard(boat) {
     txt += '<h2 class="card-title">' + boat.manufacturer + ' ' + boat.model + '</h2>';
     txt += '</div>';
     txt += '<div class="star">';
-    txt += '<span class="fa fa-star checked"></span>';
-    txt += '<span class="fa fa-star checked"></span>';
-    txt += '<span class="fa fa-star checked"></span>';
-    txt += '<span class="fa fa-star checked"></span>';
-    txt += '<span class="fa fa-star checked"></span><br>';
-    txt += '<div class="toolTip" title="The owner offers free cancellation \n\
+    for(let i = 0; i < parseInt(boat.starsAvg); i++) {
+        txt += '<span class="fa fa-star checked"></span>';
+    }
+    for(let j = parseInt(boat.starsAvg); j < 5; j++) {
+        txt += '<span class="fa fa-star star-gray"></span>';
+    }
+
+    txt += '<br><div class="toolTip" title="The owner offers free cancellation \n\
                         up to 15 days before check-in.">&nbsp; Flexible cancellation or change! &nbsp; </div>';
     txt += '</div>';
     txt += '<div class="description">';

@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import spring.bnb.boats.dao.ImageDao;
 import spring.bnb.boats.dto.BoatDto;
 import spring.bnb.boats.models.Boat;
+import spring.bnb.boats.models.Booking;
+import spring.bnb.boats.models.Review;
 import spring.bnb.boats.services.BoatService;
 import spring.bnb.boats.services.BoatphotoService;
+import spring.bnb.boats.services.ReviewService;
 
 /**
  * @author pkontekas
@@ -27,6 +30,9 @@ public class RestController {
 
     @Autowired
     BoatphotoService bpService;
+    
+    @Autowired
+    ReviewService reviewService;
 
     @ResponseBody
     @GetMapping("/api/allboats")
@@ -108,6 +114,17 @@ public class RestController {
             boatDto.setPrice(boat.getCurrentPrice());
             boatDto.setCity(boat.getPortsId().getCity());
             boatDto.setPortName(boat.getPortsId().getPortName());
+            // Average of stars calculation
+            List<Booking> bookings = (List<Booking>) boat.getBookingCollection();
+            double starsSum = 0;
+            for (Booking booking : bookings) {
+                Review review = booking.getReviewsId();
+                if(review != null){
+                    starsSum = starsSum + review.getStars();
+                }
+            }
+            boatDto.setStarsAvg(starsSum / bookings.size());
+            
             //image encoding follows in base64
             imageBeforeEncoding = Base64.encodeBase64(
                     bpService.findDefaultBoatphotoByBoatsIdNative(boat.getId()).getPhoto());

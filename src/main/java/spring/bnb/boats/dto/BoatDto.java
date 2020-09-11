@@ -23,8 +23,10 @@ public class BoatDto {
     private String portName;
     
     private String boatPhoto;
+    
+    private double starsAvg;
 
-    public BoatDto(Integer id, String manufacturer, String model, String boatType, BigDecimal boatLength, int constructionYear, int passengerCapacity, int beds, int cruiseSpeed, String fuel, double price, String city, String portName, String boatPhoto) {
+    public BoatDto(Integer id, String manufacturer, String model, String boatType, BigDecimal boatLength, int constructionYear, int passengerCapacity, int beds, int cruiseSpeed, String fuel, double price, String city, String portName, String boatPhoto, double starsAvg) {
         this.id = id;
         this.manufacturer = manufacturer;
         this.model = model;
@@ -39,6 +41,7 @@ public class BoatDto {
         this.city = city;
         this.portName = portName;
         this.boatPhoto = boatPhoto;
+        this.starsAvg = starsAvg;
     }
     
     public BoatDto(){}
@@ -154,5 +157,14 @@ public class BoatDto {
     public void setBoatPhoto(String boatPhoto) {
         this.boatPhoto = boatPhoto;
     } 
+
+    public double getStarsAvg() {
+        return starsAvg;
+    }
+
+    public void setStarsAvg(double starsAvg) {
+        this.starsAvg = starsAvg;
+    }
+    
     
 }
