@@ -15,4 +15,6 @@ import spring.bnb.boats.models.Review;
 public interface ReviewService {
     
     public List<Review> getAllReviewsPerBoat(int boatid);
+    
+    public List<Review> getAllReviews();
 }

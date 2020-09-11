@@ -28,5 +28,10 @@ public class ReviewServiceImpl implements ReviewService{
         List<Review> emptyReview = new ArrayList<>();
        return Optional.of(reviewRepo.getAllReviewsPerBoat(boatid)).orElse(emptyReview);
     }
+
+    @Override
+    public List<Review> getAllReviews() {
+        return reviewRepo.findAll();
+    }
     
 }
