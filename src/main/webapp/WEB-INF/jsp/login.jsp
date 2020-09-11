@@ -42,7 +42,6 @@
         body{
             background-color: whitesmoke;
         }
-        
     </style>
 
     <body>

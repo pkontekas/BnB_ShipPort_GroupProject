@@ -27,7 +27,7 @@ $(document).ready(function () {
 const longitude = parseFloat(document.getElementById('longitude').innerHTML);
 const latitude = parseFloat(document.getElementById('latitude').innerHTML);
 let map = new ol.Map({
-    target: 'map',
+    target: 'showmap',
     layers: [
         new ol.layer.Tile({
             source: new ol.source.OSM()

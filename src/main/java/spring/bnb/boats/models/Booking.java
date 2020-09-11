@@ -1,7 +1,6 @@
 package spring.bnb.boats.models;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -56,7 +55,7 @@ public class Booking implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "final_price")
-    private BigDecimal finalPrice;
+    private double finalPrice;
     @Basic(optional = false)
     @NotNull
     @Column(name = "passengers")
@@ -82,7 +81,7 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public Booking(Integer id, Date startDate, Date endDate, BigDecimal finalPrice, int passengers) {
+    public Booking(Integer id, Date startDate, Date endDate, double finalPrice, int passengers) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -114,11 +113,11 @@ public class Booking implements Serializable {
         this.endDate = endDate;
     }
 
-    public BigDecimal getFinalPrice() {
+    public double getFinalPrice() {
         return finalPrice;
     }
 
-    public void setFinalPrice(BigDecimal finalPrice) {
+    public void setFinalPrice(double finalPrice) {
         this.finalPrice = finalPrice;
     }
 

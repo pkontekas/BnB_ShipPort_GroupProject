@@ -60,11 +60,11 @@ public class BoatController {
                 //if picture exists all is ok
                 return "boat-registration";
             } else {//if not, tell him to add one
-                redirectAttributes.addFlashAttribute("profpicmissing", "You need to first upload a Profile Picture!");
+                redirectAttributes.addFlashAttribute("profpicmissing", "Please first upload a Profile Picture to register a ship!");
                 return "redirect:preupdateaccount";
             }
         }
-        redirectAttributes.addFlashAttribute("profpicmissing", "You need to first upload a Profile Picture!");
+        redirectAttributes.addFlashAttribute("profpicmissing", "Please first upload a Profile Picture to register a ship!");
         return "redirect:preupdateaccount";
     }
 

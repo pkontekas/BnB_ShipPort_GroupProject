@@ -69,7 +69,7 @@ public class Boat implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "current_price")
-    private BigDecimal currentPrice;
+    private double currentPrice;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -111,7 +111,7 @@ public class Boat implements Serializable {
         this.id = id;
     }
 
-    public Boat(Integer id, BigDecimal currentPrice) {
+    public Boat(Integer id, double currentPrice) {
         this.id = id;
         this.currentPrice = currentPrice;
     }
@@ -196,11 +196,11 @@ public class Boat implements Serializable {
         this.maxSpeed = maxSpeed;
     }
 
-    public BigDecimal getCurrentPrice() {
+    public double getCurrentPrice() {
         return currentPrice;
     }
 
-    public void setCurrentPrice(BigDecimal currentPrice) {
+    public void setCurrentPrice(double currentPrice) {
         this.currentPrice = currentPrice;
     }
 

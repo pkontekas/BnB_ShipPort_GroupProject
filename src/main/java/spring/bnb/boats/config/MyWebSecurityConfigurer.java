@@ -34,6 +34,7 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .antMatchers("/preupdateaccount").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/chatpage").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/myreservations").hasAnyRole("ADMIN", "USER", "OWNER")
+                .antMatchers("/booking").hasAnyRole("ADMIN", "USER", "OWNER")
                 //.antMatchers("/").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/").permitAll()//added permit all instead of above line
                 //.antMatchers("/doinsertaccount").permitAll()//added permit all instead of above line

@@ -75,10 +75,6 @@
                 border-radius: 10px;
                 border-color:  #3282b8;
             }
-            .rate{
-                /*                border: 1px solid;*/
-
-            }
             .ratingBar {
                 padding-left: 15px;
                 background-color: #3282B8;
@@ -115,13 +111,9 @@
                 font-size: 15px;
                 border-radius: 5px;
             }
-
-
             .actives, .collapsible:hover {
                 background-color: #a2d5f2;
             }
-
-
             .content {
                 padding: 0 18px;
                 display: none;
@@ -145,7 +137,6 @@
             .titleImage{
                 padding-top: 15px;
                 padding-bottom: 15px;
-
             }
             .iconBoat{
                 padding-top: 15px;
@@ -161,7 +152,6 @@
                 height: 400px;
                 width: 100%;
             }
-
         </style>
     </head>
 
@@ -374,19 +364,18 @@
         </div>
         <div class="container">
             <div class="row">
-                <div id="map" class="map"></div>
+                <div id="showmap" class="map"></div>
                 <div hidden id="longitude">${boatdetails.portsId.longitude}</div>
                 <div hidden id="latitude">${boatdetails.portsId.latitude}</div>
             </div>
         </div>
         <div class="payment container">
             <h1>Payment methods</h1>
-            <p>You can contact the owner <br>
-                by email: <a href="mailto:${boatdetails.accountsId.email}">${boatdetails.accountsId.email}</a> <br>
-                or <br> You can pay online with PayPal </p>
+            <p>You can contact the owner<br>
+                by email: <a href="mailto:${boatdetails.accountsId.email}">${boatdetails.accountsId.email}</a><br>
+                or<br>You can pay online with PayPal</p>
             <div id="paypal-button-container" ></div>
         </div>
-
         <div id="requestOffer" class="modal" tabindex="-1">
             <div class=" modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -396,19 +385,22 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
                     <div class="bookingForm modal-body">
-                        <form class="main-form needs-validation" novalidate="true" action="booking" method="POST">
+                        <form class="main-form needs-validation" novalidate="true" action="${pageContext.request.contextPath}/booking" method="POST">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="startCheckDate">Check-in</label>
-                                    <input type="date" name="startCheckDate" class="form-control">
+                                    <input type="date" name="startCheckDate" class="form-control" required>
+                                    <div class="invalid-feedback">Enter a valid Date.</div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="endDate">Check-out</label>
                                     <input name="endCheckDate" type="date" class="form-control" required>
+                                    <div class="invalid-feedback">Enter a valid Date.</div>
                                 </div>
                             </div>
+                            <input hidden name="thisBoat" type="number" value="${boatdetails.id}" class="form-control" required>
+                            <input hidden name="myprice" type="number" value="${boatdetails.currentPrice}" class="form-control" required>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="numPassenger">Passengers</label>
@@ -426,12 +418,12 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="gridCheck" required>
                                     <label class="form-check-label" for="gridCheck">
-                                        Check me out
+                                        Checkout
                                     </label>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Book me now</button>
+                                <button type="submit" class="btn btn-primary">Book me Now</button>
                             </div>
                         </form>
                     </div>
@@ -456,5 +448,13 @@
         <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
         <script src="/js/paypal.js"></script>
         <script src="/js/boatinfo.js"></script>
+        <script>
+            function minDate() {
+                let today = new Date();
+                let minimDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                return minimDate;
+            }
+            ;
+        </script>
     </body>
 </html>

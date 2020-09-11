@@ -17,14 +17,14 @@ public class BoatDto {
     private int beds;
     private int cruiseSpeed;
     private String fuel;
-    private BigDecimal price;
+    private double price;
     
     private String city;
     private String portName;
     
     private String boatPhoto;
 
-    public BoatDto(Integer id, String manufacturer, String model, String boatType, BigDecimal boatLength, int constructionYear, int passengerCapacity, int beds, int cruiseSpeed, String fuel, BigDecimal price, String city, String portName, String boatPhoto) {
+    public BoatDto(Integer id, String manufacturer, String model, String boatType, BigDecimal boatLength, int constructionYear, int passengerCapacity, int beds, int cruiseSpeed, String fuel, double price, String city, String portName, String boatPhoto) {
         this.id = id;
         this.manufacturer = manufacturer;
         this.model = model;
@@ -123,11 +123,11 @@ public class BoatDto {
         this.fuel = fuel;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
