@@ -1,5 +1,6 @@
 package spring.bnb.boats.services;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,5 +21,10 @@ public class BookingServiceImpl implements BookingService {
     public Booking insertBooking(Booking booking) {
         return bookRepo.save(booking);
     } 
+
+    @Override
+    public List<Booking> findBookingsByAccountsId(int id) {
+        return bookRepo.findMyBookingsByAccountsId(id);
+    }
     
 }

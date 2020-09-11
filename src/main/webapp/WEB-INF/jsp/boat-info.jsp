@@ -449,12 +449,12 @@
         <script src="/js/paypal.js"></script>
         <script src="/js/boatinfo.js"></script>
         <script>
-            function minDate() {
-                let today = new Date();
-                let minimDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-                return minimDate;
-            }
-            ;
+//            function minDate() {
+//                let today = new Date();
+//                let minimDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+//                return minimDate;
+//            }
+//            ;
         </script>
     </body>
 </html>

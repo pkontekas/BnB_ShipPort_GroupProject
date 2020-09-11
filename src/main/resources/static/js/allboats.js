@@ -1,4 +1,4 @@
-/* global fetch, desttypeBoat */
+/* global fetch */
 
 'use strict';
 let boatsdto = [];
