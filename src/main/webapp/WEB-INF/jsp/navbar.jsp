@@ -63,14 +63,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="" data-toggle="modal" data-target="#loginmodal">Login</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" style="margin-right: 30px;">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             My account
                         </a>
-                        <div class="dropdown-menu" style="background-color: #3282B8 " aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu" style="background-color: #3282B8;  " aria-labelledby="navbarDropdownMenuLink">
                             <a id="drop" class="dropdown-item" href="/preupdateaccount">My Profile</a>
-                            <a id="drop" class="dropdown-item" href="/myreservations">My Reservations</a>
+                            <a id="drop" class="dropdown-item" href="/myreservations">Reservations</a>
                             <a id="drop" class="dropdown-item" href="<c:url value="/performlogout"/>">Logout</a>
                         </div>
                     </li>
