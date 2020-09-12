@@ -11,7 +11,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>About</title>
         <style>
-          
             .fontClass
             {
                 font-style: italic;
@@ -34,7 +33,7 @@
                         Find a yacht to charter at a very low price, or offer your yacht for charter and earn extra income.<br><br>
                         Boat BNB offers you the chance to charter yachts, sailboats, motorboats, RIBs, catamarans, jet skis and more.<br><br>
                         Choose your type of boat, duration of charter period and contact the owner directly through our platform or just check availability and pay with paypal to speed things up!<br><br>
-                        Start your <a href="/showallboats">Search</a> what are you waiting for!
+                        Start your <a href="${pageContext.request.contextPath}/showallboats/all">Search</a> what are you waiting for!
                     </p>
                 </div>
             </div>

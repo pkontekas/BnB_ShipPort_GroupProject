@@ -61,7 +61,7 @@
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" name="email" autocomplete="on" class="form-control" required
-                                   aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
+                                   aria-describedby="emailHelp" placeholder="johnsmith@gmail.com">
                             <div class="invalid-feedback">Email format is invalid.</div>
                             <small id="emailHelp" class="form-text text-muted mt-3">We'll never share your email with anyone
                                 else.</small>
@@ -69,7 +69,7 @@
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" name="password" autocomplete="off" class="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
-                            <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
+                            <div class="invalid-feedback">Minimum eight characters, Latin, at least a letter and a number.</div>
                         </div>
                         <button type="Submit" name="Submit" class="btn btn-primary">Sign in</button>
                     </springform:form>

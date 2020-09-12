@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats.dao;
 
 import java.io.UnsupportedEncodingException;
 import org.springframework.ui.ModelMap;
 
 /**
- *
  * @author pkontekas
  */
-public class ImageDao {
+public class ImageHandlerDao {
 
     public ModelMap encodeImageToBase64AndPutToMm(byte[] imageBeforeEncoding, ModelMap mm, String imageName) {
 

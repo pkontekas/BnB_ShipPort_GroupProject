@@ -12,5 +12,5 @@ public interface ReviewRepo extends JpaRepository<Review, Integer>{
             + "WHERE bookings.reviews_id = reviews.id\n"
             + "and bookings.boats_id = ?1",
             nativeQuery = true)
-    public List<Review> getAllReviewsPerBoat(int boatid);
+    public List<Review> getAllReviewsPerBoatNative(int boatid);
 }

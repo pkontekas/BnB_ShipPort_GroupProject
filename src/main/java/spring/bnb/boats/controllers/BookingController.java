@@ -9,7 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import spring.bnb.boats.dao.UtilDao;
+import spring.bnb.boats.dao.DateHandlerDao;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Booking;
 import spring.bnb.boats.services.AccountService;
@@ -40,7 +40,7 @@ public class BookingController {
         Account renter = accountService.getAccountByEmail(principal.getName());
         Booking book = new Booking();
 
-        UtilDao udao = new UtilDao();
+        DateHandlerDao udao = new DateHandlerDao();
         Date checkin = udao.stringToDate(checkinDate);
         Date checkout = udao.stringToDate(checkoutDate);
 
