@@ -2,6 +2,8 @@ package spring.bnb.boats.dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -29,5 +31,13 @@ public class UtilDao {
         System.out.println(diff);
         days = (diff / (1000 * 60 * 60 * 24));
         return days;
+    }
+    
+    public LocalDate strToLocalDate(String date)
+        //format a String date to a Localdate format
+    {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        return localDate;
     }
 }

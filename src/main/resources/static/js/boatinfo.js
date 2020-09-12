@@ -22,6 +22,7 @@ $(document).ready(function () {
         txt += '<span class="fa fa-star star-gray"></span>';
     }
     document.getElementById('starsavg').innerHTML = txt;
+    document.getElementById('starstop').innerHTML = txt;
 });
 
 const longitude = parseFloat(document.getElementById('longitude').innerHTML);

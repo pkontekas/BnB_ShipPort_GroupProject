@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -57,9 +58,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/showallboats/all">All boats</a>
                     </li>
+                    <security:authorize access="isAnonymous()">
                     <li class="nav-item">
                         <a class="nav-link" href="/preregisteraccount">Register</a>
                     </li>
+                    </security:authorize>
                     <li class="nav-item">
                         <a class="nav-link" href="/preregisterboat">Boat Registration</a>
                     </li>

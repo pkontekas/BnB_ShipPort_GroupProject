@@ -29,7 +29,7 @@
                 color: gold;
             }
             .star {
-                color: gold;
+                color: lightgrey;
             }
 
             .viewPage {
@@ -163,11 +163,7 @@
             <h1> ${boatdetails.boatType} ${boatdetails.manufacturer} ${boatdetails.model} in ${boatdetails.portsId.city}, ${boatdetails.portsId.portName}</h1>
 
             <div class="star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
+              <span id="starstop"></span>
             </div>
         </div>
 

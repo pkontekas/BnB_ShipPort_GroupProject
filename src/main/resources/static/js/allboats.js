@@ -64,7 +64,7 @@ function boatCard(boat) {
         txt += '<span class="fa fa-star checked"></span>';
     }
     for(let j = parseInt(boat.starsAvg); j < 5; j++) {
-        txt += '<span class="fa fa-star star-gray"></span>';
+        txt += '<span class="fa fa-star star-gray" style="color: lightgrey"></span>';
     }
 
     txt += '<br><div class="toolTip" title="The owner offers free cancellation \n\
