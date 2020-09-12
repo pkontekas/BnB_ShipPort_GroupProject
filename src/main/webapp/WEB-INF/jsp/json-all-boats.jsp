@@ -92,14 +92,14 @@
                 border-radius: 5px;
                 width:130px;
             }
-/*            .borderFormOne{
-                width: 300px;
-                padding: 15px;
-                background-color:#0a9ab5;
-                color: white;
-                font-size: 15px;
-                border-radius: 5px;
-            }*/
+            /*            .borderFormOne{
+                            width: 300px;
+                            padding: 15px;
+                            background-color:#0a9ab5;
+                            color: white;
+                            font-size: 15px;
+                            border-radius: 5px;
+                        }*/
             .borderFormTwo{
                 width: 300px;
                 padding: 15px;
@@ -110,7 +110,7 @@
                 position: sticky;
                 top:0px;
                 bottom:auto;
-                
+
             }
             .boat {
                 margin-left: 0;
@@ -120,7 +120,7 @@
                 display: flex;
                 justify-content: center;
                 background-color: whitesmoke;
-                
+
             }
             .firstCol {
                 flex-grow: 1;
@@ -153,53 +153,53 @@
 
         <div class="searchForm row container-fluid">
             <div class="col-xs-2">
-<!--                <div class="borderFormOne">
-                    <h1>Search</h1>
-                    <form>
-                        <div class="form-group">
-                            <label for="destination">Where to Sail ?</label>
-                            <input type="text" id="search-text" name="destination" class="form-control" placeholder="Port, City" required="true">
-                            <div class="invalid-feedback">Choose Destination <br></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="duration">Duration</label>
-                            <select name="duration" id="destduration" required="true" class="form-control">
-                                <option value="" selected disabled hidden>Any</option>
-                                <option value="1day">1 day</option>
-                                <option value="2days">2 days</option>
-                                <option value="3days">3 days</option>
-                                <option value="4days">4 days</option>
-                                <option value="5days">5 days</option>
-                                <option value="6days">6 days</option>
-                                <option value="week">1 week</option>
-                                <option value="8days">8 days</option>
-                                <option value="9days">9 days</option>
-                                <option value="10days">10 days</option>
-                                <option value="11days">11 days</option>
-                                <option value="12days">12 days</option>
-                                <option value="13days">13 days</option>
-                                <option value="2weeks">2 weeks</option>
-                                <option value="over2weeks">Over 2 weeks</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="startDate">Start Date</label>
-                            <input type="date" class="form-control" id="deststartDate" required>
-                        </div>
-
-
-                        <button type="Submit" class="searchBtn btn-primary" onclick="reloadBoats()"><i class="fa fa-search"></i>&nbsp;
-                            Search &nbsp;</button>
-                    </form>
-                </div>-->
+                <!--                <div class="borderFormOne">
+                                    <h1>Search</h1>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="destination">Where to Sail ?</label>
+                                            <input type="text" id="search-text" name="destination" class="form-control" placeholder="Port, City" required="true">
+                                            <div class="invalid-feedback">Choose Destination <br></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="duration">Duration</label>
+                                            <select name="duration" id="destduration" required="true" class="form-control">
+                                                <option value="" selected disabled hidden>Any</option>
+                                                <option value="1day">1 day</option>
+                                                <option value="2days">2 days</option>
+                                                <option value="3days">3 days</option>
+                                                <option value="4days">4 days</option>
+                                                <option value="5days">5 days</option>
+                                                <option value="6days">6 days</option>
+                                                <option value="week">1 week</option>
+                                                <option value="8days">8 days</option>
+                                                <option value="9days">9 days</option>
+                                                <option value="10days">10 days</option>
+                                                <option value="11days">11 days</option>
+                                                <option value="12days">12 days</option>
+                                                <option value="13days">13 days</option>
+                                                <option value="2weeks">2 weeks</option>
+                                                <option value="over2weeks">Over 2 weeks</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="startDate">Start Date</label>
+                                            <input type="date" class="form-control" id="deststartDate" required>
+                                        </div>
+                
+                
+                                        <button type="Submit" class="searchBtn btn-primary" onclick="reloadBoats()"><i class="fa fa-search"></i>&nbsp;
+                                            Search &nbsp;</button>
+                                    </form>
+                                </div>-->
                 <div class="borderFormTwo">
-                    <h3>Search filters</h3>
+                    <h3>Search Filters</h3>
                     <form>
                         <div class="form-group">
                             <label for="destination">Where to Sail ?</label>
-                            <select name="destination" id="" class="form-control" onchange="reloadBoats()">
+                            <select name="destination" id="portselect" class="form-control" onchange="reloadBoats()">
                                 <option value="any">Any</option>
-                                <option value="pireaus">Piraeus</option>
+                                <option value="athens">Piraeus</option>
                                 <option value="mykonos">Mykonos</option>
                                 <option value="paros">Paros</option>
                                 <option value="heraklion">Heraklion</option>
@@ -267,7 +267,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <jsp:include page="footer.jsp"/>
@@ -293,26 +292,7 @@
                                         $('#desttypeBoat').val(filterSelection);
                                     else
                                     {
-                                        switch (filterSelection) {
-                                            case "piraeus":
-                                                $("#search-text").attr("value", "Piraeus Harbour");
-                                                return true;
-                                                break;
-                                            case "paros":
-                                                $('#search-text').val("Parikia Harbour Paros");
-                                                return true;
-                                                break;
-                                            case "mikonos":
-                                                $('#search-text').val("Mykonos");
-                                                return true;
-                                                break;
-                                            case "irakleio":
-                                                $('#search-text').val("Heraklion Port Authority");
-                                                return true;
-                                                break;
-                                            default:
-                                                return;
-                                        }
+                                        $('#portselect').val(filterSelection);
                                     }
                                 }
         </script>

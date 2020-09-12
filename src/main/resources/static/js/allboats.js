@@ -3,6 +3,7 @@
 'use strict';
 let boatsdto = [];
 let priceList = [];
+let portCityList = [];
 let portAndCities = [];
 
 $(document).ready(function () {
@@ -19,16 +20,20 @@ $(document).ready(function () {
                 });
 
                 // Create portAndCities name array to be used with auto completion
-                boatsdto.map(boat =>
-                {
-                    if (!portAndCities.includes(boat.portName))
-                    {
-                        portAndCities.push(boat.portName);
-                    }
-                    if (!portAndCities.includes(boat.city))
-                    {
-                        portAndCities.push(boat.city);
-                    }
+//                boatsdto.map(boat =>
+//                {
+//                    if (!portAndCities.includes(boat.portName))
+//                    {
+//                        portAndCities.push(boat.portName);
+//                    }
+//                    if (!portAndCities.includes(boat.city))
+//                    {
+//                        portAndCities.push(boat.city);
+//                    }
+//                });
+
+                boatsdto.map(boat => {
+                    portCityList.push(boat.city);
                 });
 
                 let boatHTML = '';
@@ -43,9 +48,9 @@ $(document).ready(function () {
             });
 });
 
-$("#search-text").autocomplete({
-    source: portAndCities
-});
+//$("#search-text").autocomplete({
+//    source: portAndCities
+//});
 
 function boatCard(boat) {
     let txt = '';
@@ -60,10 +65,10 @@ function boatCard(boat) {
     txt += '<h2 class="card-title">' + boat.manufacturer + ' ' + boat.model + '</h2>';
     txt += '</div>';
     txt += '<div class="star">';
-    for(let i = 0; i < parseInt(boat.starsAvg); i++) {
+    for (let i = 0; i < parseInt(boat.starsAvg); i++) {
         txt += '<span class="fa fa-star checked"></span>';
     }
-    for(let j = parseInt(boat.starsAvg); j < 5; j++) {
+    for (let j = parseInt(boat.starsAvg); j < 5; j++) {
         txt += '<span class="fa fa-star star-gray" style="color: lightgrey"></span>';
     }
 
@@ -112,7 +117,8 @@ function reloadBoats() {
     const lengthRange = document.getElementById('destlength').value;
     const passengersRange = document.getElementById('destnumPassenger').value;
     const priceRange = document.getElementById('destpriceRange').value;
-
+    const portRange = document.getElementById('portselect').value;
+    console.log(portRange);
     var sortBy = document.getElementById('sort-options').value;
 
     if (sortBy === "price-asc") {
@@ -136,19 +142,21 @@ function reloadBoats() {
                 return;
             }
         }
-
         if (passengersRange !== "any") {
             if (selectPassengers(passengersRange, boat.passengerCapacity)) {
                 return;
             }
         }
-
         if (priceRange !== "any") {
             if (inPriceRange(priceRange, boat.price)) {
                 return;
             }
         }
-
+        if (portRange !== "any") {
+            if (inPortCityRange(portRange, boat.city.toLowerCase())) {
+                return;
+            }
+        }
         boatHTML += boatCard(boat);
     });
     document.getElementById('boat-list').innerHTML = boatHTML;
@@ -254,6 +262,32 @@ function comparePriceAsc(a, b) {
         return -1;
     }
     return 0;
+}
+
+function inPortCityRange(portCityRange, city) {
+    switch (portCityRange) {
+        case "mykonos":
+            if (city === "mykonos")
+                return false;
+            break;
+        case "heraklion":
+            if (city === "heraklion")
+                return false;
+            break;
+        case "zakynthos":
+            if (city === "zakynthos")
+                return false;
+            break;
+        case "paros":
+            if (city === "paros")
+                return false;
+            break;
+        case "athens":
+            if (city === "athens")
+                return false;
+            break;
+    }
+    return true;
 }
 
 $(document).ready(function () {

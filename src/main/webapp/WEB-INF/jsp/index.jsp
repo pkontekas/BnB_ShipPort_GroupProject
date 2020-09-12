@@ -182,7 +182,7 @@
             <div class="container-fluid">
                 <div class="port row d-flex justify-content-center">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/piraeus">
+                        <a href="${pageContext.request.contextPath}/showallboats/athens">
                             <h5 class="index4headerItems">Piraeus</h5>
                             <img class="imgitems img-fluid" src="image/piraeusPort.jpg" alt="peir">
                         </a>
@@ -194,13 +194,13 @@
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/mikonos">
+                        <a href="${pageContext.request.contextPath}/showallboats/mykonos">
                             <h5 class="index4headerItems">Mykonos</h5>
                             <img class="imgitems img-fluid" src="image/mykonosPort.jpg" alt="mik">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/irakleio">
+                        <a href="${pageContext.request.contextPath}/showallboats/heraklion">
                             <h5 class="index4headerItems">Heraklion</h5>
                             <img class="imgitems img-fluid" src="image/heraklion1024x683.jpg" alt="ira">
                         </a>
