@@ -76,17 +76,6 @@ public class RestController {
         return imgDao.encodeImageToBase64(imageBeforeEncoding);
     }
 
-//    @GetMapping(
-//            value = "/api/getimage/{boatid}",
-//            produces = MediaType.IMAGE_JPEG_VALUE
-//    )
-//    public @ResponseBody
-//    byte[] getImageWithMediaType(int boatid) throws IOException {
-//
-//        InputStream in = getClass()
-//                .getResourceAsStream("/com/baeldung/produceimage/image.jpg");
-//        return IOUtils.toByteArray(in);
-//    }
     @ResponseBody
     @GetMapping("/api/allboatdtos")
     public List<BoatDto> showAllBoatsDtoJson() {
@@ -117,14 +106,16 @@ public class RestController {
             // Average of stars calculation
             List<Booking> bookings = (List<Booking>) boat.getBookingCollection();
             double starsSum = 0;
+            Review review = null;
             for (Booking booking : bookings) {
-                Review review = booking.getReviewsId();
+                review = booking.getReviewsId();
                 if(review != null){
                     starsSum = starsSum + review.getStars();
                 }
             }
-            boatDto.setStarsAvg(starsSum / bookings.size());
-            
+            if(review != null){
+                boatDto.setStarsAvg(starsSum / bookings.size());
+            }
             //image encoding follows in base64
             imageBeforeEncoding = Base64.encodeBase64(
                     bpService.findDefaultBoatphotoByBoatsIdNative(boat.getId()).getPhoto());

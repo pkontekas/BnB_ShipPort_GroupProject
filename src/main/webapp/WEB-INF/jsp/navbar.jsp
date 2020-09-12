@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -51,15 +52,19 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/api/allboatdtos">Json</a>
-                    </li>
+                    <security:authorize access="hasRole('ADMIN')">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/api/allboatdtos">Json</a>
+                        </li>
+                    </security:authorize >
                     <li class="nav-item">
                         <a class="nav-link" href="/showallboats/all">All boats</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/preregisteraccount">Register</a>
-                    </li>
+                    <security:authorize access="isAnonymous()">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/preregisteraccount">Register</a>
+                        </li>
+                    </security:authorize>
                     <li class="nav-item">
                         <a class="nav-link" href="/preregisterboat">Boat Registration</a>
                     </li>
@@ -69,11 +74,11 @@
                     <li class="nav-item dropdown" style="margin-right: 30px;">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            My account
-                        </a>
+                            My Account</a>
                         <div class="dropdown-menu" style="background-color: #3282B8;  " aria-labelledby="navbarDropdownMenuLink">
                             <a id="drop" class="dropdown-item" href="/preupdateaccount">My Profile</a>
                             <a id="drop" class="dropdown-item" href="/myreservations">Reservations</a>
+                            <a id="drop" class="dropdown-item" href="/statistics">Statistics</a>
                             <a id="drop" class="dropdown-item" href="<c:url value="/performlogout"/>">Logout</a>
                         </div>
                     </li>
