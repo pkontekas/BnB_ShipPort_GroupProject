@@ -92,7 +92,7 @@
                 padding-bottom: 20px ;
                 color: #3282B8;
             }
-            .bodyPage{
+            .reservationPage{
                 height: 65vh;
             }
             /*            .toolTip {
@@ -109,7 +109,7 @@
 
         <jsp:include page="navbar.jsp"/>
 
-        <div class="bodyPage container">
+        <div class="reservationPage container">
             <div class="bookingTitle">
                 <h1>${rentername} ${rentersurname}'s Reservations</h1>
             </div>

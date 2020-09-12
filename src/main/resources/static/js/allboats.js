@@ -77,7 +77,7 @@ function boatCard(boat) {
     txt += '<div class="icons">';
     txt += '<small class="text-muted"><i class="fa fa-users"> </i>  ' + boat.passengerCapacity + ' people</small> &nbsp;';
     txt += '&nbsp;<small class="text-muted"><i class="fa fa-bed"> </i>  ' + boat.beds + ' beds</small> &nbsp;';
-    txt += '&nbsp;<small class="text-muted"><i class="fa fa-bath"> </i>  WC</small>&nbsp;';
+    txt += '&nbsp;<small class="text-muted"><i class="fa fa-bath"> </i>  WC<br> </small>&nbsp;';
     txt += '&nbsp;<small class="text-muted"><i class="fa fa-tachometer"> </i>  ' + boat.cruiseSpeed + ' knots</small> &nbsp;';
     txt += '&nbsp;<small class="text-muted"><i class="fa fa-fire"> </i>  ' + boat.fuel + '</small>';
     txt += '</div>';

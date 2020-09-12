@@ -53,7 +53,7 @@
                 font-weight: 500;
             }
             .specifics {
-                /*                border-right-style: solid;*/
+              margin-top: 30px;
             }
             .contact li {
                 list-style-type: none;
@@ -82,13 +82,14 @@
                 font-family: Arial;
                 margin: 0 auto;
                 padding-top: 10px;
-                padding-bottom: 10px;
-                margin-top:5px;
+                padding-bottom: 15px;
+                margin-top:25px;
+                margin-bottom: 25px;
                 border-radius: 5px;
             }
             .progressBar {
                 padding-bottom: 20px;
-                color:#0a9ab5;
+                color:#07689f;
             }
 
             .heading {
@@ -110,7 +111,9 @@
                 outline: none;
                 font-size: 15px;
                 border-radius: 5px;
+
             }
+
             .actives, .collapsible:hover {
                 background-color: #a2d5f2;
             }
@@ -319,19 +322,20 @@
                     <div class="progressBar">
                         <h5>General Maintenance</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:${reviewAvg[1]}%"></div>
+                            <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${reviewAvg[1]}%"></div>
                         </div>
+                        
                     </div>
                     <div class="progressBar">
                         <h5>Cleanliness</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:${reviewAvg[2]}%"></div>
+                            <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${reviewAvg[2]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Comfort</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:${reviewAvg[3]}%"></div>
+                            <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${reviewAvg[3]}%"></div>
                         </div>
                     </div>
                 </div>
@@ -340,19 +344,19 @@
                     <div class="progressBar">
                         <h5>Harbour</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:${reviewAvg[4]}%"></div>
+                            <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${reviewAvg[4]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Hospitality</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:${reviewAvg[5]}%"></div>
+                            <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${reviewAvg[5]}%"></div>
                         </div>
                     </div>
                     <div class="progressBar">
                         <h5>Value for money</h5>
                         <div class="progress">
-                            <div class="progress-bar" style="width:${reviewAvg[6]}%"></div>
+                            <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${reviewAvg[6]}%"></div>
                         </div>
                     </div>
                 </div>
@@ -369,7 +373,7 @@
             <h1>Payment methods</h1>
             <p>You can contact the owner<br>
                 by email: <a href="mailto:${boatdetails.accountsId.email}">${boatdetails.accountsId.email}</a><br>
-                or<br>You can pay online with PayPal</p>
+                or<br>You can pay online with PayPal<br> on your <a href="/myreservations">reservation</a> </p>
             <div id="paypal-button-container" ></div>
         </div>
         <div id="requestOffer" class="modal" tabindex="-1">
