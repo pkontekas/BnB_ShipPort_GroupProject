@@ -386,7 +386,7 @@
                     </div>
                     <div class="bookingForm modal-body">
 <!--                        <form class="main-form needs-validation" novalidate="true" action="${pageContext.request.contextPath}/booking" method="POST">-->
-                        <form class="main-form needs-validation" novalidate="true" method="POST">    
+                        <form id="bookForm" class="main-form needs-validation" novalidate="true" action="${pageContext.request.contextPath}/booking" method="POST">    
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="startCheckDate">Check-in</label>
@@ -400,8 +400,8 @@
                                 </div>
                             </div>
                             <div id="bookingErrorMessage" class="form-row">
-                            </div>
-                            <input hidden name="thisBoat" type="number" value="${boatdetails.id}" class="form-control" required>
+                            </div>      
+                            <input hidden id="thisBoat" name="thisBoat" type="number" value="${boatdetails.id}" class="form-control" required>
                             <input hidden name="myprice" type="number" value="${boatdetails.currentPrice}" class="form-control" required>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
@@ -449,13 +449,5 @@
         <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
         <script src="/js/paypal.js"></script>
         <script src="/js/boatinfo.js"></script>
-        <script>
-//            function minDate() {
-//                let today = new Date();
-//                let minimDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-//                return minimDate;
-//            }
-//            ;
-        </script>
     </body>
 </html>

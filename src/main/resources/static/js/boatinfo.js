@@ -43,7 +43,7 @@ let map = new ol.Map({
 document.getElementById("bookButton").addEventListener("click", function (event) {
     event.preventDefault();
 
-    let boatId = 14;
+    let boatId = document.getElementById("thisBoat").value;
     let startDate = document.getElementById("bookStart").value;
     let endDate = document.getElementById("bookEnd").value;
     fetch("http://localhost:8080/api/availability/" + boatId + "/" + startDate + "/" + endDate)
@@ -54,6 +54,7 @@ document.getElementById("bookButton").addEventListener("click", function (event)
                 if(data) {
                     document.getElementById("bookingErrorMessage").innerHTML = "";
                     // do booking
+                    document.getElementById("bookForm").submit();
                 }
                 else {
                    document.getElementById("bookingErrorMessage").innerHTML = "Booking Unavailable on those Dates!";

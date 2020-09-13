@@ -31,10 +31,10 @@
 
         <div class="fontClass text-center justify-content-center">
             <h1>Upload Boat photo</h1>
-            <springform:form enctype="multipart/form-data" action="/uploadphotoboat" method="POST">
+            <springform:form id="imageForm" enctype="multipart/form-data" action="/uploadphotoboat" method="POST">
                 <label for ="photoboat">Upload a photo for your boat:<small class="text-muted"> (required)</small><label>
                         <input id="fileChooser" type="file" name="photoboat" accept="image/*" onchange="return ValidateFileUploadIsPic()" required>
-                        <button type="Submit" value="Submit">Submit</button>
+                        <button type="Submit" value="Submit" onclick="submitted = true;">Submit</button>
                         <div class="mx-auto mt-3">
                             <img class="h-50 w-50 img-fluid rounded mx-auto d-block" src="image/defaultBoatPic.jpg" id="blah">
                         </div>
@@ -45,10 +45,11 @@
                     <jsp:include page="footer.jsp"/>
 
                     <script>
-                        //TO DO must fix
                         // Warning before leaving the page (back button, or outgoinglink)
+                        var submitted = false;
                         window.onbeforeunload = function () {
-                            return "Are you sure you want to leave the page before submitting Boat Photo?";
+                            if (!submitted)
+                                return "Are you sure you want to leave the page before submitting Boat Photo?";
                         };
                     </script>
                     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
