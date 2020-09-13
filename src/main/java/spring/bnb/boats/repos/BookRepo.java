@@ -21,11 +21,11 @@ public interface BookRepo extends JpaRepository<Booking, Integer> {
     @Query(
             value = "SELECT count(boats_id) AS total FROM bookings AS b \n"
             + "WHERE b.boats_id = :boatId AND\n"
-            + "(b.start_date >= :startDate AND b.start_date <= :endDate) or \n"
+            + "((b.start_date >= :startDate AND b.start_date <= :endDate) or \n"
             + "(b.end_date >= :startDate AND b.end_date <= :endDate) or \n"
-            + "(b.start_date < :startDate AND b.end_date > :endDate)\n"
+            + "(b.start_date < :startDate AND b.end_date > :endDate))\n"
             + "GROUP BY boats_id;", nativeQuery = true)
-    int getCountFromOverlappingBookingDatesNative(@Param("boatId") int boatId,
+    Integer getCountFromOverlappingBookingDatesNative(@Param("boatId") int boatId,
             @Param ("startDate") Date startDate,
             @Param ("endDate") Date endDate);
 

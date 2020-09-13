@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <security:authorize access="isAuthenticated()">
 
-                                <input type="text" id="chat-username" value=${username} 
+                                <input type="text" id="chat-username" value=${username}
                                        autocomplete="off" class="form-control" disabled="true" />
                             </security:authorize>
                         </div>
@@ -41,7 +41,7 @@
         <div id="chat-page" class="hidden">
             <div class="chat-container">
                 <div class="chat-header">
-                    <h2>Join the current discussion!</h2>
+                    <h2>Join the Current Discussion in BoatBNB!</h2>
                 </div>
                 <div class="connecting">
                     Connecting...

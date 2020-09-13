@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
+import spring.bnb.boats.dao.DateHandlerDao;
 import spring.bnb.boats.dao.ImageHandlerDao;
 import spring.bnb.boats.dto.BoatDto;
 import spring.bnb.boats.models.Boat;
@@ -133,16 +134,22 @@ public class RestController {
 
     @ResponseBody
     @GetMapping("/api/availability/{boatid}/{startDate}/{endDate}")
-    public String checkBookingAvailabilityViaDatesJson(@PathVariable int boatid,
-            @PathVariable Date startDate, 
-            @PathVariable Date endDate) {
-
-        int overlapCount = bookService.getCountFromOverlappingBookingDatesNative(boatid, startDate, endDate);
+    public String checkBookingAvailabilityViaDatesJson(@PathVariable("boatid") int boatid,
+            @PathVariable("startDate") String startDate, 
+            @PathVariable("endDate") String endDate) {
+        
+        DateHandlerDao udao = new DateHandlerDao();
+        Date sDate = udao.stringToDate(startDate);
+        Date eDate = udao.stringToDate(endDate);
+        
+        Integer overlapCount = bookService.getCountFromOverlappingBookingDatesNative(boatid, sDate, eDate);
         System.out.println(overlapCount);
         if (overlapCount > 0) {
-            return "true";
-        } else {
+            //we have unavailability on these dates
             return "false";
-        }
+        } else {//all is ok
+            return "true";
+        } 
     }
+
 }

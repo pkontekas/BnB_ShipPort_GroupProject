@@ -39,3 +39,24 @@ let map = new ol.Map({
         zoom: 11
     })
 });
+
+document.getElementById("bookButton").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    let boatId = 14;
+    let startDate = document.getElementById("bookStart").value;
+    let endDate = document.getElementById("bookEnd").value;
+    fetch("http://localhost:8080/api/availability/" + boatId + "/" + startDate + "/" + endDate)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                console.log(typeof data);
+                if(data) {
+                    document.getElementById("bookingErrorMessage").innerHTML = "";
+                    // do booking
+                }
+                else {
+                   document.getElementById("bookingErrorMessage").innerHTML = "Booking Unavailable on those Dates!";
+                }
+            });
+});

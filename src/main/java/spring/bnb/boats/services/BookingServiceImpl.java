@@ -16,22 +16,25 @@ public class BookingServiceImpl implements BookingService {
 
     @Autowired
     BookRepo bookRepo;
-    
+
     @Transactional
     @Override
     public Booking insertBooking(Booking booking) {
         return bookRepo.save(booking);
-    } 
+    }
 
     @Override
     public List<Booking> findBookingsByAccountsId(int id) {
         return bookRepo.findMyBookingsByAccountsIdNative(id);
     }
-    
+
     @Override
-    public int getCountFromOverlappingBookingDatesNative(int boatid, Date startDate, Date endDate)
-    {
-        return bookRepo.getCountFromOverlappingBookingDatesNative(boatid, startDate, endDate);
+    public Integer getCountFromOverlappingBookingDatesNative(int boatid, Date startDate, Date endDate) {
+        Integer count = bookRepo.getCountFromOverlappingBookingDatesNative(boatid, startDate, endDate);
+        if (count == null) {
+            count = 0;
+        }
+        return count;
     }
-    
+
 }

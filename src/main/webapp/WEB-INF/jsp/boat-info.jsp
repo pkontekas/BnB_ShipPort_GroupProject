@@ -53,7 +53,7 @@
                 font-weight: 500;
             }
             .specifics {
-              margin-top: 30px;
+                margin-top: 30px;
             }
             .contact li {
                 list-style-type: none;
@@ -166,7 +166,7 @@
             <h1> ${boatdetails.boatType} ${boatdetails.manufacturer} ${boatdetails.model} in ${boatdetails.portsId.city}, ${boatdetails.portsId.portName}</h1>
 
             <div class="star">
-              <span id="starstop"></span>
+                <span id="starstop"></span>
             </div>
         </div>
 
@@ -324,7 +324,7 @@
                         <div class="progress">
                             <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${reviewAvg[1]}%"></div>
                         </div>
-                        
+
                     </div>
                     <div class="progressBar">
                         <h5>Cleanliness</h5>
@@ -354,7 +354,7 @@
                         </div>
                     </div>
                     <div class="progressBar">
-                        <h5>Value for money</h5>
+                        <h5>Value for Money</h5>
                         <div class="progress">
                             <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${reviewAvg[6]}%"></div>
                         </div>
@@ -370,10 +370,10 @@
             </div>
         </div>
         <div class="payment container">
-            <h1>Payment methods</h1>
-            <p>You can contact the owner<br>
+            <h1>Payment Methods</h1>
+            <p>You can contact the Owner<br>
                 by email: <a href="mailto:${boatdetails.accountsId.email}">${boatdetails.accountsId.email}</a><br>
-                or<br>You can pay online with PayPal<br> on your <a href="/myreservations">reservation</a> </p>
+                or<br>You can pay online with PayPal<br>on your <a href="/myreservations"> current reservations</a> </p>
             <div id="paypal-button-container" ></div>
         </div>
         <div id="requestOffer" class="modal" tabindex="-1">
@@ -386,18 +386,21 @@
                         </button>
                     </div>
                     <div class="bookingForm modal-body">
-                        <form class="main-form needs-validation" novalidate="true" action="${pageContext.request.contextPath}/booking" method="POST">
+<!--                        <form class="main-form needs-validation" novalidate="true" action="${pageContext.request.contextPath}/booking" method="POST">-->
+                        <form class="main-form needs-validation" novalidate="true" method="POST">    
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="startCheckDate">Check-in</label>
-                                    <input type="date" name="startCheckDate" class="form-control" required>
+                                    <input type="date" id="bookStart" name="startCheckDate" class="form-control" required>
                                     <div class="invalid-feedback">Enter a valid Date.</div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="endDate">Check-out</label>
-                                    <input name="endCheckDate" type="date" class="form-control" required>
+                                    <input name="endCheckDate" id="bookEnd" type="date" class="form-control" required>
                                     <div class="invalid-feedback">Enter a valid Date.</div>
                                 </div>
+                            </div>
+                            <div id="bookingErrorMessage" class="form-row">
                             </div>
                             <input hidden name="thisBoat" type="number" value="${boatdetails.id}" class="form-control" required>
                             <input hidden name="myprice" type="number" value="${boatdetails.currentPrice}" class="form-control" required>
@@ -423,7 +426,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Book me Now</button>
+                                <button id="bookButton" type="submit" class="btn btn-primary">Book me Now</button>
                             </div>
                         </form>
                     </div>
@@ -444,7 +447,7 @@
         crossorigin="anonymous"></script>
         <script src="/js/validations.js"></script>
         <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
-            // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
+                                    // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
         <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
         <script src="/js/paypal.js"></script>
         <script src="/js/boatinfo.js"></script>

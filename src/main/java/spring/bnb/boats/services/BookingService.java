@@ -13,5 +13,5 @@ public interface BookingService {
         
         List<Booking> findBookingsByAccountsId(int id);
         
-        public int getCountFromOverlappingBookingDatesNative(int boatid, Date startDate, Date endDate);
+        public Integer getCountFromOverlappingBookingDatesNative(int boatid, Date startDate, Date endDate);
 }
