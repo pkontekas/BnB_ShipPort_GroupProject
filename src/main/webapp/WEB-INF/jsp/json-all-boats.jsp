@@ -290,7 +290,8 @@
                                     if (filterSelection === "catamaran" || filterSelection === "rib" ||
                                             filterSelection === "yacht" || filterSelection === "motorboat")
                                         $('#desttypeBoat').val(filterSelection);
-                                    else
+                                    if(filterSelection === "athens" || filterSelection === "paros" || filterSelection === "mykonos"
+                                            || filterSelection  === "heraklion")
                                     {
                                         $('#portselect').val(filterSelection);
                                     }
