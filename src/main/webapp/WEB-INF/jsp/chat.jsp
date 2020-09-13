@@ -14,8 +14,25 @@
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/chat.css"/>
         <title>JSP Page</title>
+        <style>
+               html, body {
+                height: 100%;
+            }
+            .wrapper {
+                min-height: 100%;
+                margin-bottom: -269px;
+                padding-bottom: 269px;
+            }
+            #username-page{
+                padding-top: 60px;
+            }
+            #chat-page{
+                padding-top: 30px;
+            }
+        </style>
     </head>
     <body>
+        <div class="wrapper">
         <jsp:include page="navbar.jsp"/>
         
         <security:authorize access="isAuthenticated()">
@@ -41,7 +58,8 @@
         <div id="chat-page" class="hidden">
             <div class="chat-container">
                 <div class="chat-header">
-                    <h2>Join the Current Discussion in BoatBNB!</h2>
+                    <h2>Join the Current <br> Discussion in BoatBNB!</h2>
+                    
                 </div>
                 <div class="connecting">
                     Connecting...
@@ -58,7 +76,7 @@
                 </form>
             </div>
         </div>
-        
+        </div>
         <jsp:include page="footer.jsp"/>
         
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

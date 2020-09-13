@@ -13,8 +13,17 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <style>
+              html, body {
+                height: 100%;
+            }
+            .wrapper {
+                min-height: 100%;
+                margin-bottom: -269px;
+                padding-bottom: 269px;
+            }
             .fontClass
             {
+                padding-top: 25px;
                 font-style: italic;
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 font-weight: 600;
@@ -22,14 +31,14 @@
         </style>
     </head>
     <body>
-
+        <div class="wrapper">
         <jsp:include page="navbar.jsp"/>
         <div class="fontClass text-center">
             <h4>Error Page.<br>Something went wrong. Try again!<br>
                 ${kindoferror}</h4>
             Wait while we redirect you back to our Site!
         </div>
-
+</div>
         <jsp:include page="footer.jsp"/>
 
         <script>

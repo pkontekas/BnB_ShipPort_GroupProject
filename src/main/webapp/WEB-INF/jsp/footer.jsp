@@ -17,6 +17,8 @@
         <title>Footer</title>
 
         <style>
+       
+
             .foot {
                 left: 0;
                 bottom: 0;
@@ -71,17 +73,18 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div>
-                            <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
-                            <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
-                            <i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i>
+                    </div>
+                    <hr>
+                    <div>
+                        <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
+                        <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
+                        <i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i>
 
-                        </div>
-                        <p> &copy BNB-ShipPort Group Project Copyright 2020</p>
-                    </span>
-                </div>
-            </footer>
+                    </div>
+                    <p> &copy BNB-ShipPort Group Project Copyright 2020</p>
+                </span>
+            </div>
+        </footer>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

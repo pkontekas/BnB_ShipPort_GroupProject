@@ -23,11 +23,19 @@
     </head>
 
     <style>
+        html, body {
+            height: 71.85%;
+        }
+        .wrapper {
+            min-height: 0%;
+            margin-bottom: -0px;
+            padding-bottom: 0px;
+        }
         .loginForm {
             display: flex;
             justify-content: center;
             padding-bottom: 200px;
-            padding-top: 30px;
+            padding-top: 45px;
             font-style: italic;
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-weight: 600;
@@ -42,19 +50,24 @@
         body{
             background-color: whitesmoke;
         }
+        .loginBodyPage{
+            height: 140%;
+        }
     </style>
 
     <body>
+        <div class="loginBodyPage">
+            <div class="wrapper">
+            <jsp:include page="navbar.jsp"/>
 
-        <jsp:include page="navbar.jsp"/>
 
-        <div class="text-center" style="color: green">
-            Dear Visitor, <br>you will have to login to access more features!
-        </div>
-        <div class="container">
-            <div class="titleLogin">
-                <h1>Login Form</h1>
+            <div class="text-center" style="color: green">
+                Dear Visitor, <br>you will have to login to access more features!
             </div>
+            <div class="container">
+                <div class="titleLogin">
+                    <h1>Login Form</h1>
+                </div>
             <div class="loginForm row">
                 <div class="col-xs-11 col-sm-9 col-md-7 col-lg-6">
                     <springform:form method="POST" action="${pageContext.request.contextPath}/performlogin" cssClass="main-form needs-validation" novalidate="true">
@@ -76,7 +89,8 @@
                 </div>
             </div>
         </div>
-
+            </div>
+            </div>
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
