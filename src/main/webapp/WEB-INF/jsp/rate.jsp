@@ -26,7 +26,7 @@
                 color: gold;
             }
             .rateForm{
-                    font-style: italic;
+                font-style: italic;
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 font-weight: 600;
                 display: d-flex;
@@ -56,7 +56,7 @@
 
             <form>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">
                             <label class="form-group" for="">Stars</label>
                             <select class="custom-select" id="">
@@ -117,7 +117,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">
                             <label class="form-group" for="">Harbour</label>
                             <select class="custom-select" id="">
@@ -169,14 +169,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <label for="">Add comment</label>
-                        <textarea id="ownerNotes" name="ownerNotes" rows="5" cols="40"></textarea>
+                        <textarea id="ownerNotes" name="ownerNotes" rows="5" cols="65"></textarea>
                     </div>
                 </div>
-                
+
                 <button class="btn btn-primary" type="submit" style="margin-top: 25px">Submit form</button>
-                
+
             </form>
 
         </div>
