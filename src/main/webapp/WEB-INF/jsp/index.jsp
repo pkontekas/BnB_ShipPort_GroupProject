@@ -122,18 +122,28 @@
             <div class="search">
                 <form>
                     <div class="form-row">
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                            <label for="">Destination</label> 
-                            <input type="text" class="form-control" placeholder="Port,Town">
+                          <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                            <label for="destination">Destination</label>
+                            <select name="destination" id="" class="form-control" onchange="reloadBoats()">
+                                <option value="any">Any</option>
+                                <option value="pireaus">Piraeus</option>
+                                <option value="mykonos">Mykonos</option>
+                                <option value="paros">Paros</option>
+                                <option value="heraklion">Heraklion</option>
+                                <option value="zakynthos">Zakynthos</option>
+                            </select>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                            <label for="">Duration</label>
-                            <input type="text" min="0" class="form-control" placeholder="Any">
+                         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                            <label for="typeBoat">Boat Type</label>
+                            <select name="typeBoat" id="desttypeBoat" class="form-control" onchange="reloadBoats()">
+                                <option value="all">All</option>
+                                <option value="yacht">Yacht</option>
+                                <option value="catamaran">Catamaran</option>
+                                <option value="motorboat">Motorboat</option>
+                                <option value="rib">Rib Boat</option>
+                            </select>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                            <label for="">Start Date</label>
-                            <input type="date" class="form-control" placeholder="Start Date">
-                        </div>
+                       
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2">
                             <label for="">&nbsp;</label>
                             <button type="button" class="btn btn-primary form-control"><i class="fa fa-search"></i>&nbsp;

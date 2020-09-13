@@ -11,7 +11,7 @@ import spring.bnb.boats.models.Booking;
 public interface BookRepo extends JpaRepository<Booking, Integer> {
 
     @Query(
-            value = "SELECT * FROM Bookings\n"
+            value = "SELECT * FROM bookings\n"
             + "WHERE accounts_id = ?1",
             nativeQuery = true)
     List<Booking> findMyBookingsByAccountsId(int id);

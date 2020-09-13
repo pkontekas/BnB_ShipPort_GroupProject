@@ -14,8 +14,20 @@
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/chat.css"/>
         <title>JSP Page</title>
+        <style>
+               html, body {
+                height: 100%;
+            }
+            .wrapper {
+                min-height: 100%;
+                margin-bottom: -269px;
+                padding-bottom: 269px;
+            }
+            
+        </style>
     </head>
     <body>
+        <div class="wrapper">
         <jsp:include page="navbar.jsp"/>
         
         <security:authorize access="isAuthenticated()">
@@ -58,7 +70,7 @@
                 </form>
             </div>
         </div>
-        
+        </div>
         <jsp:include page="footer.jsp"/>
         
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

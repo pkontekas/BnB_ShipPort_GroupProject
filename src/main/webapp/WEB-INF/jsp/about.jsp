@@ -11,9 +11,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>About</title>
         <style>
-          
+           html, body {
+                height: 100%;
+            }
+            .wrapper {
+                min-height: 100%;
+                margin-bottom: -269px;
+                padding-bottom: 269px;
+            }
             .fontClass
             {
+                padding-top: 25px;
                 font-style: italic;
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 font-weight: 400;
@@ -21,7 +29,7 @@
         </style>
     </head>
     <body>
-
+        <div class="wrapper">
         <jsp:include page="navbar.jsp"/>
 
         <div class="container-fluid">
@@ -39,7 +47,7 @@
                 </div>
             </div>
         </div>
-
+</div>
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

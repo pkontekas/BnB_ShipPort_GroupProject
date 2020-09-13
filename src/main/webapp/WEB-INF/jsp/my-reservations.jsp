@@ -13,6 +13,15 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>JSP Page</title>
         <style>
+               html, body {
+                height: 100%;
+            }
+            .wrapper {
+                min-height: 100%;
+                margin-bottom: -269px;
+                padding-bottom: 269px;
+            }
+            
             table {
                 width: 100%;
                 border-collapse: collapse;
@@ -85,6 +94,9 @@
                 td:nth-of-type(7):before {
                     content: "PayPal";
                 }
+                  td:nth-of-type(8):before {
+                    content: "Add review";
+                }
             }
             .bookingTitle{
                 text-align: center;
@@ -93,7 +105,7 @@
                 color: #3282B8;
             }
             .reservationPage{
-                height: 65vh;
+                height: 65%;
             }
             /*            .toolTip {
                             color: black;
@@ -106,7 +118,7 @@
 
     </head>
     <body>
-
+        <div class="wrapper">
         <jsp:include page="navbar.jsp"/>
 
         <div class="reservationPage container">
@@ -127,6 +139,7 @@
                                 <!--                                <th><a href="#" data-toggle="toolTip" data-placement="bottom" title="Hooray!">Top</a></th>-->
                                 <!--                                <th></th>-->
                                 <th class="toolTip" title="The owner offers either Payment through Paypal or Cash up to 5 days before check-in.">Optional Payment*</th>
+                                 <th>Add Review</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -139,6 +152,9 @@
                                     <td>${b.endDate}</td>
                                     <td class="myprice" value="${b.finalPrice}">${b.finalPrice}</td>
                                     <td><div class="paypal-button-container" id="order${b.id}" style="width: 75%; display: block; margin: 0 auto;"></div></td>
+                                    <td> <button type="button" class="btn btn-info">Rate me</button>
+                                        
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -146,7 +162,7 @@
                 </div>
             </div>
         </div>
-
+</div>
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
