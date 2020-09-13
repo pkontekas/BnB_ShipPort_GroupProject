@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <label for="name">First Name<small class="text-muted"> (required)</small></label>
                             <springform:input path="name" cssClass="form-control" minlength="2" pattern="[A-Za-z]+" required="true"/>
-                            <div class="invalid-feedback">Use only alphabetic and at least 2 characters.</div>
+                            <div class="invalid-feedback">Use only Latin, alphabetic and at least 2 characters.</div>
                         </div>
                         <div class="form-group">
                             <label for="cellphone">Cellphone Number<small class="text-muted"> (optional)</small></label>
@@ -78,7 +78,7 @@
                         <div class="form-group">
                             <label for="">New Password<small class="text-muted"> (optional)</small></label>
                             <springform:password autocomplete="off" path="password" minlength="8" cssClass="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/>
-                            <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
+                            <div class="invalid-feedback">Minimum eight characters, Latin, at least a letter and a number.</div>
                             <small class="form-text text-muted">Only enter if you want to change it.</small>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                         <div class="form-group">
                             <label for="surname">Last Name<small class="text-muted"> (required)</small></label>
                             <springform:input path="surname" cssClass="form-control" minlength="2" pattern="[A-Za-z]+" required="true"/>
-                            <div class="invalid-feedback">Use only alphabetic and at least 2 characters.</div>
+                            <div class="invalid-feedback">Use only Latin, alphabetic and at least 2 characters.</div>
                         </div> 
                         <springform:input type="hidden" path="email" cssClass="form-control" required="true"/>
                         <springform:input type="hidden" path="id"/>

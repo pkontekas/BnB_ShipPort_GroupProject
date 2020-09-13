@@ -2,6 +2,7 @@ package spring.bnb.boats.controllers;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,14 +10,16 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
-import spring.bnb.boats.dao.ImageDao;
+import spring.bnb.boats.dao.ImageHandlerDao;
 import spring.bnb.boats.dto.BoatDto;
 import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Booking;
 import spring.bnb.boats.models.Review;
 import spring.bnb.boats.services.BoatService;
 import spring.bnb.boats.services.BoatphotoService;
+import spring.bnb.boats.services.BookingService;
 import spring.bnb.boats.services.ReviewService;
 
 /**
@@ -30,9 +33,12 @@ public class RestController {
 
     @Autowired
     BoatphotoService bpService;
-    
+
     @Autowired
     ReviewService reviewService;
+
+    @Autowired
+    BookingService bookService;
 
     @ResponseBody
     @GetMapping("/api/allboats")
@@ -71,7 +77,7 @@ public class RestController {
     @GetMapping("/api/boatimage/{boatid}")
     public String showBoatImageURL(int boatid) {
 
-        ImageDao imgDao = new ImageDao();
+        ImageHandlerDao imgDao = new ImageHandlerDao();
         byte[] imageBeforeEncoding = Base64.encodeBase64(bpService.findDefaultBoatphotoByBoatsIdNative(boatid).getPhoto());
         return imgDao.encodeImageToBase64(imageBeforeEncoding);
     }
@@ -79,14 +85,14 @@ public class RestController {
     @ResponseBody
     @GetMapping("/api/allboatdtos")
     public List<BoatDto> showAllBoatsDtoJson() {
-       
+
         List<Boat> allboats;
         allboats = boatService.getAllBoats();
         List<BoatDto> allboatdtos = new ArrayList<>();
-        
-        ImageDao imgDao = new ImageDao();
+
+        ImageHandlerDao imgDao = new ImageHandlerDao();
         byte[] imageBeforeEncoding;
-        
+
         for (int i = 0; i < allboats.size(); i++) {
             BoatDto boatDto = new BoatDto();
             Boat boat = allboats.get(i);
@@ -123,5 +129,20 @@ public class RestController {
             allboatdtos.add(boatDto);
         }
         return allboatdtos;
+    }
+
+    @ResponseBody
+    @GetMapping("/api/availability/{boatid}/{startDate}/{endDate}")
+    public String checkBookingAvailabilityViaDatesJson(@PathVariable int boatid,
+            @PathVariable Date startDate, 
+            @PathVariable Date endDate) {
+
+        int overlapCount = bookService.getCountFromOverlappingBookingDatesNative(boatid, startDate, endDate);
+        System.out.println(overlapCount);
+        if (overlapCount > 0) {
+            return "true";
+        } else {
+            return "false";
+        }
     }
 }

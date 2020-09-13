@@ -79,7 +79,9 @@
                             <a id="drop" class="dropdown-item" href="/preupdateaccount">My Profile</a>
                             <a id="drop" class="dropdown-item" href="/myreservations">Reservations</a>
                             <a id="drop" class="dropdown-item" href="/statistics">Statistics</a>
-                            <a id="drop" class="dropdown-item" href="<c:url value="/performlogout"/>">Logout</a>
+                            <security:authorize access="hasAnyRole('ADMIN','USER','OWNER')">
+                                <a id="drop" class="dropdown-item" href="<c:url value="/performlogout"/>">Logout</a>
+                            </security:authorize>
                         </div>
                     </li>
                 </ul>
@@ -109,7 +111,7 @@
                             <div class="form-group" style="width: 100%">
                                 <label for="email">Email address</label>
                                 <input type="email" name="email" autocomplete="on" class="form-control" id="logemail" required
-                                       aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
+                                       aria-describedby="emailHelp" placeholder="johnsmith@gmail.com">
                                 <div class="invalid-feedback">Invalid email format.</div>
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                                     else.</small>
@@ -118,16 +120,15 @@
                                 <label for="password">Password</label>
                                 <input type="password" name="password" autocomplete="off" class="form-control" required
                                        id="navpassword" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
-                                <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
-                                <a href="#">Forgot My Password</a>
+                                <div class="invalid-feedback">Minimum eight characters, Latin, at least a letter and a number.</div>
                             </div>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="rememberme">
-                                <label class="form-check-label" for="rememberme">Remember me</label>
+                                <input type="checkbox" value="lsRememberMe" id="rememberMe" class="form-check-input">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="Submit" name="Submit" class="btn btn-primary">Sign in</button>
+                            <button type="Submit" name="Submit" value="Login" onclick="lsRememberMe()" class="btn btn-primary">Sign in</button>
                         </div>
                     </springform:form>
                 </div>
@@ -144,5 +145,6 @@
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
         <script src="/js/validations.js"></script>
+        <script scr="/js/remember.js"></script>
     </body>
 </html>

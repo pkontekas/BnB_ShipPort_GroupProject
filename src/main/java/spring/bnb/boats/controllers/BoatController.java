@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import spring.bnb.boats.dao.ImageDao;
+import spring.bnb.boats.dao.ImageHandlerDao;
+import spring.bnb.boats.dao.ReviewHandlerDao;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Port;
@@ -43,7 +44,7 @@ public class BoatController {
 
     @Autowired
     BoatphotoService bpService;
-    
+
     @Autowired
     ReviewService reviewService;
 
@@ -88,30 +89,13 @@ public class BoatController {
         return portService.getAllPorts();
     }
 
-    //old method for pagination
-//    @GetMapping("/showallboats")
-//    public String showAllBoats(ModelMap mm) {
-//        return listAllBoats(mm, 1);
-//    }
     @GetMapping("/showallboats/{boatTypeOrPort}")
     public String listAllBoats(ModelMap mm,
             HttpSession session,
-            @PathVariable(value = "boatTypeOrPort") String bptype)
-            //@PathVariable("pageNumber") int currentPage)
-    {
+            @PathVariable(value = "boatTypeOrPort") String bptype) {
+
         session.setAttribute("filterselected", bptype);
 
-        //old pagination code
-//        Page<Boat> page = boatService.getAllBoats(currentPage);
-//        List<Boat> boats = page.getContent();
-//        int totalPages = page.getTotalPages();
-//        mm.addAttribute("totalPages", totalPages);
-//        mm.addAttribute("currentPage", currentPage);
-
-//        will be needed if we go back to old page
-//        List<Boat> boats = boatService.getAllBoats();
-//        mm.addAttribute("allboats", boats);
-        
         //create a map to store boat ids as keys and base64 encoded images
         //from boats as values to later have them in our page
 //        Map<Integer, String> boatPhotosEncoded = new HashMap<>();
@@ -131,7 +115,6 @@ public class BoatController {
 //        }
 //        //puts whole image boatId-image map in a mm attribute to send it to all-boats in encoded form
 //        mm.addAttribute("boatImagesMap", boatPhotosEncoded);
-
         return "json-all-boats";
     }
 
@@ -141,48 +124,14 @@ public class BoatController {
 
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
+        
         List<Review> reviews = new ArrayList<>();
         reviews = reviewService.getAllReviewsPerBoat(id);
-        List<Double> reviewAvg = new ArrayList<>();
-        if(!reviews.isEmpty()){
-            double stars = 0;
-            double maintenance = 0;
-            double cleanliness = 0;
-            double comfort = 0;
-            double harbour = 0;
-            double hospitality = 0;
-            double valueForMoney = 0;
-            for (int i = 0; i < reviews.size(); i++) {
-                stars = (stars + reviews.get(i).getStars());
-                maintenance =  (maintenance + reviews.get(i).getGeneralMaintenance());
-                cleanliness = (cleanliness + reviews.get(i).getCleanliness());
-                comfort =  (comfort + reviews.get(i).getComfort());
-                harbour = (harbour + reviews.get(i).getHarbour());
-                hospitality = (hospitality + reviews.get(i).getHospitality());
-                valueForMoney = (valueForMoney + reviews.get(i).getValueForMoney());
-            }
-            double starsAvg =  (stars / reviews.size());
-            double maintenanceAvg = ((maintenance/reviews.size()) * 10);
-            double cleanlinessAvg =  ((cleanliness/reviews.size()) * 10);
-            double comfortAvg =  ((comfort/reviews.size()) * 10);
-            double harbourAvg =  ((harbour/reviews.size()) * 10);
-            double hospitalityAvg =  ((hospitality/reviews.size()) * 10);
-            double valueForMoneyAvg =  ((valueForMoney/reviews.size()) * 10);
-            
-            reviewAvg.add(starsAvg);
-            reviewAvg.add(maintenanceAvg);
-            reviewAvg.add(cleanlinessAvg);
-            reviewAvg.add(comfortAvg);
-            reviewAvg.add(harbourAvg);
-            reviewAvg.add(hospitalityAvg);
-            reviewAvg.add(valueForMoneyAvg);
-            mm.addAttribute("reviewAvg", reviewAvg);
-            mm.addAttribute("reviewsLength", reviews.size());
-        }
-        
-        //using the port this boat is located to get the specific port photo
+        ReviewHandlerDao reviewDao = new ReviewHandlerDao();
+        reviewDao.getReviewAverages(mm, reviews); 
 
-        ImageDao imgDao = new ImageDao();
+        //using the port this boat is located to get the specific port photo
+        ImageHandlerDao imgDao = new ImageHandlerDao();
         byte[] imageBeforeEncoding = Base64.encodeBase64(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());
         mm = imgDao.encodeImageToBase64AndPutToMm(imageBeforeEncoding, mm, "portimage");
 

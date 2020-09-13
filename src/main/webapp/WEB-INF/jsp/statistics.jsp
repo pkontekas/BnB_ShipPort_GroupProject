@@ -34,7 +34,7 @@
 
         <div class="statisticsPage container">
 
-            <h1 class="statisticsTitle">My Statistics</h1>
+            <h1 class="statisticsTitle">BoatBNB Site Statistics</h1>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div id="piechart"></div>   

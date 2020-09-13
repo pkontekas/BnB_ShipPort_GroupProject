@@ -1,5 +1,6 @@
 package spring.bnb.boats.services;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,13 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public List<Booking> findBookingsByAccountsId(int id) {
-        return bookRepo.findMyBookingsByAccountsId(id);
+        return bookRepo.findMyBookingsByAccountsIdNative(id);
+    }
+    
+    @Override
+    public int getCountFromOverlappingBookingDatesNative(int boatid, Date startDate, Date endDate)
+    {
+        return bookRepo.getCountFromOverlappingBookingDatesNative(boatid, startDate, endDate);
     }
     
 }

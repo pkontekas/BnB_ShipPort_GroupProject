@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spring.bnb.boats.services;
 
 import java.util.ArrayList;
@@ -14,7 +9,6 @@ import spring.bnb.boats.models.Review;
 import spring.bnb.boats.repos.ReviewRepo;
 
 /**
- *
  * @author mapan
  */
 @Service
@@ -26,7 +20,7 @@ public class ReviewServiceImpl implements ReviewService{
     @Override
     public List<Review> getAllReviewsPerBoat(int boatid) {
         List<Review> emptyReview = new ArrayList<>();
-       return Optional.of(reviewRepo.getAllReviewsPerBoat(boatid)).orElse(emptyReview);
+       return Optional.of(reviewRepo.getAllReviewsPerBoatNative(boatid)).orElse(emptyReview);
     }
     
 }
