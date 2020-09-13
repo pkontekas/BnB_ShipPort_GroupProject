@@ -179,7 +179,6 @@
                     <div class="iconBoat">
                         <small class="text-muted"><i class="fa fa-users fa-3x"><br><p style="font-size:small">${boatdetails.passengerCapacity}<br>Persons </p> </i>  </small> &nbsp;
                         &nbsp;  <small class="text-muted"><i class="fa fa-bed fa-3x"><br><p style="font-size:small">${boatdetails.beds}<br>Beds </p> </i>  </small> &nbsp; 
-                        &nbsp;  <small class="text-muted"><i class="fa fa-bath fa-3x"><br><p style="font-size:small">Bath </p> </i>  </small> &nbsp;
                         &nbsp;  <small class="text-muted"><i class="fa fa-tachometer fa-3x"><br><p style="font-size:small">${boatdetails.cruiseSpeed}<br>Knots</p> </i></small> &nbsp;
                         &nbsp;  <small class="text-muted"><i class="fa fa-fire fa-3x"><br><p style="font-size:small">${boatdetails.fuel}<br>Fuel</p> </i></small>
                     </div>

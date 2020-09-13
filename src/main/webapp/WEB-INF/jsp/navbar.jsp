@@ -58,7 +58,7 @@
                         </li>
                     </security:authorize >
                     <li class="nav-item">
-                        <a class="nav-link" href="/showallboats/all">All boats</a>
+                        <a class="nav-link" href="/showallboats/all">Boats</a>
                     </li>
                     <security:authorize access="isAnonymous()">
                         <li class="nav-item">

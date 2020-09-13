@@ -248,8 +248,7 @@
                         <div class="form-group">
                             <label for="sort-by">Sort By</label>
                             <select name="sort-by" id="sort-options" class="form-control" onchange="reloadBoats()">
-                                <option value="" selected disabled hidden></option>
-                                <option value="popular">Most Popular</option>
+                                <option value="popular" selected>Most Popular</option>
                                 <option value="price-asc">Highest Price</option>
                                 <option value="price-desc">Lowest Price</option>
                                 <option value="size-asc">Biggest Boat</option>
