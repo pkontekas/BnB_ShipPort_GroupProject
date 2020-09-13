@@ -410,8 +410,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="">Anything else you would like to tell me?</label>
-                                    <textarea id="ownerNotes" name="ownerNotes" rows="4" cols="55">
-                                    </textarea>
+                                    <textarea id="ownerNotes" name="ownerNotes" rows="4" cols="55"></textarea>
                                 </div>
                             </div>
                             <div class="form-row">

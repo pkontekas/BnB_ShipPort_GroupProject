@@ -118,8 +118,7 @@ function reloadBoats() {
     const passengersRange = document.getElementById('destnumPassenger').value;
     const priceRange = document.getElementById('destpriceRange').value;
     const portRange = document.getElementById('portselect').value;
-    console.log(portRange);
-    var sortBy = document.getElementById('sort-options').value;
+    const sortBy = document.getElementById('sort-options').value;
 
     if (sortBy === "price-asc") {
         boatsdto.sort(comparePriceAsc);
@@ -129,6 +128,8 @@ function reloadBoats() {
         boatsdto.sort(compareSizeDesc);
     } else if (sortBy === "size-asc") {
         boatsdto.sort(compareSizeAsc);
+    } else if (sortBy === "popular") {
+        boatsdto.sort(comparePopularity);
     }
 
     boatsdto.forEach(boat => {
@@ -262,6 +263,16 @@ function comparePriceAsc(a, b) {
         return -1;
     }
     return 0;
+}
+
+function comparePopularity(a,b) {
+    if(a.starsAvg < b.starsAvg){
+        return 1;
+    } else if(a.starsAvg > b.starsAvg) {
+        return -1;
+    } else {
+        return 0;
+    }
 }
 
 function inPortCityRange(portCityRange, city) {

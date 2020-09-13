@@ -56,7 +56,7 @@ public class BookingController {
         book.setBoatsId(boatService.getBoatById(thisboatId));
 
         bookService.insertBooking(book);
-        return "/myreservations";
+        return "redirect:/myreservations";
     }
 
     @GetMapping("/myreservations")//TO DO must make it a POST Request somehow
