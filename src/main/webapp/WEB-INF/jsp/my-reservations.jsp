@@ -153,7 +153,7 @@
                                         <div data-prices="${b.finalPrice}" value="${b.finalPrice}" class="paypal-button-container" id="order${b.id}" style="width: 75%; display: block; margin: 0 auto;">
                                         </div>
                                     </td>
-                                     <td><button type="button" class="btn btn-info btn-sm" >Rate me</button></td>
+                                    <td><a href="/rate"> <button type="button" class="btn btn-info btn-sm" >Rate me</button></a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
