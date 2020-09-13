@@ -3,6 +3,7 @@
 'use strict';
 let boatsdto = [];
 let priceList = [];
+let portCityList = [];
 let portAndCities = [];
 
 $(document).ready(function () {
@@ -19,16 +20,20 @@ $(document).ready(function () {
                 });
 
                 // Create portAndCities name array to be used with auto completion
-                boatsdto.map(boat =>
-                {
-                    if (!portAndCities.includes(boat.portName))
-                    {
-                        portAndCities.push(boat.portName);
-                    }
-                    if (!portAndCities.includes(boat.city))
-                    {
-                        portAndCities.push(boat.city);
-                    }
+//                boatsdto.map(boat =>
+//                {
+//                    if (!portAndCities.includes(boat.portName))
+//                    {
+//                        portAndCities.push(boat.portName);
+//                    }
+//                    if (!portAndCities.includes(boat.city))
+//                    {
+//                        portAndCities.push(boat.city);
+//                    }
+//                });
+
+                boatsdto.map(boat => {
+                    portCityList.push(boat.city);
                 });
 
                 let boatHTML = '';
@@ -43,9 +48,9 @@ $(document).ready(function () {
             });
 });
 
-$("#search-text").autocomplete({
-    source: portAndCities
-});
+//$("#search-text").autocomplete({
+//    source: portAndCities
+//});
 
 function boatCard(boat) {
     let txt = '';
@@ -60,11 +65,11 @@ function boatCard(boat) {
     txt += '<h2 class="card-title">' + boat.manufacturer + ' ' + boat.model + '</h2>';
     txt += '</div>';
     txt += '<div class="star">';
-    for(let i = 0; i < parseInt(boat.starsAvg); i++) {
+    for (let i = 0; i < parseInt(boat.starsAvg); i++) {
         txt += '<span class="fa fa-star checked"></span>';
     }
-    for(let j = parseInt(boat.starsAvg); j < 5; j++) {
-        txt += '<span class="fa fa-star star-gray"></span>';
+    for (let j = parseInt(boat.starsAvg); j < 5; j++) {
+        txt += '<span class="fa fa-star star-gray" style="color: lightgrey"></span>';
     }
 
     txt += '<br><div class="toolTip" title="The owner offers free cancellation \n\
@@ -77,7 +82,7 @@ function boatCard(boat) {
     txt += '<div class="icons">';
     txt += '<small class="text-muted"><i class="fa fa-users"> </i>  ' + boat.passengerCapacity + ' people</small> &nbsp;';
     txt += '&nbsp;<small class="text-muted"><i class="fa fa-bed"> </i>  ' + boat.beds + ' beds</small> &nbsp;';
-    txt += '&nbsp;<small class="text-muted"><i class="fa fa-bath"> </i>  WC<br> </small>&nbsp;';
+
     txt += '&nbsp;<small class="text-muted"><i class="fa fa-tachometer"> </i>  ' + boat.cruiseSpeed + ' knots</small> &nbsp;';
     txt += '&nbsp;<small class="text-muted"><i class="fa fa-fire"> </i>  ' + boat.fuel + '</small>';
     txt += '</div>';
@@ -112,8 +117,8 @@ function reloadBoats() {
     const lengthRange = document.getElementById('destlength').value;
     const passengersRange = document.getElementById('destnumPassenger').value;
     const priceRange = document.getElementById('destpriceRange').value;
-
-    var sortBy = document.getElementById('sort-options').value;
+    const portRange = document.getElementById('portselect').value;
+    const sortBy = document.getElementById('sort-options').value;
 
     if (sortBy === "price-asc") {
         boatsdto.sort(comparePriceAsc);
@@ -123,6 +128,8 @@ function reloadBoats() {
         boatsdto.sort(compareSizeDesc);
     } else if (sortBy === "size-asc") {
         boatsdto.sort(compareSizeAsc);
+    } else if (sortBy === "popular") {
+        boatsdto.sort(comparePopularity);
     }
 
     boatsdto.forEach(boat => {
@@ -136,19 +143,21 @@ function reloadBoats() {
                 return;
             }
         }
-
         if (passengersRange !== "any") {
             if (selectPassengers(passengersRange, boat.passengerCapacity)) {
                 return;
             }
         }
-
         if (priceRange !== "any") {
             if (inPriceRange(priceRange, boat.price)) {
                 return;
             }
         }
-
+        if (portRange !== "any") {
+            if (inPortCityRange(portRange, boat.city.toLowerCase())) {
+                return;
+            }
+        }
         boatHTML += boatCard(boat);
     });
     document.getElementById('boat-list').innerHTML = boatHTML;
@@ -254,6 +263,42 @@ function comparePriceAsc(a, b) {
         return -1;
     }
     return 0;
+}
+
+function comparePopularity(a,b) {
+    if(a.starsAvg < b.starsAvg){
+        return 1;
+    } else if(a.starsAvg > b.starsAvg) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+function inPortCityRange(portCityRange, city) {
+    switch (portCityRange) {
+        case "mykonos":
+            if (city === "mykonos")
+                return false;
+            break;
+        case "heraklion":
+            if (city === "heraklion")
+                return false;
+            break;
+        case "zakynthos":
+            if (city === "zakynthos")
+                return false;
+            break;
+        case "paros":
+            if (city === "paros")
+                return false;
+            break;
+        case "athens":
+            if (city === "athens")
+                return false;
+            break;
+    }
+    return true;
 }
 
 $(document).ready(function () {

@@ -2,6 +2,7 @@ package spring.bnb.boats.controllers;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,14 +10,17 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
-import spring.bnb.boats.dao.ImageDao;
+import spring.bnb.boats.dao.DateHandlerDao;
+import spring.bnb.boats.dao.ImageHandlerDao;
 import spring.bnb.boats.dto.BoatDto;
 import spring.bnb.boats.models.Boat;
 import spring.bnb.boats.models.Booking;
 import spring.bnb.boats.models.Review;
 import spring.bnb.boats.services.BoatService;
 import spring.bnb.boats.services.BoatphotoService;
+import spring.bnb.boats.services.BookingService;
 import spring.bnb.boats.services.ReviewService;
 
 /**
@@ -30,9 +34,12 @@ public class RestController {
 
     @Autowired
     BoatphotoService bpService;
-    
+
     @Autowired
     ReviewService reviewService;
+
+    @Autowired
+    BookingService bookService;
 
     @ResponseBody
     @GetMapping("/api/allboats")
@@ -71,33 +78,22 @@ public class RestController {
     @GetMapping("/api/boatimage/{boatid}")
     public String showBoatImageURL(int boatid) {
 
-        ImageDao imgDao = new ImageDao();
+        ImageHandlerDao imgDao = new ImageHandlerDao();
         byte[] imageBeforeEncoding = Base64.encodeBase64(bpService.findDefaultBoatphotoByBoatsIdNative(boatid).getPhoto());
         return imgDao.encodeImageToBase64(imageBeforeEncoding);
     }
 
-//    @GetMapping(
-//            value = "/api/getimage/{boatid}",
-//            produces = MediaType.IMAGE_JPEG_VALUE
-//    )
-//    public @ResponseBody
-//    byte[] getImageWithMediaType(int boatid) throws IOException {
-//
-//        InputStream in = getClass()
-//                .getResourceAsStream("/com/baeldung/produceimage/image.jpg");
-//        return IOUtils.toByteArray(in);
-//    }
     @ResponseBody
     @GetMapping("/api/allboatdtos")
     public List<BoatDto> showAllBoatsDtoJson() {
-       
+
         List<Boat> allboats;
         allboats = boatService.getAllBoats();
         List<BoatDto> allboatdtos = new ArrayList<>();
-        
-        ImageDao imgDao = new ImageDao();
+
+        ImageHandlerDao imgDao = new ImageHandlerDao();
         byte[] imageBeforeEncoding;
-        
+
         for (int i = 0; i < allboats.size(); i++) {
             BoatDto boatDto = new BoatDto();
             Boat boat = allboats.get(i);
@@ -117,14 +113,16 @@ public class RestController {
             // Average of stars calculation
             List<Booking> bookings = (List<Booking>) boat.getBookingCollection();
             double starsSum = 0;
+            Review review = null;
             for (Booking booking : bookings) {
-                Review review = booking.getReviewsId();
+                review = booking.getReviewsId();
                 if(review != null){
                     starsSum = starsSum + review.getStars();
                 }
             }
-            boatDto.setStarsAvg(starsSum / bookings.size());
-            
+            if(review != null){
+                boatDto.setStarsAvg(starsSum / bookings.size());
+            }
             //image encoding follows in base64
             imageBeforeEncoding = Base64.encodeBase64(
                     bpService.findDefaultBoatphotoByBoatsIdNative(boat.getId()).getPhoto());
@@ -133,4 +131,25 @@ public class RestController {
         }
         return allboatdtos;
     }
+
+    @ResponseBody
+    @GetMapping("/api/availability/{boatid}/{startDate}/{endDate}")
+    public String checkBookingAvailabilityViaDatesJson(@PathVariable("boatid") int boatid,
+            @PathVariable("startDate") String startDate, 
+            @PathVariable("endDate") String endDate) {
+        
+        DateHandlerDao udao = new DateHandlerDao();
+        Date sDate = udao.stringToDate(startDate);
+        Date eDate = udao.stringToDate(endDate);
+        
+        Integer overlapCount = bookService.getCountFromOverlappingBookingDatesNative(boatid, sDate, eDate);
+        System.out.println(overlapCount);
+        if (overlapCount > 0) {
+            //we have unavailability on these dates
+            return "false";
+        } else {//all is ok
+            return "true";
+        } 
+    }
+
 }

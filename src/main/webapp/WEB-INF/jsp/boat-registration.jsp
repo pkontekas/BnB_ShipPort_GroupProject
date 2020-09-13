@@ -118,7 +118,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="currentPrice">Current Price (Euro)</label>
-                                <springform:input type="number" path="currentPrice" cssClass="form-control" id="currentPrice" required="true" min="50"/>
+                                <springform:input type="number" path="currentPrice" cssClass="form-control" id="currentPrice" required="true" min="50" value="50"/>
                                 <div class="invalid-feedback"><medium class="text-muted"> Required field. Minimum of 50 EU.</medium></div>
                             </div>
                         </div>

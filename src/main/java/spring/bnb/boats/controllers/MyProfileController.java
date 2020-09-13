@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import spring.bnb.boats.dao.ImageDao;
+import spring.bnb.boats.dao.ImageHandlerDao;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.services.AccountService;
 
@@ -36,7 +36,7 @@ public class MyProfileController {
 
         String accountEmail = principal.getName();
         Account dbAccount = accountService.getAccountByEmail(accountEmail);
-        ImageDao imgDao = new ImageDao();
+        ImageHandlerDao imgDao = new ImageHandlerDao();
         //check if profile photo exists and if it does encode it in base64
         if (dbAccount.getProfilePic() != null) {
             if (dbAccount.getProfilePic().length > 0) {
@@ -54,7 +54,7 @@ public class MyProfileController {
     }
 
     @PostMapping("/doupdateaccount")
-    public String updateTrainer(
+    public String updateProfile(
             @ModelAttribute("oldaccount") Account acc,
             @RequestParam("profilepic") MultipartFile profilepic,
             @RequestParam("oldpass") String currentpass,

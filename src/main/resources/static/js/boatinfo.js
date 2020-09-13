@@ -22,6 +22,7 @@ $(document).ready(function () {
         txt += '<span class="fa fa-star star-gray"></span>';
     }
     document.getElementById('starsavg').innerHTML = txt;
+    document.getElementById('starstop').innerHTML = txt;
 });
 
 const longitude = parseFloat(document.getElementById('longitude').innerHTML);
@@ -37,4 +38,26 @@ let map = new ol.Map({
         center: ol.proj.fromLonLat([longitude, latitude]),
         zoom: 11
     })
+});
+
+document.getElementById("bookButton").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    let boatId = document.getElementById("thisBoat").value;
+    let startDate = document.getElementById("bookStart").value;
+    let endDate = document.getElementById("bookEnd").value;
+    fetch("http://localhost:8080/api/availability/" + boatId + "/" + startDate + "/" + endDate)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                console.log(typeof data);
+                if(data) {
+                    document.getElementById("bookingErrorMessage").innerHTML = "";
+                    // do booking
+                    document.getElementById("bookForm").submit();
+                }
+                else {
+                   document.getElementById("bookingErrorMessage").innerHTML = "Booking Unavailable on those Dates!";
+                }
+            });
 });

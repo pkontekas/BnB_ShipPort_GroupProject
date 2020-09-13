@@ -136,8 +136,6 @@
                                 <th>Check In</th>
                                 <th>Check Out</th>
                                 <th>Final Price</th>
-                                <!--                                <th><a href="#" data-toggle="toolTip" data-placement="bottom" title="Hooray!">Top</a></th>-->
-                                <!--                                <th></th>-->
                                 <th class="toolTip" title="The owner offers either Payment through Paypal or Cash up to 5 days before check-in.">Optional Payment*</th>
                                  <th>Add Review</th>
                             </tr>
@@ -150,11 +148,12 @@
                                     <td>${b.boatsId.portsId.portName}</td>
                                     <td>${b.startDate}</td>
                                     <td>${b.endDate}</td>
-                                    <td class="myprice" value="${b.finalPrice}">${b.finalPrice}</td>
-                                    <td><div class="paypal-button-container" id="order${b.id}" style="width: 75%; display: block; margin: 0 auto;"></div></td>
-                                    <td> <button type="button" class="btn btn-info">Rate me</button>
-                                        
+                                    <td>${b.finalPrice}</td>
+                                    <td>
+                                        <div data-prices="${b.finalPrice}" value="${b.finalPrice}" class="paypal-button-container" id="order${b.id}" style="width: 75%; display: block; margin: 0 auto;">
+                                        </div>
                                     </td>
+                                     <td><button type="button" class="btn btn-info btn-sm" >Rate me</button></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -177,13 +176,5 @@
         <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
             // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
         <script src="/js/paypal.js"></script>
-        <script>
-//            $(document).ready(function () {
-//                $(document).tooltip();
-//            });
-//            $(document).ready(function () {
-//                $('[data-toggle="toolTip"]').tooltip();
-//            });
-        </script>
     </body>
 </html>

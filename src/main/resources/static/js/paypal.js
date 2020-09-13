@@ -2,6 +2,7 @@
 
 $(document).ready(function () {
     document.querySelectorAll('.paypal-button-container').forEach(function (selector) {
+
         paypal.Buttons({
             style: {
                 layout: 'horizontal',
@@ -16,7 +17,7 @@ $(document).ready(function () {
                     purchase_units: [{
                             amount: {
                                 currency: 'EUR',
-                                value: getPrice()
+                                value: selector.getAttribute("data-prices")
                             }
                         }]
                 });
@@ -36,9 +37,3 @@ $(document).ready(function () {
 //This function displays Smart Payment Buttons on your web page.
     });
 });
-
-//function getPrice() {
-////    var pricePerDay = document.getElementByClassName("myprice").value;
-//    var pricePerDay = 1;
-//    return pricePerDay;
-//}

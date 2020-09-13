@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label for="name">First Name<small class="text-muted"> (required)</small></label>
                             <springform:input path="name" id="name" cssClass="form-control" pattern="[A-Za-z]+" minlength="3" required="true"/>
-                            <div class="invalid-feedback">Use only alphabetic and at least 2 characters.</div>
+                            <div class="invalid-feedback">Use only Latin, alphabetic and at least 2 characters.</div>
                         </div>
                         <div class="form-group">
                             <label for="cellphone">Cellphone Number<small class="text-muted"> (optional)</small></label>
@@ -54,13 +54,13 @@
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail<small class="text-muted"> (required) <br><div class="rederror font-italic">${mailerror}</div></small></label>
-                                    <springform:input type="email" path="email" cssClass="form-control" id="email" required="true"/>
+                                    <springform:input type="email" path="email" cssClass="form-control" id="email" required="true" placeholder="johnsmith@gmail.com"/>
                             <div class="invalid-feedback">Email formatting required</div>
                         </div>
                         <div class="form-group">
                             <label for="firstUserPass">Password<small class="text-muted"> (required) <br><div class="rederror font-italic">${passerror}</div></small></label>
                                     <springform:password autocomplete="off" path="password" cssClass="form-control" id="firstUserPass" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required="true"/>
-                            <div class="invalid-feedback">Minimum eight characters, at least one letter and one number.</div>
+                            <div class="invalid-feedback">Minimum eight characters, Latin, at least a letter and a number.</div>
                         </div>
                         <div class="form-group">
                             <label for="repeatpassword">Reenter Password<small class="text-muted"> (required)</small></label>
@@ -84,7 +84,7 @@
                         <div class="form-group">
                             <label for="surname">Last Name<small class="text-muted"> (required)</small></label>
                             <springform:input path="surname" cssClass="form-control" id="surname" minlength="3" pattern="[A-Za-z]+" required="true"/>
-                            <div class="invalid-feedback">Use only alphabetic and at least 2 characters.</div>
+                            <div class="invalid-feedback">Use only Latin, alphabetic and at least 2 characters.</div>
                         </div> 
                         <div class="form-group">
                             <label for="nationality">Preferred Language</label>

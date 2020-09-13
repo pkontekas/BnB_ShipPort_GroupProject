@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * @author pkontekas
  */
-public class UtilDao {
+public class DateHandlerDao {
 
     public Date stringToDate(String a) {
         Date date = new Date();

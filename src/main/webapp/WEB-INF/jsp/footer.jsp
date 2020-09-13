@@ -48,28 +48,29 @@
     </head>
 
     <body>
-        <footer class="foot footer">
-            <div class="container">
-                <span>
-                    <div class="footerinfo">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h4>BoatBnB</h4>
-                                <li><a class="footerinfo" href="/aboutus">About</a></li>
-                                <li><a class="footerinfo" href="/contactus">Contact Us</a></li>
-                                <li><a class="footerinfo" href="/chatpage">Join the Discussion</a></li>
-                            </div>
-                            <div class="col-sm-4">
-                                <h4>Information</h4>
-                                <li><a class="footerinfo" href="/preregisterboat">Register Your Boat</a></li>
-                                <li><a class="footerinfo" href="/showallboats/all">All boats</a></li>
-                                <li><a class="footerinfo" href="/reviews">Reviews&nbsp; <span class="fa fa-star footerchecked"></span></a></li>
-                            </div>
-                            <div class="col-sm-4">
-                                <h4>Do you need help?</h4>
-                                <p><a class="footerinfo" href="/#"><i class="material-icons">&#xe0be;</i><br>
-                                        info@BoatBnB.com</a>
-                                </p>
+            <footer class="foot footer">
+                <div class="container">
+                    <span>
+                        <div class="footerinfo">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h4>BoatBnB</h4>
+                                    <li><a class="footerinfo" href="/aboutus">About</a></li>
+                                    <li><a class="footerinfo" href="/contactus">Contact Us</a></li>
+                                    <li><a class="footerinfo" href="/chatpage">Join the Discussion</a></li>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h4>Information</h4>
+                                    <li><a class="footerinfo" href="/preregisterboat">Register Your Boat</a></li>
+                                    <li><a class="footerinfo" href="/showallboats/all">Boats</a></li>
+                                    <li><a class="footerinfo" href="/reviews">Reviews&nbsp; <span class="fa fa-star footerchecked"></span></a></li>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h4>Do you need help?</h4>
+                                    <p><a class="footerinfo" href="/#"><i class="material-icons">&#xe0be;</i><br>
+                                            info@BoatBnB.com</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
