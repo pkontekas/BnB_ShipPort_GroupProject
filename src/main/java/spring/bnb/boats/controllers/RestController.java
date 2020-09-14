@@ -1,6 +1,7 @@
 package spring.bnb.boats.controllers;
 
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -116,11 +117,11 @@ public class RestController {
             Review review = null;
             for (Booking booking : bookings) {
                 review = booking.getReviewsId();
-                if(review != null){
+                if (review != null) {
                     starsSum = starsSum + review.getStars();
                 }
             }
-            if(review != null){
+            if (review != null) {
                 boatDto.setStarsAvg(starsSum / bookings.size());
             }
             //image encoding follows in base64
@@ -133,23 +134,28 @@ public class RestController {
     }
 
     @ResponseBody
+    //for Ajax call javascript method to check booking availability in boatinfo.js
     @GetMapping("/api/availability/{boatid}/{startDate}/{endDate}")
     public String checkBookingAvailabilityViaDatesJson(@PathVariable("boatid") int boatid,
-            @PathVariable("startDate") String startDate, 
+            @PathVariable("startDate") String startDate,
             @PathVariable("endDate") String endDate) {
-        
+
         DateHandlerDao udao = new DateHandlerDao();
-        Date sDate = udao.stringToDate(startDate);
-        Date eDate = udao.stringToDate(endDate);
-        
+        Date sDate = new Date();
+        Date eDate = new Date();
+        try {
+            sDate = udao.stringToDate(startDate);
+            eDate = udao.stringToDate(endDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
         Integer overlapCount = bookService.getCountFromOverlappingBookingDatesNative(boatid, sDate, eDate);
-        System.out.println(overlapCount);
         if (overlapCount > 0) {
             //we have unavailability on these dates
             return "false";
         } else {//all is ok
             return "true";
-        } 
+        }
     }
-
 }

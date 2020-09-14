@@ -164,7 +164,7 @@
 
         <div class="titlePage">
             <h1> ${boatdetails.boatType} ${boatdetails.manufacturer} ${boatdetails.model} in ${boatdetails.portsId.city}, ${boatdetails.portsId.portName}</h1>
-
+            <div class="text-center font-italic" style="color:red">${bookingissue}</div>
             <div class="star">
                 <span id="starstop"></span>
             </div>
@@ -389,23 +389,26 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="startCheckDate">Check-in</label>
-                                    <input type="date" id="bookStart" name="startCheckDate" class="form-control" required>
+                                    <input type="date" id="bookStart" name="startCheckDate" class="form-control" required onchange="onChangeCheckin()">
                                     <div class="invalid-feedback">Enter a valid Date.</div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="endDate">Check-out</label>
-                                    <input name="endCheckDate" id="bookEnd" type="date" class="form-control" required>
+                                    <input name="endCheckDate" id="bookEnd" type="date" class="form-control" required onchange="onChangeCheckout()">
                                     <div class="invalid-feedback">Enter a valid Date.</div>
                                 </div>
                             </div>
-                            <div id="bookingErrorMessage" class="form-row">
+                            <div id="bookingErrorMessage" style="color:red" class="text-center">
                             </div>      
                             <input hidden id="thisBoat" name="thisBoat" type="number" value="${boatdetails.id}" class="form-control" required>
-                            <input hidden name="myprice" type="number" value="${boatdetails.currentPrice}" class="form-control" required>
                             <div class="form-row">
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-6">
                                     <label for="numPassenger">Passengers</label>
                                     <input type="number" name="passengers" min="1" max="30" class="form-control" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="myprice">Total Cost (Euros)</label>
+                                    <input readonly id="totalCost" name="myprice" type="number" value="5" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -443,10 +446,10 @@
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
         <script src="/js/validations.js"></script>
-        <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
-                                    // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
         <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
-        <script src="/js/paypal.js"></script>
+        <script>
+                                        var pricePerDay = '${boatdetails.currentPrice}';
+        </script>
         <script src="/js/boatinfo.js"></script>
     </body>
 </html>

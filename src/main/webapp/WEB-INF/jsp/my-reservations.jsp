@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>JSP Page</title>
         <style>
-               html, body {
+            html, body {
                 height: 100%;
             }
             .wrapper {
@@ -21,7 +21,7 @@
                 margin-bottom: -269px;
                 padding-bottom: 269px;
             }
-            
+
             table {
                 width: 100%;
                 border-collapse: collapse;
@@ -94,7 +94,7 @@
                 td:nth-of-type(7):before {
                     content: "PayPal";
                 }
-                  td:nth-of-type(8):before {
+                td:nth-of-type(8):before {
                     content: "Add review";
                 }
             }
@@ -107,61 +107,56 @@
             .reservationPage{
                 height: 65%;
             }
-            /*            .toolTip {
-                            color: black;
-                            background-color: lightgreen;
-                            border: 1px solid;
-                            border-radius: 10px;
-                            width:245px;
-                        }*/
         </style>
-
     </head>
     <body>
         <div class="wrapper">
-        <jsp:include page="navbar.jsp"/>
 
-        <div class="reservationPage container">
-            <div class="bookingTitle">
-                <h1>${rentername} ${rentersurname}'s Reservations</h1>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Booking ID</th>
-                                <th>Boat Type/Model</th>
-                                <th>Port</th>
-                                <th>Check In</th>
-                                <th>Check Out</th>
-                                <th>Final Price</th>
-                                <th class="toolTip" title="The owner offers either Payment through Paypal or Cash up to 5 days before check-in.">Optional Payment*</th>
-                                 <th>Add Review</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${mybookings}" var="b">
+            <jsp:include page="navbar.jsp"/>
+
+            <div class="reservationPage container">
+                <div class="bookingTitle">
+                    <h1>${rentername} ${rentersurname}'s Reservations</h1>
+                </div>
+                <div class="text-center font-italic" style="color:green">${rateMessage}</div>
+                <div class="card">
+                    <div class="card-body">
+                        <table>
+                            <thead>
                                 <tr>
-                                    <td>${b.id}</td>
-                                    <td>${b.boatsId.boatType}/${b.boatsId.model}</td>
-                                    <td>${b.boatsId.portsId.portName}</td>
-                                    <td>${b.startDate}</td>
-                                    <td>${b.endDate}</td>
-                                    <td>${b.finalPrice}</td>
-                                    <td>
-                                        <div data-prices="${b.finalPrice}" value="${b.finalPrice}" class="paypal-button-container" id="order${b.id}" style="width: 75%; display: block; margin: 0 auto;">
-                                        </div>
-                                    </td>
-                                    <td><a href="/rate"> <button type="button" class="btn btn-info btn-sm" >Rate me</button></a></td>
+                                    <th>Booking ID</th>
+                                    <th>Boat Type/Model</th>
+                                    <th>Port</th>
+                                    <th>Check In</th>
+                                    <th>Check Out</th>
+                                    <th>Final Price</th>
+                                    <th class="toolTip" title="The owner offers either Payment through Paypal or Cash up to 5 days before check-in.">Optional Payment*</th>
+                                    <th>Add Review</th>
                                 </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${mybookings}" var="b">
+                                    <tr>
+                                        <td>${b.id}</td>
+                                        <td>${b.boatsId.boatType}/${b.boatsId.model}</td>
+                                        <td>${b.boatsId.portsId.portName}</td>
+                                        <td>${b.startDate}</td>
+                                        <td>${b.endDate}</td>
+                                        <td>${b.finalPrice}</td>
+                                        <td>
+                                            <div data-prices="${b.finalPrice}" value="${b.finalPrice}" class="paypal-button-container" id="order${b.id}" style="display: block; margin: 0 auto;">
+                                            </div>
+                                        </td>
+                                        <td><a href="/myreservations/rate/${b.id}/"><button type="submit" class="btn btn-info btn-sm">Rate me</button></a></td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-</div>
+                
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

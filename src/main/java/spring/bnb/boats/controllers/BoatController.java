@@ -95,32 +95,13 @@ public class BoatController {
             @PathVariable(value = "boatTypeOrPort") String bptype) {
 
         session.setAttribute("filterselected", bptype);
-
-        //create a map to store boat ids as keys and base64 encoded images
-        //from boats as values to later have them in our page
-//        Map<Integer, String> boatPhotosEncoded = new HashMap<>();
-//        byte[] imageBeforeEncoding;
-//        String base64EncodedImage;
-//        //looping through the boats
-//        for (int i = 0; i < boats.size(); i++) {
-//            imageBeforeEncoding = Base64.encodeBase64(bbService.findDefaultBoatphotoByBoatsIdNative(boats.get(i).getId()).getPhoto());
-//            try {
-//                base64EncodedImage = new String(imageBeforeEncoding, "UTF-8");
-//                boatPhotosEncoded.put(boats.get(i).getId(), base64EncodedImage);
-//            } catch (UnsupportedEncodingException ex) {
-//                //TO DO to fix this: If image does not exist we get an exception and we are thrown into error page
-//                ex.printStackTrace();
-//                mm.addAttribute("kindoferror", ex.getMessage());
-//            }
-//        }
-//        //puts whole image boatId-image map in a mm attribute to send it to all-boats in encoded form
-//        mm.addAttribute("boatImagesMap", boatPhotosEncoded);
         return "json-all-boats";
     }
 
     @GetMapping("/showboatinfo") // TODO make it POST instead of GET -> error 405 method not allowed
     public String showBoatInfo(ModelMap mm,
-            @RequestParam(name = "boatId") int id) {
+            @RequestParam(name = "boatId") int id,
+            @ModelAttribute("bookingissue") String bookMessage) {
 
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
@@ -141,7 +122,7 @@ public class BoatController {
         imageBeforeEncoding = Base64.encodeBase64(accountService.getAccountByBoatIdNative(boat.getId()).getProfilePic());
         mm = imgDao.encodeImageToBase64AndPutToMm(imageBeforeEncoding, mm, "ownerimage");
 
+        mm.addAttribute("bookingissue", bookMessage);
         return "boat-info";
     }
-
 }

@@ -9,9 +9,13 @@ import spring.bnb.boats.models.Booking;
  */
 public interface BookingService {
     
-        public Booking insertBooking(Booking booking);
+        Booking insertBooking(Booking booking);
+        
+        Booking updateBooking(Booking booking);
         
         List<Booking> findBookingsByAccountsId(int id);
         
-        public Integer getCountFromOverlappingBookingDatesNative(int boatid, Date startDate, Date endDate);
+        Integer getCountFromOverlappingBookingDatesNative(int boatid, Date startDate, Date endDate);
+        
+        Booking findBookingById(int id);
 }
