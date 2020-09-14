@@ -7,8 +7,17 @@
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>Access Denied</title>
         <style>
+                html, body {
+                height: 100%;
+            }
+            .wrapper {
+                min-height: 100%;
+                margin-bottom: -269px;
+                padding-bottom: 269px;
+            }
             .fontClass
             {
+                padding-top: 150px;
                 font-style: italic;
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 font-weight: 600;
@@ -16,7 +25,7 @@
         </style>
     </head>
     <body>
-
+        <div class="wrapper">
         <jsp:include page="navbar.jsp"/>
 
         <div class="fontClass text-center">
@@ -25,7 +34,7 @@
             </h3>
             <a href="${pageContext.request.contextPath}/">Go to Main Page</a>
         </div>
-
+</div>
         <jsp:include page="footer.jsp"/>
 
         <script>

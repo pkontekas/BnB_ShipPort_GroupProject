@@ -198,7 +198,7 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                    <h5 class="titleImage text-center">${boatdetails.portsId.portName} Port</h5>
+                    <h5 class="titleImage text-center">${boatdetails.portsId.portName}</h5>
                     <img alt="portimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${portimage}"/>
 
 
@@ -384,9 +384,8 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="bookingForm modal-body">
-<!--                        <form class="main-form needs-validation" novalidate="true" action="${pageContext.request.contextPath}/booking" method="POST">-->
-                        <form id="bookForm" class="main-form needs-validation" novalidate="true" action="${pageContext.request.contextPath}/booking" method="POST">    
+                    <div class="bookingForm modal-body">                       
+                        <form id="bookForm" class="main-form needs-validation" novalidate="true" action="${pageContext.request.contextPath}/booking" method="POST">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="startCheckDate">Check-in</label>
@@ -411,7 +410,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="">Anything else you would like to tell me?</label>
+                                    <label for="">Anything else you would like to tell the Owner?</label>
                                     <textarea id="ownerNotes" name="ownerNotes" rows="4" cols="55"></textarea>
                                 </div>
                             </div>

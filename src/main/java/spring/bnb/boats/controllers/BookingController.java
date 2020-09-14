@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spring.bnb.boats.dao.DateHandlerDao;
 import spring.bnb.boats.models.Account;
 import spring.bnb.boats.models.Booking;
@@ -35,7 +36,8 @@ public class BookingController {
             @RequestParam(name = "ownerNotes") String notes,
             @RequestParam(name = "thisBoat") int thisboatId,
             @RequestParam(name = "myprice") double myprice,
-            Principal principal) {
+            Principal principal,
+            RedirectAttributes redirectAttributes) {
 
         Account renter = accountService.getAccountByEmail(principal.getName());
         Booking book = new Booking();
@@ -43,6 +45,13 @@ public class BookingController {
         DateHandlerDao udao = new DateHandlerDao();
         Date checkin = udao.stringToDate(checkinDate);
         Date checkout = udao.stringToDate(checkoutDate);
+
+        if (checkin.compareTo(checkout) >= 0) {
+            System.out.println("Checkin occurs at or after checkout");
+            redirectAttributes.addAttribute("bookingissue", "Checkout should always happen after Check in not before!");
+            
+            return "redirect:/myreservations";
+        }
 
         book.setStartDate(checkin);
         book.setEndDate(checkout);
@@ -62,7 +71,7 @@ public class BookingController {
     @GetMapping("/myreservations")//TO DO must make it a POST Request somehow
     public String myReservations(ModelMap mm,
             Principal principal) {
-        
+
         Account renter = accountService.getAccountByEmail(principal.getName());
         List<Booking> books = bookService.findBookingsByAccountsId(renter.getId());
         mm.addAttribute("mybookings", books);
