@@ -16,11 +16,6 @@ public class StaticPageController {
         return "about";
     }
 
-    @RequestMapping("/statistics")
-    public String showStatistics() {
-        return "statistics";
-    }
-
     @RequestMapping("/reviews")
     public String showReviewWall() {
         return "reviews";
