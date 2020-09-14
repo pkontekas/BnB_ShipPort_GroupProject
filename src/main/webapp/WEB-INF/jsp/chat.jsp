@@ -15,14 +15,14 @@
         <link rel="stylesheet" href="/css/chat.css"/>
         <title>JSP Page</title>
         <style>
-               html, body {
+            html, body {
                 height: 100%;
             }
-            .wrapper {
+/*            .wrapper {
                 min-height: 100%;
                 margin-bottom: -269px;
                 padding-bottom: 269px;
-            }
+            }*/
             #username-page{
                 padding-top: 60px;
             }
@@ -32,53 +32,53 @@
         </style>
     </head>
     <body>
-        <div class="wrapper">
-        <jsp:include page="navbar.jsp"/>
-        
-        <security:authorize access="isAuthenticated()">
-            <div id="username-page">
-                <div class="username-page-container">
-                    <h1 class="title">Logged in as</h1>
-                    <form id="usernameForm" name="usernameForm">
-                        <div class="form-group">
-                            <security:authorize access="isAuthenticated()">
+<!--        <div class="wrapper">-->
+            <jsp:include page="navbar.jsp"/>
 
-                                <input type="text" id="chat-username" value=${username}
-                                       autocomplete="off" class="form-control" disabled="true" />
-                            </security:authorize>
-                        </div>
+            <security:authorize access="isAuthenticated()">
+                <div id="username-page">
+                    <div class="username-page-container">
+                        <h1 class="title">Logged in as</h1>
+                        <form id="usernameForm" name="usernameForm">
+                            <div class="form-group">
+                                <security:authorize access="isAuthenticated()">
+
+                                    <input type="text" id="chat-username" value=${username}
+                                           autocomplete="off" class="form-control" disabled="true" />
+                                </security:authorize>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="accent username-submit">Start Chatting</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </security:authorize>
+
+            <div id="chat-page" class="hidden">
+                <div class="chat-container">
+                    <div style="background-color:lightblue" class="chat-header">
+                        <h2>Join the Current <br> Discussion in BoatBNB!</h2>
+
+                    </div>
+                    <div class="connecting">
+                        Connecting...
+                    </div>
+                    <ul id="messageArea">
+                    </ul>
+                    <form id="messageForm" name="messageForm" nameForm="messageForm">
                         <div class="form-group">
-                            <button type="submit" class="accent username-submit">Start Chatting</button>
+                            <div class="input-group clearfix">
+                                <input type="text" id="user-message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                                <button type="submit" class="primary">Send</button>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
-        </security:authorize>
-
-        <div id="chat-page" class="hidden">
-            <div class="chat-container">
-                <div class="chat-header">
-                    <h2>Join the Current <br> Discussion in BoatBNB!</h2>
-                    
-                </div>
-                <div class="connecting">
-                    Connecting...
-                </div>
-                <ul id="messageArea">
-                </ul>
-                <form id="messageForm" name="messageForm" nameForm="messageForm">
-                    <div class="form-group">
-                        <div class="input-group clearfix">
-                            <input type="text" id="user-message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
-                            <button type="submit" class="primary">Send</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        </div>
+<!--        </div>-->
         <jsp:include page="footer.jsp"/>
-        
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
