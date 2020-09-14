@@ -174,7 +174,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 text-center">
                     <h5 class="titleImage">Time to sail!</h5>
-                    <img alt="boatimage" class="card-img"  style="height: 320px;" src="data:image/jpeg;base64,${boatimage}"/>
+                    <img alt="boatimage" class="card-img"  style="height: 480px" src="data:image/jpeg;base64,${boatimage}"/>
 
                     <div class="iconBoat">
                         <small class="text-muted"><i class="fa fa-users fa-3x"><br><p style="font-size:small">${boatdetails.passengerCapacity}<br>Persons </p> </i>  </small> &nbsp;
