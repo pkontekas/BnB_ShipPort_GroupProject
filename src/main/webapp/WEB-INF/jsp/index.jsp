@@ -262,14 +262,13 @@
     crossorigin="anonymous"></script>
     <script>
                     function searchFormSubmit() {
-                        const sform = document.getElementById('searchForm');
+                        //const sform = document.getElementById('searchForm');
                         event.preventDefault();
                         const portDestination = document.getElementById('destPort').value;
                         const boatType = document.getElementById('desttypeBoat').value;
                         const urlString = "/showallboats/" + portDestination + "/" + boatType;
                         window.location.replace(urlString);
-                    }
-                    ;
+                    };
     </script>
 </body>
 </html>

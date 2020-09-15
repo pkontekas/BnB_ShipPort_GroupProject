@@ -25,9 +25,14 @@ public class RateController {
 
     @GetMapping("/myreservations/rate/{bookid}/")
     public String showRateForm(@PathVariable("bookid") int bookId,
-            ModelMap mm) {
+            ModelMap mm,
+            RedirectAttributes redirectAttributes) {
 
-        //bookService.findBookingById(bookId);
+        int reviewCount = reviewService.getReviewCountByBookingId(bookId);
+        if (reviewCount == 1) {
+            redirectAttributes.addAttribute("rateMessage", "You already gave feedback for this Booking!");
+            return "redirect:/myreservations";
+        }
         mm.addAttribute("newreview", new Review());
         mm.addAttribute("bookid", bookId);
         return "rate";
@@ -41,12 +46,6 @@ public class RateController {
             RedirectAttributes redirectAttributes) {
 
         Booking thisBooking = bookService.findBookingById(bookingId);
-
-//        if (thisBooking.getReviewsId().getId() != null) {
-//            redirectAttributes.addAttribute("rateMessage", "You already have a review on this Booking!");
-//            return "redirect:/myreservations/rate/{bookid}/";
-//        }
-
         Review newreview = reviewService.insertReview(review);
 
         thisBooking.setReviewsId(newreview);

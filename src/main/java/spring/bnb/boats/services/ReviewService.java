@@ -8,4 +8,6 @@ public interface ReviewService {
     public List<Review> getAllReviewsPerBoat(int boatid);
     
     public Review insertReview(Review review);
+    
+    public Integer getReviewCountByBookingId(int bookid);
 }

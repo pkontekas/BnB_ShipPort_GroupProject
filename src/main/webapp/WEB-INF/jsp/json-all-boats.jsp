@@ -136,7 +136,7 @@
         <jsp:include page="navbar.jsp"/>
 
         <div class="pTitle">
-            <h1>Rental boats</h1>
+            <h1>Rental Boats</h1>
         </div>
 
         <div class="searchForm row container-fluid">

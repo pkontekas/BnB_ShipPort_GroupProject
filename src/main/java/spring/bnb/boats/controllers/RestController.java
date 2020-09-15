@@ -75,14 +75,15 @@ public class RestController {
         return boatPhotosEncoded;
     }
 
-    @ResponseBody
-    @GetMapping("/api/boatimage/{boatid}")
-    public String showBoatImageURL(int boatid) {
-
-        ImageHandlerDao imgDao = new ImageHandlerDao();
-        byte[] imageBeforeEncoding = Base64.encodeBase64(bpService.findDefaultBoatphotoByBoatsIdNative(boatid).getPhoto());
-        return imgDao.encodeImageToBase64(imageBeforeEncoding);
-    }
+    //will be used in future refactoring
+//    @ResponseBody
+//    @GetMapping("/api/boatimage/{boatid}")
+//    public String showBoatImageURL(int boatid) {
+//
+//        ImageHandlerDao imgDao = new ImageHandlerDao();
+//        byte[] imageBeforeEncoding = Base64.encodeBase64(bpService.findDefaultBoatphotoByBoatsIdNative(boatid).getPhoto());
+//        return imgDao.encodeImageToBase64(imageBeforeEncoding);
+//    }
 
     @ResponseBody
     @GetMapping("/api/allboatdtos")
