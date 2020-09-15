@@ -118,7 +118,7 @@
                 <div class="bookingTitle">
                     <h1>${rentername} ${rentersurname}'s Reservations</h1>
                 </div>
-                <div class="text-center font-italic" style="color:green">${rateMessage}</div>
+                <div class="text-center font-italic font-weight-bold" style="color:green">${rateMessage}</div>
                 <div class="card">
                     <div class="card-body">
                         <table>
