@@ -32,11 +32,10 @@
         </style>
     </head>
     <body>
-        <div class="wrapper">
             <jsp:include page="navbar.jsp"/>
 
             <security:authorize access="isAuthenticated()">
-                <div id="username-page">
+                <div id="username-page" class="wrapper">
                     <div class="username-page-container">
                         <h1 class="title">Logged in as</h1>
                         <form id="usernameForm" name="usernameForm">
@@ -76,7 +75,6 @@
                     </form>
                 </div>
             </div>
-        </div>
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
