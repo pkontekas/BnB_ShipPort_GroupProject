@@ -27,7 +27,6 @@
                 border-radius: 10px;
                 text-align: justify;
             }
-
             .reviewStar{
                 color: gold;
                 padding-bottom: 15px;
@@ -35,16 +34,15 @@
             .reviewPageTitle{
                 text-align: center;
                 padding-top: 20px;
-                
+
             }
         </style>
-
     </head>
     <body style="background-color:whitesmoke;">
         <jsp:include page="navbar.jsp"/>
         <div class="container" style="padding-bottom: 30px;">
             <h1 class="reviewPageTitle">
-                Reviews wall
+                Reviews Wall
             </h1>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -227,8 +225,7 @@
 
             </div>
         </div>
-        
-        
+
         <jsp:include page="footer.jsp"/>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -239,7 +236,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-
 
     </body>
 </html>
