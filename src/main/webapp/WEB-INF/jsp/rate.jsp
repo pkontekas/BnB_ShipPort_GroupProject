@@ -55,41 +55,41 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">
-                            <label for="stars">Stars (1 to 5)</label>
+                            <label for="stars">Stars (1 to 5)<small class="text-muted"> (required)</small></label>
                             <springform:input type="number" value="" cssClass="form-control" min="1" max="5" path="stars" required="true"/>
                         </div>
                         <input hidden name="bid" value="${bookid}" required>
                         <div class="form-group">
-                            <label for="generalMaintenance">General Maintenance</label>
+                            <label for="generalMaintenance">General Maintenance<small class="text-muted"> (required)</small></label>
                             <springform:input type="number" cssClass="form-control" min="1" max="10" path="generalMaintenance" required="true"/>
                         </div>
                         <div class="form-group">
-                            <label for="cleanliness">Cleanliness</label>
+                            <label for="cleanliness">Cleanliness<small class="text-muted"> (required)</small></label>
                             <springform:input type="number" cssClass="form-control" min="1" max="10" path="cleanliness" required="true"/>
                         </div>
                         <div class="form-group">
-                            <label for="comfort">Comfort</label>
+                            <label for="comfort">Comfort<small class="text-muted"> (required)</small></label>
                             <springform:input type="number" cssClass="form-control" min="1" max="10" path="comfort" required="true"/>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">
-                            <label for="harbour">Harbour (Rate the Port)</label>
+                            <label for="harbour">Harbour (Rate the Port)<small class="text-muted"> (required)</small></label>
                             <springform:input type="number" cssClass="form-control" min="1" max="10" path="harbour" required="true"/>
                         </div>
                         <div class="form-group">
-                            <label for="hospitality">Hospitality</label>
+                            <label for="hospitality">Hospitality<small class="text-muted"> (required)</small></label>
                             <springform:input type="number" cssClass="form-control" min="1" max="10" path="hospitality" required="true"/>
                         </div>
                         <div class="form-group">
-                            <label for="valueForMoney">Value for Money</label>
+                            <label for="valueForMoney">Value for Money<small class="text-muted"> (required)</small></label>
                             <springform:input type="number" cssClass="form-control" min="1" max="10" path="valueForMoney" required="true"/>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <label>Care to put your opinion into words?</label>
+                        <label>Care to put your opinion into words?<small class="text-muted"> (optional)</small></label>
                         <springform:textarea path="comment" rows="5" cols="65"/>
                     </div>
                 </div>
