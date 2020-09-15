@@ -16,21 +16,33 @@
         <title>Boat Photo Upload</title>
 
         <style>
+              html, body {
+                height: 100%;
+            }
+            .wrapper {
+                min-height: 100%;
+                margin-bottom: -269px;
+                padding-bottom: 269px;
+            }
             .fontClass
             {
                 font-style: italic;
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 font-weight: 600;
             }
+            uploadTitle{
+                padding-top: 20px;
+                padding-bottom: 30px;
+            }
         </style>
 
     </head>
     <body>
-
+        <div class="wrapper">
         <jsp:include page="navbar.jsp"/>
 
         <div class="fontClass text-center justify-content-center">
-            <h1>Upload Boat photo</h1>
+            <h1 class="uploadTitle">Upload Boat photo</h1>
             <springform:form id="imageForm" enctype="multipart/form-data" action="/uploadphotoboat" method="POST">
                 <label for ="photoboat">Upload a photo for your boat:<small class="text-muted"> (required)</small><label>
                         <input id="fileChooser" type="file" name="photoboat" accept="image/*" onchange="return ValidateFileUploadIsPic()" required>
@@ -41,7 +53,7 @@
                         <input hidden type="number" name="boatid" value="${myboat.id}">
                     </springform:form>
                     </div>
-
+</div>
                     <jsp:include page="footer.jsp"/>
 
                     <script>

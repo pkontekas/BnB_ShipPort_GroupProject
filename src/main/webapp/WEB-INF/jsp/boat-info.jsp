@@ -230,25 +230,27 @@
                         <div class="content">
                             <div class="row">
                                 <div class="col-6">
-                                    <ul>Mandatory extras</ul>
+                                    <ul style="font-weight:700;">Mandatory extras</ul>
                                     <li>Docking fee when boarding : $12 per person per day</li><br>
-                                    <ul>Other conditions</ul>
+                                    <ul style="font-weight:700;">Other conditions</ul>
                                     <li>Second payment is due one month before charter</li>
                                     <li>If the charter is not possible because of severe weather conditions </li>
                                     <li>  you will be offered an alternative day. If no other date can be found,</li>
                                     <li> you will get a full refund.</li>
                                 </div>
                                 <div class="col-6">
-                                    <ul>Timetable</ul>
+                                    <ul style="font-weight:700;">Timetable</ul>
                                     <li>For day charters check-in starts from 8:00 h.</li>
                                     <li>For day charters check-out is until 13:00 h.</li><br>   
-                                    <ul>Base port</ul>
+                                    <ul style="font-weight:700;">Base port</ul>
                                     <li>The Mooring at the base port is included</li>
                                     <li>The boat must return to the home port every night</li>
                                     <li>There is no overnight stay on board the boat</li><br>
 
                                 </div>
+                                <div style="padding-left:35px;">
                                 All prices include tax. 
+                                </div>
                             </div>
                         </div>
 

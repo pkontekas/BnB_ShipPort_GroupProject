@@ -106,14 +106,7 @@
             }
             .reservationPage{
                 height: 65%;
-            }
-            /*            .toolTip {
-                            color: black;
-                            background-color: lightgreen;
-                            border: 1px solid;
-                            border-radius: 10px;
-                            width:245px;
-                        }*/
+        
         </style>
 
     </head>

@@ -120,6 +120,7 @@
                 display: flex;
                 justify-content: center;
                 background-color: whitesmoke;
+                padding-bottom: 30px;
 
             }
             .firstCol {
