@@ -34,16 +34,15 @@
             .reviewPageTitle{
                 text-align: center;
                 padding-top: 20px;
-
             }
         </style>
     </head>
     <body style="background-color:whitesmoke;">
+        
         <jsp:include page="navbar.jsp"/>
+        
         <div class="container" style="padding-bottom: 30px;">
-            <h1 class="reviewPageTitle">
-                Reviews Wall
-            </h1>
+            <h1 class="reviewPageTitle">Reviews Wall</h1>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="bookingMessage">
@@ -95,20 +94,8 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                         </div>
-                        <p>Visiting all the little towns was most enjoyable. Relaxing on the bow of the boat was also
-                            one of my favorite things .</p>
-                    </div>
-                    <div class="bookingMessage">
-                        <h2>Theodor</h2>
-                        <div class="reviewStar">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                        </div>
-                        <p>Visiting all the little towns was most enjoyable. Relaxing on the bow of the boat was also
-                            one of my favorite things .</p>
+                        <p>Best host tooks us to all the best spots and had a plan for how to use the time effectively.
+                            Guided us on safe practices on the whole trip and made sure we were well supplied before going. 10/10 would recommend.</p>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -121,11 +108,10 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                         </div>
-                        <p>Visiting all the little towns was most enjoyable. Relaxing on the bow of the boat was also
-                            one of my favorite things .</p>
+                        <p>The beaches are tranquil and pristine. The people are also very friendly. There were a lot of beaches untouched and the weather was good.</p>
                     </div>
                     <div class="bookingMessage">
-                        <h2>Gerasimos</h2>
+                        <h2>Sakira</h2>
                         <div class="reviewStar">
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -133,10 +119,7 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                         </div>
-                        <p>We went by boat to have lunch in Juan y Andrea. It’s a nice beach in formentera
-                            (you can have lunch there). The place looks very casual but apparently it’s the best
-                            place to have lunch by the beach in Formentera. After trying it, I can truly say that it
-                            was an amazing lunch experience, on the expensive side a bit but mouth-watering food. </p>
+                        <p>Una semana de navegación por islas vírgenes españolas en febrero ‘20. Snorkel en Cayo Luis Peña e isla Culebrita fantástica. Bahía bioluminiscente-Vieques con luna nueva tiene que estar bien. </p>
                     </div>
                     <div class="bookingMessage">
                         <h2>Eva</h2>
@@ -159,12 +142,21 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                         </div>
-                        <p>We went by boat to have lunch in Juan y Andrea. It’s a nice beach in formentera
-                            (you can have lunch there). The place looks very casual but apparently it’s the best
-                            place to have lunch by the beach in Formentera. After trying it, I can truly say that it
-                            was an amazing lunch experience, on the expensive side a bit but mouth-watering food. </p>
+                        <p>Boat was excellent, beautiful sea! Very easy check-in and easy to operate.
+                            Mykonos is amazing!
+                        </p>
                     </div>
-
+                    <div class="bookingMessage">
+                        <h2>Theodor</h2>
+                        <div class="reviewStar">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>
+                        <p>Very cheap flights from the uk with an easy transfer from the airport. Lovely island to sail around and not to busy in October. Good food and free moorings wherever we went.</p>
+                    </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="bookingMessage">
@@ -176,7 +168,7 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                         </div>
-                        <p>We went by boat to have lunch in Juan y Andrea. It’s a nice beach in formentera
+                        <p>We went by boat to have lunch in Paros. It’s a nice beach in formentera
                             (you can have lunch there). The place looks very casual but apparently it’s the best
                             place to have lunch by the beach in Formentera. After trying it, I can truly say that it
                             was an amazing lunch experience, on the expensive side a bit but mouth-watering food. </p>
@@ -190,10 +182,7 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                         </div>
-                        <p>Definitely rent a boat to do the island beaches. It is very difficult to drive on the island
-                            and taxi’s are not easy to come by unless your hotel sets them up. Boats can take you to private
-                            remote beaches where you don’t have 2,000 chairs piled together and music booming in the
-                            background!</p>
+                        <p>Very cheap flights from the uk with an easy transfer from the airport. Lovely island to sail around and not to busy in October. Good food and free moorings wherever we went.</p>
                     </div>
                     <div class="bookingMessage">
                         <h2>Orfeas</h2>
@@ -204,8 +193,7 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                         </div>
-                        <p>Visiting all the little towns was most enjoyable. Relaxing on the bow of the boat was also
-                            one of my favorite things .</p>
+                        <p>Nice beaches and beautiful clear waters. Had really good lunch at Lopud island. The boat was in very good condition and drinks included.</p>
                     </div>
                     <div class="bookingMessage">
                         <h2 >Andreas</h2>
@@ -222,11 +210,11 @@
                             background!</p>
                     </div>
                 </div>
-
             </div>
         </div>
 
         <jsp:include page="footer.jsp"/>
+        
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
