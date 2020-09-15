@@ -9,17 +9,10 @@ import java.util.Date;
  */
 public class DateHandlerDao {
 
-    public Date stringToDate(String a) {
+    public Date stringToDate(String a) throws ParseException {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-
-        try {
-            date = formatter.parse(a);
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
+        date = formatter.parse(a);
         return date;
     }
 

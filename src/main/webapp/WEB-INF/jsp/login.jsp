@@ -58,39 +58,40 @@
     <body>
         <div class="loginBodyPage">
             <div class="wrapper">
-            <jsp:include page="navbar.jsp"/>
+                
+                <jsp:include page="navbar.jsp"/>
 
-
-            <div class="text-center" style="color: green">
-                Dear Visitor, <br>you will have to login to access more features!
-            </div>
-            <div class="container">
-                <div class="titleLogin">
-                    <h1>Login Form</h1>
+                <div class="text-center" style="color: green">
+                    Dear Visitor, <br>you will have to login to access more features!
                 </div>
-            <div class="loginForm row">
-                <div class="col-xs-11 col-sm-9 col-md-7 col-lg-6">
-                    <springform:form method="POST" action="${pageContext.request.contextPath}/performlogin" cssClass="main-form needs-validation" novalidate="true">
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" name="email" autocomplete="on" class="form-control" required
-                                   aria-describedby="emailHelp" placeholder="johnsmith@gmail.com">
-                            <div class="invalid-feedback">Email format is invalid.</div>
-                            <small id="emailHelp" class="form-text text-muted mt-3">We'll never share your email with anyone
-                                else.</small>
+                <div class="container">
+                    <div class="titleLogin">
+                        <h1>Login Form</h1>
+                    </div>
+                    <div class="loginForm row">
+                        <div class="col-xs-11 col-sm-9 col-md-7 col-lg-6">
+                            <springform:form id="loginjsp" method="POST" action="${pageContext.request.contextPath}/performlogin" cssClass="main-form needs-validation" novalidate="true">
+                                <div class="form-group">
+                                    <label for="email">Email address</label>
+                                    <input type="email" name="email" autocomplete="on" class="form-control" required
+                                           aria-describedby="emailHelp" placeholder="johnsmith@gmail.com">
+                                    <div class="invalid-feedback">Email format is invalid.</div>
+                                    <small id="emailHelp" class="form-text text-muted mt-3">We'll never share your email with anyone
+                                        else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" autocomplete="off" class="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                                    <div class="invalid-feedback">Minimum eight characters, Latin, at least a letter and a number.</div>
+                                </div>
+                                <button type="Submit" name="Submit" class="btn btn-primary">Sign in</button>
+                            </springform:form>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" autocomplete="off" class="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
-                            <div class="invalid-feedback">Minimum eight characters, Latin, at least a letter and a number.</div>
-                        </div>
-                        <button type="Submit" name="Submit" class="btn btn-primary">Sign in</button>
-                    </springform:form>
+                    </div>
                 </div>
             </div>
         </div>
-            </div>
-            </div>
+                
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -5,16 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <title>Rate page</title>
         <style>
             .ratePageTitle{
@@ -22,7 +22,7 @@
                 padding-top: 25px;
                 padding-bottom: 25px;
             }
-            .checked {
+            .checkedStar {
                 color: gold;
             }
             .rateForm{
@@ -39,145 +39,62 @@
     <body>
 
         <jsp:include page="navbar.jsp"/>
+
         <div class="ratePageTitle">
-            <h1>   Rating page</h1>
+            <h1>Rate your Experience on </h1>
             <div class="star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checkedStar"></span>
+                <span class="fa fa-star checkedStar"></span>
+                <span class="fa fa-star checkedStar"></span>
+                <span class="fa fa-star checkedStar"></span>
+                <span class="fa fa-star checkedStar"></span>
             </div>
         </div>
-
-
         <div class="rateForm container">
-
-
-            <form>
+            <springform:form cssClass="main-form needs-validation" novalidate="true" action="${pageContext.request.contextPath}/doratereview" method="POST" modelAttribute="newreview">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">
-                            <label class="form-group" for="">Stars</label>
-                            <select class="custom-select" id="">
-                                <option selected>Choose number of stars</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">four</option>
-                                <option value="5">Five</option>
-                            </select>
+                            <label for="stars">Stars (1 to 5)</label>
+                            <springform:input type="number" value="" cssClass="form-control" min="1" max="5" path="stars" required="true"/>
+                        </div>
+                        <input hidden name="bid" value="${bookid}" required>
+                        <div class="form-group">
+                            <label for="generalMaintenance">General Maintenance</label>
+                            <springform:input type="number" cssClass="form-control" min="1" max="10" path="generalMaintenance" required="true"/>
                         </div>
                         <div class="form-group">
-                            <label class="form-group" for="">General maintenance</label>
-                            <select class="custom-select" id="">
-                                <option selected>Choose number of stars</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">four</option>
-                                <option value="5">Five</option>
-                                <option value="6">Six</option>
-                                <option value="7">Seven</option>
-                                <option value="8">Eight</option>
-                                <option value="9">Nine</option>
-                                <option value="10">Ten</option>
-                            </select>
+                            <label for="cleanliness">Cleanliness</label>
+                            <springform:input type="number" cssClass="form-control" min="1" max="10" path="cleanliness" required="true"/>
                         </div>
                         <div class="form-group">
-                            <label class="form-group" for="">Cleanliness</label>
-                            <select class="custom-select" id="">
-                                <option selected>Choose number of stars</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">four</option>
-                                <option value="5">Five</option>
-                                <option value="6">Six</option>
-                                <option value="7">Seven</option>
-                                <option value="8">Eight</option>
-                                <option value="9">Nine</option>
-                                <option value="10">Ten</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-group" for="">Comfort</label>
-                            <select class="custom-select" id="">
-                                <option selected>Choose number of stars</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">four</option>
-                                <option value="5">Five</option>
-                                <option value="6">Six</option>
-                                <option value="7">Seven</option>
-                                <option value="8">Eight</option>
-                                <option value="9">Nine</option>
-                                <option value="10">Ten</option>
-                            </select>
+                            <label for="comfort">Comfort</label>
+                            <springform:input type="number" cssClass="form-control" min="1" max="10" path="comfort" required="true"/>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">
-                            <label class="form-group" for="">Harbour</label>
-                            <select class="custom-select" id="">
-                                <option selected>Choose number of stars</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">four</option>
-                                <option value="5">Five</option>
-                                <option value="6">Six</option>
-                                <option value="7">Seven</option>
-                                <option value="8">Eight</option>
-                                <option value="9">Nine</option>
-                                <option value="10">Ten</option>
-                            </select>
+                            <label for="harbour">Harbour (Rate the Port)</label>
+                            <springform:input type="number" cssClass="form-control" min="1" max="10" path="harbour" required="true"/>
                         </div>
                         <div class="form-group">
-                            <label class="form-group" for="">Hospitality</label>
-                            <select class="custom-select" id="">
-                                <option selected>Choose number of stars</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">four</option>
-                                <option value="5">Five</option>
-                                <option value="6">Six</option>
-                                <option value="7">Seven</option>
-                                <option value="8">Eight</option>
-                                <option value="9">Nine</option>
-                                <option value="10">Ten</option>
-                            </select>
+                            <label for="hospitality">Hospitality</label>
+                            <springform:input type="number" cssClass="form-control" min="1" max="10" path="hospitality" required="true"/>
                         </div>
                         <div class="form-group">
-                            <label class="form-group" for="">Value for money</label>
-                            <select class="custom-select" id="">
-                                <option selected>Choose number of stars</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">four</option>
-                                <option value="5">Five</option>
-                                <option value="6">Six</option>
-                                <option value="7">Seven</option>
-                                <option value="8">Eight</option>
-                                <option value="9">Nine</option>
-                                <option value="10">Ten</option>
-                            </select>
+                            <label for="valueForMoney">Value for Money</label>
+                            <springform:input type="number" cssClass="form-control" min="1" max="10" path="valueForMoney" required="true"/>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <label for="">Add comment</label>
-                        <textarea id="ownerNotes" name="ownerNotes" rows="5" cols="65"></textarea>
+                        <label>Care to put your opinion into words?</label>
+                        <springform:textarea path="comment" rows="5" cols="65"/>
                     </div>
                 </div>
-
-                <button class="btn btn-primary" type="submit" style="margin-top: 25px">Submit form</button>
-
-            </form>
+                <button class="btn btn-primary" type="submit" style="margin-top: 25px">Submit Review</button>
+            </springform:form>
 
         </div>
         <jsp:include page="footer.jsp"/>
@@ -190,5 +107,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+        <script src="/js/validations.js"></script>
+        <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
     </body>
 </html>
