@@ -41,7 +41,7 @@
         <jsp:include page="navbar.jsp"/>
 
         <div class="ratePageTitle">
-            <h1>Rate your Experience on </h1>
+            <h1>Rate your Experience</h1>
             <div class="star">
                 <span class="fa fa-star checkedStar"></span>
                 <span class="fa fa-star checkedStar"></span>
