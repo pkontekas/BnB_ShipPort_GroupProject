@@ -28,5 +28,5 @@ public interface BookRepo extends JpaRepository<Booking, Integer> {
     Integer getCountFromOverlappingBookingDatesNative(@Param("boatId") int boatId,
             @Param ("startDate") Date startDate,
             @Param ("endDate") Date endDate);
-
+   
 }
