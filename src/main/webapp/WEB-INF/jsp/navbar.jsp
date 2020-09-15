@@ -58,7 +58,7 @@
                         </li>
                     </security:authorize >
                     <li class="nav-item">
-                        <a class="nav-link" href="/showallboats/all">Boats</a>
+                        <a class="nav-link" href="/showallboats/any/all">Boats</a>
                     </li>
                     <security:authorize access="isAnonymous()">
                         <li class="nav-item">
@@ -78,7 +78,9 @@
                         <div class="dropdown-menu" style="background-color: #3282B8;  " aria-labelledby="navbarDropdownMenuLink">
                             <a id="drop" class="dropdown-item" href="/preupdateaccount">My Profile</a>
                             <a id="drop" class="dropdown-item" href="/myreservations">Reservations</a>
-                            <a id="drop" class="dropdown-item" href="/statistics">Statistics</a>
+                            <security:authorize access="hasAnyRole('ADMIN')">
+                                <a id="drop" class="dropdown-item" href="/statistics">Statistics</a>
+                            </security:authorize>
                             <security:authorize access="hasAnyRole('ADMIN','USER','OWNER')">
                                 <a id="drop" class="dropdown-item" href="<c:url value="/performlogout"/>">Logout</a>
                             </security:authorize>

@@ -120,11 +120,11 @@
 
         <div class="searchPosition container">
             <div class="search">
-                <form>
+                <form id="searchForm" onSubmit="searchFormSubmit()">
                     <div class="form-row">
-                          <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
                             <label for="destination">Destination</label>
-                            <select name="destination" id="" class="form-control" onchange="reloadBoats()">
+                            <select name="destination" id="destPort" class="form-control">
                                 <option value="any">Any</option>
                                 <option value="pireaus">Piraeus</option>
                                 <option value="mykonos">Mykonos</option>
@@ -133,9 +133,9 @@
                                 <option value="zakynthos">Zakynthos</option>
                             </select>
                         </div>
-                         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
                             <label for="typeBoat">Boat Type</label>
-                            <select name="typeBoat" id="desttypeBoat" class="form-control" onchange="reloadBoats()">
+                            <select name="typeBoat" id="desttypeBoat" class="form-control">
                                 <option value="all">All</option>
                                 <option value="yacht">Yacht</option>
                                 <option value="catamaran">Catamaran</option>
@@ -143,10 +143,10 @@
                                 <option value="rib">Rib Boat</option>
                             </select>
                         </div>
-                       
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2">
                             <label for="">&nbsp;</label>
-                            <button type="button" class="btn btn-primary form-control"><i class="fa fa-search"></i>&nbsp;
+                            <button type="submit" class="btn btn-primary form-control">
+                                <i class="fa fa-search"></i>&nbsp;
                                 Search</button>
                         </div>
                     </div>
@@ -160,25 +160,25 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/rib">
+                        <a href="${pageContext.request.contextPath}/showallboats/any/rib">
                             <h5 class="index4headerItems">Rib Boat</h5>
                             <img class="imgitems img-fluid" src="image/rib.jpg" alt="rib">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/catamaran">
+                        <a href="${pageContext.request.contextPath}/showallboats/any/catamaran">
                             <h5 class="index4headerItems">Catamaran</h5>
                             <img class="imgitems img-fluid" src="image/catamaran1920x1200.jpg" alt="catam">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/motorboat">
+                        <a href="${pageContext.request.contextPath}/showallboats/any/motorboat">
                             <h5 class="index4headerItems">Motorboat</h5>
                             <img class="imgitems img-fluid" src="image/motorboat.jpg" alt="motor">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/yacht">
+                        <a href="${pageContext.request.contextPath}/showallboats/any/yacht">
                             <h5 class="index4headerItems">Yacht</h5>
                             <img class="imgitems img-fluid" src="image/luxury-yacht1920x1200.jpg" alt="yacht">
                         </a>
@@ -192,25 +192,25 @@
             <div class="container-fluid">
                 <div class="port row d-flex justify-content-center">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/athens">
+                        <a href="${pageContext.request.contextPath}/showallboats/athens/all">
                             <h5 class="index4headerItems">Piraeus</h5>
                             <img class="imgitems img-fluid" src="image/piraeusPort.jpg" alt="peir">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/paros">
+                        <a href="${pageContext.request.contextPath}/showallboats/paros/all">
                             <h5 class="index4headerItems">Paros</h5>
                             <img class="imgitems img-fluid" src="image/parosPort.jpg" alt="par">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/mykonos">
+                        <a href="${pageContext.request.contextPath}/showallboats/mykonos/all">
                             <h5 class="index4headerItems">Mykonos</h5>
                             <img class="imgitems img-fluid" src="image/mykonosPort.jpg" alt="mik">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center">
-                        <a href="${pageContext.request.contextPath}/showallboats/heraklion">
+                        <a href="${pageContext.request.contextPath}/showallboats/heraklion/all">
                             <h5 class="index4headerItems">Heraklion</h5>
                             <img class="imgitems img-fluid" src="image/heraklion1024x683.jpg" alt="ira">
                         </a>
@@ -248,6 +248,7 @@
             </div>
         </div>
     </div>
+
     <jsp:include page="footer.jsp"/>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -259,5 +260,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
+    <script>
+                    function searchFormSubmit() {
+                        const sform = document.getElementById('searchForm');
+                        event.preventDefault();
+                        const portDestination = document.getElementById('destPort').value;
+                        const boatType = document.getElementById('desttypeBoat').value;
+                        const urlString = "/showallboats/" + portDestination + "/" + boatType;
+                        window.location.replace(urlString);
+                    }
+                    ;
+    </script>
 </body>
 </html>

@@ -114,16 +114,16 @@ public class RestController {
             // Average of stars calculation
             List<Booking> bookings = (List<Booking>) boat.getBookingCollection();
             double starsSum = 0;
-            int reviewsCounter = 0;
+            int revCount = 0;
             for (Booking booking : bookings) {
                 Review review = booking.getReviewsId();
                 if(review != null){
                     starsSum = starsSum + review.getStars();
-                    ++reviewsCounter;
+                    revCount = revCount + 1;
                 }
             }
-            if(reviewsCounter > 0){
-                boatDto.setStarsAvg(starsSum / reviewsCounter);
+            if(revCount > 0){
+                boatDto.setStarsAvg(starsSum / revCount);
             }
             //image encoding follows in base64
             imageBeforeEncoding = Base64.encodeBase64(

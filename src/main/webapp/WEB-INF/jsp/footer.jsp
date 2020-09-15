@@ -17,8 +17,6 @@
         <title>Footer</title>
 
         <style>
-       
-
             .foot {
                 left: 0;
                 bottom: 0;
@@ -62,7 +60,7 @@
                                 <div class="col-sm-4">
                                     <h4>Information</h4>
                                     <li><a class="footerinfo" href="/preregisterboat">Register Your Boat</a></li>
-                                    <li><a class="footerinfo" href="/showallboats/all">Boats</a></li>
+                                    <li><a class="footerinfo" href="/showallboats/any/all">Boats</a></li>
                                     <li><a class="footerinfo" href="/reviews">Reviews&nbsp; <span class="fa fa-star footerchecked"></span></a></li>
                                 </div>
                                 <div class="col-sm-4">

@@ -89,12 +89,15 @@ public class BoatController {
         return portService.getAllPorts();
     }
 
-    @GetMapping("/showallboats/{boatTypeOrPort}")
-    public String listAllBoats(ModelMap mm,
+    @GetMapping("/showallboats/{portFilter}/{boatFilter}")
+    public String listAllBoatsFilters(ModelMap mm,
             HttpSession session,
-            @PathVariable(value = "boatTypeOrPort") String bptype) {
+            @PathVariable(value = "portFilter") String pFilter,
+            @PathVariable(value = "boatFilter") String bFilter) {
 
-        session.setAttribute("filterselected", bptype);
+        session.setAttribute("portFilter", pFilter);
+        session.setAttribute("boatFilter", bFilter);
+
         return "json-all-boats";
     }
 
@@ -105,13 +108,13 @@ public class BoatController {
 
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
-        
+
         List<Review> reviews = new ArrayList<>();
         reviews = reviewService.getAllReviewsPerBoat(id);
         ReviewHandlerDao reviewDao = new ReviewHandlerDao();
-        reviewDao.getReviewAverages(mm, reviews); 
+        reviewDao.getReviewAverages(mm, reviews);
 
-        //using the port this boat is located to get the specific port photo
+        //using the port this boat is located to get the specific photos for next boat info page
         ImageHandlerDao imgDao = new ImageHandlerDao();
         byte[] imageBeforeEncoding = Base64.encodeBase64(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());
         mm = imgDao.encodeImageToBase64AndPutToMm(imageBeforeEncoding, mm, "portimage");
