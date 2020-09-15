@@ -18,11 +18,11 @@
             html, body {
                 height: 100%;
             }
-/*            .wrapper {
+            .wrapper {
                 min-height: 100%;
                 margin-bottom: -269px;
                 padding-bottom: 269px;
-            }*/
+            }
             #username-page{
                 padding-top: 60px;
             }
@@ -32,7 +32,7 @@
         </style>
     </head>
     <body>
-<!--        <div class="wrapper">-->
+        <div class="wrapper">
             <jsp:include page="navbar.jsp"/>
 
             <security:authorize access="isAuthenticated()">
@@ -76,7 +76,7 @@
                     </form>
                 </div>
             </div>
-<!--        </div>-->
+        </div>
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

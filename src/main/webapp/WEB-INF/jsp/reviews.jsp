@@ -47,7 +47,7 @@
                 Reviews wall
             </h1>
             <div class="row">
-                <div class="col-4">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="bookingMessage">
                         <h2 >Dionisis</h2>
                         <div class="reviewStar">
@@ -113,7 +113,7 @@
                             one of my favorite things .</p>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="bookingMessage">
                         <h2>Maria</h2>
                         <div class="reviewStar">
@@ -168,7 +168,7 @@
                     </div>
 
                 </div>
-                <div class="col-4">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="bookingMessage">
                         <h2>George</h2>
                         <div class="reviewStar">

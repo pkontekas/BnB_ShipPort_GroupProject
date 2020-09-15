@@ -26,19 +26,35 @@
                 padding-bottom: 269px;
             }
             .statisticsTitle{
+                 color: navy;
                 padding-top: 25px;
                 text-align: center;
+                 font-style: italic;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: 600;
             }
             #piechart{
                 display: flex;
                 justify-content: center;
             }
             .progressBars{
-                color: orangered;
+                color: navy;
                 margin-top: 23px;
             }
             .progbars{
                 padding-bottom: 80px;
+                
+            }
+            #portStatistics{
+                text-align: left;
+                padding-top: 50px;
+                color: navy;
+            }
+            #boatStatistics{
+                text-align: center;
+                padding-top: 50px;
+                padding-bottom: 50px;
+                color: navy;
             }
         </style>
     </head>
@@ -51,12 +67,13 @@
                 <h1 class="statisticsTitle">BoatBNB Site Statistics</h1>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                         <h4 id="portStatistics">Most popular port</h4>
                         <div id="piechart"></div>   
                     </div>
 
 
                     <div class="progbars col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-                        <h4 style="text-align: center; padding-top: 50px">Most Popular Boat Type</h4>
+                        <h4 id="boatStatistics">Most Popular Boat Type</h4>
 
 
                         <div class="progressBars">
@@ -118,7 +135,7 @@
                     ['Herakleion', ${portsBoatsMap[(4).intValue()]}],
                     ['Zakynthos', ${portsBoatsMap[(5).intValue()]}]
                 ]);
-                let options = {'title': 'Most Popular Port', 'width': 650, 'height': 500};
+                let options = {'title': '', 'width': 650, 'height': 500};
                 // Display the chart inside the <div> element with id="piechart"
                 let chart = new google.visualization.PieChart(document.getElementById('piechart'));
                 chart.draw(data, options);

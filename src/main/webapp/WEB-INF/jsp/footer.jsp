@@ -41,6 +41,7 @@
             .footerchecked {
                 color: gold;
             }
+        
         </style>
 
     </head>
@@ -73,7 +74,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div>
+                    <div id="social">
                         <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
                         <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
                         <i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i>
