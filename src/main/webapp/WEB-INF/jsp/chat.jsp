@@ -58,7 +58,7 @@
             <div id="chat-page" class="hidden">
                 <div class="chat-container">
                     <div style="background-color:lightblue" class="chat-header">
-                        <h2>Join the Current  Discussion in BoatBNB!</h2>
+                        <h2>Join the Current Discussion in BoatBNB!</h2>
 
                     </div>
                     <div class="connecting">

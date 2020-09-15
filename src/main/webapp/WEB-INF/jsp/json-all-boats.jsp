@@ -92,14 +92,6 @@
                 border-radius: 5px;
                 width:130px;
             }
-            /*            .borderFormOne{
-                            width: 300px;
-                            padding: 15px;
-                            background-color:#0a9ab5;
-                            color: white;
-                            font-size: 15px;
-                            border-radius: 5px;
-                        }*/
             .borderFormTwo{
                 width: 300px;
                 padding: 15px;
@@ -110,7 +102,6 @@
                 position: sticky;
                 top:0px;
                 bottom:auto;
-
             }
             .boat {
                 margin-left: 0;
@@ -139,8 +130,6 @@
                 border-radius: 5PX;
                 width: 100px;
             }
-
-
         </style>
     </head>
 
@@ -154,45 +143,6 @@
 
         <div class="searchForm row container-fluid">
             <div class="col-xs-2">
-                <!--                <div class="borderFormOne">
-                                    <h1>Search</h1>
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="destination">Where to Sail ?</label>
-                                            <input type="text" id="search-text" name="destination" class="form-control" placeholder="Port, City" required="true">
-                                            <div class="invalid-feedback">Choose Destination <br></div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="duration">Duration</label>
-                                            <select name="duration" id="destduration" required="true" class="form-control">
-                                                <option value="" selected disabled hidden>Any</option>
-                                                <option value="1day">1 day</option>
-                                                <option value="2days">2 days</option>
-                                                <option value="3days">3 days</option>
-                                                <option value="4days">4 days</option>
-                                                <option value="5days">5 days</option>
-                                                <option value="6days">6 days</option>
-                                                <option value="week">1 week</option>
-                                                <option value="8days">8 days</option>
-                                                <option value="9days">9 days</option>
-                                                <option value="10days">10 days</option>
-                                                <option value="11days">11 days</option>
-                                                <option value="12days">12 days</option>
-                                                <option value="13days">13 days</option>
-                                                <option value="2weeks">2 weeks</option>
-                                                <option value="over2weeks">Over 2 weeks</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="startDate">Start Date</label>
-                                            <input type="date" class="form-control" id="deststartDate" required>
-                                        </div>
-                
-                
-                                        <button type="Submit" class="searchBtn btn-primary" onclick="reloadBoats()"><i class="fa fa-search"></i>&nbsp;
-                                            Search &nbsp;</button>
-                                    </form>
-                                </div>-->
                 <div class="borderFormTwo">
                     <h3>Search Filters</h3>
                     <form>
@@ -285,16 +235,12 @@
         <script src="/js/allboats.js"></script>
         <script>
                                 function loadInitialFilter() {
-                                    let filterSelection = "";
-                                    filterSelection = '<%= session.getAttribute("filterselected")%>';
-                                    if (filterSelection === "catamaran" || filterSelection === "rib" ||
-                                            filterSelection === "yacht" || filterSelection === "motorboat")
-                                        $('#desttypeBoat').val(filterSelection);
-                                    if(filterSelection === "athens" || filterSelection === "paros" || filterSelection === "mykonos"
-                                            || filterSelection  === "heraklion")
-                                    {
-                                        $('#portselect').val(filterSelection);
-                                    }
+                                    let portFilterSelection = "";
+                                    let boatFilterSelection = "";
+                                    boatFilterSelection = '<%= session.getAttribute("boatFilter")%>';
+                                    $('#desttypeBoat').val(boatFilterSelection);
+                                    portFilterSelection = '<%= session.getAttribute("portFilter")%>';
+                                    $('#portselect').val(portFilterSelection);
                                 }
         </script>
     </body>

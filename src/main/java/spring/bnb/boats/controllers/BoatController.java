@@ -89,48 +89,32 @@ public class BoatController {
         return portService.getAllPorts();
     }
 
-    @GetMapping("/showallboats/{boatTypeOrPort}")
-    public String listAllBoats(ModelMap mm,
+    @GetMapping("/showallboats/{portFilter}/{boatFilter}")
+    public String listAllBoatsFilters(ModelMap mm,
             HttpSession session,
-            @PathVariable(value = "boatTypeOrPort") String bptype) {
+            @PathVariable(value = "portFilter") String pFilter,
+            @PathVariable(value = "boatFilter") String bFilter) {
 
-        session.setAttribute("filterselected", bptype);
+        session.setAttribute("portFilter", pFilter);
+        session.setAttribute("boatFilter", bFilter);
 
-        //create a map to store boat ids as keys and base64 encoded images
-        //from boats as values to later have them in our page
-//        Map<Integer, String> boatPhotosEncoded = new HashMap<>();
-//        byte[] imageBeforeEncoding;
-//        String base64EncodedImage;
-//        //looping through the boats
-//        for (int i = 0; i < boats.size(); i++) {
-//            imageBeforeEncoding = Base64.encodeBase64(bbService.findDefaultBoatphotoByBoatsIdNative(boats.get(i).getId()).getPhoto());
-//            try {
-//                base64EncodedImage = new String(imageBeforeEncoding, "UTF-8");
-//                boatPhotosEncoded.put(boats.get(i).getId(), base64EncodedImage);
-//            } catch (UnsupportedEncodingException ex) {
-//                //TO DO to fix this: If image does not exist we get an exception and we are thrown into error page
-//                ex.printStackTrace();
-//                mm.addAttribute("kindoferror", ex.getMessage());
-//            }
-//        }
-//        //puts whole image boatId-image map in a mm attribute to send it to all-boats in encoded form
-//        mm.addAttribute("boatImagesMap", boatPhotosEncoded);
         return "json-all-boats";
     }
 
     @GetMapping("/showboatinfo") // TODO make it POST instead of GET -> error 405 method not allowed
     public String showBoatInfo(ModelMap mm,
-            @RequestParam(name = "boatId") int id) {
+            @RequestParam(name = "boatId") int id,
+            @ModelAttribute("bookingissue") String bookMessage) {
 
         Boat boat = boatService.getBoatById(id);
         mm.addAttribute("boatdetails", boat);
-        
+
         List<Review> reviews = new ArrayList<>();
         reviews = reviewService.getAllReviewsPerBoat(id);
         ReviewHandlerDao reviewDao = new ReviewHandlerDao();
-        reviewDao.getReviewAverages(mm, reviews); 
+        reviewDao.getReviewAverages(mm, reviews);
 
-        //using the port this boat is located to get the specific port photo
+        //using the port this boat is located to get the specific photos for next boat info page
         ImageHandlerDao imgDao = new ImageHandlerDao();
         byte[] imageBeforeEncoding = Base64.encodeBase64(ppService.getPortphotoByPortsId(boat.getPortsId().getId()).getPhoto());
         mm = imgDao.encodeImageToBase64AndPutToMm(imageBeforeEncoding, mm, "portimage");
@@ -141,7 +125,7 @@ public class BoatController {
         imageBeforeEncoding = Base64.encodeBase64(accountService.getAccountByBoatIdNative(boat.getId()).getProfilePic());
         mm = imgDao.encodeImageToBase64AndPutToMm(imageBeforeEncoding, mm, "ownerimage");
 
+        mm.addAttribute("bookingissue", bookMessage);
         return "boat-info";
     }
-
 }

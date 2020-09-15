@@ -1,12 +1,14 @@
 package spring.bnb.boats.controllers;
 
 import java.security.Principal;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -43,14 +45,20 @@ public class BookingController {
         Booking book = new Booking();
 
         DateHandlerDao udao = new DateHandlerDao();
-        Date checkin = udao.stringToDate(checkinDate);
-        Date checkout = udao.stringToDate(checkoutDate);
-
+        Date checkin = new Date();
+        Date checkout = new Date();
+        try {
+            checkin = udao.stringToDate(checkinDate);
+            checkout = udao.stringToDate(checkoutDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            redirectAttributes.addAttribute("bookingissue", "Invalid Date Format!");
+            return "redirect:/showboatinfo";
+        }
         if (checkin.compareTo(checkout) >= 0) {
-            System.out.println("Checkin occurs at or after checkout");
-            redirectAttributes.addAttribute("bookingissue", "Checkout should always happen after Check in not before!");
-            
-            return "redirect:/myreservations";
+            redirectAttributes.addAttribute("bookingissue", "Checkout should always happen after Check in, not before!");
+            return "redirect:/showboatinfo";
         }
 
         book.setStartDate(checkin);
@@ -61,22 +69,22 @@ public class BookingController {
 
         double finalPrice = myprice * udao.getDifferenceBetweenTwoDates(checkin, checkout);
         book.setFinalPrice(finalPrice);
-
         book.setBoatsId(boatService.getBoatById(thisboatId));
-
         bookService.insertBooking(book);
         return "redirect:/myreservations";
     }
 
     @GetMapping("/myreservations")//TO DO must make it a POST Request somehow
     public String myReservations(ModelMap mm,
-            Principal principal) {
+            Principal principal,
+            @ModelAttribute("rateMessage") String rMessage) {
 
         Account renter = accountService.getAccountByEmail(principal.getName());
         List<Booking> books = bookService.findBookingsByAccountsId(renter.getId());
         mm.addAttribute("mybookings", books);
         mm.addAttribute("rentername", renter.getName());
         mm.addAttribute("rentersurname", renter.getSurname());
+        mm.addAttribute("rateMessage", rMessage);
         return "my-reservations";
     }
 

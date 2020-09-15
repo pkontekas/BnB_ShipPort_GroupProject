@@ -19,19 +19,6 @@ $(document).ready(function () {
                     priceList.push(boat.price);
                 });
 
-                // Create portAndCities name array to be used with auto completion
-//                boatsdto.map(boat =>
-//                {
-//                    if (!portAndCities.includes(boat.portName))
-//                    {
-//                        portAndCities.push(boat.portName);
-//                    }
-//                    if (!portAndCities.includes(boat.city))
-//                    {
-//                        portAndCities.push(boat.city);
-//                    }
-//                });
-
                 boatsdto.map(boat => {
                     portCityList.push(boat.city);
                 });
@@ -47,10 +34,6 @@ $(document).ready(function () {
                 console.error('Data file not accessible: ', error);
             });
 });
-
-//$("#search-text").autocomplete({
-//    source: portAndCities
-//});
 
 function boatCard(boat) {
     let txt = '';
@@ -71,7 +54,6 @@ function boatCard(boat) {
     for (let j = parseInt(boat.starsAvg); j < 5; j++) {
         txt += '<span class="fa fa-star star-gray" style="color: lightgrey"></span>';
     }
-
     txt += '<br><div class="toolTip" title="The owner offers free cancellation \n\
                         up to 15 days before check-in.">&nbsp; Flexible cancellation or change! &nbsp; </div>';
     txt += '</div>';

@@ -63,7 +63,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="boatType">Boat Type</label>
-                                <springform:input path="boatType" cssClass="form-control" id="boatType" required="true"/>
+                                <springform:select path="boatType" type="text" name="boatType" id="boatType" cssClass="form-control" required="true">
+                                    <springform:option value="Yacht">Yacht</springform:option>
+                                    <springform:option value="Catamaran">Catamaran</springform:option>
+                                    <springform:option value="Motorboat">Motorboat</springform:option>
+                                    <springform:option value="Rib">Rib Boat</springform:option>
+                                    <springform:option value="Convertible">Convertible</springform:option>
+                                    <springform:option value="Jet">Jet</springform:option>
+                                </springform:select>
+                                
                                 <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">

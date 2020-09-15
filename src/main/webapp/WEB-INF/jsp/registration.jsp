@@ -89,7 +89,7 @@
                         <div class="form-group">
                             <label for="nationality">Preferred Language</label>
                             <springform:select type="text" required="true" path="nationality" cssClass="form-control">
-                                <springform:option selected="true"  value="English">English</springform:option>
+                                <springform:option selected="true" value="English">English</springform:option>
                                 <springform:option value="Greek">Greek</springform:option>
                             </springform:select>
                         </div>

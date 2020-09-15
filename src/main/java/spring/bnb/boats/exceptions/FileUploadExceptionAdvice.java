@@ -12,7 +12,7 @@ import spring.bnb.boats.messages.ResponseMessage;
  */
 @ControllerAdvice
 public class FileUploadExceptionAdvice extends ResponseEntityExceptionHandler {
-    
+    //will be used in future refactoring
     @ExceptionHandler(MaxUploadSizeExceededException.class)
   public ResponseEntity<ResponseMessage> handleMaxSizeException(MaxUploadSizeExceededException exc) {
     return ResponseEntity

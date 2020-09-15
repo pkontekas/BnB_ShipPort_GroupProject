@@ -2,6 +2,7 @@ package spring.bnb.boats.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -27,13 +28,13 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()//had to add this to successfully log out probably because it needed a POST logout
                 .authorizeRequests()//Restrict access based on the HttpServletRequest
-                .antMatchers("/admin/**").hasRole("ADMIN")//added for admin access
+                .antMatchers("/admin/**", "/statistics").hasRole("ADMIN")//added for admin access
                 .antMatchers("/preregisteraccount").hasAnyRole("ADMIN", "ANONYMOUS")
                 //next line will be added to restrict access to boat registration to just logged in users and other pages accordingly
                 .antMatchers("/preregisterboat").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/preupdateaccount").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/chatpage").hasAnyRole("ADMIN", "USER", "OWNER")
-                .antMatchers("/myreservations").hasAnyRole("ADMIN", "USER", "OWNER")
+                .antMatchers("/myreservations/**").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/booking").hasAnyRole("ADMIN", "USER", "OWNER")
                 //.antMatchers("/").hasAnyRole("ADMIN", "USER", "OWNER")
                 .antMatchers("/").permitAll()//added permit all instead of above line

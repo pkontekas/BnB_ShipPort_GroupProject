@@ -37,4 +37,14 @@ public class BookingServiceImpl implements BookingService {
         return count;
     }
 
+    @Override
+    public Booking findBookingById(int id) {
+        return bookRepo.findMyBookingsByIdNative(id);
+    }
+
+    @Override
+    @Transactional
+    public Booking updateBooking(Booking booking) {
+        return bookRepo.save(booking);
+    }
 }
