@@ -13,7 +13,9 @@
         <style>
            html, body {
                 height: 100%;
+               
             }
+
             .wrapper {
                 min-height: 100%;
                 margin-bottom: -269px;
@@ -24,7 +26,16 @@
                 padding-top: 25px;
                 font-style: italic;
                 font-family: Georgia, 'Times New Roman', Times, serif;
-                font-weight: 400;
+                font-weight: 600;
+                font-size: 20px;
+                color:navy;
+            }
+            .aboutTitle{
+                text-align: center;
+                 font-style: italic;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: 600;
+                color: navy;
             }
         </style>
     </head>
@@ -35,7 +46,7 @@
         <div class="container-fluid">
             <div class="row d-flex justify-content-center">
                 <div class="col-2-offset col-8 col-2-offset">
-                    <h1 class="fontClass text-center"><br>About Boat BNB</h1>
+                    <h1 class="aboutTitle text-center"><br>About Boat BNB</h1>
 
                     <p class="fontClass text-center"><br><br>Boat BNB is a new company located in Athens, Greece.<br><br>
                         The goal of this company is to bring all Boat Owners together through our wonderful online platform!<br><br>
