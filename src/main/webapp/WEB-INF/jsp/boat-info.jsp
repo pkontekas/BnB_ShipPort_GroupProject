@@ -111,9 +111,7 @@
                 outline: none;
                 font-size: 15px;
                 border-radius: 5px;
-
             }
-
             .actives, .collapsible:hover {
                 background-color: #a2d5f2;
             }
@@ -177,10 +175,10 @@
                     <img alt="boatimage" class="card-img"  style="height: 480px" src="data:image/jpeg;base64,${boatimage}"/>
 
                     <div class="iconBoat">
-                        <small class="text-muted"><i class="fa fa-users fa-3x"><br><p style="font-size:small">${boatdetails.passengerCapacity}<br>Persons </p> </i>  </small> &nbsp;
-                        &nbsp;  <small class="text-muted"><i class="fa fa-bed fa-3x"><br><p style="font-size:small">${boatdetails.beds}<br>Beds </p> </i>  </small> &nbsp; 
-                        &nbsp;  <small class="text-muted"><i class="fa fa-tachometer fa-3x"><br><p style="font-size:small">${boatdetails.cruiseSpeed}<br>Knots</p> </i></small> &nbsp;
-                        &nbsp;  <small class="text-muted"><i class="fa fa-fire fa-3x"><br><p style="font-size:small">${boatdetails.fuel}<br>Fuel</p> </i></small>
+                        <small class="text-muted"><i class="fa fa-users fa-3x"><br><p style="font-size:small"><br>${boatdetails.passengerCapacity}<br>Persons </p> </i>  </small> &nbsp;
+                        &nbsp;  <small class="text-muted"><i class="fa fa-bed fa-3x"><p style="font-size:small">${boatdetails.beds}<br>Beds </p> </i>  </small> &nbsp; 
+                        &nbsp;  <small class="text-muted"><i class="fa fa-tachometer fa-3x"><p style="font-size:small">${boatdetails.cruiseSpeed}<br>Knots</p> </i></small> &nbsp;
+                        &nbsp;  <small class="text-muted"><i class="fa fa-fire fa-3x"><br><p style="font-size:small"><br>${boatdetails.fuel}<br>Fuel</p> </i></small>
                     </div>
 
                     <div class="textInfoBoat">
@@ -203,7 +201,7 @@
 
 
                     <div class="bookingMessage">
-                        <h1>Secure booking</h1>
+                        <h1>Secure Booking</h1>
                         <p><i class="fa fa-check"></i> Best Price Guaranteed!</p>
 
                         <p><i class="fa fa-check"></i> The Best Offer on the <br> Internet</p>
@@ -212,11 +210,20 @@
                     <div class="request">
                         <div class="text-center">
                             <p>${boatdetails.currentPrice} &euro; per Day <br>${boatdetails.currentPrice*7} &euro; per Week</p>
-                            <a href="" data-toggle="modal" data-target="#requestOffer">
-                                <button type="submit" class="requestbtn" style="width: 100%;"><i
-                                        class="fa fa-search"></i>&nbsp;
-                                    Request an Offer &nbsp;</button>
-                            </a>
+                                <security:authorize access="hasAnyRole('ADMIN','USER','OWNER')">
+                                <a href="" data-toggle="modal" data-target="#requestOffer">
+                                    <button type="submit" class="requestbtn" style="width: 100%;"><i
+                                            class="fa fa-search"></i>&nbsp;
+                                        Request an Offer &nbsp;</button>
+                                </a>
+                            </security:authorize>
+                            <security:authorize access="isAnonymous()">
+                                <a data-toggle="modal" data-target="#loginmodal" href="">
+                                    <button class="requestbtn p-3" style="width: 100%;">
+                                        <i class="fa fa-lg fa-sign-in" aria-hidden="true"></i>&nbsp;
+                                        Login to book a voyage! &nbsp;</button>
+                                </a>
+                            </security:authorize>
                         </div>
                     </div>
                 </div>
@@ -246,26 +253,21 @@
                                     <li>The Mooring at the base port is included</li>
                                     <li>The boat must return to the home port every night</li>
                                     <li>There is no overnight stay on board the boat</li><br>
-
                                 </div>
                                 <div style="padding-left:35px;">
-                                All prices include tax. 
+                                    All prices include tax. 
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div> 
-
         <div class="container">
             <div class="row" style="">
                 <div class="specifics col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     <h3 style="text-align:center;" >Specifications</h3>
                     <div class="boatInfo row">
-
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6">
                             <li>Manufacturer: ${boatdetails.manufacturer}</li>
                             <li>Model: ${boatdetails.model}</li>
@@ -285,17 +287,26 @@
                             <li>Port: ${boatdetails.portsId.portName}</li>
                         </div>
                     </div>
-
                     <div class="request">
                         <div class="text-center">
                             <p>${boatdetails.currentPrice} &euro; per Day <br>${boatdetails.currentPrice*7} &euro; Per week</p>
-                            <a href="" data-toggle="modal" data-target="#requestOffer">
-                                <button type="submit" class="requestbtn" style="width: 100%;"><i
-                                        class="fa fa-search"></i>&nbsp;
-                                    Request an Offer &nbsp;</button>
-                            </a>
+                                <security:authorize access="hasAnyRole('ADMIN','USER','OWNER')">
+                                <a href="" data-toggle="modal" data-target="#requestOffer">
+                                    <button type="submit" class="requestbtn" style="width: 100%;"><i
+                                            class="fa fa-search"></i>&nbsp;
+                                        Request an Offer &nbsp;</button>
+                                </a>
+                            </security:authorize>
+                            <security:authorize access="isAnonymous()">
+                                <a data-toggle="modal" data-target="#loginmodal" href="">
+                                    <button class="requestbtn p-3" style="width: 100%;">
+                                        <i class="fa fa-lg fa-sign-in" aria-hidden="true"></i>&nbsp;
+                                        Login to book a voyage! &nbsp;</button>
+                                </a>
+                            </security:authorize>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
@@ -315,7 +326,6 @@
             <div class="ratingBar">
                 <span class="heading">User Rating</span>
                 <span id="starsavg">${reviewAvg[0]}</span>
-
                 <p>${reviewAvg[0]} average based on ${reviewsLength} reviews.</p>
             </div>
             <div class="row">
@@ -325,7 +335,6 @@
                         <div class="progress">
                             <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${reviewAvg[1]}%"></div>
                         </div>
-
                     </div>
                     <div class="progressBar">
                         <h5>Cleanliness</h5>
@@ -340,7 +349,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="progressBar">
                         <h5>Harbour</h5>
@@ -400,22 +408,22 @@
                                     <div class="invalid-feedback">Enter a valid Date.</div>
                                 </div>
                             </div>
-                            <div id="bookingErrorMessage" style="color:red" class="text-center">
-                            </div>      
+                            <div id="bookingErrorFeedback" style="color:lightslategrey" class="text-center">
+                            </div>
                             <input hidden id="thisBoat" name="thisBoat" type="number" value="${boatdetails.id}" class="form-control" required>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="numPassenger">Passengers</label>
-                                    <input type="number" name="passengers" min="1" max="30" class="form-control" required>
+                                    <label for="numPassenger">Passengers<small> (required)</small></label>
+                                    <input type="number" name="passengers" min="1" max="${boatdetails.passengerCapacity}" class="form-control" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="myprice">Total Cost (Euros)</label>
-                                    <input readonly id="totalCost" name="myprice" type="number" value="5" class="form-control" required>
+                                    <input readonly id="totalCost" name="myprice" type="number" value="${boatdetails.currentPrice}" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="">Anything else you would like to tell the Owner?</label>
+                                    <label for="">Any question for the Owner?<small> (optional)</small></label>
                                     <textarea id="ownerNotes" name="ownerNotes" rows="4" cols="55"></textarea>
                                 </div>
                             </div>

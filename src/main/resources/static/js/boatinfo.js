@@ -56,12 +56,12 @@ document.getElementById('bookButton').addEventListener('click', function (event)
                 console.log(data);
                 console.log(typeof data);
                 if (data) {
-                    document.getElementById('bookingErrorMessage').innerHTML = "";
+                    document.getElementById('bookingErrorFeedback').innerHTML = "Ship is available!";
                     // do booking
                     //document.getElementById('bookForm').submit();
                 } else {
                     event.preventDefault();
-                    document.getElementById('bookingErrorMessage').innerHTML = "Sorry but this ship is unavailable on those Dates.<br>Please try again.";
+                    document.getElementById('bookingErrorFeedback').innerHTML = "Sorry, this ship is unavailable on those Dates.<br>Please try again.";
                 }
             });
 });

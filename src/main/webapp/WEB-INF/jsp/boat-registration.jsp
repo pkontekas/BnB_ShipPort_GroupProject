@@ -71,7 +71,6 @@
                                     <springform:option value="Convertible">Convertible</springform:option>
                                     <springform:option value="Jet">Jet</springform:option>
                                 </springform:select>
-                                
                                 <div class="invalid-feedback"><medium class="text-muted"> Required field</medium></div>
                             </div>
                             <div class="form-group">

@@ -63,42 +63,32 @@
             <jsp:include page="navbar.jsp"/>
 
             <div class="statisticsPage container">
-
                 <h1 class="statisticsTitle">BoatBNB Site Statistics</h1>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                         <h4 id="portStatistics">Most popular port</h4>
+                         <h4 id="portStatistics">Most Popular Port</h4>
                         <div id="piechart"></div>   
                     </div>
-
-
                     <div class="progbars col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
                         <h4 id="boatStatistics">Most Popular Boat Type</h4>
-
-
                         <div class="progressBars">
                             <h5>Yacht</h5>
                             <div class="progress">
                                 <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${typesBoatsMap["Yacht"] * 100}%"></div>
                             </div>
-
                         </div>
-
                         <div class="progressBars">
                             <h5>Motorboat</h5>
                             <div class="progress">
                                 <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${typesBoatsMap["Motorboat"] * 100}%"></div>
                             </div>
-
                         </div>
                         <div class="progressBars">
                             <h5>Rib boat</h5>
                             <div class="progress">
                                 <div class="progress-bar progress-bar-success progress-bar-striped" style="width:${typesBoatsMap["Rib"] * 100}%"></div>
                             </div>
-
                         </div>
-
                         <div class="progressBars">
                             <h5>Catamaran</h5>
                             <div class="progress">
@@ -109,7 +99,9 @@
                 </div>
             </div>
         </div>
+                            
         <jsp:include page="footer.jsp"/>
+        
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
