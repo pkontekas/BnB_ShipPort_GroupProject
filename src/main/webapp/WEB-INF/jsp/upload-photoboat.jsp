@@ -39,7 +39,7 @@
     </head>
     <body>
         <div class="wrapper">
-            
+
             <jsp:include page="navbar.jsp"/>
 
             <div class="fontClass text-center justify-content-center">
@@ -75,5 +75,5 @@
                                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
                         crossorigin="anonymous"></script>
                         <script src="/js/validations.js"></script>
-                        </body>
-                        </html>
+    </body>
+</html>
