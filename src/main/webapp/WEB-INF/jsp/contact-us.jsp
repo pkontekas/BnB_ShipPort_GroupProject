@@ -65,10 +65,25 @@
         </div>
         <div class="profileCards container-fluid">
             <div class="row">
-                
                 <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="cardText">
-                        <img src="image/dionisis.jpg" alt="Philip" style="width:100%">
+                        <img src="image/dionisis.jpg" alt="Dionisis" style="width:100%">
+                        <h1>Dionisis Tsilioris</h1>
+                        <p class="title">Junior Full Stack Developer </p>
+                        <p>email address:<br> diontsilioris@gmail.com</p>
+                        <div>
+                            <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
+                            <a class="anchors" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="anchors" href="https://github.com/dionisistsilioris">
+                                <i class="fa fa-github"></i></a>
+                        </div>
+                        <p><button class="btncontact">Contact</button></p>
+                    </div>
+                </div>
+                <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="cardText">
+                        <img src="image/pkontpic.jpg" alt="Philip" style="width:100%">
                         <h1>Philip Kontekas</h1>
                         <p class="title">Junior Full Stack Developer </p>
                         <p>email address:<br> phkontekas@gmail.com</p>
@@ -81,23 +96,7 @@
                         <p><button class="btncontact">Contact</button></p>
                     </div>
                 </div>
-                
-                   <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                    <div class="cardText">
-                        <img src="image/dionisis.jpg" alt="Dionisis" style="width:100%">
-                        <h1>Dionisis Tsilioris</h1>
-                        <p class="title">Junior Full Stack Developer </p>
-                        <p>email address:<br> diontsilioris@gmail.com</p>
-                        <div>
-                            <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
-                            <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
-                            <a class="anchors" href="#"><i class="fa fa-facebook"></i></a>
-                            <a class="anchors" href="https://github.com/dionisistsilioris"> <i class="fa fa-github"></i></a>
-                        </div>
-                        <p><button class="btncontact">Contact</button></p>
-                    </div>
-                </div>
-                   <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="profile col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="cardText">
                         <img src="image/Pantazis.jpg" alt="Markos" style="width:100%;">
                         <h1>Markos Pantazis</h1>

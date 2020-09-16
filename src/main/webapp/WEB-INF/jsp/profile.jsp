@@ -16,6 +16,14 @@
         <title>Update My Profile</title>
 
         <style>
+            html, body {
+                height: 93%;
+            }
+            .wrapper {
+                min-height: 100%;
+                margin-bottom: -269px;
+                padding-bottom: 269px;
+            }
             .profileform {
                 display: flex;
                 justify-content: center;
@@ -50,7 +58,7 @@
             ${upresult}
         </div>
         <h1 class="updateRegistration">Update My Profile</h1>
-        <div class="profileform container"> 
+        <div class="wrapper profileform container"> 
             <springform:form cssClass="main-form needs-validation" novalidate="true" action="doupdateaccount" modelAttribute="oldaccount" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm">
