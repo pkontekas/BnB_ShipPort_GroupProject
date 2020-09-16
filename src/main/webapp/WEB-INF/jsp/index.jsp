@@ -126,7 +126,7 @@
                             <label for="destination">Destination</label>
                             <select name="destination" id="destPort" class="form-control">
                                 <option value="any">Any</option>
-                                <option value="pireaus">Piraeus</option>
+                                <option value="athens">Piraeus</option>
                                 <option value="mykonos">Mykonos</option>
                                 <option value="paros">Paros</option>
                                 <option value="heraklion">Heraklion</option>
