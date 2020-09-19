@@ -17,12 +17,12 @@
 
         <style>
             html, body {
-                height: 93%;
+                height: 100%;
             }
             .wrapper {
                 min-height: 100%;
-                margin-bottom: -269px;
-                padding-bottom: 269px;
+                margin-bottom: -250px;
+                padding-bottom: 250px;
             }
             .profileform {
                 display: flex;
@@ -58,7 +58,7 @@
             ${upresult}
         </div>
         <h1 class="updateRegistration">Update My Profile</h1>
-        <div class="wrapper profileform container"> 
+        <div class="wrapper profileform container pb-2 mb-2"> 
             <springform:form cssClass="main-form needs-validation" novalidate="true" action="doupdateaccount" modelAttribute="oldaccount" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm">
@@ -106,7 +106,7 @@
                         </div>
                         <div class="text-center form-group">
                             <label for="oldprofilepic">Current Photo</label>
-                            <img class="img-fluid rounded-circle mx-auto d-block" alt="noUserProfilePic" src="data:image/jpeg;base64,${oldprofilepic}"/>
+                            <img class="img-fluid rounded-circle mx-auto d-block" style="max-height:200px;" alt="noUserProfilePic" src="data:image/jpeg;base64,${oldprofilepic}"/>
                             <div class="errorMsg font-italic text-center">
                                 ${profpicmissing}
                             </div>
