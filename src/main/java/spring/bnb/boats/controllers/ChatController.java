@@ -38,7 +38,8 @@ public class ChatController {
     public String showChat(ModelMap mm, Principal principal) {
         String accountEmail = principal.getName();
         Account account = accountService.getAccountByEmail(accountEmail);
-        mm.addAttribute("username", account.getSurname());
+        String username = account.getName() + "_" + account.getSurname();
+        mm.addAttribute("username", username);
         return "chat";
     }
     
