@@ -14,7 +14,7 @@ public interface BookRepo extends JpaRepository<Booking, Integer> {
 
     @Query(
             value = "SELECT * FROM bookings\n"
-            + "WHERE accounts_id = ?1",
+            + "WHERE accounts_id = ?1 ORDER BY bookings.start_date",
             nativeQuery = true)
     List<Booking> findMyBookingsByAccountsIdNative(int id);
 

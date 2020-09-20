@@ -130,7 +130,7 @@
                                     <th>Check In</th>
                                     <th>Check Out</th>
                                     <th>Final Price</th>
-                                    <th class="toolTip" title="The owner offers either Payment through Paypal or Cash up to 5 days before check-in.">Optional Payment*</th>
+                                    <th data-toggle="tooltip" title="The owner offers either Payment through Paypal or Cash up to 5 days before check-in.">Optional Payment*</th>
                                     <th>Add Review</th>
                                 </tr>
                             </thead>
@@ -156,7 +156,7 @@
                 </div>
             </div>
         </div>
-                
+
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -171,5 +171,9 @@
         <script src="https://www.paypal.com/sdk/js?client-id=AclT2R2sijDUVaf_NADn4bs6gxmUT186bz3fophkxQLEEhg60z6pioqE0Q8KPoW4in4hqZgKcyiBRWih&currency=EUR">
             // Required. Replace SB_CLIENT_ID with your sandbox client ID. </script>
         <script src="/js/paypal.js"></script>
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });</script>
     </body>
 </html>

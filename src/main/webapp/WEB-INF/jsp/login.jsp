@@ -24,12 +24,11 @@
 
     <style>
         html, body {
-            height: 71.85%;
+            height: 73%;
         }
         .wrapper {
-            min-height: 0%;
-            margin-bottom: -0px;
-            padding-bottom: 0px;
+            min-height: 100%;
+            max-height: 100%;
         }
         .loginForm {
             display: flex;
@@ -58,7 +57,7 @@
     <body>
         <div class="loginBodyPage">
             <div class="wrapper">
-                
+
                 <jsp:include page="navbar.jsp"/>
 
                 <div class="text-center" style="color: green">
@@ -91,7 +90,7 @@
                 </div>
             </div>
         </div>
-                
+
         <jsp:include page="footer.jsp"/>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
