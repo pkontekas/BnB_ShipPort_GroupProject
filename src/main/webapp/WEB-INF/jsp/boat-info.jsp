@@ -184,7 +184,7 @@
                     <div class="textInfoBoat">
                         <h4>Boat information</h4>
                         <h5>Rent this incredible ${boatdetails.boatType} and enjoy the beaches around ${boatdetails.portsId.city}</h5>
-                        <p> <b>Safe & Clean.</b> The owner of this boat has promised to comply with the safety and hygiene measures ordered by the local authorities, and to follow PortBNB's recommendations for the prevention of the coronavirus. <br>
+                        <p> <b>Safe & Clean.</b> The owner of this boat has promised to comply with the safety and hygiene measures ordered by the local authorities, and to follow BoatBNB's recommendations for the prevention of the coronavirus. <br>
                         </p>
                         <p> Sail with your family in the comfort of this great ${boatdetails.boatType} and enjoy a day full of relaxation and fun in one of the best natural scenery in the world.<br><br>
 
