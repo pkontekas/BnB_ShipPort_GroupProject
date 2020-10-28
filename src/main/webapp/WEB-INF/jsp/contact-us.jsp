@@ -85,11 +85,11 @@
                     <div class="cardText">
                         <img src="image/pkontpic.jpg" alt="Philip" style="width:100%">
                         <h1>Philip Kontekas</h1>
-                        <p class="title">Junior Full Stack Developer </p>
+                        <p class="title">Junior Full Stack Developer</p>
                         <p>email address:<br> phkontekas@gmail.com</p>
                         <div>
                             <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
-                            <a class="anchors" href="#"><i class="fa fa-linkedin"></i></a>
+                            <a class="anchors" href="https://www.linkedin.com/in/philip-kontekas-about/"><i class="fa fa-linkedin"></i></a>
                             <a class="anchors" href="#"><i class="fa fa-facebook"></i></a>
                             <a class="anchors" href="https://github.com/pkontekas" target="_blank"> <i class="fa fa-github"></i></a>
                         </div>
@@ -100,7 +100,7 @@
                     <div class="cardText">
                         <img src="image/Pantazis.jpg" alt="Markos" style="width:100%;">
                         <h1>Markos Pantazis</h1>
-                        <p class="title">Junior Full Stack Developer </p>
+                        <p class="title">Junior Full Stack Developer</p>
                         <p>email address:<br> markpantazis@gmail.com</p>
                         <div>
                             <a class="anchors" href="#"><i class="fa fa-twitter"></i></a>
